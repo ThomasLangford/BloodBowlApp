@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlAPI", "BloodBowlAPI.csproj", "{832B2485-EC42-424A-8AD1-8D37FD85E312}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlAPITest", "..\BloodbowlAPITest\BloodBowlAPITest.csproj", "{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{832B2485-EC42-424A-8AD1-8D37FD85E312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832B2485-EC42-424A-8AD1-8D37FD85E312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832B2485-EC42-424A-8AD1-8D37FD85E312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832B2485-EC42-424A-8AD1-8D37FD85E312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84D4E650-9E33-43C8-99A1-648E6614416B}
+	EndGlobalSection
+EndGlobal
