@@ -14,9 +14,9 @@ namespace BloodbowlAPI.Controllers
     [ApiController]
     public class TeamTypesController : ControllerBase
     {
-        private readonly BloodbowlAPIContext _context;
+        private readonly BloodBowlAPIContext _context;
 
-        public TeamTypesController(BloodbowlAPIContext context)
+        public TeamTypesController(BloodBowlAPIContext context)
         {
             _context = context;
         }

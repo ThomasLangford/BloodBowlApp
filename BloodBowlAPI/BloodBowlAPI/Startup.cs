@@ -31,7 +31,7 @@ namespace BloodbowlAPI
         {
             services.AddControllers();
 
-            services.AddDbContext<BloodbowlAPIContext>(
+            services.AddDbContext<BloodBowlAPIContext>(
                 dbContextOptions => dbContextOptions.UseMySql(
                     //"server=localhost;database=bloodbowl;user=APICRUD;password=APICRUD",
                     "server=localhost;database=bloodbowl;user=Super;password=Super",

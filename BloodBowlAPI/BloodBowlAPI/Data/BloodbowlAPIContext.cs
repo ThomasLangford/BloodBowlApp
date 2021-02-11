@@ -7,9 +7,9 @@ using BloodbowlAPI.Models;
 
 namespace BloodbowlAPI.Data
 {
-    public class BloodbowlAPIContext : DbContext
+    public class BloodBowlAPIContext : DbContext
     {
-        public BloodbowlAPIContext (DbContextOptions<BloodbowlAPIContext> options)
+        public BloodBowlAPIContext (DbContextOptions<BloodBowlAPIContext> options)
             : base(options)
         {
         }
