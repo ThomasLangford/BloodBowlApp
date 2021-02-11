@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BloodbowlAPI.Data;
-using BloodbowlAPI.Models;
+using BloodbowlData.Contexts;
+using BloodbowlData.Models;
 
 namespace BloodbowlAPI.Controllers
 {
