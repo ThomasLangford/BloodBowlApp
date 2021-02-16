@@ -12,7 +12,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using BloodbowlData.Contexts;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.OpenApi.Models;
 
 namespace BloodbowlAPI
@@ -32,18 +31,8 @@ namespace BloodbowlAPI
             services.AddControllers();
 
             services.AddDbContext<BloodBowlAPIContext>(
-                dbContextOptions => dbContextOptions.UseMySql(
-                    //"server=localhost;database=bloodbowl;user=APICRUD;password=APICRUD",
-                    "server=localhost;database=bloodbowl;user=Super;password=Super",
-                    new MySqlServerVersion(new Version(8, 0, 21)),
-                    mySqlOptions => mySqlOptions
-                    .CharSetBehavior(CharSetBehavior.NeverAppend)
-                )
-
-                    // Everything from this point on is optional but helps with debugging.
-                .EnableSensitiveDataLogging()
-                .EnableDetailedErrors()
-            );
+                dbContextOptions => dbContextOptions.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;")
+            ); ;
 
             services.AddSwaggerGen(c =>
             {

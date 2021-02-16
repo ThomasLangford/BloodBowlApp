@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +15,8 @@ namespace BloodbowlData.Contexts
         {
             var optionsBuilder = new DbContextOptionsBuilder<BloodBowlAPIContext>();
 
-            optionsBuilder.UseMySql(
-                    "server=localhost;database=bloodbowl;user=Super;password=Super",
-                    new MySqlServerVersion(new Version(8, 0, 21)),
-                    mySqlOptions => mySqlOptions
-                    .CharSetBehavior(CharSetBehavior.NeverAppend)
-                    .MigrationsAssembly("BloodBowlMigrations")
-                );
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;", b => b.MigrationsAssembly("BloodBowlMigrations"));
+            optionsBuilder.EnableDetailedErrors();
 
             return new BloodBowlAPIContext(optionsBuilder.Options);
         }

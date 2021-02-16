@@ -18,6 +18,5 @@ namespace BloodBowlAPI.DTOs
         public int ArmourValue { get; set; }
         
         public List<SkillDTO> StartingSkills { get; set; }
-        public List<>
     }
 }
