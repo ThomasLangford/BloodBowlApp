@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BloodbowlData.Contexts;
 using BloodbowlData.Models;
+using BloodBowlAPI.DTOs;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace BloodbowlAPI.Controllers
 {
@@ -15,24 +18,29 @@ namespace BloodbowlAPI.Controllers
     public class TeamTypesController : ControllerBase
     {
         private readonly BloodBowlAPIContext _context;
+        private readonly IMapper _mapper;
 
-        public TeamTypesController(BloodBowlAPIContext context)
+        public TeamTypesController(BloodBowlAPIContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/TeamTypes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TeamType>>> GetTeamType()
+        public async Task<ActionResult<IEnumerable<TeamTypeDTO>>> GetTeamType()
         {
-            return await _context.TeamType.ToListAsync();
+            return await _context.TeamType.ProjectTo<TeamTypeDTO>(_mapper.ConfigurationProvider)
+                                          .ToListAsync();
         }
 
         // GET: api/TeamTypes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TeamType>> GetTeamType(int id)
+        public async Task<ActionResult<TeamTypeDTO>> GetTeamType(int id)
         {
-            var teamType = await _context.TeamType.FindAsync(id);
+            var teamType = await _context.TeamType.Where(teamType => teamType.Id == id)
+                                                  .ProjectTo<TeamTypeDTO>(_mapper.ConfigurationProvider)
+                                                  .FirstOrDefaultAsync();
 
             if (teamType == null)
             {
@@ -46,7 +54,7 @@ namespace BloodbowlAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTeamType(int id, TeamType teamType)
+        public async Task<IActionResult> PutTeamType(int id, TeamTypeDTO teamType)
         {
             if (id != teamType.Id)
             {
@@ -61,7 +69,8 @@ namespace BloodbowlAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TeamTypeExists(id))
+
+                if (!await TeamTypeExists(id))
                 {
                     return NotFound();
                 }
@@ -78,9 +87,9 @@ namespace BloodbowlAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<TeamType>> PostTeamType(TeamType teamType)
+        public async Task<ActionResult<TeamTypeDTO>> PostTeamType(TeamTypeDTO teamType)
         {
-            _context.TeamType.Add(teamType);
+            _context.TeamType.Add(_mapper.Map<TeamType>(teamType));
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTeamType", new { id = teamType.Id }, teamType);
@@ -88,7 +97,7 @@ namespace BloodbowlAPI.Controllers
 
         // DELETE: api/TeamTypes/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TeamType>> DeleteTeamType(int id)
+        public async Task<ActionResult<TeamTypeDTO>> DeleteTeamType(int id)
         {
             var teamType = await _context.TeamType.FindAsync(id);
             if (teamType == null)
@@ -99,12 +108,12 @@ namespace BloodbowlAPI.Controllers
             _context.TeamType.Remove(teamType);
             await _context.SaveChangesAsync();
 
-            return teamType;
+            return Ok(_mapper.Map<TeamTypeDTO>(teamType));
         }
 
-        private bool TeamTypeExists(int id)
+        private Task<bool> TeamTypeExists(int id)
         {
-            return _context.TeamType.Any(e => e.Id == id);
+            return _context.TeamType.AnyAsync(e => e.Id == id);
         }
     }
 }

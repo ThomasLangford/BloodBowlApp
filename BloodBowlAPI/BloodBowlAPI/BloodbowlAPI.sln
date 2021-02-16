@@ -8,11 +8,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlAPI", "BloodBowlAP
 		{64FCCEDE-1369-40E6-8772-5BFE5FE8ACCC} = {64FCCEDE-1369-40E6-8772-5BFE5FE8ACCC}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlAPITest", "..\BloodbowlAPITest\BloodBowlAPITest.csproj", "{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlData", "..\BloodBowlData\BloodBowlData.csproj", "{64FCCEDE-1369-40E6-8772-5BFE5FE8ACCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBowlData", "..\BloodBowlData\BloodBowlData.csproj", "{64FCCEDE-1369-40E6-8772-5BFE5FE8ACCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlMigrations", "..\BloodBowlMigrations\BloodBowlMigrations.csproj", "{9C891519-10EE-4E15-B295-0F02C1A80FBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBowlMigrations", "..\BloodBowlMigrations\BloodBowlMigrations.csproj", "{9C891519-10EE-4E15-B295-0F02C1A80FBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBowlAPITests", "..\BloodBowlAPITests\BloodBowlAPITests.csproj", "{F9AB332D-376D-44DB-A9AE-09DFC8F18292}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +24,6 @@ Global
 		{832B2485-EC42-424A-8AD1-8D37FD85E312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{832B2485-EC42-424A-8AD1-8D37FD85E312}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{832B2485-EC42-424A-8AD1-8D37FD85E312}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F62BF559-CD37-45C9-ACE1-3B6DCF6037B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64FCCEDE-1369-40E6-8772-5BFE5FE8ACCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64FCCEDE-1369-40E6-8772-5BFE5FE8ACCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64FCCEDE-1369-40E6-8772-5BFE5FE8ACCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,6 +32,10 @@ Global
 		{9C891519-10EE-4E15-B295-0F02C1A80FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C891519-10EE-4E15-B295-0F02C1A80FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C891519-10EE-4E15-B295-0F02C1A80FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AB332D-376D-44DB-A9AE-09DFC8F18292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AB332D-376D-44DB-A9AE-09DFC8F18292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AB332D-376D-44DB-A9AE-09DFC8F18292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AB332D-376D-44DB-A9AE-09DFC8F18292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

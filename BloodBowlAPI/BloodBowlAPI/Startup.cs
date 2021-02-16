@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using BloodbowlData.Contexts;
 using Microsoft.OpenApi.Models;
+using BloodBowlAPI.DTOs;
+using AutoMapper;
 
 namespace BloodbowlAPI
 {
@@ -38,6 +40,15 @@ namespace BloodbowlAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" });
             });
+           
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new DTOProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
