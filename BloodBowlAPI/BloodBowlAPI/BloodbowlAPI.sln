@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlData", "..\BloodBo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlMigrations", "..\BloodBowlMigrations\BloodBowlMigrations.csproj", "{9C891519-10EE-4E15-B295-0F02C1A80FBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBowlAPITests", "..\BloodBowlAPITests\BloodBowlAPITests.csproj", "{6C699D01-1AD2-4BF2-B30E-D5F13228C855}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{9C891519-10EE-4E15-B295-0F02C1A80FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C891519-10EE-4E15-B295-0F02C1A80FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C891519-10EE-4E15-B295-0F02C1A80FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C699D01-1AD2-4BF2-B30E-D5F13228C855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C699D01-1AD2-4BF2-B30E-D5F13228C855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C699D01-1AD2-4BF2-B30E-D5F13228C855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C699D01-1AD2-4BF2-B30E-D5F13228C855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

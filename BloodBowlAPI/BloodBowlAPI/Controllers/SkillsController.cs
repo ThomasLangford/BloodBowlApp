@@ -11,7 +11,7 @@ using BloodBowlAPI.DTOs;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 
-namespace BloodbowlAPI.Controllers
+namespace BloodBowlAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -26,35 +26,35 @@ namespace BloodbowlAPI.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/TeamTypes
+        // GET: api/Skills
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SkillDTO>>> GetTeamType()
+        public async Task<ActionResult<IEnumerable<SkillDTO>>> GetSkill()
         {
             return await _context.Skill.ProjectTo<SkillDTO>(_mapper.ConfigurationProvider)
                                           .ToListAsync();
         }
 
-        // GET: api/TeamTypes/5
+        // GET: api/Skills/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SkillDTO>> GetTeamType(int id)
+        public async Task<ActionResult<SkillDTO>> GetSkill(int id)
         {
-            var teamType = await _context.Skill.Where(teamType => teamType.Id == id)
+            var Skill = await _context.Skill.Where(Skill => Skill.Id == id)
                                                   .ProjectTo<SkillDTO>(_mapper.ConfigurationProvider)
                                                   .FirstOrDefaultAsync();
 
-            if (teamType == null)
+            if (Skill == null)
             {
                 return NotFound();
             }
 
-            return teamType;
+            return Skill;
         }
 
-        // PUT: api/TeamTypes/5
+        // PUT: api/Skills/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTeamType(int id, SkillDTO skill)
+        public async Task<IActionResult> PutSkill(int id, SkillDTO skill)
         {
             if (id != skill.Id)
             {
@@ -83,21 +83,21 @@ namespace BloodbowlAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/TeamTypes
+        // POST: api/Skills
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<SkillDTO>> PostTeamType(SkillDTO skill)
+        public async Task<ActionResult<SkillDTO>> PostSkill(SkillDTO skill)
         {
             _context.Skill.Add(_mapper.Map<Skill>(skill));
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTeamType", new { id = skill.Id }, skill);
+            return CreatedAtAction("GetSkill", new { id = skill.Id }, skill);
         }
 
-        // DELETE: api/TeamTypes/5
+        // DELETE: api/Skills/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<SkillDTO>> DeleteTeamType(int id)
+        public async Task<ActionResult<SkillDTO>> DeleteSkill(int id)
         {
             var skill = await _context.Skill.FindAsync(id);
             if (skill == null)

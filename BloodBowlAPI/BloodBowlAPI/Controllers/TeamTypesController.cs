@@ -11,7 +11,7 @@ using BloodBowlAPI.DTOs;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 
-namespace BloodbowlAPI.Controllers
+namespace BloodBowlAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

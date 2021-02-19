@@ -16,7 +16,7 @@ using Microsoft.OpenApi.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
 
-namespace BloodbowlAPI
+namespace BloodBowlAPI
 {
     public class Startup
     {
