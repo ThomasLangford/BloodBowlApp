@@ -89,13 +89,13 @@ namespace BloodBowlAPITests.Controllers
 
                 bloodBowlAPIContext.SkillCategory.Add(SkillCategory1);
 
-                //bloodBowlAPIContext.Skill.Add(new Skill()
-                //{
-                //    Id = 1,
-                //    Name = "Skill 1",
-                //    Icon = "Icon 1",
-                //    SkillCategoryId = 1
-                //});
+                bloodBowlAPIContext.Skill.Add(new Skill()
+                {
+                    Id = 1,
+                    Name = "Skill 1",
+                    Icon = "Icon 1",
+                    SkillCategoryId = 1
+                });
 
                 //_bloodBowlAPIContext.Skill.Add(new Skill()
                 //{
@@ -110,9 +110,7 @@ namespace BloodBowlAPITests.Controllers
 
                 bloodBowlAPIContext.SaveChanges();
 
-            }
-
-                
+            }                
         }
 
         [Fact]
