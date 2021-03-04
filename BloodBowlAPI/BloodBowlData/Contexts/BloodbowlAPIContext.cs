@@ -14,13 +14,13 @@ namespace BloodbowlData.Contexts
         {
         }
 
-        public DbSet<TeamType> TeamType { get; set; }
-        public DbSet<PlayerType> PlayerType { get; set; }
-        public DbSet<Skill> Skill { get; set; }
-        public DbSet<AvailableSkillCategory> AvailableSkillCategory { get; set; }
-        public DbSet<LevelUpType> LevelUpType { get; set; }
-        public DbSet<SkillCategory> SkillCategory { get; set; }
-        public DbSet<StartingSkill> StartiingSkill { get; set; }
+        public virtual DbSet<TeamType> TeamType { get; set; }
+        public virtual DbSet<PlayerType> PlayerType { get; set; }
+        public virtual DbSet<Skill> Skill { get; set; }
+        public virtual DbSet<AvailableSkillCategory> AvailableSkillCategory { get; set; }
+        public virtual DbSet<LevelUpType> LevelUpType { get; set; }
+        public virtual DbSet<SkillCategory> SkillCategory { get; set; }
+        public virtual DbSet<StartingSkill> StartiingSkill { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
@@ -48,7 +48,9 @@ namespace BloodbowlData.Contexts
             });
         }
 
-
-        
+        public virtual void SetModified(object entity)
+        {
+            Entry(entity).State = EntityState.Modified;
+        }
     }
 }

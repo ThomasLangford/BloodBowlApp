@@ -61,8 +61,7 @@ namespace BloodBowlAPI.Controllers
                 return BadRequest();
             }
 
-            skill.SkillCategory = null;
-            _context.Entry(skill).State = EntityState.Modified;
+            _context.SetModified(skill);
 
             try
             {
@@ -96,8 +95,7 @@ namespace BloodBowlAPI.Controllers
             }
 
             var skill = _mapper.Map<Skill>(skillDto);
-            skill.SkillCategory = null;
-            //_context.Entry(skill.SkillCategory).State = EntityState.Detached;
+            
             _context.Skill.Add(skill);
             await _context.SaveChangesAsync();
 
@@ -126,7 +124,9 @@ namespace BloodBowlAPI.Controllers
 
         private Task<bool> SkillExists(int id)
         {
-            return _context.Skill.AnyAsync(e => e.Id == id);
+            //return _context.Skill.AsQueryable().AnyAsync(e => e.Id == id);
+
+            return _context.Skill.Where(f => f.Id == id).AnyAsync();
         }
 
         private IQueryable<Skill> FindSkillQueryable(int id)

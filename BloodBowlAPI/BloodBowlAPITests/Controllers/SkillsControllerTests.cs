@@ -16,6 +16,11 @@ using System.Linq;
 using BloodbowlData.Models;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
+using System.Linq.Expressions;
+using MockQueryable.Moq;
+using System.Collections.Generic;
+using Moq.EntityFrameworkCore;
 
 namespace BloodBowlAPITests.Controllers
 {
@@ -149,11 +154,10 @@ namespace BloodBowlAPITests.Controllers
             Seed();
             var skillsController = this.CreateSkillsController();
 
-            int id = -1;
             SkillDTO skill = SkillTestData.GetSkillDTOs().First(d => d.Id == 1);
 
             // Act
-            var result = await skillsController.PutSkill(id, skill);
+            var result = await skillsController.PutSkill(skill.Id + 1, skill);
 
             // Assert
             result.Should().BeOfType<BadRequestResult>();
@@ -165,17 +169,39 @@ namespace BloodBowlAPITests.Controllers
             // Arrange
             Seed();
             var skillsController = this.CreateSkillsController();
-            
-            int id = -1;
 
-            SkillDTO skill = SkillTestData.GetSkillDTOs().First(d => d.Id == 1);
-            skill.Id = id;
+            SkillDTO skill = SkillTestData.GetExampleSkillDTOs().First();
 
             // Act
-            var result = await skillsController.PutSkill(id, skill);
+            var result = await skillsController.PutSkill(skill.Id, skill);
 
             // Assert
             result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [Fact]
+        public async Task PutSkill_WhenSkillExistsAndDbUpdateConcurrencyExceptionIsThrown_ThrowDbUpdateConcurrencyException()
+        {
+            // Arrange
+            //Using Moq.EntityFrameworkCore
+            var contextMock = new Mock<BloodBowlAPIContext>(new DbContextOptionsBuilder<BloodBowlAPIContext>().Options);
+            IList<Skill> mockSkills = (IList<Skill>)SkillTestData.GetSkills();
+
+            contextMock.Setup(x => x.Skill).ReturnsDbSet(mockSkills);
+            contextMock.Setup(m => m.SaveChangesAsync(default))
+                       .Throws(new DbUpdateConcurrencyException());
+
+            var skillsController = new SkillsController(
+                contextMock.Object,
+                this._mapper);
+
+            SkillDTO skill = SkillTestData.GetSkillDTOs().First(d => d.Id == 1);
+
+            // Act
+            Func<Task> act = async () => await skillsController.PutSkill(skill.Id, skill);
+
+            // Assert
+            await act.Should().ThrowAsync<DbUpdateConcurrencyException>();
         }
 
 
