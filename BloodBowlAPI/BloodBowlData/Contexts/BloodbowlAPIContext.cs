@@ -35,17 +35,17 @@ namespace BloodbowlData.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<TeamType>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-                entity.Property(e => e.Name).IsRequired();
-                entity.HasMany(e => e.PlayerTypes);
-            });
+            //modelBuilder.Entity<TeamType>(entity =>
+            //{
+            //    entity.HasKey(e => e.Id);
+            //    entity.Property(e => e.Name).IsRequired();
+            //    entity.HasMany(e => e.PlayerTypes);
+            //});
 
-            modelBuilder.Entity<PlayerType>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-            });
+            //modelBuilder.Entity<PlayerType>(entity =>
+            //{
+            //    entity.HasKey(e => e.Id);
+            //});
         }
 
         public virtual void SetModified(object entity)
