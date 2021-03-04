@@ -124,9 +124,7 @@ namespace BloodBowlAPI.Controllers
 
         private Task<bool> SkillExists(int id)
         {
-            //return _context.Skill.AsQueryable().AnyAsync(e => e.Id == id);
-
-            return _context.Skill.Where(f => f.Id == id).AnyAsync();
+            return _context.Skill.AnyAsync(e => e.Id == id);
         }
 
         private IQueryable<Skill> FindSkillQueryable(int id)
