@@ -26,8 +26,16 @@ namespace BloodBowlAPITests.Controllers
         private readonly BloodBowlAPIContext _bloodBowlAPIContext;
         private readonly IMapper _mapper;
 
+        private DbConnection connection;
         public SkillsControllerTests()
         {
+            connection = CreateInMemoryDatabase();
+            var options = new DbContextOptionsBuilder<BloodBowlAPIContext>()
+                .UseSqlite(connection)
+                .EnableSensitiveDataLogging()
+                .Options;
+            _connection = RelationalOptionsExtension.Extract(options).Connection;
+
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new DTOProfile());
@@ -35,13 +43,7 @@ namespace BloodBowlAPITests.Controllers
 
             this._mapper = mapperConfig.CreateMapper();
 
-            var options = new DbContextOptionsBuilder<BloodBowlAPIContext>()
-                .UseSqlite(CreateInMemoryDatabase())
-                .EnableSensitiveDataLogging()
-                .Options;
-
-            _connection = RelationalOptionsExtension.Extract(options).Connection;
-            _bloodBowlAPIContext = new BloodBowlAPIContext(options);
+            Seed();
         }
 
         private static DbConnection CreateInMemoryDatabase()
@@ -57,51 +59,60 @@ namespace BloodBowlAPITests.Controllers
 
         private SkillsController CreateSkillsController()
         {
-            return new SkillsController(
-                this._bloodBowlAPIContext,
-                this._mapper);
-        }
+            var options = new DbContextOptionsBuilder<BloodBowlAPIContext>()
+                .UseSqlite(connection)
+                .EnableSensitiveDataLogging()
+                .Options;
+            var bloodBowlAPIContext = new BloodBowlAPIContext(options);
 
-        private void SeedEmpty()
-        {
-            _bloodBowlAPIContext.Database.EnsureDeleted();
-            _bloodBowlAPIContext.Database.EnsureCreated();
+            return new SkillsController(
+                bloodBowlAPIContext,
+                this._mapper);
         }
 
         private void Seed()
         {
-            _bloodBowlAPIContext.Database.EnsureDeleted();
-            _bloodBowlAPIContext.Database.EnsureCreated();
-
-            var SkillCategory1 = new SkillCategory()
+            using (var bloodBowlAPIContext = new BloodBowlAPIContext(new DbContextOptionsBuilder<BloodBowlAPIContext>()
+                .UseSqlite(connection)
+                .EnableSensitiveDataLogging()
+                .Options))
             {
-                Id = 1,
-                Name = "Skill Category 1"
-            };
 
-            _bloodBowlAPIContext.SkillCategory.Add(SkillCategory1);
+                bloodBowlAPIContext.Database.EnsureDeleted();
+                bloodBowlAPIContext.Database.EnsureCreated();
 
-            _bloodBowlAPIContext.Skill.Add(new Skill()
-            {
-                Id = 1,
-                Name = "Skill 1",
-                Icon = "Icon 1",
-                SkillCategoryId = 1,
-                SkillCategory = SkillCategory1
-            });
+                var SkillCategory1 = new SkillCategory()
+                {
+                    Id = 1,
+                    Name = "Skill Category 1"
+                };
 
-            //_bloodBowlAPIContext.Skill.Add(new Skill()
-            //{
-            //    Id = 2,
-            //    Name = "Skill 2",
-            //    Icon = "Icon 2",
-            //    SkillCategoryId = 1,
-            //    SkillCategory = SkillCategory1
-            //});
+                bloodBowlAPIContext.SkillCategory.Add(SkillCategory1);
 
-            //_bloodBowlAPIContext.Skill.AddRange(SkillTestData.GetModels());
+                //bloodBowlAPIContext.Skill.Add(new Skill()
+                //{
+                //    Id = 1,
+                //    Name = "Skill 1",
+                //    Icon = "Icon 1",
+                //    SkillCategoryId = 1
+                //});
 
-            this._bloodBowlAPIContext.SaveChanges();
+                //_bloodBowlAPIContext.Skill.Add(new Skill()
+                //{
+                //    Id = 2,
+                //    Name = "Skill 2",
+                //    Icon = "Icon 2",
+                //    SkillCategoryId = 1,
+                //    SkillCategory = SkillCategory1
+                //});
+
+                //_bloodBowlAPIContext.Skill.AddRange(SkillTestData.GetModels());
+
+                bloodBowlAPIContext.SaveChanges();
+
+            }
+
+                
         }
 
         [Fact]
@@ -123,7 +134,6 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-            Seed();
 
             var expected = SkillTestData.GetDTOs();
 
@@ -169,7 +179,6 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-            Seed();
 
             int id = 1;
             var expected = SkillTestData.GetDTOs().First(d => d.Id == id);
@@ -186,7 +195,6 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-            Seed();
 
             int id = -1;
             SkillDTO skill = SkillTestData.GetDTOs().First(d => d.Id == 1);
@@ -203,7 +211,7 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-            Seed();
+            
             int id = -1;
 
             SkillDTO skill = SkillTestData.GetDTOs().First(d => d.Id == 1);
@@ -222,15 +230,13 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-            Seed();
 
             var skill1 = new Skill()
             {
                 Id = 1,
                 Name = "Skill 1",
                 Icon = "Icon 1",
-                SkillCategoryId = 1,
-                SkillCategory = new SkillCategory() { Id = 1 }
+                SkillCategoryId = 1
             };
 
             //_bloodBowlAPIContext.Skill.Add(skill1);
