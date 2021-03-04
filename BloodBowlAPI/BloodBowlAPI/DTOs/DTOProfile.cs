@@ -11,15 +11,14 @@ namespace BloodBowlAPI.DTOs
     {
         public DTOProfile()
         {
-            CreateMap<Skill, SkillDTO>();
+            CreateMap<Skill, SkillDTO>().MaxDepth(1).ReverseMap();
+            CreateMap<SkillCategory, SkillCategoryDTO>().ReverseMap();
 
-            CreateMap<PlayerType, PlayerTypeDTO>();
-            CreateMap<PlayerTypeDTO, PlayerType>();
+            CreateMap<PlayerType, PlayerTypeDTO>().ReverseMap();
+            //CreateMap<PlayerTypeDTO, PlayerType>();
 
-            CreateMap<TeamType, TeamTypeDTO>();
-            CreateMap<TeamTypeDTO, TeamType>();
-
-            CreateMap<StartingSkill, SkillDTO>();
+            CreateMap<TeamType, TeamTypeDTO>().ReverseMap();
+            //CreateMap<TeamTypeDTO, TeamType>();            
         }
     }
 }

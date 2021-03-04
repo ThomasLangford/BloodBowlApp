@@ -11,50 +11,104 @@ using System.Threading.Tasks;
 using System.Data.Common;
 using Xunit;
 using FluentAssertions;
+using BloodBowlAPITests.Data;
+using System.Linq;
+using BloodbowlData.Models;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BloodBowlAPITests.Controllers
 {
-    public class SkillsControllerTests
+    public class SkillsControllerTests : IDisposable
     {
-        private MockRepository mockRepository;
 
-        private Mock<BloodBowlAPIContext> mockBloodBowlAPIContext;
-
-        private BloodBowlAPIContext bloodBowlAPIContext;
-        private Mock<IMapper> mockMapper;
+        private readonly DbConnection _connection;
+        private readonly BloodBowlAPIContext _bloodBowlAPIContext;
+        private readonly IMapper _mapper;
 
         public SkillsControllerTests()
         {
-            this.mockRepository = new MockRepository(MockBehavior.Strict);
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new DTOProfile());
+            });
 
-            this.mockBloodBowlAPIContext = this.mockRepository.Create<BloodBowlAPIContext>();
-            this.mockMapper = this.mockRepository.Create<IMapper>();
+            this._mapper = mapperConfig.CreateMapper();
 
+            var options = new DbContextOptionsBuilder<BloodBowlAPIContext>()
+                .UseSqlite(CreateInMemoryDatabase())
+                .EnableSensitiveDataLogging()
+                .Options;
 
-            var optionsBuilder = new DbContextOptionsBuilder<BloodBowlAPIContext>()
-                    .UseSqlite("Data Source=:memory:");
-
-            this.bloodBowlAPIContext = new BloodBowlAPIContext(optionsBuilder.Options);
+            _connection = RelationalOptionsExtension.Extract(options).Connection;
+            _bloodBowlAPIContext = new BloodBowlAPIContext(options);
         }
+
+        private static DbConnection CreateInMemoryDatabase()
+        {
+            var connection = new SqliteConnection("Filename=:memory:");
+
+            connection.Open();
+
+            return connection;
+        }
+
+        public void Dispose() => _connection.Dispose();
 
         private SkillsController CreateSkillsController()
         {
-            this.bloodBowlAPIContext.Database.EnsureDeleted();
-            this.bloodBowlAPIContext.Database.EnsureCreated();
-
             return new SkillsController(
-                this.bloodBowlAPIContext,
-                this.mockMapper.Object);
+                this._bloodBowlAPIContext,
+                this._mapper);
+        }
+
+        private void SeedEmpty()
+        {
+            _bloodBowlAPIContext.Database.EnsureDeleted();
+            _bloodBowlAPIContext.Database.EnsureCreated();
+        }
+
+        private void Seed()
+        {
+            _bloodBowlAPIContext.Database.EnsureDeleted();
+            _bloodBowlAPIContext.Database.EnsureCreated();
+
+            var SkillCategory1 = new SkillCategory()
+            {
+                Id = 1,
+                Name = "Skill Category 1"
+            };
+
+            _bloodBowlAPIContext.SkillCategory.Add(SkillCategory1);
+
+            _bloodBowlAPIContext.Skill.Add(new Skill()
+            {
+                Id = 1,
+                Name = "Skill 1",
+                Icon = "Icon 1",
+                SkillCategoryId = 1,
+                SkillCategory = SkillCategory1
+            });
+
+            //_bloodBowlAPIContext.Skill.Add(new Skill()
+            //{
+            //    Id = 2,
+            //    Name = "Skill 2",
+            //    Icon = "Icon 2",
+            //    SkillCategoryId = 1,
+            //    SkillCategory = SkillCategory1
+            //});
+
+            //_bloodBowlAPIContext.Skill.AddRange(SkillTestData.GetModels());
+
+            this._bloodBowlAPIContext.SaveChanges();
         }
 
         [Fact]
-        public async Task GetSkill_StateUnderTest_ExpectedBehavior()
+        public async Task GetSkill_WhenNoSkills_ReturnEmptyList()
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-
-            this.bloodBowlAPIContext.Database.EnsureDeleted();
-            this.bloodBowlAPIContext.Database.EnsureCreated();
 
             // Act
             var result = await skillsController.GetSkill();
@@ -65,37 +119,130 @@ namespace BloodBowlAPITests.Controllers
         }
 
         [Fact]
-        public async Task GetSkill_StateUnderTest_ExpectedBehavior1()
+        public async Task GetSkill_WhenSkillsExist_ReturnSkillsDTO()
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-            int id = 0;
+            Seed();
+
+            var expected = SkillTestData.GetDTOs();
 
             // Act
-            var result = await skillsController.GetSkill(
-                id);
+            var result = await skillsController.GetSkill();
 
             // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
+            result.Value.Should().BeEquivalentTo(expected);
         }
 
         [Fact]
-        public async Task PutSkill_StateUnderTest_ExpectedBehavior()
+        public async Task GetSkill_WhenNoSkillsExist_ReturnNull()
         {
             // Arrange
             var skillsController = this.CreateSkillsController();
-            int id = 0;
-            SkillDTO skill = null;
+            int id = 1;
 
             // Act
-            var result = await skillsController.PutSkill(
-                id,
-                skill);
+            var result = await skillsController.GetSkill(id);
 
             // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
+            result.Should().NotBeNull();
+            result.Value.Should().BeNull();
+        }
+
+        [Fact]
+        public async Task GetSkill_WhenSkillIdDoesNotExist_ReturnNull()
+        {
+            // Arrange
+            var skillsController = this.CreateSkillsController();
+            int id = -1;
+
+            // Act
+            var result = await skillsController.GetSkill(id);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Value.Should().BeNull();
+        }
+
+        [Fact]
+        public async Task GetSkill_WhenSkillIdDoesExist_ReturnSkillDTO()
+        {
+            // Arrange
+            var skillsController = this.CreateSkillsController();
+            Seed();
+
+            int id = 1;
+            var expected = SkillTestData.GetDTOs().First(d => d.Id == id);
+
+            // Act
+            var result = await skillsController.GetSkill(id);
+
+            // Assert
+            result.Value.Should().BeEquivalentTo(expected);
+        }
+
+        [Fact]
+        public async Task PutSkill_WhenSkillIdIsDifferntToTheId_ReturnBadRequestResult()
+        {
+            // Arrange
+            var skillsController = this.CreateSkillsController();
+            Seed();
+
+            int id = -1;
+            SkillDTO skill = SkillTestData.GetDTOs().First(d => d.Id == 1);
+
+            // Act
+            // var result = await skillsController.PutSkill(id, skill);
+
+            // Assert
+            // result.Should().BeOfType<BadRequestResult>();
+        }
+
+        [Fact]
+        public async Task PutSkill_WhenSkillDoesNotExist_ReturnNotFoundResult()
+        {
+            // Arrange
+            var skillsController = this.CreateSkillsController();
+            Seed();
+            int id = -1;
+
+            SkillDTO skill = SkillTestData.GetDTOs().First(d => d.Id == 1);
+            skill.Id = id;
+
+            // Act
+            // var result = await skillsController.PutSkill(id, skill);
+
+            // Assert
+           //  result.Should().BeOfType<NotFoundResult>();
+        }
+
+
+        [Fact]
+        public async Task PutSkill_WhenSkillDoesExist_ReturnNoContentResult()
+        {
+            // Arrange
+            var skillsController = this.CreateSkillsController();
+            Seed();
+
+            var skill1 = new Skill()
+            {
+                Id = 1,
+                Name = "Skill 1",
+                Icon = "Icon 1",
+                SkillCategoryId = 1,
+                SkillCategory = new SkillCategory() { Id = 1 }
+            };
+
+            //_bloodBowlAPIContext.Skill.Add(skill1);
+            //_bloodBowlAPIContext.SaveChanges();
+
+            int id = 1;
+
+            // Act
+            var result = await skillsController.PutSkill(skill1.Id, skill1);
+
+            // Assert
+            result.Should().BeOfType<NoContentResult>();
         }
 
         [Fact]
@@ -111,7 +258,7 @@ namespace BloodBowlAPITests.Controllers
 
             // Assert
             Assert.True(false);
-            this.mockRepository.VerifyAll();
+            //this.mockRepository.VerifyAll();
         }
 
         [Fact]
@@ -127,7 +274,7 @@ namespace BloodBowlAPITests.Controllers
 
             // Assert
             Assert.True(false);
-            this.mockRepository.VerifyAll();
+            //this.mockRepository.VerifyAll();
         }
     }
 }

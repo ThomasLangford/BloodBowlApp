@@ -54,8 +54,10 @@ namespace BloodBowlAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSkill(int id, SkillDTO skill)
+        public async Task<IActionResult> PutSkill(int id, Skill skill)//SkillDTO skillDto)
         {
+            //var skill = _mapper.Map<Skill>(skillDto); 
+
             if (id != skill.Id)
             {
                 return BadRequest();
