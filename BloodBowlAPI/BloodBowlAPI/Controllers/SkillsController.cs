@@ -38,9 +38,7 @@ namespace BloodBowlAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<SkillDTO>> GetSkill(int id)
         {
-            var Skill = await _context.Skill.Where(Skill => Skill.Id == id)
-                                                  .ProjectTo<SkillDTO>(_mapper.ConfigurationProvider)
-                                                  .FirstOrDefaultAsync();
+            var Skill = await FindSkillDto(id);
 
             if (Skill == null)
             {
@@ -54,15 +52,16 @@ namespace BloodBowlAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSkill(int id, Skill skill)//SkillDTO skillDto)
+        public async Task<IActionResult> PutSkill(int id, SkillDTO skillDto)
         {
-            //var skill = _mapper.Map<Skill>(skillDto); 
+            var skill = _mapper.Map<Skill>(skillDto); 
 
             if (id != skill.Id)
             {
                 return BadRequest();
             }
 
+            skill.SkillCategory = null;
             _context.Entry(skill).State = EntityState.Modified;
 
             try
@@ -89,19 +88,29 @@ namespace BloodBowlAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<SkillDTO>> PostSkill(SkillDTO skill)
+        public async Task<ActionResult<SkillDTO>> PostSkill(SkillDTO skillDto)
         {
-            _context.Skill.Add(_mapper.Map<Skill>(skill));
+            if (await SkillExists(skillDto.Id)) 
+            {
+                return Conflict();
+            }
+
+            var skill = _mapper.Map<Skill>(skillDto);
+            skill.SkillCategory = null;
+            //_context.Entry(skill.SkillCategory).State = EntityState.Detached;
+            _context.Skill.Add(skill);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSkill", new { id = skill.Id }, skill);
+            var newSkill = await FindSkillDto(skill.Id);
+
+            return CreatedAtAction("GetSkill", new { id = newSkill.Id }, newSkill);
         }
 
         // DELETE: api/Skills/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<SkillDTO>> DeleteSkill(int id)
         {
-            var skill = await _context.Skill.FindAsync(id);
+            var skill = await FindSkill(id);
             if (skill == null)
             {
                 return NotFound();
@@ -110,12 +119,30 @@ namespace BloodBowlAPI.Controllers
             _context.Skill.Remove(skill);
             await _context.SaveChangesAsync();
 
-            return Ok(_mapper.Map<SkillDTO>(skill));
+            var dto = _mapper.Map<SkillDTO>(skill);
+
+            return Ok(dto);
         }
 
         private Task<bool> SkillExists(int id)
         {
             return _context.Skill.AnyAsync(e => e.Id == id);
+        }
+
+        private IQueryable<Skill> FindSkillQueryable(int id)
+        {
+            return _context.Skill.Where(s => s.Id == id).Include(s => s.SkillCategory);
+        } 
+
+        private Task<Skill> FindSkill(int id)
+        {
+            return FindSkillQueryable(id).FirstOrDefaultAsync();
+        }
+
+        private Task<SkillDTO> FindSkillDto(int id)
+        {
+            return FindSkillQueryable(id).ProjectTo<SkillDTO>(_mapper.ConfigurationProvider)
+                                                    .FirstOrDefaultAsync();
         }
     }
 }

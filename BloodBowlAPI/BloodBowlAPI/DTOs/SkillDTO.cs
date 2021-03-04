@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BloodBowlAPI.DTOs
+﻿namespace BloodBowlAPI.DTOs
 {
     public class SkillDTO
     {
@@ -11,6 +6,8 @@ namespace BloodBowlAPI.DTOs
         public string Name { get; set; }
         public string Icon { get; set; }
 
-        public SkillCategoryDTO SkillCategory { get; set; }
+        public int SkillCategoryId { get; set; }
+        public string SkillCategoryName { get; set; }
+        public char SkillCategoryShortName { get; set; }
     }
 }
