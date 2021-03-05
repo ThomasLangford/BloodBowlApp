@@ -3,6 +3,7 @@
   <PropertyGroup>
 	  <TargetFramework>net5.0</TargetFramework>
 	  <AssemblyName>BloodBowl.API</AssemblyName>
+	  <UserSecretsId>26bcd57c-bf29-4d61-b434-a9d4d2dca00a</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

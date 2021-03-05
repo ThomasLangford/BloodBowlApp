@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BloodbowlData.Contexts
 {
@@ -13,12 +12,22 @@ namespace BloodbowlData.Contexts
         //ToDo Docstings and Unit Tests
         public BloodBowlAPIContext CreateDbContext(string[] args)
         {
+            //string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            //var config = new ConfigurationBuilder()
+            //   .AddJsonFile("appsettings.json", optional: false)
+            //   .AddJsonFile($"appsettings.{environment}.json", optional: true)
+            //   .CreateDefaultBuilder()
+            //   .Build();
+
+
             var optionsBuilder = new DbContextOptionsBuilder<BloodBowlAPIContext>();
 
             optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;", b => b.MigrationsAssembly("BloodBowlMigrations"));
             optionsBuilder.EnableDetailedErrors();
 
             return new BloodBowlAPIContext(optionsBuilder.Options);
+
         }
     }
 }
