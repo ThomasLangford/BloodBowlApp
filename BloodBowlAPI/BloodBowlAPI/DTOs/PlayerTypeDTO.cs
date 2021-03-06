@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BloodbowlData.Models;
+using BloodBowlData.Models;
 
 namespace BloodBowlAPI.DTOs
 {
-    public class PlayerTypeDTO
+    public class PlayerTypeDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,6 +17,6 @@ namespace BloodBowlAPI.DTOs
         public int Agility { get; set; }
         public int ArmourValue { get; set; }
         
-        public List<SkillDTO> StartingSkills { get; set; }
+        public List<SkillDto> StartingSkills { get; set; }
     }
 }

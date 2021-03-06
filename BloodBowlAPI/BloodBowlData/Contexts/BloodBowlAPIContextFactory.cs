@@ -3,31 +3,43 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using System;
+using System.IO;
 
-namespace BloodbowlData.Contexts
+namespace BloodBowlData.Contexts
 {
     public class BloodBowlAPIContextFactory : IDesignTimeDbContextFactory<BloodBowlAPIContext>
     {
+
+
+        // "Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"
         //Design-time DbContext Creation
         //ToDo Docstings and Unit Tests
         public BloodBowlAPIContext CreateDbContext(string[] args)
         {
-            //string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            string environment = Environment.GetEnvironmentVariable("NETCORE_ENVIRONMENT");
 
-            //var config = new ConfigurationBuilder()
-            //   .AddJsonFile("appsettings.json", optional: false)
-            //   .AddJsonFile($"appsettings.{environment}.json", optional: true)
-            //   .CreateDefaultBuilder()
-            //   .Build();
+            var isDevelopment = string.IsNullOrEmpty(environment) || environment.ToLower() == "development";
 
+            var builder = new ConfigurationBuilder()
+               .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../BloodBowlAPI"))
+               .AddJsonFile("appsettings.json", optional: false)
+               .AddJsonFile($"appsettings.{environment}.json", optional: true);
+
+            if (isDevelopment)
+            {
+                builder.AddUserSecrets<BloodBowlAPIContextFactory>();
+            }
+
+            var configuration = builder.Build();
 
             var optionsBuilder = new DbContextOptionsBuilder<BloodBowlAPIContext>();
 
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;", b => b.MigrationsAssembly("BloodBowlMigrations"));
+            //throw new Exception(configuration["Database.ConnectionString"]);
+
+            optionsBuilder.UseSqlServer(configuration["Database.ConnectionString"], b => b.MigrationsAssembly("BloodBowlMigrations"));
             optionsBuilder.EnableDetailedErrors();
 
             return new BloodBowlAPIContext(optionsBuilder.Options);
-
         }
     }
 }

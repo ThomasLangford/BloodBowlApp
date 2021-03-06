@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BloodbowlData.Contexts;
-using BloodbowlData.Models;
+using BloodBowlData.Contexts;
+using BloodBowlData.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -28,15 +28,14 @@ namespace BloodBowlAPI.Controllers
 
         // GET: api/Skills
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SkillDTO>>> GetSkill()
+        public async Task<ActionResult<IEnumerable<SkillDto>>> GetSkill()
         {
-            return await _context.Skill.ProjectTo<SkillDTO>(_mapper.ConfigurationProvider)
-                                          .ToListAsync();
+            return await GetAllSkillDtos();
         }
 
         // GET: api/Skills/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SkillDTO>> GetSkill(int id)
+        public async Task<ActionResult<SkillDto>> GetSkill(int id)
         {
             var Skill = await FindSkillDto(id);
 
@@ -52,9 +51,9 @@ namespace BloodBowlAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSkill(int id, SkillDTO skillDto)
+        public async Task<IActionResult> PutSkill(int id, SkillDto skillDto)
         {
-            var skill = _mapper.Map<Skill>(skillDto); 
+            var skill = _mapper.Map<Skill>(skillDto);
 
             if (id != skill.Id)
             {
@@ -87,7 +86,7 @@ namespace BloodBowlAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<SkillDTO>> PostSkill(SkillDTO skillDto)
+        public async Task<ActionResult<SkillDto>> PostSkill(SkillDto skillDto)
         {
             if (await SkillExists(skillDto.Id)) 
             {
@@ -95,7 +94,8 @@ namespace BloodBowlAPI.Controllers
             }
 
             var skill = _mapper.Map<Skill>(skillDto);
-            
+            skill.SkillCategory = null;
+
             _context.Skill.Add(skill);
             await _context.SaveChangesAsync();
 
@@ -106,7 +106,7 @@ namespace BloodBowlAPI.Controllers
 
         // DELETE: api/Skills/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<SkillDTO>> DeleteSkill(int id)
+        public async Task<ActionResult<SkillDto>> DeleteSkill(int id)
         {
             var skill = await FindSkill(id);
             if (skill == null)
@@ -117,14 +117,22 @@ namespace BloodBowlAPI.Controllers
             _context.Skill.Remove(skill);
             await _context.SaveChangesAsync();
 
-            var dto = _mapper.Map<SkillDTO>(skill);
+            var dto = _mapper.Map<SkillDto>(skill);
 
             return Ok(dto);
         }
 
-        private Task<bool> SkillExists(int id)
+        private async Task<List<SkillDto>> GetAllSkillDtos()
         {
-            return _context.Skill.AnyAsync(e => e.Id == id);
+            return await _context.Skill
+                .Include(s => s.SkillCategory)
+                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider)
+                .ToListAsync();
+        }
+
+        private async Task<bool> SkillExists(int id)
+        {
+            return await _context.Skill.AnyAsync(e => e.Id == id);
         }
 
         private IQueryable<Skill> FindSkillQueryable(int id)
@@ -132,15 +140,16 @@ namespace BloodBowlAPI.Controllers
             return _context.Skill.Where(s => s.Id == id).Include(s => s.SkillCategory);
         } 
 
-        private Task<Skill> FindSkill(int id)
+        private async Task<Skill> FindSkill(int id)
         {
-            return FindSkillQueryable(id).FirstOrDefaultAsync();
+            return await FindSkillQueryable(id).FirstOrDefaultAsync();
         }
 
-        private Task<SkillDTO> FindSkillDto(int id)
+        private async Task<SkillDto> FindSkillDto(int id)
         {
-            return FindSkillQueryable(id).ProjectTo<SkillDTO>(_mapper.ConfigurationProvider)
-                                                    .FirstOrDefaultAsync();
+            return await FindSkillQueryable(id)
+                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider)
+                .FirstOrDefaultAsync();
         }
     }
 }

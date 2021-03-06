@@ -1,5 +1,5 @@
 ﻿using BloodBowlAPI.DTOs;
-using BloodbowlData.Models;
+using BloodBowlData.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,10 +37,10 @@ namespace BloodBowlAPITests.Data
             };
         }
 
-        public static IEnumerable<SkillDTO> GetSkillDTOs()
+        public static IEnumerable<SkillDto> GetSkillDTOs()
         {
-            return new SkillDTO[]{
-                new SkillDTO()
+            return new SkillDto[]{
+                new SkillDto()
                 {
                     Id = 1,
                     Name = "Skill 1",
@@ -66,10 +66,10 @@ namespace BloodBowlAPITests.Data
             };
         }
 
-        public static IEnumerable<SkillDTO> GetExampleSkillDTOs()
+        public static IEnumerable<SkillDto> GetExampleSkillDTOs()
         {
-            return new SkillDTO[]{
-                new SkillDTO()
+            return new SkillDto[]{
+                new SkillDto()
                 {
                     Id = 2,
                     Name = "Skill 2",

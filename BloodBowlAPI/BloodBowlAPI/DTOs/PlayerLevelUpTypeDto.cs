@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodbowlData.Models
+namespace BloodBowlAPI.DTOs
 {
-    public class AvailableSkillCategory
+    public class PlayerLevelUpTypeDto
     {
         public int Id { get; set; }
         public int PlayerTypeId { get; set; }
-        public PlayerType PlayerType { get; set; }
         public int SkillCategoryId { get; set; }
-        public SkillCategory SkillCategory { get; set; }
+        public string SkillCategoryShortName { get; set; }
+        public string SkillCategoryName { get; set; }
+        
         public int LevelUpTypeId { get; set; }
-        public LevelUpType LevelUpType { get; set; }
+        public int LevelUpTypeName { get; set; }
     }
 }

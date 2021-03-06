@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodbowlData.Models
+namespace BloodBowlData.Models
 {
     public class PlayerType
     {
@@ -19,6 +19,6 @@ namespace BloodbowlData.Models
         public int TeamTypeId {get; set;}
         public TeamType TeamType { get; set; }
         public List<StartingSkill> StartingSkills { get; set; }
-        public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
+        public List<PlayerLevelUpType> AvailableSkillCategories { get; set; }
     }
 }

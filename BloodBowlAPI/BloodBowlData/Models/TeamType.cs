@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BloodBowlData.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodbowlData.Models
+namespace BloodBowlData.Models
 {
-    public class TeamType
+    public class TeamType : IDbModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using BloodbowlData.Models;
+using BloodBowlData.Models;
+using BloodBowlData.Seed;
 
-namespace BloodbowlData.Contexts
+namespace BloodBowlData.Contexts
 {
     public class BloodBowlAPIContext : DbContext
     {
@@ -17,10 +18,11 @@ namespace BloodbowlData.Contexts
         public virtual DbSet<TeamType> TeamType { get; set; }
         public virtual DbSet<PlayerType> PlayerType { get; set; }
         public virtual DbSet<Skill> Skill { get; set; }
-        public virtual DbSet<AvailableSkillCategory> AvailableSkillCategory { get; set; }
+        public virtual DbSet<PlayerLevelUpType> AvailableSkillCategory { get; set; }
         public virtual DbSet<LevelUpType> LevelUpType { get; set; }
         public virtual DbSet<SkillCategory> SkillCategory { get; set; }
         public virtual DbSet<StartingSkill> StartiingSkill { get; set; }
+        public virtual DbSet<SkillType> SkillType { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
@@ -35,22 +37,18 @@ namespace BloodbowlData.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<TeamType>(entity =>
-            //{
-            //    entity.HasKey(e => e.Id);
-            //    entity.Property(e => e.Name).IsRequired();
-            //    entity.HasMany(e => e.PlayerTypes);
-            //});
-
-            //modelBuilder.Entity<PlayerType>(entity =>
-            //{
-            //    entity.HasKey(e => e.Id);
-            //});
+            modelBuilder.Entity<SkillType>().HasData(SeedSkillTypes.GetSeed());
+            modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
         }
 
         public virtual void SetModified(object entity)
         {
             Entry(entity).State = EntityState.Modified;
+        }
+
+        public virtual void SetState(object entity, EntityState state)
+        {
+            Entry(entity).State = state;
         }
     }
 }

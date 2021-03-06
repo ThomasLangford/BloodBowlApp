@@ -11,7 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using BloodbowlData.Contexts;
+using BloodBowlData.Contexts;
+using BloodBowlData.Repositories;
 using Microsoft.OpenApi.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
@@ -33,18 +34,20 @@ namespace BloodBowlAPI
             services.AddControllers();
 
             services.AddDbContext<BloodBowlAPIContext>(
-                dbContextOptions => dbContextOptions.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;")
+                dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database.ConnectionString"])
             ); ;
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" });
             });
-           
+
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             var mapperConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new DTOProfile());
+                mc.AddProfile(new DtoProfile());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

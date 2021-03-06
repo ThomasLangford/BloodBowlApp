@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodbowlData.Models
+namespace BloodBowlData.Models
 {
     public class LevelUpType
     {
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public Enums.LevelUpType Id { get; set; }
         public string Description { get; set; }
 
-        public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
+        public List<PlayerLevelUpType> AvailableSkillCategories { get; set; }
     }
 }

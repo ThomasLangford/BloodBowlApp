@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace BloodBowlAPI.DTOs
 {
-    public class TeamTypeDTO
+    public class TeamTypeDto : IDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int RerollCost { get; set; }
         public int RerollMaximumCount { get; set; }
         public bool Apothicary { get; set; }
-        public List<PlayerTypeDTO> PlayerTypes { get; set; }
+        public List<PlayerTypeDto> PlayerTypes { get; set; }
     }
 }

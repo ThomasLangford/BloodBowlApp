@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BloodbowlData.Models;
+using BloodBowlData.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace BloodBowlAPI.DTOs
 {
-    public class DTOProfile : Profile
+    public class DtoProfile : Profile
     {
-        public DTOProfile()
+        public DtoProfile()
         {
-            CreateMap<Skill, SkillDTO>();
-            CreateMap<SkillDTO, Skill>().ForMember(m => m.SkillCategory, opt => opt.Ignore());
+            CreateMap<Skill, SkillDto>().ReverseMap().ForPath(d => d.SkillCategory.Id, opt => opt.MapFrom(s => s.SkillCategoryId));
 
-            CreateMap<SkillCategory, SkillCategoryDTO>().ReverseMap();
+            CreateMap<SkillCategory, SkillCategoryDto>().ReverseMap();
 
-            CreateMap<PlayerType, PlayerTypeDTO>().ReverseMap();
+            CreateMap<PlayerType, PlayerTypeDto>().ReverseMap();
             //CreateMap<PlayerTypeDTO, PlayerType>();
 
-            CreateMap<TeamType, TeamTypeDTO>().ReverseMap();
-            //CreateMap<TeamTypeDTO, TeamType>();            
+            CreateMap<TeamType, TeamTypeDto>().ReverseMap();
+            //CreateMap<TeamTypeDTO, TeamType>();
+            //
+            CreateMap<LevelUpType, LevelUpTypeDto>().ReverseMap();
         }
     }
 }

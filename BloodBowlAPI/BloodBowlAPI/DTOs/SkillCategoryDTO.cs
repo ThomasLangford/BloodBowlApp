@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace BloodBowlAPI.DTOs
 {
-    public class SkillCategoryDTO
+    public class SkillCategoryDto
     {
         public int Id { get; set; }
         public char ShortName { get; set; }
         public string Name { get; set; }
 
-        public List<SkillDTO> Skills { get; set; }
+        public List<SkillDto> Skills { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 using AutoMapper;
 using BloodBowlAPI.Controllers;
 using BloodBowlAPI.DTOs;
-using BloodbowlData.Contexts;
+using BloodBowlData.Contexts;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -13,7 +13,7 @@ using Xunit;
 using FluentAssertions;
 using BloodBowlAPITests.Data;
 using System.Linq;
-using BloodbowlData.Models;
+using BloodBowlData.Models;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
@@ -32,7 +32,7 @@ namespace BloodBowlAPITests.Controllers
         {
             var mapperConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new DTOProfile());
+                mc.AddProfile(new DtoProfile());
             });
 
             this._mapper = mapperConfig.CreateMapper();
@@ -154,7 +154,7 @@ namespace BloodBowlAPITests.Controllers
             Seed();
             var skillsController = this.CreateSkillsController();
 
-            SkillDTO skill = SkillTestData.GetSkillDTOs().First(d => d.Id == 1);
+            SkillDto skill = SkillTestData.GetSkillDTOs().First(d => d.Id == 1);
 
             // Act
             var result = await skillsController.PutSkill(skill.Id + 1, skill);
@@ -170,7 +170,7 @@ namespace BloodBowlAPITests.Controllers
             Seed();
             var skillsController = this.CreateSkillsController();
 
-            SkillDTO skill = SkillTestData.GetExampleSkillDTOs().First();
+            SkillDto skill = SkillTestData.GetExampleSkillDTOs().First();
 
             // Act
             var result = await skillsController.PutSkill(skill.Id, skill);
@@ -195,7 +195,7 @@ namespace BloodBowlAPITests.Controllers
                 contextMock.Object,
                 this._mapper);
 
-            SkillDTO skill = SkillTestData.GetSkillDTOs().First(d => d.Id == 1);
+            SkillDto skill = SkillTestData.GetSkillDTOs().First(d => d.Id == 1);
 
             // Act
             Func<Task> act = async () => await skillsController.PutSkill(skill.Id, skill);
@@ -252,6 +252,7 @@ namespace BloodBowlAPITests.Controllers
 
             var skill = SkillTestData.GetExampleSkills().First();
             var dto = SkillTestData.GetExampleSkillDTOs().First(s => s.Id == skill.Id);
+            dto.Id = 3;
 
             var expected = new CreatedAtActionResult("GetSkill", null, new { id = dto.Id }, dto);
 
@@ -288,7 +289,7 @@ namespace BloodBowlAPITests.Controllers
             Seed();
             var skillsController = this.CreateSkillsController();
 
-            SkillDTO skill = new()
+            SkillDto skill = new()
             {
                 Id = SkillTestData.GetSkills().First().Id,
                 Name = "Skill 2",
