@@ -4,16 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Models
+namespace BloodBowlData.Models.TeamTypes
 {
-    public class SkillCategory
+    public class LevelUpType
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Enums.SkillCategory Id { get; set; }
-        public char ShortName { get; set; }
-        public string Name { get; set; }
-        
-        public List<Skill> Skills { get; set; }
+        public Enums.LevelUpType Id { get; set; }
+        public string Description { get; set; }
+
         public List<PlayerLevelUpType> AvailableSkillCategories { get; set; }
     }
 }

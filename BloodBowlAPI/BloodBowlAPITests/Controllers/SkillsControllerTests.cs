@@ -1,6 +1,4 @@
 using AutoMapper;
-using BloodBowlAPI.Controllers;
-using BloodBowlAPI.DTOs;
 using BloodBowlData.Contexts;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +11,6 @@ using Xunit;
 using FluentAssertions;
 using BloodBowlAPITests.Data;
 using System.Linq;
-using BloodBowlData.Models;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
@@ -21,22 +18,25 @@ using System.Linq.Expressions;
 using MockQueryable.Moq;
 using System.Collections.Generic;
 using Moq.EntityFrameworkCore;
+using BloodBowlData.Models.Skills;
+using BloodBowlAPI.DTOs.Skills;
+using BloodBowlAPI.Controllers.Skills;
 
 namespace BloodBowlAPITests.Controllers
 {
     public class SkillsControllerTests : ContextControllerTestBase<BloodBowlAPIContext>
     {
         private readonly IMapper _mapper;
-        
+
         public SkillsControllerTests() : base()
         {
             var mapperConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new DtoProfile());
+                mc.AddProfile(new SkillsDtoProfile());
             });
 
             this._mapper = mapperConfig.CreateMapper();
-        }      
+        }
 
         private SkillsController CreateSkillsController()
         {
@@ -72,7 +72,7 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             ClearSeed();
-            var skillsController = this.CreateSkillsController();            
+            var skillsController = this.CreateSkillsController();
 
             // Act
             var result = await skillsController.GetSkill();

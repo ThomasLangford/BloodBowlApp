@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BloodBowlData.Models;
 
-namespace BloodBowlAPI.DTOs
+namespace BloodBowlData.Models.TeamTypes
 {
-    public class PlayerTypeDto
+    public class PlayerType
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -16,7 +15,10 @@ namespace BloodBowlAPI.DTOs
         public int Strength { get; set; }
         public int Agility { get; set; }
         public int ArmourValue { get; set; }
-        
-        public List<SkillDto> StartingSkills { get; set; }
+
+        public int TeamTypeId { get; set; }
+        public TeamType TeamType { get; set; }
+        public List<StartingSkill> StartingSkills { get; set; }
+        public List<PlayerLevelUpType> AvailableSkillCategories { get; set; }
     }
 }

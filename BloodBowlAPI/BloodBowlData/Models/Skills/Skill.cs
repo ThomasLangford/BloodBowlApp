@@ -1,4 +1,4 @@
-﻿using BloodBowlData.Models;
+﻿using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Models
+namespace BloodBowlData.Models.Skills
 {
     public class Skill
     {
@@ -22,11 +22,11 @@ namespace BloodBowlData.Models
         public string Icon { get; set; }
 
         [Required]
-        public BloodBowlData.Enums.SkillType SKillTypeId { get; set; }
+        public Enums.SkillType SKillTypeId { get; set; }
         public SkillType SkillType { get; set; }
 
         [Required]
-        public int SkillCategoryId { get; set; }
+        public Enums.SkillCategory SkillCategoryId { get; set; }
         public SkillCategory SkillCategory { get; set; }
 
         public List<StartingSkill> StartingSkills { get; set; }

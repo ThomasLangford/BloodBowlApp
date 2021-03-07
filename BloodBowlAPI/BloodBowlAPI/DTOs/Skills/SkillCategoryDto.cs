@@ -1,13 +1,14 @@
-﻿using System;
+﻿using BloodBowlAPI.DTOs.Skills;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.DTOs
+namespace BloodBowlAPI.DTOs.Skills
 {
     public class SkillCategoryDto
     {
-        public int Id { get; set; }
+        public BloodBowlData.Enums.SkillCategory Id { get; set; }
         public char ShortName { get; set; }
         public string Name { get; set; }
 

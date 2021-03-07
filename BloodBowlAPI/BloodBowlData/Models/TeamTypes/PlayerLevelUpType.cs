@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BloodBowlData.Models.Skills;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Models
+namespace BloodBowlData.Models.TeamTypes
 {
     public class PlayerLevelUpType
     {

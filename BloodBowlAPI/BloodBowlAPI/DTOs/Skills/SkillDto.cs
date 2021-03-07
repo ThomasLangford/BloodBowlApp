@@ -1,4 +1,4 @@
-﻿namespace BloodBowlAPI.DTOs
+﻿namespace BloodBowlAPI.DTOs.Skills
 {
     public class SkillDto
     {

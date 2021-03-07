@@ -1,5 +1,5 @@
-﻿using BloodBowlAPI.DTOs;
-using BloodBowlData.Models;
+﻿using BloodBowlAPI.DTOs.Skills;
+using BloodBowlData.Models.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace BloodBowlAPITests.Data
             {
                 new SkillCategory()
                 {
-                    Id = 1,
+                    Id = BloodBowlData.Enums.SkillCategory.Strength,
                     Name = "Skill Category 1",
                     ShortName = 'S'
                 }
@@ -32,7 +32,7 @@ namespace BloodBowlAPITests.Data
                     Id = 1,
                     Name = "Skill 1",
                     Icon = "Icon 1",
-                    SkillCategoryId = 1
+                    SkillCategoryId = BloodBowlData.Enums.SkillCategory.Strength
                 }
             };
         }
@@ -60,8 +60,8 @@ namespace BloodBowlAPITests.Data
                     Id = 2,
                     Name = "Skill 2",
                     Icon = "Icon 2",
-                    SkillCategoryId = 1,
-                    SkillCategory = GetSkillCategories().First(c => c.Id == 1)
+                    SkillCategoryId = BloodBowlData.Enums.SkillCategory.Strength,
+                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategory.Strength)
                 }
             };
         }

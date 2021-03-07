@@ -1,4 +1,6 @@
 ﻿using BloodBowlData.Models;
+using BloodBowlData.Models.Skills;
+using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

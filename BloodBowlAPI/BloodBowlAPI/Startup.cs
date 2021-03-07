@@ -12,10 +12,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using BloodBowlData.Contexts;
-using BloodBowlData.Repositories;
 using Microsoft.OpenApi.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
+using BloodBowlAPI.DTOs.Skills;
 
 namespace BloodBowlAPI
 {
@@ -42,12 +42,9 @@ namespace BloodBowlAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" });
             });
 
-
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
             var mapperConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new DtoProfile());
+                mc.AddProfile(new SkillsDtoProfile());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

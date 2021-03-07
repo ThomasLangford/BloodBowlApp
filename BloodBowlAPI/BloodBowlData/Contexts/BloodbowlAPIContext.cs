@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Models;
 using BloodBowlData.Seed;
+using BloodBowlData.Models.TeamTypes;
+using BloodBowlData.Models.Skills;
 
 namespace BloodBowlData.Contexts
 {
     public class BloodBowlAPIContext : DbContext
     {
-        public BloodBowlAPIContext (DbContextOptions<BloodBowlAPIContext> options)
+        public BloodBowlAPIContext(DbContextOptions<BloodBowlAPIContext> options)
             : base(options)
         {
         }

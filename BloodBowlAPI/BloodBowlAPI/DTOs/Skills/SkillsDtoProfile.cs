@@ -1,17 +1,20 @@
 ﻿using AutoMapper;
-using BloodBowlData.Models;
+using BloodBowlAPI.DTOs.TeamTypes;
+using BloodBowlData.Models.Skills;
+using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.DTOs
+namespace BloodBowlAPI.DTOs.Skills
 {
-    public class DtoProfile : Profile
+    public class SkillsDtoProfile : Profile
     {
-        public DtoProfile()
+        public SkillsDtoProfile()
         {
-            CreateMap<Skill, SkillDto>().ReverseMap().ForPath(d => d.SkillCategory.Id, opt => opt.MapFrom(s => s.SkillCategoryId));
+            CreateMap<Skill, SkillDto>();
+            CreateMap<SkillDto, Skill>();
 
             CreateMap<SkillCategory, SkillCategoryDto>().ReverseMap();
 

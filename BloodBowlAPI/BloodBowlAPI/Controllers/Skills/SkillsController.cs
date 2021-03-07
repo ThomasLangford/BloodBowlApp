@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BloodBowlData.Contexts;
-using BloodBowlData.Models;
-using BloodBowlAPI.DTOs;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using BloodBowlData.Models.Skills;
+using BloodBowlAPI.DTOs.Skills;
 
-namespace BloodBowlAPI.Controllers
+namespace BloodBowlAPI.Controllers.Skills
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -88,7 +88,7 @@ namespace BloodBowlAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<SkillDto>> PostSkill(SkillDto skillDto)
         {
-            if (await SkillExists(skillDto.Id)) 
+            if (await SkillExists(skillDto.Id))
             {
                 return Conflict();
             }
@@ -138,7 +138,7 @@ namespace BloodBowlAPI.Controllers
         private IQueryable<Skill> FindSkillQueryable(int id)
         {
             return _context.Skill.Where(s => s.Id == id).Include(s => s.SkillCategory);
-        } 
+        }
 
         private async Task<Skill> FindSkill(int id)
         {

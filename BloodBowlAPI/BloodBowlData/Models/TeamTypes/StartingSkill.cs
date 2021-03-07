@@ -1,16 +1,17 @@
-﻿using System;
+﻿using BloodBowlData.Models.Skills;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Models
+namespace BloodBowlData.Models.TeamTypes
 {
     public class StartingSkill
     {
         public int Id { get; set; }
         public int PlayerTypeId { get; set; }
         public PlayerType PlayerType { get; set; }
-        public int SkillId {get; set;}
+        public int SkillId { get; set; }
         public Skill Skill { get; set; }
     }
 }

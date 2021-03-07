@@ -31,5 +31,9 @@
     <ProjectReference Include="..\BloodBowlMigrations\BloodBowlMigrations.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\TeamTypes\" />
+  </ItemGroup>
+
 
 </Project>

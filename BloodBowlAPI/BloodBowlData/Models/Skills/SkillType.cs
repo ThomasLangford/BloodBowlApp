@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Models
+namespace BloodBowlData.Models.Skills
 {
     public class SkillType
     {
