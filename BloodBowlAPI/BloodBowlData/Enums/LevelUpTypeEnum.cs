@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Enums
 {
-    public enum LevelUpType
+    public enum LevelUpTypeEnum
     {
         Normal = 1,
         Double

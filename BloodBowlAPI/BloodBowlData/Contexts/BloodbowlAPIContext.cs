@@ -19,10 +19,10 @@ namespace BloodBowlData.Contexts
         public virtual DbSet<TeamType> TeamType { get; set; }
         public virtual DbSet<PlayerType> PlayerType { get; set; }
         public virtual DbSet<Skill> Skill { get; set; }
-        public virtual DbSet<PlayerLevelUpType> AvailableSkillCategory { get; set; }
+        public virtual DbSet<AvailableSkillCategory> AvailableSkillCategory { get; set; }
         public virtual DbSet<LevelUpType> LevelUpType { get; set; }
         public virtual DbSet<SkillCategory> SkillCategory { get; set; }
-        public virtual DbSet<StartingSkill> StartiingSkill { get; set; }
+        public virtual DbSet<StartingSkill> StartingSkill { get; set; }
         public virtual DbSet<SkillType> SkillType { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

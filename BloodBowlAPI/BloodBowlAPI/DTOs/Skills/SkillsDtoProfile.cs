@@ -16,15 +16,8 @@ namespace BloodBowlAPI.DTOs.Skills
             CreateMap<Skill, SkillDto>();
             CreateMap<SkillDto, Skill>();
 
-            CreateMap<SkillCategory, SkillCategoryDto>().ReverseMap();
-
-            CreateMap<PlayerType, PlayerTypeDto>().ReverseMap();
-            //CreateMap<PlayerTypeDTO, PlayerType>();
-
-            CreateMap<TeamType, TeamTypeDto>().ReverseMap();
-            //CreateMap<TeamTypeDTO, TeamType>();
-            //
-            CreateMap<LevelUpType, LevelUpTypeDto>().ReverseMap();
+            CreateMap<SkillCategory, SkillCategoryDto>();
+            CreateMap<SkillType, SkillTypeDto>();
         }
     }
 }

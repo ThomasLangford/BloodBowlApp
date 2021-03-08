@@ -10,7 +10,7 @@ namespace BloodBowlData.Models.Skills
     public class SkillType
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Enums.SkillType Id { get; set; }
+        public Enums.SkillTypeEnum Id { get; set; }
         public string Description { get; set; }
         public bool IsAvailableToBuy { get; set; }
         public int? Cost { get; set; }

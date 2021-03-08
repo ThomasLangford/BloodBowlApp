@@ -16,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
 using BloodBowlAPI.DTOs.Skills;
+using BloodBowlAPI.DTOs.TeamTypes;
 
 namespace BloodBowlAPI
 {
@@ -45,6 +46,7 @@ namespace BloodBowlAPI
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new SkillsDtoProfile());
+                mc.AddProfile(new TeamTypesDtoProfile());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BloodBowlData.Contexts;
@@ -14,28 +15,28 @@ namespace BloodBowlAPI.Controllers.Skills
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SkillCategoriesController : ControllerBase
+    public class SkillTypesController : ControllerBase
     {
         private readonly BloodBowlAPIContext _context;
         private readonly IMapper _mapper;
 
-        public SkillCategoriesController(BloodBowlAPIContext context, IMapper mapper)
+        public SkillTypesController(BloodBowlAPIContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SkillCategoryDto>>> GetSkillCategory()
+        public async Task<ActionResult<IEnumerable<SkillTypeDto>>> GetSkillType()
         {
-            return await GetSkillCategoryDTOs();
+            return await GetSkillTypeDTOs();
         }
 
         // GET: api/SkillCategories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SkillCategoryDto>> GetSkillCategory(int id)
+        public async Task<ActionResult<SkillTypeDto>> GetSkillType(int id)
         {
-            var Skill = await GetSkillCategoryDTO(id);
+            var Skill = await GetSkillTypeDTO(id);
 
             if (Skill == null)
             {
@@ -45,39 +46,39 @@ namespace BloodBowlAPI.Controllers.Skills
             return Skill;
         }
 
-        private IQueryable<SkillCategory> GetSkillCatagoryQueryable()
+        private IQueryable<SkillType> GetSkillCatagoryQueryable()
         {
-            return _context.SkillCategory
+            return _context.SkillType
                 .Include(s => s.Skills);
         }
 
-        private IQueryable<SkillCategory> GetSkillCatagoryQueryable(BloodBowlData.Enums.SkillCategoryEnum id)
+        private IQueryable<SkillType> GetSkillCatagoryQueryable(BloodBowlData.Enums.SkillTypeEnum id)
         {
 
 
-            return _context.SkillCategory
+            return _context.SkillType
                 .Where(s => s.Id == id)
                 .Include(s => s.Skills);
         }
 
-        private async Task<List<SkillCategoryDto>> GetSkillCategoryDTOs()
+        private async Task<List<SkillTypeDto>> GetSkillTypeDTOs()
         {
             return await GetSkillCatagoryQueryable()
-                .ProjectTo<SkillCategoryDto>(_mapper.ConfigurationProvider)
+                .ProjectTo<SkillTypeDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
 
-        private async Task<SkillCategoryDto> GetSkillCategoryDTO(int id)
+        private async Task<SkillTypeDto> GetSkillTypeDTO(int id)
         {
-            if (!Enum.IsDefined(typeof(BloodBowlData.Enums.SkillCategoryEnum), id))
+            if (!Enum.IsDefined(typeof(BloodBowlData.Enums.SkillTypeEnum), id))
             {
                 return null;
             }
 
-            var enumId = (BloodBowlData.Enums.SkillCategoryEnum)id;
+            var enumId = (BloodBowlData.Enums.SkillTypeEnum)id;
 
             return await GetSkillCatagoryQueryable(enumId)
-                .ProjectTo<SkillCategoryDto>(_mapper.ConfigurationProvider)
+                .ProjectTo<SkillTypeDto>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
         }
     }

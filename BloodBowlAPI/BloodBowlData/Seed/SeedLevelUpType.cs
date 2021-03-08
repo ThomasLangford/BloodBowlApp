@@ -1,4 +1,5 @@
-﻿using BloodBowlData.Models;
+﻿using BloodBowlData.Enums;
+using BloodBowlData.Models;
 using BloodBowlData.Models.Skills;
 using BloodBowlData.Models.TeamTypes;
 using System;
@@ -17,13 +18,13 @@ namespace BloodBowlData.Seed
             {
                 new LevelUpType
                 {
-                    Id = Enums.LevelUpType.Normal,
-                    Description = "Normal"
+                    Id = LevelUpTypeEnum.Normal,
+                    Name = "Normal"
                 },
                 new LevelUpType
                 {
-                    Id = Enums.LevelUpType.Double,
-                    Description = "Doubles"
+                    Id = LevelUpTypeEnum.Double,
+                    Name = "Doubles"
                 },
             };
         }

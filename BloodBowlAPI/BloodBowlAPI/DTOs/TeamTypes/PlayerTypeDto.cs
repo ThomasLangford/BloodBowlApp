@@ -19,5 +19,6 @@ namespace BloodBowlAPI.DTOs.TeamTypes
         public int ArmourValue { get; set; }
 
         public List<SkillDto> StartingSkills { get; set; }
+        public List<AvailableSkillCategoryDto> AvailableSkillCategories { get; set; }
     }
 }

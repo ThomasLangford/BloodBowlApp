@@ -10,11 +10,11 @@ namespace BloodBowlData.Models.Skills
     public class SkillCategory
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Enums.SkillCategory Id { get; set; }
+        public Enums.SkillCategoryEnum Id { get; set; }
         public char ShortName { get; set; }
         public string Name { get; set; }
 
         public List<Skill> Skills { get; set; }
-        public List<PlayerLevelUpType> AvailableSkillCategories { get; set; }
+        public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
     }
 }

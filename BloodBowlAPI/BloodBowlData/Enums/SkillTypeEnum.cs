@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Enums
 {
-    public enum SkillType
+    public enum SkillTypeEnum
     {
         Skill = 1,
-        ExtraordinarySkill,
-        MinorAttribute,
-        MediumAttribute,
-        MajorAttribute
+        ExtraordinarySkill
     }
 }

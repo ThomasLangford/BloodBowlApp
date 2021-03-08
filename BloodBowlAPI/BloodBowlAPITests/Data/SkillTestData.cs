@@ -17,7 +17,7 @@ namespace BloodBowlAPITests.Data
             {
                 new SkillCategory()
                 {
-                    Id = BloodBowlData.Enums.SkillCategory.Strength,
+                    Id = BloodBowlData.Enums.SkillCategoryEnum.Strength,
                     Name = "Skill Category 1",
                     ShortName = 'S'
                 }
@@ -32,7 +32,7 @@ namespace BloodBowlAPITests.Data
                     Id = 1,
                     Name = "Skill 1",
                     Icon = "Icon 1",
-                    SkillCategoryId = BloodBowlData.Enums.SkillCategory.Strength
+                    SkillCategoryId = BloodBowlData.Enums.SkillCategoryEnum.Strength
                 }
             };
         }
@@ -60,8 +60,8 @@ namespace BloodBowlAPITests.Data
                     Id = 2,
                     Name = "Skill 2",
                     Icon = "Icon 2",
-                    SkillCategoryId = BloodBowlData.Enums.SkillCategory.Strength,
-                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategory.Strength)
+                    SkillCategoryId = BloodBowlData.Enums.SkillCategoryEnum.Strength,
+                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategoryEnum.Strength)
                 }
             };
         }

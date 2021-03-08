@@ -9,5 +9,8 @@
         public int SkillCategoryId { get; set; }
         public string SkillCategoryName { get; set; }
         public char SkillCategoryShortName { get; set; }
+
+        public int SkillTypeId { get; set; }
+        public string SkillTypeDescription { get; set; }
     }
 }

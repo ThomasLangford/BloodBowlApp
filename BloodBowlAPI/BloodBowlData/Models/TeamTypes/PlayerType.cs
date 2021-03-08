@@ -19,6 +19,6 @@ namespace BloodBowlData.Models.TeamTypes
         public int TeamTypeId { get; set; }
         public TeamType TeamType { get; set; }
         public List<StartingSkill> StartingSkills { get; set; }
-        public List<PlayerLevelUpType> AvailableSkillCategories { get; set; }
+        public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace BloodBowlAPI.DTOs.TeamTypes
 {
     public class LevelUpTypeDto
     {
-        public BloodBowlData.Enums.LevelUpType Id { get; set; }
-        public string Description { get; set; }
+        public BloodBowlData.Enums.LevelUpTypeEnum Id { get; set; }
+        public string Name { get; set; }
     }
 }

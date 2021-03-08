@@ -9,9 +9,9 @@ namespace BloodBowlData.Models.TeamTypes
     public class LevelUpType
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Enums.LevelUpType Id { get; set; }
-        public string Description { get; set; }
+        public Enums.LevelUpTypeEnum Id { get; set; }
+        public string Name { get; set; }
 
-        public List<PlayerLevelUpType> AvailableSkillCategories { get; set; }
+        public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
     }
 }

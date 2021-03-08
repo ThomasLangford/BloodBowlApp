@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Enums
 {
-    public enum SkillCategory
+    public enum SkillCategoryEnum
     {
         Strength = 1,
         Passing,
