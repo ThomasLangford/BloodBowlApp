@@ -16,6 +16,7 @@ namespace BloodBowlAPITests.Controllers
             var options = new DbContextOptionsBuilder<T>()
                 .UseSqlite(_connection)
                 .EnableSensitiveDataLogging()
+                .EnableDetailedErrors()
                 .Options;
 
             return (T)Activator.CreateInstance(typeof(T), options);

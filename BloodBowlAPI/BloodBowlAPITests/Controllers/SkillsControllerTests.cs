@@ -49,11 +49,14 @@ namespace BloodBowlAPITests.Controllers
         {
             using BloodBowlAPIContext bloodBowlAPIContext = GetDBContext();
 
+            bloodBowlAPIContext.DoNotSeedData = true;
             bloodBowlAPIContext.Database.EnsureDeleted();
             bloodBowlAPIContext.Database.EnsureCreated();
 
+            bloodBowlAPIContext.SkillType.AddRange(SkillTestData.GetSkillTypes());
             bloodBowlAPIContext.SkillCategory.AddRange(SkillTestData.GetSkillCategories());
             bloodBowlAPIContext.Skill.AddRange(SkillTestData.GetSkills());
+            
 
             bloodBowlAPIContext.SaveChanges();
         }
@@ -61,6 +64,8 @@ namespace BloodBowlAPITests.Controllers
         protected void ClearSeed()
         {
             using BloodBowlAPIContext bloodBowlAPIContext = GetDBContext();
+            
+            bloodBowlAPIContext.DoNotSeedData = true;
             bloodBowlAPIContext.Database.EnsureDeleted();
             bloodBowlAPIContext.Database.EnsureCreated();
 
@@ -321,8 +326,8 @@ namespace BloodBowlAPITests.Controllers
 
             // Assert
             result.Result.Should().BeOfType<OkObjectResult>();
-            var a = ((OkObjectResult)result.Result);
-            a.Should().BeEquivalentTo(expected);
+            var okResult = ((OkObjectResult)result.Result);
+            okResult.Should().BeEquivalentTo(expected);
             GetDBContext().Skill.Should().NotContain(s => s.Id == id);
         }
 

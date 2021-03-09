@@ -34,12 +34,17 @@ namespace BloodBowlData.Contexts
         //    optionsBuilder.UseMySQL("server=localhost;database=bloodbowl;user=APICRUD;password=APICRUD");
         //}
 
+        public bool DoNotSeedData { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<SkillType>().HasData(SeedSkillTypes.GetSeed());
-            modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
+            if (!DoNotSeedData)
+            {
+                modelBuilder.Entity<SkillType>().HasData(SeedSkillTypes.GetSeed());
+                modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
+            }
         }
 
         public virtual void SetModified(object entity)

@@ -23,7 +23,7 @@ namespace BloodBowlData.Models.Skills
         public string Icon { get; set; }
 
         [Required]
-        public SkillTypeEnum SKillTypeId { get; set; }
+        public SkillTypeEnum SkillTypeId { get; set; }
         public SkillType SkillType { get; set; }
 
         [Required]

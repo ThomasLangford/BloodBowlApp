@@ -22,6 +22,8 @@ namespace BloodBowlAPI.Controllers.TeamTypes
         private readonly BloodBowlAPIContext _context;
         private readonly IMapper _mapper;
 
+        //ToDo Validate Duplicate With Existing Skills
+
         public PlayerTypesController(BloodBowlAPIContext context, IMapper mapper)
         {
             _context = context;
@@ -71,6 +73,8 @@ namespace BloodBowlAPI.Controllers.TeamTypes
             _context.SetModified(playerType);
 
             var existingStaringSkills = await _context.StartingSkill.Where(c => c.PlayerTypeId == playerType.Id).ToListAsync();
+            
+            // Delete Existing StaringSkill Records
             foreach(var existingStartingSkill in existingStaringSkills)
             {
                 if(!playerType.StartingSkills.Exists(s => s.SkillId == existingStartingSkill.SkillId))
@@ -79,6 +83,53 @@ namespace BloodBowlAPI.Controllers.TeamTypes
                 }
             }
 
+            // Add Or Update mew StartingSkill Records
+            foreach (var startingSkill in playerType.StartingSkills)
+            {
+                var existingStartingSkill = await _context.StartingSkill.FindAsync(startingSkill.Id);
+
+                if (existingStartingSkill == null)
+                {
+                    await _context.StartingSkill.AddAsync(existingStartingSkill);
+                }
+                else
+                {
+                    existingStartingSkill.PlayerTypeId = playerType.Id;
+                    existingStartingSkill.SkillId = startingSkill.SkillId;
+
+                    _context.SetModified(existingStartingSkill);
+                }
+            }
+
+            var existingAvailableSkillCategories = await _context.AvailableSkillCategory.Where(c => c.PlayerTypeId == playerType.Id).ToListAsync();
+
+            // Delete Existing AvailableSkill Records
+            foreach (var existingAvailableSkillCategory in existingAvailableSkillCategories)
+            {
+                if(!playerType.AvailableSkillCategories.Exists(s => s.Id == existingAvailableSkillCategory.Id))
+                {
+                    _context.AvailableSkillCategory.Remove(existingAvailableSkillCategory);
+                }
+            }
+
+            // Delete Existing AvailableSkill Records
+            foreach (var availableSkillCatagory in playerType.AvailableSkillCategories)
+            {
+                var existingAvailableSkillCategory = await _context.AvailableSkillCategory.FindAsync(availableSkillCatagory.Id);
+
+                if (existingAvailableSkillCategory == null)
+                {
+                    await _context.AvailableSkillCategory.AddAsync(existingAvailableSkillCategory);
+                }
+                else
+                {
+                    existingAvailableSkillCategory.PlayerTypeId = playerType.Id;
+                    existingAvailableSkillCategory.LevelUpTypeId = availableSkillCatagory.LevelUpTypeId;
+                    existingAvailableSkillCategory.SkillCategoryId = availableSkillCatagory.SkillCategoryId;
+
+                    _context.SetModified(existingAvailableSkillCategory);
+                }
+            }
 
             try
             {
@@ -106,12 +157,29 @@ namespace BloodBowlAPI.Controllers.TeamTypes
         [HttpPost]
         public async Task<ActionResult<PlayerTypeDto>> PostPlayerType(PlayerTypeDto playerTypeDto)
         {
-            if (await PlayerTypeExists(playerTypeDto.Id) || !await ValidatePlayerTypeDto(playerTypeDto))
+            if (await PlayerTypeExists(playerTypeDto.Id))
             {
                 return Conflict();
             }
 
+            if (!await ValidatePlayerTypeDto(playerTypeDto))
+            {
+                return BadRequest();
+            }
+
+            
+
             var playerType = _mapper.Map<PlayerType>(playerTypeDto);
+
+            foreach (var availableSkillCategory in playerType.AvailableSkillCategories)
+            {
+                availableSkillCategory.Id = 0;
+            }
+
+            foreach (var availableSkill in playerType.StartingSkills)
+            {
+                availableSkill.Id = 0;
+            }
 
             _context.PlayerType.Add(playerType);
             

@@ -1,4 +1,5 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
+using BloodBowlData.Enums;
 using BloodBowlData.Models.Skills;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,21 @@ namespace BloodBowlAPITests.Data
             {
                 new SkillCategory()
                 {
-                    Id = BloodBowlData.Enums.SkillCategoryEnum.Strength,
+                    Id = SkillCategoryEnum.Strength,
                     Name = "Skill Category 1",
                     ShortName = 'S'
+                }
+            };
+        }
+
+        public static IEnumerable<SkillType> GetSkillTypes()
+        {
+            return new SkillType[]
+            {
+                new SkillType()
+                {
+                    Id = SkillTypeEnum.Skill,
+                    Description = "Skill"
                 }
             };
         }
@@ -32,7 +45,8 @@ namespace BloodBowlAPITests.Data
                     Id = 1,
                     Name = "Skill 1",
                     Icon = "Icon 1",
-                    SkillCategoryId = BloodBowlData.Enums.SkillCategoryEnum.Strength
+                    SkillCategoryId = SkillCategoryEnum.Strength,
+                    SkillTypeId = SkillTypeEnum.Skill
                 }
             };
         }
@@ -47,7 +61,9 @@ namespace BloodBowlAPITests.Data
                     Icon = "Icon 1",
                     SkillCategoryId = 1,
                     SkillCategoryName = "Skill Category 1",
-                    SkillCategoryShortName = 'S'
+                    SkillCategoryShortName = 'S',
+                    SkillTypeId = 1,
+                    SkillTypeDescription = "Skill"
                 }
             };
         }
@@ -61,14 +77,16 @@ namespace BloodBowlAPITests.Data
                     Name = "Skill 2",
                     Icon = "Icon 2",
                     SkillCategoryId = BloodBowlData.Enums.SkillCategoryEnum.Strength,
-                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategoryEnum.Strength)
+                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategoryEnum.Strength),
+                    SkillTypeId = SkillTypeEnum.Skill
                 }
             };
         }
 
         public static IEnumerable<SkillDto> GetExampleSkillDTOs()
         {
-            return new SkillDto[]{
+            return new SkillDto[]
+            {
                 new SkillDto()
                 {
                     Id = 2,
@@ -76,7 +94,9 @@ namespace BloodBowlAPITests.Data
                     Icon = "Icon 2",
                     SkillCategoryId = 1,
                     SkillCategoryName = "Skill Category 1",
-                    SkillCategoryShortName = 'S'
+                    SkillCategoryShortName = 'S',
+                    SkillTypeId = 1,
+                    SkillTypeDescription = "Skill"
                 }
             };
         }
