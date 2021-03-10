@@ -1,0 +1,26 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+.sidenav {
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    min-width: 260px;
+    background-color: #f2f2f2;
+    border-right: 1px solid #dbdbdb;
+}
+
+.sidenav-container {
+    background-color: #fff;
+    min-height: 100%;
+    height: auto!important;
+    max-width: 100%;
+    margin: 0;
+    transform: none;
+}

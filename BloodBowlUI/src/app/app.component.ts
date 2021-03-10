@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// import { SkillService } from './services/skill.service';
+// import { catchError, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'BloodBowlUI';
+  title = 'BloodBowl UI';
+
+  
+
+  constructor() { 
+    console.log("Hello");
+  }
 }

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-sidebar.component.scss']
 })
 export class NavSidebarComponent implements OnInit {
+  public opened: boolean = true;
 
   constructor() { }
 
