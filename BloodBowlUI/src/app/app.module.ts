@@ -13,6 +13,7 @@ import { SkillService } from './services/skill.service'
 import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
