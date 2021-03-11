@@ -128,6 +128,7 @@
   },
   "defaultProject": "BloodBowlUI",
   "cli": {
+    "analytics": "e616e0d7-a580-4205-af20-f38f346d1ef5",
     "defaultCollection": "@angular-eslint/schematics"
   }
 }
