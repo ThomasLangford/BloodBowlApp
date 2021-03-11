@@ -61,7 +61,6 @@ namespace BloodBowlAPI.Controllers.Skills
             }
 
             skill.SkillCategory = null;
-            skill.SkillType = null;
 
             _context.SetModified(skill);
 
@@ -99,7 +98,6 @@ namespace BloodBowlAPI.Controllers.Skills
             var skill = _mapper.Map<Skill>(skillDto);
             
             skill.SkillCategory = null;
-            skill.SkillType = null;
 
             _context.Skill.Add(skill);
             await _context.SaveChangesAsync();
@@ -131,7 +129,6 @@ namespace BloodBowlAPI.Controllers.Skills
         {
             return await _context.Skill
                 .Include(s => s.SkillCategory)
-                .Include(s => s.SkillType)
                 .ProjectTo<SkillDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
@@ -145,8 +142,7 @@ namespace BloodBowlAPI.Controllers.Skills
         {
             return _context.Skill
                 .Where(s => s.Id == id)
-                .Include(s => s.SkillCategory)
-                .Include(s => s.SkillType);
+                .Include(s => s.SkillCategory);
         }
 
         private async Task<Skill> FindSkill(int id)
