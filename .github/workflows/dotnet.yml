@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./BloodBowlAPI
+        working-directory: ./BloodBowlAPI/BloodBowlAPITests
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
