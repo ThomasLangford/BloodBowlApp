@@ -6,9 +6,20 @@
     margin-bottom: 0;
 }
 
+.topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+.topbar-logo-wrapper {
+    display: inline-block;
+}
+
 .topbar-logo {    
     display: flex;
     height: 3rem;
     padding: 0.5rem 0.25rem 0.25rem 0.25rem;
 
 }
+

@@ -8,9 +8,11 @@ namespace BloodBowlData.Enums
 {
     public enum SkillCategoryEnum
     {
-        Strength = 1,
+        General = 1,
+        Strength,
         Passing,
         Agility,
-        Mutation
+        Mutation,
+        Extraordinary
     }
 }

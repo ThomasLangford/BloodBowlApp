@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { NavSidebarComponent } from '../components/nav-sidebar/nav-sidebar.component';
-import { NavTopbarComponent } from '../components/nav-topbar/nav-topbar.component';
+import { RouterModule } from '@angular/router';
 
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatExpansionModule } from "@angular/material/expansion";
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { NavSidebarComponent } from './components/nav-sidebar/nav-sidebar.component';
+import { NavTopbarComponent } from './components/nav-topbar/nav-topbar.component';
 
 @NgModule({
   declarations: [NavSidebarComponent, NavTopbarComponent],
@@ -23,7 +24,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatExpansionModule,
     MatToolbarModule,
     MatSidenavModule,
-    AppRoutingModule
+    RouterModule
   ],
   exports: [
     NavSidebarComponent,

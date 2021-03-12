@@ -25,18 +25,6 @@ namespace BloodBowlAPITests.Data
             };
         }
 
-        public static IEnumerable<SkillType> GetSkillTypes()
-        {
-            return new SkillType[]
-            {
-                new SkillType()
-                {
-                    Id = SkillTypeEnum.Skill,
-                    Description = "Skill"
-                }
-            };
-        }
-
         public static IEnumerable<Skill> GetSkills()
         {
             return new Skill[]{
@@ -45,8 +33,7 @@ namespace BloodBowlAPITests.Data
                     Id = 1,
                     Name = "Skill 1",
                     Icon = "Icon 1",
-                    SkillCategoryId = SkillCategoryEnum.Strength,
-                    SkillTypeId = SkillTypeEnum.Skill
+                    SkillCategoryId = SkillCategoryEnum.Strength
                 }
             };
         }
@@ -77,8 +64,7 @@ namespace BloodBowlAPITests.Data
                     Name = "Skill 2",
                     Icon = "Icon 2",
                     SkillCategoryId = BloodBowlData.Enums.SkillCategoryEnum.Strength,
-                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategoryEnum.Strength),
-                    SkillTypeId = SkillTypeEnum.Skill
+                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategoryEnum.Strength)
                 }
             };
         }
