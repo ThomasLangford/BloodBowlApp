@@ -14,12 +14,12 @@ namespace BloodBowlAPI.Controllers.Skills
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SkillCategoriesController : ControllerBase
+    public class SkillCatagoriesController : ControllerBase
     {
         private readonly BloodBowlAPIContext _context;
         private readonly IMapper _mapper;
 
-        public SkillCategoriesController(BloodBowlAPIContext context, IMapper mapper)
+        public SkillCatagoriesController(BloodBowlAPIContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
