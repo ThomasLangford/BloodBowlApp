@@ -13,9 +13,9 @@ namespace BloodBowlAPI.DTOs.TeamTypes
         public TeamTypesDtoProfile()
         {
             CreateMap<PlayerType, PlayerTypeDto>();
-                
-                
-                
+
+
+
             CreateMap<TeamType, TeamTypeDto>().ReverseMap();
             CreateMap<LevelUpType, LevelUpTypeDto>().ReverseMap();
 

@@ -57,7 +57,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlayerType(int id, PlayerTypeDto playerTypeDto)
         {
-            if(!await PlayerTypeExists(id))
+            if (!await PlayerTypeExists(id))
             {
                 return NotFound();
             }
@@ -67,17 +67,17 @@ namespace BloodBowlAPI.Controllers.TeamTypes
                 return BadRequest();
             }
 
-            var playerType = _mapper.Map<PlayerType>(playerTypeDto);        
+            var playerType = _mapper.Map<PlayerType>(playerTypeDto);
 
 
             _context.SetModified(playerType);
 
             var existingStaringSkills = await _context.StartingSkill.Where(c => c.PlayerTypeId == playerType.Id).ToListAsync();
-            
+
             // Delete Existing StaringSkill Records
-            foreach(var existingStartingSkill in existingStaringSkills)
+            foreach (var existingStartingSkill in existingStaringSkills)
             {
-                if(!playerType.StartingSkills.Exists(s => s.SkillId == existingStartingSkill.SkillId))
+                if (!playerType.StartingSkills.Exists(s => s.SkillId == existingStartingSkill.SkillId))
                 {
                     _context.StartingSkill.Remove(existingStartingSkill);
                 }
@@ -106,7 +106,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
             // Delete Existing AvailableSkill Records
             foreach (var existingAvailableSkillCategory in existingAvailableSkillCategories)
             {
-                if(!playerType.AvailableSkillCategories.Exists(s => s.Id == existingAvailableSkillCategory.Id))
+                if (!playerType.AvailableSkillCategories.Exists(s => s.Id == existingAvailableSkillCategory.Id))
                 {
                     _context.AvailableSkillCategory.Remove(existingAvailableSkillCategory);
                 }
@@ -167,7 +167,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
                 return BadRequest();
             }
 
-            
+
 
             var playerType = _mapper.Map<PlayerType>(playerTypeDto);
 
@@ -182,7 +182,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
             }
 
             _context.PlayerType.Add(playerType);
-            
+
             await _context.SaveChangesAsync();
 
             var newPlayerType = await FindPlayerTypeDto(playerType.Id);
@@ -246,7 +246,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
 
         private async Task<bool> ValidatePlayerTypeDto(PlayerTypeDto playerTypeDto)
         {
-            return ValidateAvailableSkillCategoryDtos(playerTypeDto.AvailableSkillCategories) 
+            return ValidateAvailableSkillCategoryDtos(playerTypeDto.AvailableSkillCategories)
                 && await ValidateSkillDtos(playerTypeDto.StartingSkills);
         }
 

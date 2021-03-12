@@ -1,5 +1,6 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
 using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
 using BloodBowlData.Models.Skills;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,17 @@ namespace BloodBowlAPITests.Data
 {
     class SkillTestData
     {
+        public static IEnumerable<RuleSet> GetRuleSets()
+        {
+            return new RuleSet[]
+            {
+                new RuleSet()
+                {
+                    Id = RuleSetEnum.BloodBowl2,
+                    Name = "Blood Bowl 2"
+                }
+            };
+        }
 
         public static IEnumerable<SkillCategory> GetSkillCategories()
         {
@@ -18,7 +30,7 @@ namespace BloodBowlAPITests.Data
             {
                 new SkillCategory()
                 {
-                    Id = SkillCategoryEnum.Strength,
+                    Id = SkillCategoryEnum.General,
                     Name = "Skill Category 1",
                     ShortName = 'S'
                 }
@@ -30,10 +42,12 @@ namespace BloodBowlAPITests.Data
             return new Skill[]{
                 new Skill()
                 {
-                    Id = 1,
-                    Name = "Skill 1",
-                    Icon = "Icon 1",
-                    SkillCategoryId = SkillCategoryEnum.Strength
+                    Id = 1000,
+                    InternalName = "Skill1",
+                    LocalisationName = "SKILL_1",
+                    LocalisationDescription = "SKILL_1_DESCRIPTION",
+                    SkillCategoryId = SkillCategoryEnum.General,
+                    RuleSetId = RuleSetEnum.BloodBowl2
                 }
             };
         }
@@ -43,46 +57,15 @@ namespace BloodBowlAPITests.Data
             return new SkillDto[]{
                 new SkillDto()
                 {
-                    Id = 1,
-                    Name = "Skill 1",
-                    Icon = "Icon 1",
+                    Id = 1000,
+                    InternalName = "Skill1",
+                    LocalisationName = "SKILL_1",
+                    LocalisationDescription = "SKILL_1_DESCRIPTION",
+                    RuleSetId = 1,
+                    RuleSetName =  "Blood Bowl 2",
                     SkillCategoryId = 1,
                     SkillCategoryName = "Skill Category 1",
                     SkillCategoryShortName = 'S',
-                    SkillTypeId = 1,
-                    SkillTypeDescription = "Skill"
-                }
-            };
-        }
-
-        public static IEnumerable<Skill> GetExampleSkills()
-        {
-            return new Skill[]{
-                new Skill()
-                {
-                    Id = 2,
-                    Name = "Skill 2",
-                    Icon = "Icon 2",
-                    SkillCategoryId = BloodBowlData.Enums.SkillCategoryEnum.Strength,
-                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategoryEnum.Strength)
-                }
-            };
-        }
-
-        public static IEnumerable<SkillDto> GetExampleSkillDTOs()
-        {
-            return new SkillDto[]
-            {
-                new SkillDto()
-                {
-                    Id = 2,
-                    Name = "Skill 2",
-                    Icon = "Icon 2",
-                    SkillCategoryId = 1,
-                    SkillCategoryName = "Skill Category 1",
-                    SkillCategoryShortName = 'S',
-                    SkillTypeId = 1,
-                    SkillTypeDescription = "Skill"
                 }
             };
         }

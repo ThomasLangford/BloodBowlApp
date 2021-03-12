@@ -14,7 +14,6 @@ namespace BloodBowlAPI.DTOs.Skills
         public SkillsDtoProfile()
         {
             CreateMap<Skill, SkillDto>();
-            CreateMap<SkillDto, Skill>();
 
             CreateMap<SkillCategory, SkillCategoryDto>();
         }
