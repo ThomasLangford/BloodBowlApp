@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Seed
 {
-    static class SeedLevelUpType
+    public static class SeedLevelUpType
     {
         public static List<LevelUpType> GetSeed()
         {

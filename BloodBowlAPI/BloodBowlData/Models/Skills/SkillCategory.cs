@@ -16,5 +16,6 @@ namespace BloodBowlData.Models.Skills
 
         public List<Skill> Skills { get; set; }
         public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
+        public List<SkillCategoryRuleSet> SkillCategoryRuleSet { get; set; }
     }
 }

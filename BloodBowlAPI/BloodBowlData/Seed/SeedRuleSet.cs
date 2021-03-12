@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Seed
 {
-    static class SeedRuleSet
+    public static class SeedRuleSet
     {
         public static List<RuleSet> GetSeed()
         {
