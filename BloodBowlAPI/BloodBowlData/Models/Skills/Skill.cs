@@ -1,4 +1,5 @@
 ﻿using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
 using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
@@ -27,5 +28,9 @@ namespace BloodBowlData.Models.Skills
         public SkillCategory SkillCategory { get; set; }
 
         public List<StartingSkill> StartingSkills { get; set; }
+
+        [Required]
+        public RuleSetEnum RuleSetId { get; set; }
+        public RuleSet RuleSet { get; set; }
     }
 }

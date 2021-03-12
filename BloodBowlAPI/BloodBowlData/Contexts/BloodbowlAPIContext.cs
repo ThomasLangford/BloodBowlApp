@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using BloodBowlData.Seed;
 using BloodBowlData.Models.TeamTypes;
 using BloodBowlData.Models.Skills;
+using BloodBowlData.Models.Rules;
 
 namespace BloodBowlData.Contexts
 {
@@ -22,16 +23,17 @@ namespace BloodBowlData.Contexts
         public virtual DbSet<AvailableSkillCategory> AvailableSkillCategory { get; set; }
         public virtual DbSet<LevelUpType> LevelUpType { get; set; }
         public virtual DbSet<SkillCategory> SkillCategory { get; set; }
-        public virtual DbSet<StartingSkill> StartingSkill { get; set; }
+        public virtual DbSet<StartingSkill> StartingSkill { get; set; }        
+        public virtual DbSet<RuleSet> RuleSet { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    //#warning To protect potentially sensitive information in your connection string, 
-        //    //you should move it out of source code.See http://go.microsoft.com/fwlink/?LinkId=723263 
-        //    //for guidance on storing connection strings.
-
+        //
+        //    #warning To protect potentially sensitive information in your connection string, 
+        //    you should move it out of source code.See http://go.microsoft.com/fwlink/?LinkId=723263 
+        //    For guidance on storing connection strings.
+        //    Example:
         //    optionsBuilder.UseMySQL("server=localhost;database=bloodbowl;user=APICRUD;password=APICRUD");
-        //}
+        //
 
         public bool DoNotSeedData { get; set; }
 
@@ -41,6 +43,7 @@ namespace BloodBowlData.Contexts
 
             if (!DoNotSeedData)
             {
+                modelBuilder.Entity<RuleSet>().HasData(SeedRuleSet.GetSeed());
                 modelBuilder.Entity<SkillCategory>().HasData(SeedSkillCategory.GetSeed());
                 modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
             }
