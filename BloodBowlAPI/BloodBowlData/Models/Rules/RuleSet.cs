@@ -13,7 +13,7 @@ namespace BloodBowlData.Models.Rules
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Enums.RuleSetEnum Id { get; set; }
         public string Name { get; set; }
-
+        public bool Supported { get; set; } = false;
         public List<Skill> Skills { get; set; }
         public List<SkillCategoryRuleSet> SkillCategoryRuleSet { get; set; }
     }

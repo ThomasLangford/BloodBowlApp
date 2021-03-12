@@ -8,7 +8,7 @@ namespace BloodBowlData.Enums
 {
     public enum RuleSetEnum
     {
-        BloodBowl2,
+        BloodBowl2 = 1,
         BloodBowl2020
     }
 }

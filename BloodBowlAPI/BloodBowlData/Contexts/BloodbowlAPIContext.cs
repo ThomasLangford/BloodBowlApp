@@ -24,7 +24,7 @@ namespace BloodBowlData.Contexts
         public virtual DbSet<LevelUpType> LevelUpType { get; set; }
         public virtual DbSet<SkillCategory> SkillCategory { get; set; }
         public virtual DbSet<SkillCategoryRuleSet> SkillCategoryRuleSet { get; set; }
-        public virtual DbSet<StartingSkill> StartingSkill { get; set; }        
+        public virtual DbSet<StartingSkill> StartingSkill { get; set; }
         public virtual DbSet<RuleSet> RuleSet { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -47,7 +47,9 @@ namespace BloodBowlData.Contexts
                 modelBuilder.Entity<RuleSet>().HasData(SeedRuleSet.GetSeed());
                 modelBuilder.Entity<SkillCategory>().HasData(SeedSkillCategory.GetSeed());
                 modelBuilder.Entity<SkillCategoryRuleSet>().HasData(SeedSkillCategory.GetSeedSkillCategoryRuleSet());
-                modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());                
+                modelBuilder.Entity<Skill>().HasData(SeedBloodBowl2Skills.SeedSkills());
+
+                modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
             }
         }
 

@@ -18,7 +18,7 @@ namespace BloodBowlData.Seed
                 {
                     Id = SkillCategoryEnum.General,
                     Name = "General",
-                    ShortName = 'G'                    
+                    ShortName = 'G'
                 },
                 new SkillCategory
                 {
@@ -37,6 +37,12 @@ namespace BloodBowlData.Seed
                     Id = SkillCategoryEnum.Agility,
                     Name = "Agility",
                     ShortName = 'A'
+                },
+                new SkillCategory
+                {
+                    Id = SkillCategoryEnum.Mutation,
+                    Name = "Mutation",
+                    ShortName = 'M'
                 },
                 new SkillCategory
                 {

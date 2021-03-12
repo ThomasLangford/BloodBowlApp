@@ -17,11 +17,15 @@ namespace BloodBowlData.Models.Skills
 
         [Required]
         [MaxLength(500)]
-        public string Name { get; set; }
+        public string InternalName { get; set; }
 
         [Required]
         [MaxLength(500)]
-        public string Icon { get; set; }
+        public string LocalisationName { get; set; }
+
+        [Required]
+        [MaxLength(500)]
+        public string LocalisationDescription { get; set; }
 
         [Required]
         public SkillCategoryEnum SkillCategoryId { get; set; }

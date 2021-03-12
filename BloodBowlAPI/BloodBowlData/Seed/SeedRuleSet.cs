@@ -16,7 +16,8 @@ namespace BloodBowlData.Seed
                 new RuleSet
                 {
                     Id = Enums.RuleSetEnum.BloodBowl2,
-                    Name = "Blood Bowl 2"
+                    Name = "Blood Bowl 2",
+                    Supported = true
                 },
                 new RuleSet
                 {
