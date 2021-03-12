@@ -46,7 +46,7 @@ namespace BloodBowlData.Contexts
             {
                 modelBuilder.Entity<RuleSet>().HasData(SeedRuleSet.GetSeed());
                 modelBuilder.Entity<SkillCategory>().HasData(SeedSkillCategory.GetSeed());
-                modelBuilder.Entity<SkillCategoryRuleSet>().HasData(SeedSkillCategory.SeedSkillCategoryRuleSet());
+                modelBuilder.Entity<SkillCategoryRuleSet>().HasData(SeedSkillCategory.GetSeedSkillCategoryRuleSet());
                 modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());                
             }
         }

@@ -47,7 +47,7 @@ namespace BloodBowlData.Seed
             };
         }
 
-        public static List<SkillCategoryRuleSet> SeedSkillCategoryRuleSet()
+        public static List<SkillCategoryRuleSet> GetSeedSkillCategoryRuleSet()
         {
             return new List<SkillCategoryRuleSet>
             {
