@@ -30,8 +30,8 @@ jobs:
       run: |
         npm install -g @angular/cli
         npm install
-    - name: Lint
+    - name: Ng Lint
       run: npm run lint
-    - name: Test
+    - name: Ng Test
       run: ng test --prod
 
