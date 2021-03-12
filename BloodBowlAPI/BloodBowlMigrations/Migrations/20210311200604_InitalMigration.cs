@@ -2,7 +2,7 @@
 
 namespace BloodBowlMigrations.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitalMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace BloodBowlMigrations.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -29,20 +29,6 @@ namespace BloodBowlMigrations.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SkillCategory", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SkillType",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsAvailableToBuy = table.Column<bool>(type: "bit", nullable: false),
-                    Cost = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SkillType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,7 +55,6 @@ namespace BloodBowlMigrations.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     Icon = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    SKillTypeId = table.Column<int>(type: "int", nullable: false),
                     SkillCategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -79,12 +64,6 @@ namespace BloodBowlMigrations.Migrations
                         name: "FK_Skill_SkillCategory_SkillCategoryId",
                         column: x => x.SkillCategoryId,
                         principalTable: "SkillCategory",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Skill_SkillType_SKillTypeId",
-                        column: x => x.SKillTypeId,
-                        principalTable: "SkillType",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -176,7 +155,7 @@ namespace BloodBowlMigrations.Migrations
 
             migrationBuilder.InsertData(
                 table: "LevelUpType",
-                columns: new[] { "Id", "Description" },
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
                     { 1, "Normal" },
@@ -184,12 +163,15 @@ namespace BloodBowlMigrations.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "SkillType",
-                columns: new[] { "Id", "Cost", "Description", "IsAvailableToBuy" },
+                table: "SkillCategory",
+                columns: new[] { "Id", "Name", "ShortName" },
                 values: new object[,]
                 {
-                    { 1, 10, "Skill", true },
-                    { 2, null, "Extraordinary Skill", false }
+                    { 1, "General", "G" },
+                    { 2, "Strength", "S" },
+                    { 3, "Passing", "P" },
+                    { 4, "Agility", "A" },
+                    { 6, "Extraordinary", "E" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -226,11 +208,6 @@ namespace BloodBowlMigrations.Migrations
                 name: "IX_Skill_SkillCategoryId",
                 table: "Skill",
                 column: "SkillCategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Skill_SKillTypeId",
-                table: "Skill",
-                column: "SKillTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -252,9 +229,6 @@ namespace BloodBowlMigrations.Migrations
 
             migrationBuilder.DropTable(
                 name: "SkillCategory");
-
-            migrationBuilder.DropTable(
-                name: "SkillType");
 
             migrationBuilder.DropTable(
                 name: "TeamType");

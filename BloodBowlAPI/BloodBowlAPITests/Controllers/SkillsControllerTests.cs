@@ -53,7 +53,6 @@ namespace BloodBowlAPITests.Controllers
             bloodBowlAPIContext.Database.EnsureDeleted();
             bloodBowlAPIContext.Database.EnsureCreated();
 
-            bloodBowlAPIContext.SkillType.AddRange(SkillTestData.GetSkillTypes());
             bloodBowlAPIContext.SkillCategory.AddRange(SkillTestData.GetSkillCategories());
             bloodBowlAPIContext.Skill.AddRange(SkillTestData.GetSkills());
             
