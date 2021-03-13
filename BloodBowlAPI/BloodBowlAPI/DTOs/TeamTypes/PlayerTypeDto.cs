@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BloodBowlAPI.DTOs.Skills;
-using BloodBowlData.Models;
+using BloodBowlAPI.Models;
 
 namespace BloodBowlAPI.DTOs.TeamTypes
 {

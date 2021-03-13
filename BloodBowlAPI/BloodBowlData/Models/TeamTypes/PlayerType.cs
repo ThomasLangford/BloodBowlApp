@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Models.TeamTypes
+namespace BloodBowlAPI.Models.TeamTypes
 {
     public class PlayerType
     {

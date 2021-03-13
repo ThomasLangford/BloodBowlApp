@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Contexts;
+using BloodBowlAPI.Contexts;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BloodBowlData.Models.Skills;
+using BloodBowlAPI.Models.Skills;
 using BloodBowlAPI.DTOs.Skills;
 
 namespace BloodBowlAPI.Controllers.Skills
@@ -51,7 +51,7 @@ namespace BloodBowlAPI.Controllers.Skills
                 .Include(s => s.Skills);
         }
 
-        private IQueryable<SkillCategory> GetSkillCatagoryQueryable(BloodBowlData.Enums.SkillCategoryEnum id)
+        private IQueryable<SkillCategory> GetSkillCatagoryQueryable(BloodBowlAPI.Enums.SkillCategoryEnum id)
         {
 
 
@@ -69,12 +69,12 @@ namespace BloodBowlAPI.Controllers.Skills
 
         private async Task<SkillCategoryDto> GetSkillCategoryDTO(int id)
         {
-            if (!Enum.IsDefined(typeof(BloodBowlData.Enums.SkillCategoryEnum), id))
+            if (!Enum.IsDefined(typeof(BloodBowlAPI.Enums.SkillCategoryEnum), id))
             {
                 return null;
             }
 
-            var enumId = (BloodBowlData.Enums.SkillCategoryEnum)id;
+            var enumId = (BloodBowlAPI.Enums.SkillCategoryEnum)id;
 
             return await GetSkillCatagoryQueryable(enumId)
                 .ProjectTo<SkillCategoryDto>(_mapper.ConfigurationProvider)

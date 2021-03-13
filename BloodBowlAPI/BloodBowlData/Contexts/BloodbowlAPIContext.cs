@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Seed;
-using BloodBowlData.Models.TeamTypes;
-using BloodBowlData.Models.Skills;
-using BloodBowlData.Models.Rules;
+using BloodBowlAPI.Seed;
+using BloodBowlAPI.Models.TeamTypes;
+using BloodBowlAPI.Models.Skills;
+using BloodBowlAPI.Models.Rules;
+using BloodBowlAPI.Seed.BloodBowl2;
 
-namespace BloodBowlData.Contexts
+namespace BloodBowlAPI.Contexts
 {
     public class BloodBowlAPIContext : DbContext
     {
@@ -47,7 +48,7 @@ namespace BloodBowlData.Contexts
                 modelBuilder.Entity<RuleSet>().HasData(SeedRuleSet.GetSeed());
                 modelBuilder.Entity<SkillCategory>().HasData(SeedSkillCategory.GetSeed());
                 modelBuilder.Entity<SkillCategoryRuleSet>().HasData(SeedSkillCategory.GetSeedSkillCategoryRuleSet());
-                modelBuilder.Entity<Skill>().HasData(SeedBloodBowl2Skills.SeedSkills());
+                modelBuilder.Entity<Skill>().HasData(SeedSkill.SeedSkills());
 
                 modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
             }

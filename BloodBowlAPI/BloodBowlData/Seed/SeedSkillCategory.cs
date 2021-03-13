@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BloodBowlData.Enums;
-using BloodBowlData.Models.Skills;
+using BloodBowlAPI.Enums;
+using BloodBowlAPI.Models.Skills;
 
-namespace BloodBowlData.Seed
+namespace BloodBowlAPI.Seed
 {
     public static class SeedSkillCategory
     {
@@ -17,38 +17,44 @@ namespace BloodBowlData.Seed
                 new SkillCategory
                 {
                     Id = SkillCategoryEnum.General,
-                    Name = "General",
-                    ShortName = 'G'
+                    InternalName = "General",
+                    LocalizationName = "SkillCategory.Name.General",
+                    LocalizationShortName = "SkillCategory.ShortName.General"
                 },
                 new SkillCategory
                 {
                     Id = SkillCategoryEnum.Strength,
-                    Name = "Strength",
-                    ShortName = 'S'
+                    InternalName = "Strength",
+                    LocalizationName = "SkillCategory.Name.Strength",
+                    LocalizationShortName = "SkillCategory.ShortName.Strength"
                 },
                 new SkillCategory
                 {
                     Id = SkillCategoryEnum.Passing,
-                    Name = "Passing",
-                    ShortName = 'P'
+                    InternalName = "Passing",
+                    LocalizationName = "SkillCategory.Name.Passing",
+                    LocalizationShortName = "SkillCategory.ShortName.Passing"
                 },
                 new SkillCategory
                 {
                     Id = SkillCategoryEnum.Agility,
-                    Name = "Agility",
-                    ShortName = 'A'
+                    InternalName = "Agility",
+                    LocalizationName = "SkillCategory.Name.Agility",
+                    LocalizationShortName = "SkillCategory.ShortName.Agility"
                 },
                 new SkillCategory
                 {
                     Id = SkillCategoryEnum.Mutation,
-                    Name = "Mutation",
-                    ShortName = 'M'
+                    InternalName = "Mutation",
+                    LocalizationName = "SkillCategory.Name.Mutation",
+                    LocalizationShortName = "SkillCategory.ShortName.Mutation"
                 },
                 new SkillCategory
                 {
                     Id = SkillCategoryEnum.Extraordinary,
-                    Name = "Extraordinary",
-                    ShortName = 'E'
+                    InternalName = "Extraordinary",
+                    LocalizationName = "SkillCategory.Name.Extraordinary",
+                    LocalizationShortName = "SkillCategory.ShortName.Extraordinary"
                 },
             };
         }

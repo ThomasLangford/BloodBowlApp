@@ -1,6 +1,6 @@
-﻿using BloodBowlData.Enums;
-using BloodBowlData.Models.Rules;
-using BloodBowlData.Models.TeamTypes;
+﻿using BloodBowlAPI.Enums;
+using BloodBowlAPI.Models.Rules;
+using BloodBowlAPI.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Models.Skills
+namespace BloodBowlAPI.Models.Skills
 {
     public class Skill
     {
@@ -21,11 +21,11 @@ namespace BloodBowlData.Models.Skills
 
         [Required]
         [MaxLength(500)]
-        public string LocalisationName { get; set; }
+        public string LocalizationName { get; set; }
 
         [Required]
         [MaxLength(500)]
-        public string LocalisationDescription { get; set; }
+        public string LocalizationDescription { get; set; }
 
         [Required]
         public SkillCategoryEnum SkillCategoryId { get; set; }

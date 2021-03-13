@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Contexts;
+using BloodBowlAPI.Contexts;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BloodBowlData.Models.Skills;
+using BloodBowlAPI.Models.Skills;
 using BloodBowlAPI.DTOs.Skills;
+using Microsoft.Extensions.Localization;
+using BloodBowlAPI.Resources;
 
 namespace BloodBowlAPI.Controllers.Skills
 {
@@ -20,10 +22,12 @@ namespace BloodBowlAPI.Controllers.Skills
         private readonly BloodBowlAPIContext _context;
         private readonly IMapper _mapper;
 
-        public SkillsController(BloodBowlAPIContext context, IMapper mapper)
+        public SkillsController(BloodBowlAPIContext context, IMapper mapper, IStringLocalizer<Resource> localization)
         {
             _context = context;
             _mapper = mapper;
+
+            var a = localization["test"];
         }
 
         // GET: api/Skills
@@ -48,7 +52,7 @@ namespace BloodBowlAPI.Controllers.Skills
         }
 
         private async Task<List<SkillDto>> GetAllSkillDtos()
-        {
+        {                
             return await _context.Skill
                 .Include(s => s.SkillCategory)
                 .Include(s => s.RuleSet)

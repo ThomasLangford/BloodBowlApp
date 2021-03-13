@@ -11,12 +11,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Contexts;
+using BloodBowlAPI.Contexts;
 using Microsoft.OpenApi.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
 using BloodBowlAPI.DTOs.Skills;
 using BloodBowlAPI.DTOs.TeamTypes;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using BloodBowlAPI.Resources;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 
 namespace BloodBowlAPI
 {
@@ -32,8 +37,31 @@ namespace BloodBowlAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
-            services.AddControllers();
+            services.AddLocalization();
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+                                    {
+                                        new CultureInfo("en-US")
+                                    };
+
+                options.DefaultRequestCulture = new RequestCulture("en-US");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+            services.AddRequestLocalization(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+                                    {
+                                        new CultureInfo("en-US")
+                                    };
+
+                options.DefaultRequestCulture = new RequestCulture("en-US");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
 
             services.AddDbContext<BloodBowlAPIContext>(
                 dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database.ConnectionString"])
@@ -44,22 +72,28 @@ namespace BloodBowlAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" });
             });
 
-            var mapperConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new SkillsDtoProfile());
-                mc.AddProfile(new TeamTypesDtoProfile());
-            });
+            //services.AddLocalization();
 
-            IMapper mapper = mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
+
+            services.AddAutoMapper(typeof(Startup).Assembly);
+
+            services.AddCors();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var supportedCultures = new[] { "en-US" };
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+            app.UseRequestLocalization(localizationOptions);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test v1"));
             }
@@ -75,6 +109,10 @@ namespace BloodBowlAPI
             .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
+
+            var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(locOptions.Value);
+
 
             app.UseEndpoints(endpoints =>
             {

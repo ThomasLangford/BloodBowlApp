@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Contexts;
+using BloodBowlAPI.Contexts;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BloodBowlData.Models.TeamTypes;
+using BloodBowlAPI.Models.TeamTypes;
 using BloodBowlAPI.DTOs.TeamTypes;
 
 namespace BloodBowlAPI.Controllers.TeamTypes
@@ -46,7 +46,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
             return Skill;
         }
 
-        private IQueryable<LevelUpType> GetSkillCatagoryQueryable(BloodBowlData.Enums.LevelUpTypeEnum id)
+        private IQueryable<LevelUpType> GetSkillCatagoryQueryable(BloodBowlAPI.Enums.LevelUpTypeEnum id)
         {
             return _context.LevelUpType
                 .Where(s => s.Id == id);
@@ -61,12 +61,12 @@ namespace BloodBowlAPI.Controllers.TeamTypes
 
         private async Task<LevelUpTypeDto> GetLevelUpTypeDTO(int id)
         {
-            if (!Enum.IsDefined(typeof(BloodBowlData.Enums.LevelUpTypeEnum), id))
+            if (!Enum.IsDefined(typeof(BloodBowlAPI.Enums.LevelUpTypeEnum), id))
             {
                 return null;
             }
 
-            var enumId = (BloodBowlData.Enums.LevelUpTypeEnum)id;
+            var enumId = (BloodBowlAPI.Enums.LevelUpTypeEnum)id;
 
             return await GetSkillCatagoryQueryable(enumId)
                 .ProjectTo<LevelUpTypeDto>(_mapper.ConfigurationProvider)

@@ -1,7 +1,7 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
-using BloodBowlData.Enums;
-using BloodBowlData.Models.Rules;
-using BloodBowlData.Models.Skills;
+using BloodBowlAPI.Enums;
+using BloodBowlAPI.Models.Rules;
+using BloodBowlAPI.Models.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +31,8 @@ namespace BloodBowlAPITests.Data
                 new SkillCategory()
                 {
                     Id = SkillCategoryEnum.General,
-                    Name = "Skill Category 1",
-                    ShortName = 'S'
+                    LocalizationName = "Skill Category 1",
+                    LocalizationShortName = "S"
                 }
             };
         }
@@ -44,8 +44,8 @@ namespace BloodBowlAPITests.Data
                 {
                     Id = 1000,
                     InternalName = "Skill1",
-                    LocalisationName = "SKILL_1",
-                    LocalisationDescription = "SKILL_1_DESCRIPTION",
+                    LocalizationName = "SKILL_1",
+                    LocalizationDescription = "SKILL_1_DESCRIPTION",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 }
@@ -59,13 +59,13 @@ namespace BloodBowlAPITests.Data
                 {
                     Id = 1000,
                     InternalName = "Skill1",
-                    LocalisationName = "SKILL_1",
-                    LocalisationDescription = "SKILL_1_DESCRIPTION",
+                    Name = "$T$_SKILL_1",
+                    Description = "$T$_SKILL_1_DESCRIPTION",
                     RuleSetId = 1,
                     RuleSetName =  "Blood Bowl 2",
                     SkillCategoryId = 1,
-                    SkillCategoryName = "Skill Category 1",
-                    SkillCategoryShortName = 'S',
+                    SkillCategoryName = "$T$_Skill Category 1",
+                    SkillCategoryShortName = "$T$_S",
                 }
             };
         }

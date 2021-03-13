@@ -1,14 +1,14 @@
-﻿using BloodBowlData.Models.Skills;
-using BloodBowlData.Enums;
+﻿using BloodBowlAPI.Models.Skills;
+using BloodBowlAPI.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Seed
+namespace BloodBowlAPI.Seed.BloodBowl2
 {
-    public static class SeedBloodBowl2Skills
+    public static class SeedSkill
     {
         public static List<Skill> SeedSkills()
         {
@@ -27,225 +27,216 @@ namespace BloodBowlData.Seed
         {
             return new List<Skill>
             {
-                new Skill
+                new Skill 
                 {
                     Id = 1,
                     InternalName = "Block",
-                    LocalisationName = "SKILL_NAME_BLOCK",
-                    LocalisationDescription = "SKILL_DESCRIPTION_BLOCK",
+                    LocalizationName = "Skill.Name.Block",
+                    LocalizationDescription = "Skill.Description.BB2.Block",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 2,
                     InternalName = "Dauntless",
-                    LocalisationName = "SKILL_NAME_DAUNTLESS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DAUNTLESS",
+                    LocalizationName = "Skill.Name.Dauntless",
+                    LocalizationDescription = "Skill.Description.BB2.Dauntless",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 3,
                     InternalName = "DirtyPlayer",
-                    LocalisationName = "SKILL_NAME_DIRTYPLAYER",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DIRTYPLAYER",
+                    LocalizationName = "Skill.Name.DirtyPlayer",
+                    LocalizationDescription = "Skill.Description.BB2.DirtyPlayer",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 4,
                     InternalName = "Fend",
-                    LocalisationName = "SKILL_NAME_FEND",
-                    LocalisationDescription = "SKILL_DESCRIPTION_FEND",
+                    LocalizationName = "Skill.Name.Fend",
+                    LocalizationDescription = "Skill.Description.BB2.Fend",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 5,
                     InternalName = "Frenzy",
-                    LocalisationName = "SKILL_NAME_FRENZY",
-                    LocalisationDescription = "SKILL_DESCRIPTION_FRENZY",
+                    LocalizationName = "Skill.Name.Frenzy",
+                    LocalizationDescription = "Skill.Description.BB2.Frenzy",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 6,
                     InternalName = "Kick",
-                    LocalisationName = "SKILL_NAME_KICK",
-                    LocalisationDescription = "SKILL_DESCRIPTION_KICK",
+                    LocalizationName = "Skill.Name.Kick",
+                    LocalizationDescription = "Skill.Description.BB2.Kick",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 7,
                     InternalName = "KickOffReturn",
-                    LocalisationName = "SKILL_NAME_KICKOFFRETURN",
-                    LocalisationDescription = "SKILL_DESCRIPTION_KICKOFFRETURN",
+                    LocalizationName = "Skill.Name.KickOffReturn",
+                    LocalizationDescription = "Skill.Description.BB2.KickOffReturn",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 8,
                     InternalName = "PassBlock",
-                    LocalisationName = "SKILL_NAME_PASSBLOCK",
-                    LocalisationDescription = "SKILL_DESCRIPTION_PASSBLOCK",
+                    LocalizationName = "Skill.Name.PassBlock",
+                    LocalizationDescription = "Skill.Description.BB2.PassBlock",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 9,
                     InternalName = "Pro",
-                    LocalisationName = "SKILL_NAME_PRO",
-                    LocalisationDescription = "SKILL_DESCRIPTION_PRO",
+                    LocalizationName = "Skill.Name.Pro",
+                    LocalizationDescription = "Skill.Description.BB2.Pro",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 10,
                     InternalName = "Shadowing",
-                    LocalisationName = "SKILL_NAME_SHADOWING",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SHADOWING",
+                    LocalizationName = "Skill.Name.Shadowing",
+                    LocalizationDescription = "Skill.Description.BB2.Shadowing",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 11,
                     InternalName = "StripBall",
-                    LocalisationName = "SKILL_NAME_STRIPBALL",
-                    LocalisationDescription = "SKILL_DESCRIPTION_STRIPBALL",
+                    LocalizationName = "Skill.Name.StripBall",
+                    LocalizationDescription = "Skill.Description.BB2.StripBall",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 12,
                     InternalName = "SureHands",
-                    LocalisationName = "SKILL_NAME_SUREHANDS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SUREHANDS",
+                    LocalizationName = "Skill.Name.SureHands",
+                    LocalizationDescription = "Skill.Description.BB2.SureHands",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 13,
                     InternalName = "Tackle",
-                    LocalisationName = "SKILL_NAME_TACKLE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_TACKLE",
+                    LocalizationName = "Skill.Name.Tackle",
+                    LocalizationDescription = "Skill.Description.BB2.Tackle",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 14,
                     InternalName = "Wrestle",
-                    LocalisationName = "SKILL_NAME_WRESTLE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_WRESTLE",
+                    LocalizationName = "Skill.Name.Wrestle",
+                    LocalizationDescription = "Skill.Description.BB2.Wrestle",
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
+
             };
         }
         public static List<Skill> SeedAgilitySkills()
         {
             return new List<Skill>
             {
-                new Skill
-                {
+                new Skill {
                     Id = 15,
                     InternalName = "Catch",
-                    LocalisationName = "SKILL_NAME_CATCH",
-                    LocalisationDescription = "SKILL_DESCRIPTION_CATCH",
+                    LocalizationName = "Skill.Name.Catch",
+                    LocalizationDescription = "Skill.Description.BB2.Catch",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 16,
                     InternalName = "DivingCatch",
-                    LocalisationName = "SKILL_NAME_DIVINGCATCH",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DIVINGCATCH",
+                    LocalizationName = "Skill.Name.DivingCatch",
+                    LocalizationDescription = "Skill.Description.BB2.DivingCatch",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 17,
                     InternalName = "DivingTackle",
-                    LocalisationName = "SKILL_NAME_DIVINGTACKLE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DIVINGTACKLE",
+                    LocalizationName = "Skill.Name.DivingTackle",
+                    LocalizationDescription = "Skill.Description.BB2.DivingTackle",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 18,
                     InternalName = "Dodge",
-                    LocalisationName = "SKILL_NAME_DODGE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DODGE",
+                    LocalizationName = "Skill.Name.Dodge",
+                    LocalizationDescription = "Skill.Description.BB2.Dodge",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 19,
                     InternalName = "JumpUp",
-                    LocalisationName = "SKILL_NAME_JUMPUP",
-                    LocalisationDescription = "SKILL_DESCRIPTION_JUMPUP",
+                    LocalizationName = "Skill.Name.JumpUp",
+                    LocalizationDescription = "Skill.Description.BB2.JumpUp",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 20,
-                    InternalName = "Leap",
-                    LocalisationName = "SKILL_NAME_LEAP",
-                    LocalisationDescription = "SKILL_DESCRIPTION_LEAP",
+                    InternalName = "Leap",  
+                    LocalizationName = "Skill.Name.Leap",
+                    LocalizationDescription = "Skill.Description.BB2.Leap",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 21,
                     InternalName = "SideStep",
-                    LocalisationName = "SKILL_NAME_SIDESTEP",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SIDESTEP",
+                    LocalizationName = "Skill.Name.SideStep",
+                    LocalizationDescription = "Skill.Description.BB2.SideStep",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 22,
                     InternalName = "SneakyGit",
-                    LocalisationName = "SKILL_NAME_SNEAKYGIT",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SNEAKYGIT",
+                    LocalizationName = "Skill.Name.SneakyGit",
+                    LocalizationDescription = "Skill.Description.BB2.SneakyGit",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 23,
                     InternalName = "Sprint",
-                    LocalisationName = "SKILL_NAME_SPRINT",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SPRINT",
+                    LocalizationName = "Skill.Name.Sprint",
+                    LocalizationDescription = "Skill.Description.BB2.Sprint",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 24,
                     InternalName = "SureFeet",
-                    LocalisationName = "SKILL_NAME_SUREFEET",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SUREFEET",
+                    LocalizationName = "Skill.Name.SureFeet",
+                    LocalizationDescription = "Skill.Description.BB2.SureFeet",
                     SkillCategoryId = SkillCategoryEnum.Agility,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
@@ -255,66 +246,66 @@ namespace BloodBowlData.Seed
         {
             return new List<Skill>
             {
-                new Skill
+                new Skill 
                 {
                     Id = 25,
                     InternalName = "Accurate",
-                    LocalisationName = "SKILL_NAME_ACCURATE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_ACCURATE",
+                    LocalizationName = "Skill.Name.Accurate",
+                    LocalizationDescription = "Skill.Description.BB2.Accurate",
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 26,
                     InternalName = "DumpOff",
-                    LocalisationName = "SKILL_NAME_DUMPOFF",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DUMPOFF",
+                    LocalizationName = "Skill.Name.DumpOff",
+                    LocalizationDescription = "Skill.Description.BB2.DumpOff",
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 27,
                     InternalName = "HailMaryPass",
-                    LocalisationName = "SKILL_NAME_HAILMARYPASS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_HAILMARYPASS",
+                    LocalizationName = "Skill.Name.HailMaryPass",
+                    LocalizationDescription = "Skill.Description.BB2.HailMaryPass",
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 28,
                     InternalName = "Leader",
-                    LocalisationName = "SKILL_NAME_LEADER",
-                    LocalisationDescription = "SKILL_DESCRIPTION_LEADER",
+                    LocalizationName = "Skill.Name.Leader",
+                    LocalizationDescription = "Skill.Description.BB2.Leader",
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 29,
                     InternalName = "NervesOfSteel",
-                    LocalisationName = "SKILL_NAME_NERVESOFSTEEL",
-                    LocalisationDescription = "SKILL_DESCRIPTION_NERVESOFSTEEL",
+                    LocalizationName = "Skill.Name.NervesOfSteel",
+                    LocalizationDescription = "Skill.Description.BB2.NervesOfSteel",
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 30,
                     InternalName = "Pass",
-                    LocalisationName = "SKILL_NAME_PASS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_PASS",
+                    LocalizationName = "Skill.Name.Pass",
+                    LocalizationDescription = "Skill.Description.BB2.Pass",
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 31,
                     InternalName = "SafeThrow",
-                    LocalisationName = "SKILL_NAME_SAFETHROW",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SAFETHROW",
+                    LocalizationName = "Skill.Name.SafeThrow",
+                    LocalizationDescription = "Skill.Description.BB2.SafeThrow",
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
@@ -324,21 +315,21 @@ namespace BloodBowlData.Seed
         {
             return new List<Skill>
             {
-                new Skill
+                new Skill 
                 {
                     Id = 32,
                     InternalName = "BreakTackle",
-                    LocalisationName = "SKILL_NAME_BREAKTACLE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_BREAKTACLE",
+                    LocalizationName = "Skill.Name.BreakTackle",
+                    LocalizationDescription = "Skill.Description.BB2.BreakTackle",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 33,
                     InternalName = "Grab",
-                    LocalisationName = "SKILL_NAME_GRAB",
-                    LocalisationDescription = "SKILL_DESCRIPTION_GRAB",
+                    LocalizationName = "Skill.Name.Grab",
+                    LocalizationDescription = "Skill.Description.BB2.Grab",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
@@ -346,53 +337,53 @@ namespace BloodBowlData.Seed
                 {
                     Id = 34,
                     InternalName = "Guard",
-                    LocalisationName = "SKILL_NAME_GUARD",
-                    LocalisationDescription = "SKILL_DESCRIPTION_GUARD",
+                    LocalizationName = "Skill.Name.Guard",
+                    LocalizationDescription = "Skill.Description.BB2.Guard",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 35,
                     InternalName = "Juggernaut",
-                    LocalisationName = "SKILL_NAME_JUGGERNAUT",
-                    LocalisationDescription = "SKILL_DESCRIPTION_JUGGERNAUT",
+                    LocalizationName = "Skill.Name.Juggernaut",
+                    LocalizationDescription = "Skill.Description.BB2.Juggernaut",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 36,
                     InternalName = "MightyBlow",
-                    LocalisationName = "SKILL_NAME_MIGHTYBLOW",
-                    LocalisationDescription = "SKILL_DESCRIPTION_MIGHTYBLOW",
+                    LocalizationName = "Skill.Name.MightyBlow",
+                    LocalizationDescription = "Skill.Description.BB2.MightyBlow",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 37,
                     InternalName = "MultipleBlock",
-                    LocalisationName = "SKILL_NAME_MULTIPLEBLOCK",
-                    LocalisationDescription = "SKILL_DESCRIPTION_MULTIPLEBLOCK",
+                    LocalizationName = "Skill.Name.MultipleBlock",
+                    LocalizationDescription = "Skill.Description.BB2.MultipleBlock",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 38,
                     InternalName = "PilingOn",
-                    LocalisationName = "SKILL_NAME_PILINGON",
-                    LocalisationDescription = "SKILL_DESCRIPTION_PILINGON",
+                    LocalizationName = "Skill.Name.PilingOn",
+                    LocalizationDescription = "Skill.Description.BB2.PilingOn",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 39,
                     InternalName = "StandFirm",
-                    LocalisationName = "SKILL_NAME_STANDFIRM",
-                    LocalisationDescription = "SKILL_DESCRIPTION_STANDFIRM",
+                    LocalizationName = "Skill.Name.StandFirm",
+                    LocalizationDescription = "Skill.Description.BB2.StandFirm",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
@@ -400,17 +391,17 @@ namespace BloodBowlData.Seed
                 {
                     Id = 40,
                     InternalName = "StrongArm",
-                    LocalisationName = "SKILL_NAME_STRONGARM",
-                    LocalisationDescription = "SKILL_DESCRIPTION_STRONGARM",
+                    LocalizationName = "Skill.Name.StrongArm",
+                    LocalizationDescription = "Skill.Description.BB2.StrongArm",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 41,
                     InternalName = "ThickSkull",
-                    LocalisationName = "SKILL_NAME_THICKSKULL",
-                    LocalisationDescription = "SKILL_DESCRIPTION_THICKSKULL",
+                    LocalizationName = "Skill.Name.ThickSkull",
+                    LocalizationDescription = "Skill.Description.BB2.ThickSkull",
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
@@ -420,57 +411,57 @@ namespace BloodBowlData.Seed
         {
             return new List<Skill>
             {
-                new Skill
+                new Skill 
                 {
                     Id = 42,
                     InternalName = "BigHand",
-                    LocalisationName = "SKILL_NAME_BIGHAND",
-                    LocalisationDescription = "SKILL_DESCRIPTION_BIGHAND",
+                    LocalizationName = "Skill.Name.BigHand",
+                    LocalizationDescription = "Skill.Description.BB2.BigHand",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 43,
                     InternalName = "Claw",
-                    LocalisationName = "SKILL_NAME_CLAWS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_CLAWS",
+                    LocalizationName = "Skill.Name.Claw",
+                    LocalizationDescription = "Skill.Description.BB2.Claw",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 44,
                     InternalName = "DisturbingPresence",
-                    LocalisationName = "SKILL_NAME_DISTURBINGPRESENCE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DISTURBINGPRESENCE",
+                    LocalizationName = "Skill.Name.DisturbingPresence",
+                    LocalizationDescription = "Skill.Description.BB2.DisturbingPresence",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 45,
                     InternalName = "ExtraArms",
-                    LocalisationName = "SKILL_NAME_EXTRAARM",
-                    LocalisationDescription = "SKILL_DESCRIPTION_EXTRAARM",
+                    LocalizationName = "Skill.Name.ExtraArms",
+                    LocalizationDescription = "Skill.Description.BB2.ExtraArms",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 46,
                     InternalName = "FoulAppearance",
-                    LocalisationName = "SKILL_NAME_FOULAPPEARANCE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_FOULAPPEARANCE",
+                    LocalizationName = "Skill.Name.FoulAppearance",
+                    LocalizationDescription = "Skill.Description.BB2.FoulAppearance",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 47,
                     InternalName = "Horns",
-                    LocalisationName = "SKILL_NAME_HORNS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_HORNS",
+                    LocalizationName = "Skill.Name.Horns",
+                    LocalizationDescription = "Skill.Description.BB2.Horns",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
@@ -478,45 +469,35 @@ namespace BloodBowlData.Seed
                 {
                     Id = 48,
                     InternalName = "PrehensileTail",
-                    LocalisationName = "SKILL_NAME_PREHENSIVETAIL",
-                    LocalisationDescription = "SKILL_DESCRIPTION_PREHENSIVETAIL",
+                    LocalizationName = "Skill.Name.PrehensileTail",
+                    LocalizationDescription = "Skill.Description.BB2.PrehensileTail",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 49,
                     InternalName = "Tentacles",
-                    LocalisationName = "SKILL_NAME_TENTACULES",
-                    LocalisationDescription = "SKILL_DESCRIPTION_TENTACULES",
+                    LocalizationName = "Skill.Name.Tentacles",
+                    LocalizationDescription = "Skill.Description.BB2.Tentacles",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 50,
                     InternalName = "TwoHeads",
-                    LocalisationName = "SKILL_NAME_TWOHEADS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_TWOHEADS",
+                    LocalizationName = "Skill.Name.TwoHeads",
+                    LocalizationDescription = "Skill.Description.BB2.TwoHeads",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
-                {
+                new Skill {
                     Id = 51,
                     InternalName = "VeryLongLegs",
-                    LocalisationName = "SKILL_NAME_VERYLONGLEGS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_VERYLONGLEGS",
+                    LocalizationName = "Skill.Name.VeryLongLegs",
+                    LocalizationDescription = "Skill.Description.BB2.VeryLongLegs",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
-                },
-                new Skill
-                {
-                    Id = 52,
-                    InternalName = "AlwaysHungry",
-                    LocalisationName = "SKILL_NAME_ALWAYSHUNGRY",
-                    LocalisationDescription = "SKILL_DESCRIPTION_ALWAYSHUNGRY",
-                    SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
             };
@@ -525,111 +506,120 @@ namespace BloodBowlData.Seed
         {
             return new List<Skill>
             {
-                new Skill
+                new Skill 
+                {
+                    Id = 52,
+                    InternalName = "AlwaysHungry",
+                    LocalizationName = "Skill.Name.AlwaysHungry",
+                    LocalizationDescription = "Skill.Description.BB2.AlwaysHungry",
+                    SkillCategoryId = SkillCategoryEnum.Extraordinary,
+                    RuleSetId = RuleSetEnum.BloodBowl2
+                },
+                new Skill 
                 {
                     Id = 53,
                     InternalName = "Animosity",
-                    LocalisationName = "SKILL_NAME_ANIMOSITY",
-                    LocalisationDescription = "SKILL_DESCRIPTION_ANIMOSITY",
+                    LocalizationName = "Skill.Name.Animosity",
+                    LocalizationDescription = "Skill.Description.BB2.Animosity",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 54,
                     InternalName = "BallChain",
-                    LocalisationName = "SKILL_NAME_BALLANDCHAIN",
-                    LocalisationDescription = "SKILL_DESCRIPTION_BALLANDCHAIN",
+                    LocalizationName = "Skill.Name.BallChain",
+                    LocalizationDescription = "Skill.Description.BB2.BallChain",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 55,
                     InternalName = "BloodLust",
-                    LocalisationName = "SKILL_NAME_BLOODLUST",
-                    LocalisationDescription = "SKILL_DESCRIPTION_BLOODLUST",
+                    LocalizationName = "Skill.Name.BloodLust",
+                    LocalizationDescription = "Skill.Description.BB2.BloodLust",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 56,
                     InternalName = "Bombardier",
-                    LocalisationName = "SKILL_NAME_BOMBARDIER",
-                    LocalisationDescription = "SKILL_DESCRIPTION_BOMBARDIER",
+                    LocalizationName = "Skill.Name.Bombardier",
+                    LocalizationDescription = "Skill.Description.BB2.Bombardier",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 57,
                     InternalName = "BoneHead",
-                    LocalisationName = "SKILL_NAME_BONEHEAD",
-                    LocalisationDescription = "SKILL_DESCRIPTION_BONEHEAD",
+                    LocalizationName = "Skill.Name.BoneHead",
+                    LocalizationDescription = "Skill.Description.BB2.BoneHead",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 58,
                     InternalName = "Chainsaw",
-                    LocalisationName = "SKILL_NAME_CHAINSAW",
-                    LocalisationDescription = "SKILL_DESCRIPTION_CHAINSAW",
+                    LocalizationName = "Skill.Name.Chainsaw",
+                    LocalizationDescription = "Skill.Description.BB2.Chainsaw",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 59,
                     InternalName = "Decay",
-                    LocalisationName = "SKILL_NAME_DECAY",
-                    LocalisationDescription = "SKILL_DESCRIPTION_DECAY",
+                    LocalizationName = "Skill.Name.Decay",
+                    LocalizationDescription = "Skill.Description.BB2.Decay",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 60,
                     InternalName = "FanFavourite",
-                    LocalisationName = "SKILL_NAME_FANFAVOURITE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_FANFAVOURITE",
+                    LocalizationName = "Skill.Name.FanFavourite",
+                    LocalizationDescription = "Skill.Description.BB2.FanFavourite",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 61,
                     InternalName = "HypnoticGaze",
-                    LocalisationName = "SKILL_NAME_HYPNOTICGAZE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_HYPNOTICGAZE",
+                    LocalizationName = "Skill.Name.HypnoticGaze",
+                    LocalizationDescription = "Skill.Description.BB2.HypnoticGaze",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 62,
                     InternalName = "Loner",
-                    LocalisationName = "SKILL_NAME_LONER",
-                    LocalisationDescription = "SKILL_DESCRIPTION_LONER",
+                    LocalizationName = "Skill.Name.Loner",
+                    LocalizationDescription = "Skill.Description.BB2.Loner",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 63,
                     InternalName = "NoHands",
-                    LocalisationName = "SKILL_NAME_NOHANDS",
-                    LocalisationDescription = "SKILL_DESCRIPTION_NOHANDS",
+                    LocalizationName = "Skill.Name.NoHands",
+                    LocalizationDescription = "Skill.Description.BB2.NoHands",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 64,
                     InternalName = "NurglesRot",
-                    LocalisationName = "SKILL_NAME_NURGLESROT",
-                    LocalisationDescription = "SKILL_DESCRIPTION_NURGLESROT",
+                    LocalizationName = "Skill.Name.NurglesRot",
+                    LocalizationDescription = "Skill.Description.BB2.NurglesRot",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
@@ -637,102 +627,101 @@ namespace BloodBowlData.Seed
                 {
                     Id = 65,
                     InternalName = "ReallyStupid",
-                    LocalisationName = "SKILL_NAME_REALLYSTUPID",
-                    LocalisationDescription = "SKILL_DESCRIPTION_REALLYSTUPID",
+                    LocalizationName = "Skill.Name.ReallyStupid",
+                    LocalizationDescription = "Skill.Description.BB2.ReallyStupid",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 66,
                     InternalName = "Regeneration",
-                    LocalisationName = "SKILL_NAME_REGENERATION",
-                    LocalisationDescription = "SKILL_DESCRIPTION_REGENERATION",
+                    LocalizationName = "Skill.Name.Regeneration",
+                    LocalizationDescription = "Skill.Description.BB2.Regeneration",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 67,
                     InternalName = "RightStuff",
-                    LocalisationName = "SKILL_NAME_RIGHTSTUFF",
-                    LocalisationDescription = "SKILL_DESCRIPTION_RIGHTSTUFF",
+                    LocalizationName = "Skill.Name.RightStuff",
+                    LocalizationDescription = "Skill.Description.BB2.RightStuff",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 68,
                     InternalName = "SecretWeapon",
-                    LocalisationName = "SKILL_NAME_SECRETWEAPON",
-                    LocalisationDescription = "SKILL_DESCRIPTION_SECRETWEAPON",
+                    LocalizationName = "Skill.Name.SecretWeapon",
+                    LocalizationDescription = "Skill.Description.BB2.SecretWeapon",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 69,
                     InternalName = "Stab",
-                    LocalisationName = "SKILL_NAME_STAB",
-                    LocalisationDescription = "SKILL_DESCRIPTION_STAB",
+                    LocalizationName = "Skill.Name.Stab",
+                    LocalizationDescription = "Skill.Description.BB2.Stab",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 70,
                     InternalName = "Stakes",
-                    LocalisationName = "SKILL_NAME_STAKES",
-                    LocalisationDescription = "SKILL_DESCRIPTION_STAKES",
+                    LocalizationName = "Skill.Name.Stakes",
+                    LocalizationDescription = "Skill.Description.BB2.Stakes",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 71,
                     InternalName = "Stunty",
-                    LocalisationName = "SKILL_NAME_STUNTY",
-                    LocalisationDescription = "SKILL_DESCRIPTION_STUNTY",
+                    LocalizationName = "Skill.Name.Stunty",
+                    LocalizationDescription = "Skill.Description.BB2.Stunty",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 72,
                     InternalName = "TakeRoot",
-                    LocalisationName = "SKILL_NAME_TAKEROOT",
-                    LocalisationDescription = "SKILL_DESCRIPTION_TAKEROOT",
+                    LocalizationName = "Skill.Name.TakeRoot",
+                    LocalizationDescription = "Skill.Description.BB2.TakeRoot",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 73,
                     InternalName = "ThrowTeamMate",
-                    LocalisationName = "SKILL_NAME_THROWTEAMMATE",
-                    LocalisationDescription = "SKILL_DESCRIPTION_THROWTEAMATE",
+                    LocalizationName = "Skill.Name.ThrowTeamMate",
+                    LocalizationDescription = "Skill.Description.BB2.ThrowTeamMate",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 74,
                     InternalName = "Titchy",
-                    LocalisationName = "SKILL_NAME_TITCHY",
-                    LocalisationDescription = "SKILL_DESCRIPTION_TITCHY",
+                    LocalizationName = "Skill.Name.Titchy",
+                    LocalizationDescription = "Skill.Description.BB2.Titchy",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill
+                new Skill 
                 {
                     Id = 75,
                     InternalName = "WildAnimal",
-                    LocalisationName = "SKILL_NAME_WILDANIMAL",
-                    LocalisationDescription = "SKILL_DESCRIPTION_WILDANIMAL",
+                    LocalizationName = "Skill.Name.WildAnimal",
+                    LocalizationDescription = "Skill.Description.BB2.WildAnimal",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-
             };
         }
     }

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Contexts;
+using BloodBowlAPI.Contexts;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BloodBowlData.Models.TeamTypes;
-using BloodBowlData.Enums;
+using BloodBowlAPI.Models.TeamTypes;
+using BloodBowlAPI.Enums;
 using BloodBowlAPI.DTOs.TeamTypes;
 using BloodBowlAPI.DTOs.Skills;
 

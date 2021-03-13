@@ -1,14 +1,14 @@
-﻿using BloodBowlData.Enums;
-using BloodBowlData.Models;
-using BloodBowlData.Models.Skills;
-using BloodBowlData.Models.TeamTypes;
+﻿using BloodBowlAPI.Enums;
+using BloodBowlAPI.Models;
+using BloodBowlAPI.Models.Skills;
+using BloodBowlAPI.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Seed
+namespace BloodBowlAPI.Seed
 {
     public static class SeedLevelUpType
     {

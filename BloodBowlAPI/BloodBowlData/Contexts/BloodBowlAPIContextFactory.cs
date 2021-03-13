@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration.Json;
 using System;
 using System.IO;
 
-namespace BloodBowlData.Contexts
+namespace BloodBowlAPI.Contexts
 {
     public class BloodBowlAPIContextFactory : IDesignTimeDbContextFactory<BloodBowlAPIContext>
     {

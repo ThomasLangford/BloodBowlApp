@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BloodBowlAPI.DTOs.Skills;
-using BloodBowlData.Models.TeamTypes;
+using BloodBowlAPI.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

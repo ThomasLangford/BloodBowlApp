@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.Enums
+namespace BloodBowlAPI
 {
-    public enum RuleSetEnum
+    class AssemblyInfo
     {
-        BloodBowl2 = 1,
-        BloodBowl2020
     }
 }

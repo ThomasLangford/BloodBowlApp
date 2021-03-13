@@ -1,5 +1,5 @@
 using AutoMapper;
-using BloodBowlData.Contexts;
+using BloodBowlAPI.Contexts;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -18,18 +18,23 @@ using System.Linq.Expressions;
 using MockQueryable.Moq;
 using System.Collections.Generic;
 using Moq.EntityFrameworkCore;
-using BloodBowlData.Models.Skills;
+using BloodBowlAPI.Models.Skills;
 using BloodBowlAPI.DTOs.Skills;
 using BloodBowlAPI.Controllers.Skills;
+using BloodBowlAPITests.Mocks;
+using BloodBowlAPI.Resources;
 
 namespace BloodBowlAPITests.Controllers
 {
     public class SkillsControllerTests : ContextControllerTestBase<BloodBowlAPIContext>
     {
         private readonly IMapper _mapper;
+        private readonly LocalizerMock<Resource> _localizerMock;
 
         public SkillsControllerTests() : base()
         {
+            var _localizerMock = new LocalizerMock<Resource>();
+
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new SkillsDtoProfile());
@@ -42,7 +47,9 @@ namespace BloodBowlAPITests.Controllers
         {
             return new SkillsController(
                 GetDBContext(),
-                this._mapper);
+                this._mapper,
+                _localizerMock.Object
+                );
         }
 
         private void Seed()
