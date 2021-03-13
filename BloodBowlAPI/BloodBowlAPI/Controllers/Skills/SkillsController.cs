@@ -21,13 +21,13 @@ namespace BloodBowlAPI.Controllers.Skills
     {
         private readonly BloodBowlAPIContext _context;
         private readonly IMapper _mapper;
+        private readonly IStringLocalizer<Localization> _localization;
 
-        public SkillsController(BloodBowlAPIContext context, IMapper mapper, IStringLocalizer<Resource> localization)
+        public SkillsController(BloodBowlAPIContext context, IMapper mapper, IStringLocalizer<Localization> localization)
         {
             _context = context;
             _mapper = mapper;
-
-            var a = localization["test"];
+            _localization = localization;
         }
 
         // GET: api/Skills
@@ -56,7 +56,7 @@ namespace BloodBowlAPI.Controllers.Skills
             return await _context.Skill
                 .Include(s => s.SkillCategory)
                 .Include(s => s.RuleSet)
-                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider)
+                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .ToListAsync();
         }
 

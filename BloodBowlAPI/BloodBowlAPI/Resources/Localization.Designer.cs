@@ -61,11 +61,1460 @@ namespace BloodBowlAPI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to test1.
+        ///   Looks up a localized string similar to  The player adds 1 when attempting a Pass..
         /// </summary>
-        public static string test {
+        public static string Skill_Description_BB2_Accurate {
             get {
-                return ResourceManager.GetString("test", resourceCulture);
+                return ResourceManager.GetString("Skill.Description.BB2.Accurate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  When using Throw Team-Mate, roll a D6 after he has finished moving, but before he throws his team-mate. On a 1, roll another D6. On another 1, the teammate is killed without any opportunity for recovery. If the team-mate had the ball it will scatter once from the their square..
+        /// </summary>
+        public static string Skill_Description_BB2_AlwaysHungry {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.AlwaysHungry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  At the end of their Hand-off or Pass Action attempts to a team-mate who is not of the same race as the Animosity player, roll a D6. On a 1, the player refuses to try to give the ball to any team-mate except one of his own race. The coach may choose to change the target of the Pass/hand-off to another team-mate of the same race as the Animosity player..
+        /// </summary>
+        public static string Skill_Description_BB2_Animosity {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Animosity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _TODO_.
+        /// </summary>
+        public static string Skill_Description_BB2_BallChain {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.BallChain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player ignores modifiers for enemy tackle zones or Pouring Rain weather when he attempts to pick up the ball..
+        /// </summary>
+        public static string Skill_Description_BB2_BigHand {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.BigHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The Block skill prevents the player from being knocked down after a block on a &quot;Both Down&quot; result..
+        /// </summary>
+        public static string Skill_Description_BB2_Block {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Immediately after declaring an Action with a Vampire, roll a d6: On a 2+ the Vampire can carry out the Action as normal. However, on a 1, the Vampire must feed on a Thrall team-mate or a spectator. At the end of the declared Action, but before actually Passing, handing off, or scoring, the vampire must feed. Choose a Thrall to bite and make an Injury roll on the Thrall treating any casualty roll as Badly Hurt. Failure to bite a Thrall is a turnover and requires you to feed on a spectator – move the Vampire [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Skill_Description_BB2_BloodLust {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.BloodLust", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A coach may choose to have a Bombardier throw a bomb instead of taking any other Action. The bomb is thrown using the rules for throwing the ball (including weather effects and use of Hail Mary Pass), except that the player may not move or stand up before throwing it. Intercepted bomb Passes are not turnovers. All skills that may be used when a ball is thrown may be used when a bomb is thrown also. A bomb may be Intercepted or caught using the same rules for catching the ball, in which case the player catc [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Skill_Description_BB2_Bombardier {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Bombardier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Roll a D6 immediately after declaring an Action for the player. On a roll of 1 they stand around trying to remember what it is they&apos;re meant to be doing. While Bone-head is in effect, the player also loses his tackle zone and may not Catch, Intercept, Pass or assist another player, until a 2+ is rolled in subsequent turns or the drive ends..
+        /// </summary>
+        public static string Skill_Description_BB2_BoneHead {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.BoneHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player uses his Strength instead of his Agility when he fails a Dodge. This skill may only be used once per turn..
+        /// </summary>
+        public static string Skill_Description_BB2_BreakTackle {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.BreakTackle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player re-rolls the dice if he fails a Catch roll, drops a hand-off or fails to make an Interception..
+        /// </summary>
+        public static string Skill_Description_BB2_Catch {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Catch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player armed with a chainsaw must attack with it instead of making a block. Roll a D6. On a roll of 2 or more the chainsaw hits the opposing player, but on a roll of 1 it hits the wielder instead! Make an Armour roll for the player hit by the chainsaw, adding 3 to the score. If the roll beats the victim’s Armour value then the victim is knocked down and injured. In addition, add 3 to the Armour roll for Foul action, when the player with chainsaw makes an Armour roll and when an opponent rolls a Skull whe [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Skill_Description_BB2_Chainsaw {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Chainsaw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  When an opponent is knocked down by this player during a block, any Armour roll of 8 or more after modifications automatically breaks Armour..
+        /// </summary>
+        public static string Skill_Description_BB2_Claw {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Claw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player uses this skill if he attempts to block an opponent who is stronger than himself. Roll a D6 and add it to his Strength. If the total is equal to or lower than the opponent’s Strength, use your normal Strength. If the total is greater, your Strength is equal to his opponent’s when he makes the block..
+        /// </summary>
+        public static string Skill_Description_BB2_Dauntless {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Dauntless", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  When this player suffers a Casualty result on the Injury table, roll twice on the Casualty table and apply both results. The player will only ever miss one future match as a result of his injuries, even if he suffers two results with this effect. A successful Regeneration roll will heal both results..
+        /// </summary>
+        public static string Skill_Description_BB2_Decay {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Decay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Add 1 to any Armour roll OR Injury roll made by a player with this skill when they make a Foul as part of a Foul Action..
+        /// </summary>
+        public static string Skill_Description_BB2_DirtyPlayer {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.DirtyPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Any player must subtract 1 from the D6 when they Pass, Intercept or Catch for each opposing player with Disturbing Presence that is within three squares of them, even if the Disturbing Presence player is Prone or Stunned..
+        /// </summary>
+        public static string Skill_Description_BB2_DisturbingPresence {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.DisturbingPresence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player add +1 to any Catch roll from an accurate Pass targeted to his square. In addition, the player Catch any Pass, kick off or crowd throw-in, that would land in an empty square in one of his tackle zones as if it had landed in his own square without leaving his current square. If there are two or more players attempting to use this skill, neither can use it..
+        /// </summary>
+        public static string Skill_Description_BB2_DivingCatch {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.DivingCatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player may use this skill after an opposing player attempts to dodge out of any of his tackle zones (only if useful). The player using this skill is placed prone in the square vacated by the dodging player, but do not make an Armour or Injury roll for them. The opposing player must then subtract 2 from his Dodge roll for leaving the player&apos;s tackle zone..
+        /// </summary>
+        public static string Skill_Description_BB2_DivingTackle {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.DivingTackle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with this skill re-rolls the dice if he fails to dodge out of any tackle zones of an opposing player. In addition, if a blocked player uses the Dodge skill, treat a &quot;Defender Stumbles&quot; result as a &quot;Defender Pushed Back&quot;..
+        /// </summary>
+        public static string Skill_Description_BB2_Dodge {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Dodge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This skill allows the player to make a Quick Pass when an opponent declares that he will throw a block at him..
+        /// </summary>
+        public static string Skill_Description_BB2_DumpOff {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.DumpOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with one or more extra arms adds 1 to any attempt to pick up, Catch or Intercept..
+        /// </summary>
+        public static string Skill_Description_BB2_ExtraArms {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.ExtraArms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  For each player with Fan Favourite on the pitch your team receives an additional +1 FAME modifier for any Kick-Off table results, but not for the Winnings roll..
+        /// </summary>
+        public static string Skill_Description_BB2_FanFavourite {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.FanFavourite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Opposing players may not follow-up blocks made against this player even if the Fend player is knocked down..
+        /// </summary>
+        public static string Skill_Description_BB2_Fend {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Fend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player’s appearance is so horrible that any opposing player that wants to block him (or use a special attack that takes the place of a block) must first roll a D6 and score 2 or more. If the opposing player rolls a 1 he is too revolted to make the block and it is wasted (though the opposing team does not suffer a turnover)..
+        /// </summary>
+        public static string Skill_Description_BB2_FoulAppearance {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.FoulAppearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  When this player blocks an opponent, after a &quot;Defender Pushed Back&quot; or &quot;Defender Stumbles&quot; result, the player must immediately throw a second block against the same opponent so long as they are both still standing and adjacent. He must systematically follow up. A player with the Frenzy skill can never learn or gain the Grab skill..
+        /// </summary>
+        public static string Skill_Description_BB2_Frenzy {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Frenzy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  When this player block results in a push back he choose any empty square adjacent to his opponent to push back his opponent. When making a Block or Blitz Action, Grab and Side Step will cancel each other out and the standard pushback rules apply. Grab will not work if there are no empty adjacent squares. A player with the Grab skill can never learn or gain the Frenzy skill..
+        /// </summary>
+        public static string Skill_Description_BB2_Grab {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Grab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with this skill assists an offensive or defensive block even if he is in another player’s tackle zone. This skill may not be used to assist a foul..
+        /// </summary>
+        public static string Skill_Description_BB2_Guard {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Guard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player may throw the ball to any square on the playing pitch, no matter what the range. The Hail Mary Pass may not be Intercepted, but it is never accurate – the ball automatically misses and scatters three squares. This skill may not be used in a blizzard or with the Throw Team-Mates skill..
+        /// </summary>
+        public static string Skill_Description_BB2_HailMaryPass {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.HailMaryPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with Horns adds 1 to his Strength for any block he makes during a Blitz Action..
+        /// </summary>
+        public static string Skill_Description_BB2_Horns {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Horns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player may use Hypnotic Gaze at the end of his Move Action on one adjacent opposing player. Make an Agility roll for the player with Hypnotic Gaze, with a -1 modifier for each opposing tackle zone other than the victim&apos;s. If the Agility roll is successful, then the opposing player loses his tackle zones and may not Catch, Intercept, Pass the ball or assist another player on a block or foul, or move voluntarily until the start of his next action or the drive ends..
+        /// </summary>
+        public static string Skill_Description_BB2_HypnoticGaze {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.HypnoticGaze", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  If this player takes a Blitz Action, then opposing players may not use their Fend, Stand Firm or Wrestle skills against blocks, and he treats a &quot;Both Down&quot; result as if a &quot;Defender Pushed Back&quot; result has been rolled instead..
+        /// </summary>
+        public static string Skill_Description_BB2_Juggernaut {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Juggernaut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player stand up for free without paying the three squares of movement. The player may also declare a Block Action while Prone which requires an Agility roll with a +2 modifier to see if he can complete the Action..
+        /// </summary>
+        public static string Skill_Description_BB2_JumpUp {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.JumpUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player&apos;s kick is so accurate, you halves the number of squares that the ball scatters on kick-off..
+        /// </summary>
+        public static string Skill_Description_BB2_Kick {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Kick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player can move up to 3 squares at a kick-off where his team is attacking, if he is not in the front line or in the tackle zone of an opponent. Please note, only one player can use this skill at each kick-off and it is forbidden to enter the opponent&apos;s half of the pitch..
+        /// </summary>
+        public static string Skill_Description_BB2_KickOffReturn {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.KickOffReturn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A team with one or more players with the Leader skill may take a single Leader re-roll counter and add it to their team re-rolls at the start of the game and at half time after any Master Chef rolls. The Leader re-roll may only be used so long as at least one player with the Leader skill is on the pitch - even if they are Prone or Stunned!.
+        /// </summary>
+        public static string Skill_Description_BB2_Leader {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Leader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with the Leap skill is allowed to jump to any empty square within 2 squares for two squares of movement. Move the player to any empty square and then make an Agility roll (with no modifiers except Very Long Legs). If the player fails the Agility roll then he is knocked down in the square that he was leaping to..
+        /// </summary>
+        public static string Skill_Description_BB2_Leap {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Leap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A Loner may use team re-rolls but has to roll a D6 first. On a roll of 4+, he may use the team re-roll as normal. On a roll of 1-3 the original result stands without being re-rolled but the team re-roll is lost..
+        /// </summary>
+        public static string Skill_Description_BB2_Loner {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Loner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Add 1 to any Armour or Injury roll made by a player with this skill when an opponent is knocked down by this player during a block..
+        /// </summary>
+        public static string Skill_Description_BB2_MightyBlow {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.MightyBlow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player may choose to throw blocks against two adjacent opponents. Make each block in turn as normal except that each defender&apos;s Strength is increased by 2. The player cannot follow up either block when using this skill..
+        /// </summary>
+        public static string Skill_Description_BB2_MultipleBlock {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.MultipleBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player ignores modifiers for enemy tackle zones when he attempts to Pass, Catch or Intercept..
+        /// </summary>
+        public static string Skill_Description_BB2_NervesOfSteel {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.NervesOfSteel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player is unable to pick up, Intercept or carry the ball and will fail any Catch roll automatically..
+        /// </summary>
+        public static string Skill_Description_BB2_NoHands {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.NoHands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  When this player kills an opponent during a Block, Blitz or Foul Action, the infected opponent becomes a new rookie Rotter. The opponent&apos;s Strength cannot exceed 4, and he cannot have the Decay, Regeneration or Stunty skills..
+        /// </summary>
+        public static string Skill_Description_BB2_NurglesRot {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.NurglesRot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with the Pass skill re-rolls the dice if he throws an inaccurate Pass or fumbles..
+        /// </summary>
+        public static string Skill_Description_BB2_Pass {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Pass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with this skill is allowed to move up to three squares when the opposing coach announces that one of his players is going to Pass the ball (but not a bomb). The move is made using all of the normal rules and skills, and the player does have to dodge in order to leave opposing player&apos;s tackle zones. If a player performing a Pass Block in their own turn is knocked down then this is a turnover..
+        /// </summary>
+        public static string Skill_Description_BB2_PassBlock {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.PassBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player may use this skill after he has made a block if he&apos;s standing adjacent to the victim and the victim was knocked down. You may re-roll the Armour roll or Injury roll for the victim. The Piling On player is placed prone in his own square. Do not make an Armour roll for him. Piling On does not cause a turnover unless the Piling On player is carrying the ball..
+        /// </summary>
+        public static string Skill_Description_BB2_PilingOn {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.PilingOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Opposing players must subtract 1 from the D6 roll if they attempt to dodge out of any of the player’s tackle zones..
+        /// </summary>
+        public static string Skill_Description_BB2_PrehensileTail {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.PrehensileTail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Once per turn, a Pro is allowed to re-roll any one dice roll he has made, even if he is Prone or Stunned. However, before the re-roll may be made, his coach must roll a D6. On a roll of 4, 5 or 6 the re-roll may be made. On a roll of 1, 2 or 3 the original result stands and may not be re-rolled with a skill or team re-roll..
+        /// </summary>
+        public static string Skill_Description_BB2_Pro {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Pro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  After declaring an Action for the player, roll a D6, adding 2 if there are any adjacent team-mates. On a result of 1-3 they stand around trying to remember what it is they’re meant to be doing and the Action is wasted. The player loses his tackle zone and may not Catch, Intercept, Pass, Assist, or voluntarily move..
+        /// </summary>
+        public static string Skill_Description_BB2_ReallyStupid {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.ReallyStupid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  If the player suffers a Casualty, then roll a D6 for Regeneration after the Injury roll and after any Apothecary roll (if allowed). On a result of 1-3, the player suffers the result of the injury as normal. On a 4-6, the player will heal their injury but is placed in the Reserves box..
+        /// </summary>
+        public static string Skill_Description_BB2_Regeneration {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Regeneration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player can be thrown by a team-mate with the Throw Team-Mate skill. When he ends up in an unoccupied square, he must make a landing roll unless he landed on another player during the throw. A landing roll is an Agility roll with a -1 modifier for each opposing player’s tackle zone on the square he lands in. If the landing roll is failed or he landed on another player during the throw he is placed prone and must Pass an Armour roll to avoid injury..
+        /// </summary>
+        public static string Skill_Description_BB2_RightStuff {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.RightStuff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  If a Pass made by this player is ever intercepted, make an unmodified Agility roll. If this is successful then the Interception is cancelled out and the Passing sequence continues as normal. In addition if this player fumbles a Pass of a ball (not a team-mate) on any roll other than a natural 1 then he manages to keep hold of the ball instead of suffering a fumble and the team does not suffer a turnover..
+        /// </summary>
+        public static string Skill_Description_BB2_SafeThrow {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.SafeThrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Once a drive ends that this player has played in at any point, the referee orders the player to be sent off regardless of whether the player is still on the pitch or not..
+        /// </summary>
+        public static string Skill_Description_BB2_SecretWeapon {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.SecretWeapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player may use this skill when a player moves out of any of his tackle zones. The opposing player rolls 2D6 adding their own player’s Movement Allowance and subtracting the Shadowing player&apos;s Movement Allowance from the score. If the final result is 7 or less, the player with Shadowing may move into the square vacated by the opposing player (no Dodge roll). A player may make any number of shadowing moves per turn..
+        /// </summary>
+        public static string Skill_Description_BB2_Shadowing {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Shadowing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player&apos;s coach choose which square the player is moved to when he is pushed back, rather than the opposing coach. Furthermore, the coach may choose to move the player to any adjacent square, not just the three squares behind him..
+        /// </summary>
+        public static string Skill_Description_BB2_SideStep {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.SideStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  During a Foul Action a player with this skill is not ejected for rolling doubles on the Armour roll unless the Armour roll was successful..
+        /// </summary>
+        public static string Skill_Description_BB2_SneakyGit {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.SneakyGit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player may attempt to move up to three extra squares rather than the normal two when Going For It. His coach must still roll to see if the player is knocked down in each extra square he enters..
+        /// </summary>
+        public static string Skill_Description_BB2_Sprint {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Sprint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player may attack an opponent with their stabbing attack instead of throwing a block at them. Make an unmodified Armour roll for the victim. If the score beats the victim’s Armour value then they have been wounded and an Injury roll must be made. If Stab is used as part of a Blitz Action, the player cannot continue moving after using it..
+        /// </summary>
+        public static string Skill_Description_BB2_Stab {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Stab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player may add 1 to the Armour roll when they make a Stab attack against any player playing for a Khemri, Necromantic, Undead or Vampire team..
+        /// </summary>
+        public static string Skill_Description_BB2_Stakes {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Stakes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with this skill may choose to not be pushed back as the result of a block. If a player is pushed back into a player with using Stand Firm then neither player moves..
+        /// </summary>
+        public static string Skill_Description_BB2_StandFirm {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.StandFirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  When a player with this skill blocks an opponent with the ball, applying a &quot;Both Down&quot; or &quot;Defender Stumbles&quot; result will cause the opposing player to drop the ball in the square that they are pushed to, even if the opposing player is not knocked down..
+        /// </summary>
+        public static string Skill_Description_BB2_StripBall {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.StripBall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player add 1 to the D6 when he Passes to Short, Long or Bomb range..
+        /// </summary>
+        public static string Skill_Description_BB2_StrongArm {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.StrongArm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  A player with the Stunty skill ignore any enemy tackle zones on the square he is moving to when he makes a Dodge roll, but must subtract 1 from the roll when they Pass. In addition, this player treats a roll of 7 and 9 on the Injury table after any modifiers have been applied as a KO&apos;d and Badly Hurt result respectively rather than the normal results. Stunties that are armed with a Secret Weapon do not ignore enemy tackle zones, but still suffer the other penalties..
+        /// </summary>
+        public static string Skill_Description_BB2_Stunty {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Stunty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player re-rolls the dice if he is knocked down when trying to Go For It..
+        /// </summary>
+        public static string Skill_Description_BB2_SureFeet {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.SureFeet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player re-rolls the dice if he fails to pick up the ball. In addition, the Strip Ball skill will not work against a player with this skill..
+        /// </summary>
+        public static string Skill_Description_BB2_SureHands {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.SureHands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Players who are standing in this player’s tackle zone are not allowed to use their Dodge skill if they dodge, nor may they use Dodge if the player throws a block at them..
+        /// </summary>
+        public static string Skill_Description_BB2_Tackle {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Tackle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Immediately after declaring an Action with this player, roll a D6. On a 2 or more, the player may take his Action as normal. On a 1, the player &apos;takes root&apos;, and his MA is considered 0 until a drive ends, or he is knocked down or placed prone..
+        /// </summary>
+        public static string Skill_Description_BB2_TakeRoot {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.TakeRoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player use this skill when an opposing player attempts to dodge or leap out of any of his tackle zones. The opposing player rolls 2D6 adding their own player’s ST and subtracting the Tentacles player&apos;s ST from the score. If the final result is 5 or less, then the moving player is held firm, and his action ends immediately..
+        /// </summary>
+        public static string Skill_Description_BB2_Tentacles {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Tentacles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player treats a roll of 8 on the Injury table, after any modifiers have been applied, as a Stunned result rather than a KO’d result..
+        /// </summary>
+        public static string Skill_Description_BB2_ThickSkull {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.ThickSkull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player may throw team-mates who have the Right Stuff skill. The player must be standing next to the intended team-mate at the end of their movement during the Pass Action. Only Quick and Short Passes may be attempted, and have a -1 penalty modifier. If the Pass is fumbled, it is not an automatic turnover..
+        /// </summary>
+        public static string Skill_Description_BB2_ThrowTeamMate {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.ThrowTeamMate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player may add 1 to any Dodge roll he attempts. On the other hand, while opponents do have to dodge to leave any of a Titchy player’s tackle zones, Titchy players do not exert a -1 modifier when opponents dodge into any of their tackle zones..
+        /// </summary>
+        public static string Skill_Description_BB2_Titchy {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Titchy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Add 1 to all Dodge rolls the player makes..
+        /// </summary>
+        public static string Skill_Description_BB2_TwoHeads {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.TwoHeads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The player add 1 to the D6 roll whenever he attempts to Intercept or uses the Leap skill. In addition, the Safe Throw skill may not be used to affect any Interception rolls made by this player..
+        /// </summary>
+        public static string Skill_Description_BB2_VeryLongLegs {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.VeryLongLegs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  After declaring an Action with a Wild Animal, roll a D6, adding 2 to the roll if taking a Block or Blitz Action. On a roll of 1-3, the Wild Animal does not move and roars in rage instead, and the Action is wasted..
+        /// </summary>
+        public static string Skill_Description_BB2_WildAnimal {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.WildAnimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  This player can use Wrestle on a &quot;Both Down&quot; result. Both players are placed prone in their respective squares even if one or both have the Block skill. Do not make an Armour roll. No turnover, unless the player of the active team was the ball carrier..
+        /// </summary>
+        public static string Skill_Description_BB2_Wrestle {
+            get {
+                return ResourceManager.GetString("Skill.Description.BB2.Wrestle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accurate.
+        /// </summary>
+        public static string Skill_Name_Accurate {
+            get {
+                return ResourceManager.GetString("Skill.Name.Accurate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always Hungry.
+        /// </summary>
+        public static string Skill_Name_AlwaysHungry {
+            get {
+                return ResourceManager.GetString("Skill.Name.AlwaysHungry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Animosity.
+        /// </summary>
+        public static string Skill_Name_Animosity {
+            get {
+                return ResourceManager.GetString("Skill.Name.Animosity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ball and Chain.
+        /// </summary>
+        public static string Skill_Name_BallChain {
+            get {
+                return ResourceManager.GetString("Skill.Name.BallChain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Big Hand.
+        /// </summary>
+        public static string Skill_Name_BigHand {
+            get {
+                return ResourceManager.GetString("Skill.Name.BigHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block.
+        /// </summary>
+        public static string Skill_Name_Block {
+            get {
+                return ResourceManager.GetString("Skill.Name.Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloodlust.
+        /// </summary>
+        public static string Skill_Name_BloodLust {
+            get {
+                return ResourceManager.GetString("Skill.Name.BloodLust", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bombardier.
+        /// </summary>
+        public static string Skill_Name_Bombardier {
+            get {
+                return ResourceManager.GetString("Skill.Name.Bombardier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bone-Head.
+        /// </summary>
+        public static string Skill_Name_BoneHead {
+            get {
+                return ResourceManager.GetString("Skill.Name.BoneHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Break Tackle.
+        /// </summary>
+        public static string Skill_Name_BreakTackle {
+            get {
+                return ResourceManager.GetString("Skill.Name.BreakTackle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Catch.
+        /// </summary>
+        public static string Skill_Name_Catch {
+            get {
+                return ResourceManager.GetString("Skill.Name.Catch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chainsaw.
+        /// </summary>
+        public static string Skill_Name_Chainsaw {
+            get {
+                return ResourceManager.GetString("Skill.Name.Chainsaw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Claw / Claws.
+        /// </summary>
+        public static string Skill_Name_Claw {
+            get {
+                return ResourceManager.GetString("Skill.Name.Claw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dauntless.
+        /// </summary>
+        public static string Skill_Name_Dauntless {
+            get {
+                return ResourceManager.GetString("Skill.Name.Dauntless", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decay.
+        /// </summary>
+        public static string Skill_Name_Decay {
+            get {
+                return ResourceManager.GetString("Skill.Name.Decay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dirty Player.
+        /// </summary>
+        public static string Skill_Name_DirtyPlayer {
+            get {
+                return ResourceManager.GetString("Skill.Name.DirtyPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disturbing Presence.
+        /// </summary>
+        public static string Skill_Name_DisturbingPresence {
+            get {
+                return ResourceManager.GetString("Skill.Name.DisturbingPresence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Diving Catch.
+        /// </summary>
+        public static string Skill_Name_DivingCatch {
+            get {
+                return ResourceManager.GetString("Skill.Name.DivingCatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Diving Tackle.
+        /// </summary>
+        public static string Skill_Name_DivingTackle {
+            get {
+                return ResourceManager.GetString("Skill.Name.DivingTackle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodge.
+        /// </summary>
+        public static string Skill_Name_Dodge {
+            get {
+                return ResourceManager.GetString("Skill.Name.Dodge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dump-Off.
+        /// </summary>
+        public static string Skill_Name_DumpOff {
+            get {
+                return ResourceManager.GetString("Skill.Name.DumpOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extra Arms.
+        /// </summary>
+        public static string Skill_Name_ExtraArms {
+            get {
+                return ResourceManager.GetString("Skill.Name.ExtraArms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fan Favourite.
+        /// </summary>
+        public static string Skill_Name_FanFavourite {
+            get {
+                return ResourceManager.GetString("Skill.Name.FanFavourite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fend.
+        /// </summary>
+        public static string Skill_Name_Fend {
+            get {
+                return ResourceManager.GetString("Skill.Name.Fend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Foul Appearance.
+        /// </summary>
+        public static string Skill_Name_FoulAppearance {
+            get {
+                return ResourceManager.GetString("Skill.Name.FoulAppearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frenzy.
+        /// </summary>
+        public static string Skill_Name_Frenzy {
+            get {
+                return ResourceManager.GetString("Skill.Name.Frenzy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grab.
+        /// </summary>
+        public static string Skill_Name_Grab {
+            get {
+                return ResourceManager.GetString("Skill.Name.Grab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guard.
+        /// </summary>
+        public static string Skill_Name_Guard {
+            get {
+                return ResourceManager.GetString("Skill.Name.Guard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hail Mary Pass.
+        /// </summary>
+        public static string Skill_Name_HailMaryPass {
+            get {
+                return ResourceManager.GetString("Skill.Name.HailMaryPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horns.
+        /// </summary>
+        public static string Skill_Name_Horns {
+            get {
+                return ResourceManager.GetString("Skill.Name.Horns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hypnotic Gaze.
+        /// </summary>
+        public static string Skill_Name_HypnoticGaze {
+            get {
+                return ResourceManager.GetString("Skill.Name.HypnoticGaze", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Juggernaut.
+        /// </summary>
+        public static string Skill_Name_Juggernaut {
+            get {
+                return ResourceManager.GetString("Skill.Name.Juggernaut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jump Up.
+        /// </summary>
+        public static string Skill_Name_JumpUp {
+            get {
+                return ResourceManager.GetString("Skill.Name.JumpUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kick.
+        /// </summary>
+        public static string Skill_Name_Kick {
+            get {
+                return ResourceManager.GetString("Skill.Name.Kick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kick-Off Return.
+        /// </summary>
+        public static string Skill_Name_KickOffReturn {
+            get {
+                return ResourceManager.GetString("Skill.Name.KickOffReturn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leader.
+        /// </summary>
+        public static string Skill_Name_Leader {
+            get {
+                return ResourceManager.GetString("Skill.Name.Leader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leap.
+        /// </summary>
+        public static string Skill_Name_Leap {
+            get {
+                return ResourceManager.GetString("Skill.Name.Leap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loner.
+        /// </summary>
+        public static string Skill_Name_Loner {
+            get {
+                return ResourceManager.GetString("Skill.Name.Loner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mighty Blow.
+        /// </summary>
+        public static string Skill_Name_MightyBlow {
+            get {
+                return ResourceManager.GetString("Skill.Name.MightyBlow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple Block.
+        /// </summary>
+        public static string Skill_Name_MultipleBlock {
+            get {
+                return ResourceManager.GetString("Skill.Name.MultipleBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nerves Of Steel.
+        /// </summary>
+        public static string Skill_Name_NervesOfSteel {
+            get {
+                return ResourceManager.GetString("Skill.Name.NervesOfSteel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Hands.
+        /// </summary>
+        public static string Skill_Name_NoHands {
+            get {
+                return ResourceManager.GetString("Skill.Name.NoHands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nurgle&apos;s Rot.
+        /// </summary>
+        public static string Skill_Name_NurglesRot {
+            get {
+                return ResourceManager.GetString("Skill.Name.NurglesRot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pass.
+        /// </summary>
+        public static string Skill_Name_Pass {
+            get {
+                return ResourceManager.GetString("Skill.Name.Pass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pass Block.
+        /// </summary>
+        public static string Skill_Name_PassBlock {
+            get {
+                return ResourceManager.GetString("Skill.Name.PassBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Piling On.
+        /// </summary>
+        public static string Skill_Name_PilingOn {
+            get {
+                return ResourceManager.GetString("Skill.Name.PilingOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prehensile Tail.
+        /// </summary>
+        public static string Skill_Name_PrehensileTail {
+            get {
+                return ResourceManager.GetString("Skill.Name.PrehensileTail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pro.
+        /// </summary>
+        public static string Skill_Name_Pro {
+            get {
+                return ResourceManager.GetString("Skill.Name.Pro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Really Stupid.
+        /// </summary>
+        public static string Skill_Name_ReallyStupid {
+            get {
+                return ResourceManager.GetString("Skill.Name.ReallyStupid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regeneration.
+        /// </summary>
+        public static string Skill_Name_Regeneration {
+            get {
+                return ResourceManager.GetString("Skill.Name.Regeneration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Stuff.
+        /// </summary>
+        public static string Skill_Name_RightStuff {
+            get {
+                return ResourceManager.GetString("Skill.Name.RightStuff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Safe Throw.
+        /// </summary>
+        public static string Skill_Name_SafeThrow {
+            get {
+                return ResourceManager.GetString("Skill.Name.SafeThrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret Weapon.
+        /// </summary>
+        public static string Skill_Name_SecretWeapon {
+            get {
+                return ResourceManager.GetString("Skill.Name.SecretWeapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shadowing.
+        /// </summary>
+        public static string Skill_Name_Shadowing {
+            get {
+                return ResourceManager.GetString("Skill.Name.Shadowing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Side Step.
+        /// </summary>
+        public static string Skill_Name_SideStep {
+            get {
+                return ResourceManager.GetString("Skill.Name.SideStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sneaky Git.
+        /// </summary>
+        public static string Skill_Name_SneakyGit {
+            get {
+                return ResourceManager.GetString("Skill.Name.SneakyGit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sprint.
+        /// </summary>
+        public static string Skill_Name_Sprint {
+            get {
+                return ResourceManager.GetString("Skill.Name.Sprint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stab.
+        /// </summary>
+        public static string Skill_Name_Stab {
+            get {
+                return ResourceManager.GetString("Skill.Name.Stab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stakes.
+        /// </summary>
+        public static string Skill_Name_Stakes {
+            get {
+                return ResourceManager.GetString("Skill.Name.Stakes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stand Firm.
+        /// </summary>
+        public static string Skill_Name_StandFirm {
+            get {
+                return ResourceManager.GetString("Skill.Name.StandFirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strip Ball.
+        /// </summary>
+        public static string Skill_Name_StripBall {
+            get {
+                return ResourceManager.GetString("Skill.Name.StripBall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strong Arm.
+        /// </summary>
+        public static string Skill_Name_StrongArm {
+            get {
+                return ResourceManager.GetString("Skill.Name.StrongArm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stunty.
+        /// </summary>
+        public static string Skill_Name_Stunty {
+            get {
+                return ResourceManager.GetString("Skill.Name.Stunty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sure Feet.
+        /// </summary>
+        public static string Skill_Name_SureFeet {
+            get {
+                return ResourceManager.GetString("Skill.Name.SureFeet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sure Hands.
+        /// </summary>
+        public static string Skill_Name_SureHands {
+            get {
+                return ResourceManager.GetString("Skill.Name.SureHands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tackle.
+        /// </summary>
+        public static string Skill_Name_Tackle {
+            get {
+                return ResourceManager.GetString("Skill.Name.Tackle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take Root.
+        /// </summary>
+        public static string Skill_Name_TakeRoot {
+            get {
+                return ResourceManager.GetString("Skill.Name.TakeRoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tentacles.
+        /// </summary>
+        public static string Skill_Name_Tentacles {
+            get {
+                return ResourceManager.GetString("Skill.Name.Tentacles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thick Skull.
+        /// </summary>
+        public static string Skill_Name_ThickSkull {
+            get {
+                return ResourceManager.GetString("Skill.Name.ThickSkull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Throw Team-Mate.
+        /// </summary>
+        public static string Skill_Name_ThrowTeamMate {
+            get {
+                return ResourceManager.GetString("Skill.Name.ThrowTeamMate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titchy.
+        /// </summary>
+        public static string Skill_Name_Titchy {
+            get {
+                return ResourceManager.GetString("Skill.Name.Titchy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two Heads.
+        /// </summary>
+        public static string Skill_Name_TwoHeads {
+            get {
+                return ResourceManager.GetString("Skill.Name.TwoHeads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very Long Legs.
+        /// </summary>
+        public static string Skill_Name_VeryLongLegs {
+            get {
+                return ResourceManager.GetString("Skill.Name.VeryLongLegs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wild Animal.
+        /// </summary>
+        public static string Skill_Name_WildAnimal {
+            get {
+                return ResourceManager.GetString("Skill.Name.WildAnimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrestle.
+        /// </summary>
+        public static string Skill_Name_Wrestle {
+            get {
+                return ResourceManager.GetString("Skill.Name.Wrestle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agility.
+        /// </summary>
+        public static string SkillCategory_Name_Agility {
+            get {
+                return ResourceManager.GetString("SkillCategory.Name.Agility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extraordinary.
+        /// </summary>
+        public static string SkillCategory_Name_Extraordinary {
+            get {
+                return ResourceManager.GetString("SkillCategory.Name.Extraordinary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string SkillCategory_Name_General {
+            get {
+                return ResourceManager.GetString("SkillCategory.Name.General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mutation.
+        /// </summary>
+        public static string SkillCategory_Name_Mutation {
+            get {
+                return ResourceManager.GetString("SkillCategory.Name.Mutation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passing.
+        /// </summary>
+        public static string SkillCategory_Name_Passing {
+            get {
+                return ResourceManager.GetString("SkillCategory.Name.Passing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strength.
+        /// </summary>
+        public static string SkillCategory_Name_Strength {
+            get {
+                return ResourceManager.GetString("SkillCategory.Name.Strength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A.
+        /// </summary>
+        public static string SkillCategory_ShortName_Agility {
+            get {
+                return ResourceManager.GetString("SkillCategory.ShortName.Agility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E.
+        /// </summary>
+        public static string SkillCategory_ShortName_Extraordinary {
+            get {
+                return ResourceManager.GetString("SkillCategory.ShortName.Extraordinary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to G.
+        /// </summary>
+        public static string SkillCategory_ShortName_General {
+            get {
+                return ResourceManager.GetString("SkillCategory.ShortName.General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M.
+        /// </summary>
+        public static string SkillCategory_ShortName_Mutation {
+            get {
+                return ResourceManager.GetString("SkillCategory.ShortName.Mutation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P.
+        /// </summary>
+        public static string SkillCategory_ShortName_Passing {
+            get {
+                return ResourceManager.GetString("SkillCategory.ShortName.Passing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.
+        /// </summary>
+        public static string SkillCategory_ShortName_Strength {
+            get {
+                return ResourceManager.GetString("SkillCategory.ShortName.Strength", resourceCulture);
             }
         }
     }

@@ -29,11 +29,11 @@ namespace BloodBowlAPITests.Controllers
     public class SkillsControllerTests : ContextControllerTestBase<BloodBowlAPIContext>
     {
         private readonly IMapper _mapper;
-        private readonly LocalizerMock<Resource> _localizerMock;
+        private readonly LocalizerMock<Localization> _localizerMock;
 
         public SkillsControllerTests() : base()
         {
-            var _localizerMock = new LocalizerMock<Resource>();
+            var _localizerMock = new LocalizerMock<Localization>();
 
             var mapperConfig = new MapperConfiguration(mc =>
             {

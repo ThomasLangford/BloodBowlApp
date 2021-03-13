@@ -39,17 +39,6 @@ namespace BloodBowlAPI
         {
             services.AddLocalization();
 
-            services.Configure<RequestLocalizationOptions>(options =>
-            {
-                var supportedCultures = new List<CultureInfo>
-                                    {
-                                        new CultureInfo("en-US")
-                                    };
-
-                options.DefaultRequestCulture = new RequestCulture("en-US");
-                options.SupportedCultures = supportedCultures;
-                options.SupportedUICultures = supportedCultures;
-            });
             services.AddRequestLocalization(options =>
             {
                 var supportedCultures = new List<CultureInfo>
@@ -61,7 +50,6 @@ namespace BloodBowlAPI
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;
             });
-
 
             services.AddDbContext<BloodBowlAPIContext>(
                 dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database.ConnectionString"])
@@ -84,11 +72,8 @@ namespace BloodBowlAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var supportedCultures = new[] { "en-US" };
-            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
-                .AddSupportedCultures(supportedCultures)
-                .AddSupportedUICultures(supportedCultures);
-            app.UseRequestLocalization(localizationOptions);
+            // var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization();
 
             if (env.IsDevelopment())
             {
@@ -110,8 +95,7 @@ namespace BloodBowlAPI
 
             app.UseAuthorization();
 
-            var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-            app.UseRequestLocalization(locOptions.Value);
+
 
 
             app.UseEndpoints(endpoints =>

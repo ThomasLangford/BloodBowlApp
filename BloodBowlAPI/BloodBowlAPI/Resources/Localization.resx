@@ -117,7 +117,491 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="test" xml:space="preserve">
-    <value>test1</value>
+  <data name="Skill.Name.Accurate" xml:space="preserve">
+    <value>Accurate</value>
+  </data>
+  <data name="Skill.Name.AlwaysHungry" xml:space="preserve">
+    <value>Always Hungry</value>
+  </data>
+  <data name="Skill.Name.Animosity" xml:space="preserve">
+    <value>Animosity</value>
+  </data>
+  <data name="Skill.Name.BallChain" xml:space="preserve">
+    <value>Ball and Chain</value>
+  </data>
+  <data name="Skill.Name.BigHand" xml:space="preserve">
+    <value>Big Hand</value>
+  </data>
+  <data name="Skill.Name.Block" xml:space="preserve">
+    <value>Block</value>
+  </data>
+  <data name="Skill.Name.BloodLust" xml:space="preserve">
+    <value>Bloodlust</value>
+  </data>
+  <data name="Skill.Name.Bombardier" xml:space="preserve">
+    <value>Bombardier</value>
+  </data>
+  <data name="Skill.Name.BoneHead" xml:space="preserve">
+    <value>Bone-Head</value>
+  </data>
+  <data name="Skill.Name.BreakTackle" xml:space="preserve">
+    <value>Break Tackle</value>
+  </data>
+  <data name="Skill.Name.Catch" xml:space="preserve">
+    <value>Catch</value>
+  </data>
+  <data name="Skill.Name.Chainsaw" xml:space="preserve">
+    <value>Chainsaw</value>
+  </data>
+  <data name="Skill.Name.Claw" xml:space="preserve">
+    <value>Claw / Claws</value>
+  </data>
+  <data name="Skill.Name.Dauntless" xml:space="preserve">
+    <value>Dauntless</value>
+  </data>
+  <data name="Skill.Name.Decay" xml:space="preserve">
+    <value>Decay</value>
+  </data>
+  <data name="Skill.Name.DirtyPlayer" xml:space="preserve">
+    <value>Dirty Player</value>
+  </data>
+  <data name="Skill.Name.DisturbingPresence" xml:space="preserve">
+    <value>Disturbing Presence</value>
+  </data>
+  <data name="Skill.Name.DivingCatch" xml:space="preserve">
+    <value>Diving Catch</value>
+  </data>
+  <data name="Skill.Name.DivingTackle" xml:space="preserve">
+    <value>Diving Tackle</value>
+  </data>
+  <data name="Skill.Name.Dodge" xml:space="preserve">
+    <value>Dodge</value>
+  </data>
+  <data name="Skill.Name.DumpOff" xml:space="preserve">
+    <value>Dump-Off</value>
+  </data>
+  <data name="Skill.Name.ExtraArms" xml:space="preserve">
+    <value>Extra Arms</value>
+  </data>
+  <data name="Skill.Name.FanFavourite" xml:space="preserve">
+    <value>Fan Favourite</value>
+  </data>
+  <data name="Skill.Name.Fend" xml:space="preserve">
+    <value>Fend</value>
+  </data>
+  <data name="Skill.Name.FoulAppearance" xml:space="preserve">
+    <value>Foul Appearance</value>
+  </data>
+  <data name="Skill.Name.Frenzy" xml:space="preserve">
+    <value>Frenzy</value>
+  </data>
+  <data name="Skill.Name.Grab" xml:space="preserve">
+    <value>Grab</value>
+  </data>
+  <data name="Skill.Name.Guard" xml:space="preserve">
+    <value>Guard</value>
+  </data>
+  <data name="Skill.Name.HailMaryPass" xml:space="preserve">
+    <value>Hail Mary Pass</value>
+  </data>
+  <data name="Skill.Name.Horns" xml:space="preserve">
+    <value>Horns</value>
+  </data>
+  <data name="Skill.Name.HypnoticGaze" xml:space="preserve">
+    <value>Hypnotic Gaze</value>
+  </data>
+  <data name="Skill.Name.Juggernaut" xml:space="preserve">
+    <value>Juggernaut</value>
+  </data>
+  <data name="Skill.Name.JumpUp" xml:space="preserve">
+    <value>Jump Up</value>
+  </data>
+  <data name="Skill.Name.Kick" xml:space="preserve">
+    <value>Kick</value>
+  </data>
+  <data name="Skill.Name.KickOffReturn" xml:space="preserve">
+    <value>Kick-Off Return</value>
+  </data>
+  <data name="Skill.Name.Leader" xml:space="preserve">
+    <value>Leader</value>
+  </data>
+  <data name="Skill.Name.Leap" xml:space="preserve">
+    <value>Leap</value>
+  </data>
+  <data name="Skill.Name.Loner" xml:space="preserve">
+    <value>Loner</value>
+  </data>
+  <data name="Skill.Name.MightyBlow" xml:space="preserve">
+    <value>Mighty Blow</value>
+  </data>
+  <data name="Skill.Name.MultipleBlock" xml:space="preserve">
+    <value>Multiple Block</value>
+  </data>
+  <data name="Skill.Name.NervesOfSteel" xml:space="preserve">
+    <value>Nerves Of Steel</value>
+  </data>
+  <data name="Skill.Name.NoHands" xml:space="preserve">
+    <value>No Hands</value>
+  </data>
+  <data name="Skill.Name.NurglesRot" xml:space="preserve">
+    <value>Nurgle's Rot</value>
+  </data>
+  <data name="Skill.Name.Pass" xml:space="preserve">
+    <value>Pass</value>
+  </data>
+  <data name="Skill.Name.PassBlock" xml:space="preserve">
+    <value>Pass Block</value>
+  </data>
+  <data name="Skill.Name.PilingOn" xml:space="preserve">
+    <value>Piling On</value>
+  </data>
+  <data name="Skill.Name.PrehensileTail" xml:space="preserve">
+    <value>Prehensile Tail</value>
+  </data>
+  <data name="Skill.Name.Pro" xml:space="preserve">
+    <value>Pro</value>
+  </data>
+  <data name="Skill.Name.ReallyStupid" xml:space="preserve">
+    <value>Really Stupid</value>
+  </data>
+  <data name="Skill.Name.Regeneration" xml:space="preserve">
+    <value>Regeneration</value>
+  </data>
+  <data name="Skill.Name.RightStuff" xml:space="preserve">
+    <value>Right Stuff</value>
+  </data>
+  <data name="Skill.Name.SafeThrow" xml:space="preserve">
+    <value>Safe Throw</value>
+  </data>
+  <data name="Skill.Name.SecretWeapon" xml:space="preserve">
+    <value>Secret Weapon</value>
+  </data>
+  <data name="Skill.Name.Shadowing" xml:space="preserve">
+    <value>Shadowing</value>
+  </data>
+  <data name="Skill.Name.SideStep" xml:space="preserve">
+    <value>Side Step</value>
+  </data>
+  <data name="Skill.Name.SneakyGit" xml:space="preserve">
+    <value>Sneaky Git</value>
+  </data>
+  <data name="Skill.Name.Sprint" xml:space="preserve">
+    <value>Sprint</value>
+  </data>
+  <data name="Skill.Name.Stab" xml:space="preserve">
+    <value>Stab</value>
+  </data>
+  <data name="Skill.Name.Stakes" xml:space="preserve">
+    <value>Stakes</value>
+  </data>
+  <data name="Skill.Name.StandFirm" xml:space="preserve">
+    <value>Stand Firm</value>
+  </data>
+  <data name="Skill.Name.StripBall" xml:space="preserve">
+    <value>Strip Ball</value>
+  </data>
+  <data name="Skill.Name.StrongArm" xml:space="preserve">
+    <value>Strong Arm</value>
+  </data>
+  <data name="Skill.Name.Stunty" xml:space="preserve">
+    <value>Stunty</value>
+  </data>
+  <data name="Skill.Name.SureFeet" xml:space="preserve">
+    <value>Sure Feet</value>
+  </data>
+  <data name="Skill.Name.SureHands" xml:space="preserve">
+    <value>Sure Hands</value>
+  </data>
+  <data name="Skill.Name.Tackle" xml:space="preserve">
+    <value>Tackle</value>
+  </data>
+  <data name="Skill.Name.TakeRoot" xml:space="preserve">
+    <value>Take Root</value>
+  </data>
+  <data name="Skill.Name.Tentacles" xml:space="preserve">
+    <value>Tentacles</value>
+  </data>
+  <data name="Skill.Name.ThickSkull" xml:space="preserve">
+    <value>Thick Skull</value>
+  </data>
+  <data name="Skill.Name.ThrowTeamMate" xml:space="preserve">
+    <value>Throw Team-Mate</value>
+  </data>
+  <data name="Skill.Name.Titchy" xml:space="preserve">
+    <value>Titchy</value>
+  </data>
+  <data name="Skill.Name.TwoHeads" xml:space="preserve">
+    <value>Two Heads</value>
+  </data>
+  <data name="Skill.Name.VeryLongLegs" xml:space="preserve">
+    <value>Very Long Legs</value>
+  </data>
+  <data name="Skill.Name.WildAnimal" xml:space="preserve">
+    <value>Wild Animal</value>
+  </data>
+  <data name="Skill.Name.Wrestle" xml:space="preserve">
+    <value>Wrestle</value>
+  </data>
+  <data name="Skill.Description.BB2.Accurate" xml:space="preserve">
+    <value> The player adds 1 when attempting a Pass.</value>
+  </data>
+  <data name="Skill.Description.BB2.AlwaysHungry" xml:space="preserve">
+    <value> When using Throw Team-Mate, roll a D6 after he has finished moving, but before he throws his team-mate. On a 1, roll another D6. On another 1, the teammate is killed without any opportunity for recovery. If the team-mate had the ball it will scatter once from the their square.</value>
+  </data>
+  <data name="Skill.Description.BB2.Animosity" xml:space="preserve">
+    <value> At the end of their Hand-off or Pass Action attempts to a team-mate who is not of the same race as the Animosity player, roll a D6. On a 1, the player refuses to try to give the ball to any team-mate except one of his own race. The coach may choose to change the target of the Pass/hand-off to another team-mate of the same race as the Animosity player.</value>
+  </data>
+  <data name="Skill.Description.BB2.BallChain" xml:space="preserve">
+    <value>_TODO_</value>
+    <comment>ToDo</comment>
+  </data>
+  <data name="Skill.Description.BB2.BigHand" xml:space="preserve">
+    <value> The player ignores modifiers for enemy tackle zones or Pouring Rain weather when he attempts to pick up the ball.</value>
+  </data>
+  <data name="Skill.Description.BB2.Block" xml:space="preserve">
+    <value> The Block skill prevents the player from being knocked down after a block on a "Both Down" result.</value>
+  </data>
+  <data name="Skill.Description.BB2.BloodLust" xml:space="preserve">
+    <value> Immediately after declaring an Action with a Vampire, roll a d6: On a 2+ the Vampire can carry out the Action as normal. However, on a 1, the Vampire must feed on a Thrall team-mate or a spectator. At the end of the declared Action, but before actually Passing, handing off, or scoring, the vampire must feed. Choose a Thrall to bite and make an Injury roll on the Thrall treating any casualty roll as Badly Hurt. Failure to bite a Thrall is a turnover and requires you to feed on a spectator – move the Vampire to the reserves box if he was still on the pitch.</value>
+  </data>
+  <data name="Skill.Description.BB2.Bombardier" xml:space="preserve">
+    <value> A coach may choose to have a Bombardier throw a bomb instead of taking any other Action. The bomb is thrown using the rules for throwing the ball (including weather effects and use of Hail Mary Pass), except that the player may not move or stand up before throwing it. Intercepted bomb Passes are not turnovers. All skills that may be used when a ball is thrown may be used when a bomb is thrown also. A bomb may be Intercepted or caught using the same rules for catching the ball, in which case the player catching it must throw it again immediately. The bomb explodes when it lands in an empty square or an opportunity to Catch the bomb fails. When the bomb finally does explode any player in the same square is knocked down, and players in adjacent squares are knocked down on a roll of 4+.</value>
+  </data>
+  <data name="Skill.Description.BB2.BoneHead" xml:space="preserve">
+    <value> Roll a D6 immediately after declaring an Action for the player. On a roll of 1 they stand around trying to remember what it is they're meant to be doing. While Bone-head is in effect, the player also loses his tackle zone and may not Catch, Intercept, Pass or assist another player, until a 2+ is rolled in subsequent turns or the drive ends.</value>
+  </data>
+  <data name="Skill.Description.BB2.BreakTackle" xml:space="preserve">
+    <value> The player uses his Strength instead of his Agility when he fails a Dodge. This skill may only be used once per turn.</value>
+  </data>
+  <data name="Skill.Description.BB2.Catch" xml:space="preserve">
+    <value> The player re-rolls the dice if he fails a Catch roll, drops a hand-off or fails to make an Interception.</value>
+  </data>
+  <data name="Skill.Description.BB2.Chainsaw" xml:space="preserve">
+    <value> A player armed with a chainsaw must attack with it instead of making a block. Roll a D6. On a roll of 2 or more the chainsaw hits the opposing player, but on a roll of 1 it hits the wielder instead! Make an Armour roll for the player hit by the chainsaw, adding 3 to the score. If the roll beats the victim’s Armour value then the victim is knocked down and injured. In addition, add 3 to the Armour roll for Foul action, when the player with chainsaw makes an Armour roll and when an opponent rolls a Skull when blocking him.</value>
+  </data>
+  <data name="Skill.Description.BB2.Claw" xml:space="preserve">
+    <value> When an opponent is knocked down by this player during a block, any Armour roll of 8 or more after modifications automatically breaks Armour.</value>
+  </data>
+  <data name="Skill.Description.BB2.Dauntless" xml:space="preserve">
+    <value> The player uses this skill if he attempts to block an opponent who is stronger than himself. Roll a D6 and add it to his Strength. If the total is equal to or lower than the opponent’s Strength, use your normal Strength. If the total is greater, your Strength is equal to his opponent’s when he makes the block.</value>
+  </data>
+  <data name="Skill.Description.BB2.Decay" xml:space="preserve">
+    <value> When this player suffers a Casualty result on the Injury table, roll twice on the Casualty table and apply both results. The player will only ever miss one future match as a result of his injuries, even if he suffers two results with this effect. A successful Regeneration roll will heal both results.</value>
+  </data>
+  <data name="Skill.Description.BB2.DirtyPlayer" xml:space="preserve">
+    <value> Add 1 to any Armour roll OR Injury roll made by a player with this skill when they make a Foul as part of a Foul Action.</value>
+  </data>
+  <data name="Skill.Description.BB2.DisturbingPresence" xml:space="preserve">
+    <value> Any player must subtract 1 from the D6 when they Pass, Intercept or Catch for each opposing player with Disturbing Presence that is within three squares of them, even if the Disturbing Presence player is Prone or Stunned.</value>
+  </data>
+  <data name="Skill.Description.BB2.DivingCatch" xml:space="preserve">
+    <value> The player add +1 to any Catch roll from an accurate Pass targeted to his square. In addition, the player Catch any Pass, kick off or crowd throw-in, that would land in an empty square in one of his tackle zones as if it had landed in his own square without leaving his current square. If there are two or more players attempting to use this skill, neither can use it.</value>
+  </data>
+  <data name="Skill.Description.BB2.DivingTackle" xml:space="preserve">
+    <value> The player may use this skill after an opposing player attempts to dodge out of any of his tackle zones (only if useful). The player using this skill is placed prone in the square vacated by the dodging player, but do not make an Armour or Injury roll for them. The opposing player must then subtract 2 from his Dodge roll for leaving the player's tackle zone.</value>
+  </data>
+  <data name="Skill.Description.BB2.Dodge" xml:space="preserve">
+    <value> A player with this skill re-rolls the dice if he fails to dodge out of any tackle zones of an opposing player. In addition, if a blocked player uses the Dodge skill, treat a "Defender Stumbles" result as a "Defender Pushed Back".</value>
+  </data>
+  <data name="Skill.Description.BB2.DumpOff" xml:space="preserve">
+    <value> This skill allows the player to make a Quick Pass when an opponent declares that he will throw a block at him.</value>
+  </data>
+  <data name="Skill.Description.BB2.ExtraArms" xml:space="preserve">
+    <value> A player with one or more extra arms adds 1 to any attempt to pick up, Catch or Intercept.</value>
+  </data>
+  <data name="Skill.Description.BB2.FanFavourite" xml:space="preserve">
+    <value> For each player with Fan Favourite on the pitch your team receives an additional +1 FAME modifier for any Kick-Off table results, but not for the Winnings roll.</value>
+  </data>
+  <data name="Skill.Description.BB2.Fend" xml:space="preserve">
+    <value> Opposing players may not follow-up blocks made against this player even if the Fend player is knocked down.</value>
+  </data>
+  <data name="Skill.Description.BB2.FoulAppearance" xml:space="preserve">
+    <value> The player’s appearance is so horrible that any opposing player that wants to block him (or use a special attack that takes the place of a block) must first roll a D6 and score 2 or more. If the opposing player rolls a 1 he is too revolted to make the block and it is wasted (though the opposing team does not suffer a turnover).</value>
+  </data>
+  <data name="Skill.Description.BB2.Frenzy" xml:space="preserve">
+    <value> When this player blocks an opponent, after a "Defender Pushed Back" or "Defender Stumbles" result, the player must immediately throw a second block against the same opponent so long as they are both still standing and adjacent. He must systematically follow up. A player with the Frenzy skill can never learn or gain the Grab skill.</value>
+  </data>
+  <data name="Skill.Description.BB2.Grab" xml:space="preserve">
+    <value> When this player block results in a push back he choose any empty square adjacent to his opponent to push back his opponent. When making a Block or Blitz Action, Grab and Side Step will cancel each other out and the standard pushback rules apply. Grab will not work if there are no empty adjacent squares. A player with the Grab skill can never learn or gain the Frenzy skill.</value>
+  </data>
+  <data name="Skill.Description.BB2.Guard" xml:space="preserve">
+    <value> A player with this skill assists an offensive or defensive block even if he is in another player’s tackle zone. This skill may not be used to assist a foul.</value>
+  </data>
+  <data name="Skill.Description.BB2.HailMaryPass" xml:space="preserve">
+    <value> The player may throw the ball to any square on the playing pitch, no matter what the range. The Hail Mary Pass may not be Intercepted, but it is never accurate – the ball automatically misses and scatters three squares. This skill may not be used in a blizzard or with the Throw Team-Mates skill.</value>
+  </data>
+  <data name="Skill.Description.BB2.Horns" xml:space="preserve">
+    <value> A player with Horns adds 1 to his Strength for any block he makes during a Blitz Action.</value>
+  </data>
+  <data name="Skill.Description.BB2.HypnoticGaze" xml:space="preserve">
+    <value> The player may use Hypnotic Gaze at the end of his Move Action on one adjacent opposing player. Make an Agility roll for the player with Hypnotic Gaze, with a -1 modifier for each opposing tackle zone other than the victim's. If the Agility roll is successful, then the opposing player loses his tackle zones and may not Catch, Intercept, Pass the ball or assist another player on a block or foul, or move voluntarily until the start of his next action or the drive ends.</value>
+  </data>
+  <data name="Skill.Description.BB2.Juggernaut" xml:space="preserve">
+    <value> If this player takes a Blitz Action, then opposing players may not use their Fend, Stand Firm or Wrestle skills against blocks, and he treats a "Both Down" result as if a "Defender Pushed Back" result has been rolled instead.</value>
+  </data>
+  <data name="Skill.Description.BB2.JumpUp" xml:space="preserve">
+    <value> The player stand up for free without paying the three squares of movement. The player may also declare a Block Action while Prone which requires an Agility roll with a +2 modifier to see if he can complete the Action.</value>
+  </data>
+  <data name="Skill.Description.BB2.Kick" xml:space="preserve">
+    <value> The player's kick is so accurate, you halves the number of squares that the ball scatters on kick-off.</value>
+  </data>
+  <data name="Skill.Description.BB2.KickOffReturn" xml:space="preserve">
+    <value> The player can move up to 3 squares at a kick-off where his team is attacking, if he is not in the front line or in the tackle zone of an opponent. Please note, only one player can use this skill at each kick-off and it is forbidden to enter the opponent's half of the pitch.</value>
+  </data>
+  <data name="Skill.Description.BB2.Leader" xml:space="preserve">
+    <value> A team with one or more players with the Leader skill may take a single Leader re-roll counter and add it to their team re-rolls at the start of the game and at half time after any Master Chef rolls. The Leader re-roll may only be used so long as at least one player with the Leader skill is on the pitch - even if they are Prone or Stunned!</value>
+  </data>
+  <data name="Skill.Description.BB2.Leap" xml:space="preserve">
+    <value> A player with the Leap skill is allowed to jump to any empty square within 2 squares for two squares of movement. Move the player to any empty square and then make an Agility roll (with no modifiers except Very Long Legs). If the player fails the Agility roll then he is knocked down in the square that he was leaping to.</value>
+  </data>
+  <data name="Skill.Description.BB2.Loner" xml:space="preserve">
+    <value> A Loner may use team re-rolls but has to roll a D6 first. On a roll of 4+, he may use the team re-roll as normal. On a roll of 1-3 the original result stands without being re-rolled but the team re-roll is lost.</value>
+  </data>
+  <data name="Skill.Description.BB2.MightyBlow" xml:space="preserve">
+    <value> Add 1 to any Armour or Injury roll made by a player with this skill when an opponent is knocked down by this player during a block.</value>
+  </data>
+  <data name="Skill.Description.BB2.MultipleBlock" xml:space="preserve">
+    <value> This player may choose to throw blocks against two adjacent opponents. Make each block in turn as normal except that each defender's Strength is increased by 2. The player cannot follow up either block when using this skill.</value>
+  </data>
+  <data name="Skill.Description.BB2.NervesOfSteel" xml:space="preserve">
+    <value> The player ignores modifiers for enemy tackle zones when he attempts to Pass, Catch or Intercept.</value>
+  </data>
+  <data name="Skill.Description.BB2.NoHands" xml:space="preserve">
+    <value> The player is unable to pick up, Intercept or carry the ball and will fail any Catch roll automatically.</value>
+  </data>
+  <data name="Skill.Description.BB2.NurglesRot" xml:space="preserve">
+    <value> When this player kills an opponent during a Block, Blitz or Foul Action, the infected opponent becomes a new rookie Rotter. The opponent's Strength cannot exceed 4, and he cannot have the Decay, Regeneration or Stunty skills.</value>
+  </data>
+  <data name="Skill.Description.BB2.Pass" xml:space="preserve">
+    <value> A player with the Pass skill re-rolls the dice if he throws an inaccurate Pass or fumbles.</value>
+  </data>
+  <data name="Skill.Description.BB2.PassBlock" xml:space="preserve">
+    <value> A player with this skill is allowed to move up to three squares when the opposing coach announces that one of his players is going to Pass the ball (but not a bomb). The move is made using all of the normal rules and skills, and the player does have to dodge in order to leave opposing player's tackle zones. If a player performing a Pass Block in their own turn is knocked down then this is a turnover.</value>
+  </data>
+  <data name="Skill.Description.BB2.PilingOn" xml:space="preserve">
+    <value> The player may use this skill after he has made a block if he's standing adjacent to the victim and the victim was knocked down. You may re-roll the Armour roll or Injury roll for the victim. The Piling On player is placed prone in his own square. Do not make an Armour roll for him. Piling On does not cause a turnover unless the Piling On player is carrying the ball.</value>
+  </data>
+  <data name="Skill.Description.BB2.PrehensileTail" xml:space="preserve">
+    <value> Opposing players must subtract 1 from the D6 roll if they attempt to dodge out of any of the player’s tackle zones.</value>
+  </data>
+  <data name="Skill.Description.BB2.Pro" xml:space="preserve">
+    <value> Once per turn, a Pro is allowed to re-roll any one dice roll he has made, even if he is Prone or Stunned. However, before the re-roll may be made, his coach must roll a D6. On a roll of 4, 5 or 6 the re-roll may be made. On a roll of 1, 2 or 3 the original result stands and may not be re-rolled with a skill or team re-roll.</value>
+  </data>
+  <data name="Skill.Description.BB2.ReallyStupid" xml:space="preserve">
+    <value> After declaring an Action for the player, roll a D6, adding 2 if there are any adjacent team-mates. On a result of 1-3 they stand around trying to remember what it is they’re meant to be doing and the Action is wasted. The player loses his tackle zone and may not Catch, Intercept, Pass, Assist, or voluntarily move.</value>
+  </data>
+  <data name="Skill.Description.BB2.Regeneration" xml:space="preserve">
+    <value> If the player suffers a Casualty, then roll a D6 for Regeneration after the Injury roll and after any Apothecary roll (if allowed). On a result of 1-3, the player suffers the result of the injury as normal. On a 4-6, the player will heal their injury but is placed in the Reserves box.</value>
+  </data>
+  <data name="Skill.Description.BB2.RightStuff" xml:space="preserve">
+    <value> This player can be thrown by a team-mate with the Throw Team-Mate skill. When he ends up in an unoccupied square, he must make a landing roll unless he landed on another player during the throw. A landing roll is an Agility roll with a -1 modifier for each opposing player’s tackle zone on the square he lands in. If the landing roll is failed or he landed on another player during the throw he is placed prone and must Pass an Armour roll to avoid injury.</value>
+  </data>
+  <data name="Skill.Description.BB2.SafeThrow" xml:space="preserve">
+    <value> If a Pass made by this player is ever intercepted, make an unmodified Agility roll. If this is successful then the Interception is cancelled out and the Passing sequence continues as normal. In addition if this player fumbles a Pass of a ball (not a team-mate) on any roll other than a natural 1 then he manages to keep hold of the ball instead of suffering a fumble and the team does not suffer a turnover.</value>
+  </data>
+  <data name="Skill.Description.BB2.SecretWeapon" xml:space="preserve">
+    <value> Once a drive ends that this player has played in at any point, the referee orders the player to be sent off regardless of whether the player is still on the pitch or not.</value>
+  </data>
+  <data name="Skill.Description.BB2.Shadowing" xml:space="preserve">
+    <value> The player may use this skill when a player moves out of any of his tackle zones. The opposing player rolls 2D6 adding their own player’s Movement Allowance and subtracting the Shadowing player's Movement Allowance from the score. If the final result is 7 or less, the player with Shadowing may move into the square vacated by the opposing player (no Dodge roll). A player may make any number of shadowing moves per turn.</value>
+  </data>
+  <data name="Skill.Description.BB2.SideStep" xml:space="preserve">
+    <value> This player's coach choose which square the player is moved to when he is pushed back, rather than the opposing coach. Furthermore, the coach may choose to move the player to any adjacent square, not just the three squares behind him.</value>
+  </data>
+  <data name="Skill.Description.BB2.SneakyGit" xml:space="preserve">
+    <value> During a Foul Action a player with this skill is not ejected for rolling doubles on the Armour roll unless the Armour roll was successful.</value>
+  </data>
+  <data name="Skill.Description.BB2.Sprint" xml:space="preserve">
+    <value> The player may attempt to move up to three extra squares rather than the normal two when Going For It. His coach must still roll to see if the player is knocked down in each extra square he enters.</value>
+  </data>
+  <data name="Skill.Description.BB2.Stab" xml:space="preserve">
+    <value> This player may attack an opponent with their stabbing attack instead of throwing a block at them. Make an unmodified Armour roll for the victim. If the score beats the victim’s Armour value then they have been wounded and an Injury roll must be made. If Stab is used as part of a Blitz Action, the player cannot continue moving after using it.</value>
+  </data>
+  <data name="Skill.Description.BB2.Stakes" xml:space="preserve">
+    <value> This player may add 1 to the Armour roll when they make a Stab attack against any player playing for a Khemri, Necromantic, Undead or Vampire team.</value>
+  </data>
+  <data name="Skill.Description.BB2.StandFirm" xml:space="preserve">
+    <value> A player with this skill may choose to not be pushed back as the result of a block. If a player is pushed back into a player with using Stand Firm then neither player moves.</value>
+  </data>
+  <data name="Skill.Description.BB2.StripBall" xml:space="preserve">
+    <value> When a player with this skill blocks an opponent with the ball, applying a "Both Down" or "Defender Stumbles" result will cause the opposing player to drop the ball in the square that they are pushed to, even if the opposing player is not knocked down.</value>
+  </data>
+  <data name="Skill.Description.BB2.StrongArm" xml:space="preserve">
+    <value> The player add 1 to the D6 when he Passes to Short, Long or Bomb range.</value>
+  </data>
+  <data name="Skill.Description.BB2.Stunty" xml:space="preserve">
+    <value> A player with the Stunty skill ignore any enemy tackle zones on the square he is moving to when he makes a Dodge roll, but must subtract 1 from the roll when they Pass. In addition, this player treats a roll of 7 and 9 on the Injury table after any modifiers have been applied as a KO'd and Badly Hurt result respectively rather than the normal results. Stunties that are armed with a Secret Weapon do not ignore enemy tackle zones, but still suffer the other penalties.</value>
+  </data>
+  <data name="Skill.Description.BB2.SureFeet" xml:space="preserve">
+    <value> The player re-rolls the dice if he is knocked down when trying to Go For It.</value>
+  </data>
+  <data name="Skill.Description.BB2.SureHands" xml:space="preserve">
+    <value> The player re-rolls the dice if he fails to pick up the ball. In addition, the Strip Ball skill will not work against a player with this skill.</value>
+  </data>
+  <data name="Skill.Description.BB2.Tackle" xml:space="preserve">
+    <value> Players who are standing in this player’s tackle zone are not allowed to use their Dodge skill if they dodge, nor may they use Dodge if the player throws a block at them.</value>
+  </data>
+  <data name="Skill.Description.BB2.TakeRoot" xml:space="preserve">
+    <value> Immediately after declaring an Action with this player, roll a D6. On a 2 or more, the player may take his Action as normal. On a 1, the player 'takes root', and his MA is considered 0 until a drive ends, or he is knocked down or placed prone.</value>
+  </data>
+  <data name="Skill.Description.BB2.Tentacles" xml:space="preserve">
+    <value> The player use this skill when an opposing player attempts to dodge or leap out of any of his tackle zones. The opposing player rolls 2D6 adding their own player’s ST and subtracting the Tentacles player's ST from the score. If the final result is 5 or less, then the moving player is held firm, and his action ends immediately.</value>
+  </data>
+  <data name="Skill.Description.BB2.ThickSkull" xml:space="preserve">
+    <value> This player treats a roll of 8 on the Injury table, after any modifiers have been applied, as a Stunned result rather than a KO’d result.</value>
+  </data>
+  <data name="Skill.Description.BB2.ThrowTeamMate" xml:space="preserve">
+    <value> This player may throw team-mates who have the Right Stuff skill. The player must be standing next to the intended team-mate at the end of their movement during the Pass Action. Only Quick and Short Passes may be attempted, and have a -1 penalty modifier. If the Pass is fumbled, it is not an automatic turnover.</value>
+  </data>
+  <data name="Skill.Description.BB2.Titchy" xml:space="preserve">
+    <value> The player may add 1 to any Dodge roll he attempts. On the other hand, while opponents do have to dodge to leave any of a Titchy player’s tackle zones, Titchy players do not exert a -1 modifier when opponents dodge into any of their tackle zones.</value>
+  </data>
+  <data name="Skill.Description.BB2.TwoHeads" xml:space="preserve">
+    <value> Add 1 to all Dodge rolls the player makes.</value>
+  </data>
+  <data name="Skill.Description.BB2.VeryLongLegs" xml:space="preserve">
+    <value> The player add 1 to the D6 roll whenever he attempts to Intercept or uses the Leap skill. In addition, the Safe Throw skill may not be used to affect any Interception rolls made by this player.</value>
+  </data>
+  <data name="Skill.Description.BB2.WildAnimal" xml:space="preserve">
+    <value> After declaring an Action with a Wild Animal, roll a D6, adding 2 to the roll if taking a Block or Blitz Action. On a roll of 1-3, the Wild Animal does not move and roars in rage instead, and the Action is wasted.</value>
+  </data>
+  <data name="Skill.Description.BB2.Wrestle" xml:space="preserve">
+    <value> This player can use Wrestle on a "Both Down" result. Both players are placed prone in their respective squares even if one or both have the Block skill. Do not make an Armour roll. No turnover, unless the player of the active team was the ball carrier.</value>
+  </data>
+  <data name="SkillCategory.Name.General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="SkillCategory.Name.Strength" xml:space="preserve">
+    <value>Strength</value>
+  </data>
+  <data name="SkillCategory.Name.Passing" xml:space="preserve">
+    <value>Passing</value>
+  </data>
+  <data name="SkillCategory.Name.Agility" xml:space="preserve">
+    <value>Agility</value>
+  </data>
+  <data name="SkillCategory.Name.Mutation" xml:space="preserve">
+    <value>Mutation</value>
+  </data>
+  <data name="SkillCategory.Name.Extraordinary" xml:space="preserve">
+    <value>Extraordinary</value>
+  </data>
+  <data name="SkillCategory.ShortName.General" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="SkillCategory.ShortName.Strength" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="SkillCategory.ShortName.Passing" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="SkillCategory.ShortName.Agility" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="SkillCategory.ShortName.Mutation" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="SkillCategory.ShortName.Extraordinary" xml:space="preserve">
+    <value>E</value>
   </data>
 </root>
