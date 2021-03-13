@@ -52,7 +52,7 @@ namespace BloodBowlAPI.Controllers.Skills
         }
 
         private async Task<List<SkillDto>> GetAllSkillDtos()
-        {                
+        {
             return await _context.Skill
                 .Include(s => s.SkillCategory)
                 .Include(s => s.RuleSet)

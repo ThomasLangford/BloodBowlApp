@@ -27,7 +27,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
         {
             return new List<Skill>
             {
-                new Skill 
+                new Skill
                 {
                     Id = 1,
                     InternalName = "Block",
@@ -36,7 +36,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 2,
                     InternalName = "Dauntless",
@@ -45,7 +45,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 3,
                     InternalName = "DirtyPlayer",
@@ -54,7 +54,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 4,
                     InternalName = "Fend",
@@ -63,7 +63,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 5,
                     InternalName = "Frenzy",
@@ -72,7 +72,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 6,
                     InternalName = "Kick",
@@ -81,7 +81,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 7,
                     InternalName = "KickOffReturn",
@@ -90,7 +90,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 8,
                     InternalName = "PassBlock",
@@ -99,7 +99,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 9,
                     InternalName = "Pro",
@@ -108,7 +108,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 10,
                     InternalName = "Shadowing",
@@ -117,7 +117,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 11,
                     InternalName = "StripBall",
@@ -126,7 +126,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 12,
                     InternalName = "SureHands",
@@ -135,7 +135,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 13,
                     InternalName = "Tackle",
@@ -144,7 +144,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.General,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 14,
                     InternalName = "Wrestle",
@@ -202,7 +202,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                 },
                 new Skill {
                     Id = 20,
-                    InternalName = "Leap",  
+                    InternalName = "Leap",
                     LocalizationName = "Skill.Name.Leap",
                     LocalizationDescription = "Skill.Description.BB2.Leap",
                     SkillCategoryId = SkillCategoryEnum.Agility,
@@ -246,7 +246,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
         {
             return new List<Skill>
             {
-                new Skill 
+                new Skill
                 {
                     Id = 25,
                     InternalName = "Accurate",
@@ -255,7 +255,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 26,
                     InternalName = "DumpOff",
@@ -264,7 +264,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 27,
                     InternalName = "HailMaryPass",
@@ -273,7 +273,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 28,
                     InternalName = "Leader",
@@ -282,7 +282,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 29,
                     InternalName = "NervesOfSteel",
@@ -291,7 +291,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 30,
                     InternalName = "Pass",
@@ -300,7 +300,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Passing,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 31,
                     InternalName = "SafeThrow",
@@ -315,7 +315,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
         {
             return new List<Skill>
             {
-                new Skill 
+                new Skill
                 {
                     Id = 32,
                     InternalName = "BreakTackle",
@@ -324,7 +324,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 33,
                     InternalName = "Grab",
@@ -342,7 +342,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 35,
                     InternalName = "Juggernaut",
@@ -351,7 +351,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 36,
                     InternalName = "MightyBlow",
@@ -360,7 +360,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 37,
                     InternalName = "MultipleBlock",
@@ -369,7 +369,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 38,
                     InternalName = "PilingOn",
@@ -378,7 +378,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 39,
                     InternalName = "StandFirm",
@@ -396,7 +396,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Strength,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 41,
                     InternalName = "ThickSkull",
@@ -411,7 +411,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
         {
             return new List<Skill>
             {
-                new Skill 
+                new Skill
                 {
                     Id = 42,
                     InternalName = "BigHand",
@@ -420,7 +420,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 43,
                     InternalName = "Claw",
@@ -429,7 +429,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 44,
                     InternalName = "DisturbingPresence",
@@ -438,7 +438,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 45,
                     InternalName = "ExtraArms",
@@ -447,7 +447,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 46,
                     InternalName = "FoulAppearance",
@@ -456,7 +456,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 47,
                     InternalName = "Horns",
@@ -474,7 +474,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 49,
                     InternalName = "Tentacles",
@@ -483,7 +483,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Mutation,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 50,
                     InternalName = "TwoHeads",
@@ -506,7 +506,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
         {
             return new List<Skill>
             {
-                new Skill 
+                new Skill
                 {
                     Id = 52,
                     InternalName = "AlwaysHungry",
@@ -515,7 +515,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 53,
                     InternalName = "Animosity",
@@ -524,7 +524,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 54,
                     InternalName = "BallChain",
@@ -533,7 +533,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 55,
                     InternalName = "BloodLust",
@@ -542,7 +542,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 56,
                     InternalName = "Bombardier",
@@ -551,7 +551,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 57,
                     InternalName = "BoneHead",
@@ -560,7 +560,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 58,
                     InternalName = "Chainsaw",
@@ -569,7 +569,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 59,
                     InternalName = "Decay",
@@ -578,7 +578,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 60,
                     InternalName = "FanFavourite",
@@ -587,7 +587,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 61,
                     InternalName = "HypnoticGaze",
@@ -596,7 +596,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 62,
                     InternalName = "Loner",
@@ -605,7 +605,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 63,
                     InternalName = "NoHands",
@@ -614,7 +614,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 64,
                     InternalName = "NurglesRot",
@@ -632,7 +632,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 66,
                     InternalName = "Regeneration",
@@ -641,7 +641,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 67,
                     InternalName = "RightStuff",
@@ -650,7 +650,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 68,
                     InternalName = "SecretWeapon",
@@ -659,7 +659,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 69,
                     InternalName = "Stab",
@@ -668,7 +668,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 70,
                     InternalName = "Stakes",
@@ -677,7 +677,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 71,
                     InternalName = "Stunty",
@@ -686,7 +686,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 72,
                     InternalName = "TakeRoot",
@@ -695,7 +695,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 73,
                     InternalName = "ThrowTeamMate",
@@ -704,7 +704,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 74,
                     InternalName = "Titchy",
@@ -713,7 +713,7 @@ namespace BloodBowlAPI.Seed.BloodBowl2
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
                     RuleSetId = RuleSetEnum.BloodBowl2
                 },
-                new Skill 
+                new Skill
                 {
                     Id = 75,
                     InternalName = "WildAnimal",
