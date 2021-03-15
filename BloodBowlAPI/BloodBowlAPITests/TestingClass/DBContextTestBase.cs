@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPITests.Controllers
+namespace BloodBowlAPITests.TestingClass
 {
-    public abstract class ContextControllerTestBase<T> : EntityFrameworkControllerTestBase where T : DbContext
+    public abstract class DBContextTestBase<T> : EntityFrameworkControllerTestBase where T : DbContext
     {
-        public ContextControllerTestBase() : base() { }
+        public DBContextTestBase() : base() { }
 
         protected T GetDBContext()
         {

@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlAPI.Contexts;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BloodBowlAPI.Models.Skills;
 using BloodBowlAPI.DTOs.Skills;
 using Microsoft.Extensions.Localization;
 using BloodBowlAPI.Resources;
+using BloodBowlData.Contexts;
+using BloodBowlData.Models.Skills;
 
 namespace BloodBowlAPI.Controllers.Skills
 {
@@ -76,7 +76,7 @@ namespace BloodBowlAPI.Controllers.Skills
         private async Task<SkillDto> FindSkillDto(int id)
         {
             return await FindSkillQueryable(id)
-                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider)
+                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .FirstOrDefaultAsync();
         }
     }

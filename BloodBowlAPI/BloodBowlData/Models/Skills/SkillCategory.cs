@@ -1,16 +1,17 @@
-﻿using BloodBowlAPI.Models.TeamTypes;
+﻿using BloodBowlData.Enums;
+using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.Models.Skills
+namespace BloodBowlData.Models.Skills
 {
     public class SkillCategory
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Enums.SkillCategoryEnum Id { get; set; }
+        public SkillCategoryEnum Id { get; set; }
 
         public string InternalName { get; set; }
         public string LocalizationShortName { get; set; }

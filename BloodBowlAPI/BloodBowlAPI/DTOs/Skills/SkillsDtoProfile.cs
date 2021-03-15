@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using BloodBowlAPI.DTOs.TeamTypes;
-using BloodBowlAPI.Models.Skills;
-using BloodBowlAPI.Models.TeamTypes;
+using BloodBowlData.Models.TeamTypes;
 using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BloodBowlAPI.Resources;
+using BloodBowlData.Models.Skills;
 
 namespace BloodBowlAPI.DTOs.Skills
 {

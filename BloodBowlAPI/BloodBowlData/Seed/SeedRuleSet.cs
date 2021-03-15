@@ -1,7 +1,8 @@
-﻿using BloodBowlAPI.Models.Rules;
+﻿using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
 using System.Collections.Generic;
 
-namespace BloodBowlAPI.Seed
+namespace BloodBowlData.Seed
 {
     public static class SeedRuleSet
     {
@@ -11,13 +12,13 @@ namespace BloodBowlAPI.Seed
             {
                 new RuleSet
                 {
-                    Id = Enums.RuleSetEnum.BloodBowl2,
+                    Id = RuleSetEnum.BloodBowl2,
                     Name = "Blood Bowl 2",
                     Supported = true
                 },
                 new RuleSet
                 {
-                    Id = Enums.RuleSetEnum.BloodBowl2020,
+                    Id = RuleSetEnum.BloodBowl2020,
                     Name = "Blood Bowl Season 2 (2020)"
                 },
             };

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPITests.Controllers
+namespace BloodBowlAPITests.TestingClass
 {
     public abstract class EntityFrameworkControllerTestBase : IDisposable
     {

@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlAPI.Contexts;
 using Microsoft.OpenApi.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
@@ -22,6 +21,7 @@ using Microsoft.AspNetCore.Localization;
 using BloodBowlAPI.Resources;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
+using BloodBowlData.Contexts;
 
 namespace BloodBowlAPI
 {

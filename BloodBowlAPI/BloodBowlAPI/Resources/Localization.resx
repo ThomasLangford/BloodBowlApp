@@ -352,8 +352,7 @@
     <value> At the end of their Hand-off or Pass Action attempts to a team-mate who is not of the same race as the Animosity player, roll a D6. On a 1, the player refuses to try to give the ball to any team-mate except one of his own race. The coach may choose to change the target of the Pass/hand-off to another team-mate of the same race as the Animosity player.</value>
   </data>
   <data name="Skill.Description.BB2.BallChain" xml:space="preserve">
-    <value>_TODO_</value>
-    <comment>ToDo</comment>
+    <value>_Ball_And_Chain_</value>
   </data>
   <data name="Skill.Description.BB2.BigHand" xml:space="preserve">
     <value> The player ignores modifiers for enemy tackle zones or Pouring Rain weather when he attempts to pick up the ball.</value>
@@ -603,5 +602,23 @@
   </data>
   <data name="SkillCategory.ShortName.Extraordinary" xml:space="preserve">
     <value>E</value>
+  </data>
+  <data name="TeamType.Name.Humans" xml:space="preserve">
+    <value>Humans</value>
+  </data>
+  <data name="PlayerType.Name.Lineman" xml:space="preserve">
+    <value>Lineman</value>
+  </data>
+  <data name="PlayerType.Name.Catcher" xml:space="preserve">
+    <value>Catcher</value>
+  </data>
+  <data name="PlayerType.Name.Thrower" xml:space="preserve">
+    <value>Thrower</value>
+  </data>
+  <data name="PlayerType.Name.Blitzer" xml:space="preserve">
+    <value>Blitzer</value>
+  </data>
+  <data name="PlayerType.Name.Ogre" xml:space="preserve">
+    <value>Ogre</value>
   </data>
 </root>

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.Models.TeamTypes
+namespace BloodBowlData.Models.TeamTypes
 {
     public class PlayerType
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int MaximumAllowedOnTeam { get; set; }
+        public string InternalName { get; set; }
+        public string LocalizationName { get; set; }
+        public int MaximumOnTeam { get; set; }
         public int Cost { get; set; }
         public int Move { get; set; }
         public int Strength { get; set; }

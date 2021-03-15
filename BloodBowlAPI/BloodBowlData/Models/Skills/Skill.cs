@@ -1,6 +1,6 @@
-﻿using BloodBowlAPI.Enums;
-using BloodBowlAPI.Models.Rules;
-using BloodBowlAPI.Models.TeamTypes;
+﻿using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
+using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.Models.Skills
+namespace BloodBowlData.Models.Skills
 {
     public class Skill
     {

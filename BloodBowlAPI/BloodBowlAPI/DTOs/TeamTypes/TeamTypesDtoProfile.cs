@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BloodBowlAPI.DTOs.Skills;
-using BloodBowlAPI.Models.TeamTypes;
+using BloodBowlAPI.Resources;
+using BloodBowlData.Models.TeamTypes;
+using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +14,17 @@ namespace BloodBowlAPI.DTOs.TeamTypes
     {
         public TeamTypesDtoProfile()
         {
-            CreateMap<PlayerType, PlayerTypeDto>();
+            IStringLocalizer<Localization> localizer = null;
 
+            CreateMap<PlayerType, PlayerTypeDto>()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.LocalizationName]));
 
+            CreateMap<TeamType, TeamTypeDto>()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.LocalizationName]));
 
-            CreateMap<TeamType, TeamTypeDto>().ReverseMap();
             CreateMap<LevelUpType, LevelUpTypeDto>().ReverseMap();
 
             CreateMap<AvailableSkillCategory, AvailableSkillCategoryDto>().ReverseMap();
-
-            CreateMap<StartingSkill, SkillDto>()
-                .ConstructUsing((ct, crx) => crx.Mapper.Map<SkillDto>(ct.Skill));
-
-            CreateMap<SkillDto, StartingSkill>()
-                .ForMember(x => x.SkillId, opt => opt.MapFrom(s => s.Id))
-                .ForMember(x => x.Skill, opt => opt.MapFrom(s => s));
         }
     }
 }

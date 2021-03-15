@@ -1,7 +1,7 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
-using BloodBowlAPI.Enums;
-using BloodBowlAPI.Models.Rules;
-using BloodBowlAPI.Models.Skills;
+using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
+using BloodBowlData.Models.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;

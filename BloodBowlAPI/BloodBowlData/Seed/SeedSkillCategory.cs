@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BloodBowlAPI.Enums;
-using BloodBowlAPI.Models.Skills;
+using BloodBowlData.Enums;
+using BloodBowlData.Models.Skills;
 
-namespace BloodBowlAPI.Seed
+namespace BloodBowlData.Seed
 {
     public static class SeedSkillCategory
     {

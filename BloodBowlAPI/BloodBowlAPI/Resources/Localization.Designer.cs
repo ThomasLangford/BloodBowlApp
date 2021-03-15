@@ -61,6 +61,51 @@ namespace BloodBowlAPI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blitzer.
+        /// </summary>
+        public static string PlayerType_Name_Blitzer {
+            get {
+                return ResourceManager.GetString("PlayerType.Name.Blitzer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Catcher.
+        /// </summary>
+        public static string PlayerType_Name_Catcher {
+            get {
+                return ResourceManager.GetString("PlayerType.Name.Catcher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lineman.
+        /// </summary>
+        public static string PlayerType_Name_Lineman {
+            get {
+                return ResourceManager.GetString("PlayerType.Name.Lineman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ogre.
+        /// </summary>
+        public static string PlayerType_Name_Ogre {
+            get {
+                return ResourceManager.GetString("PlayerType.Name.Ogre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thrower.
+        /// </summary>
+        public static string PlayerType_Name_Thrower {
+            get {
+                return ResourceManager.GetString("PlayerType.Name.Thrower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  The player adds 1 when attempting a Pass..
         /// </summary>
         public static string Skill_Description_BB2_Accurate {
@@ -88,7 +133,7 @@ namespace BloodBowlAPI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _TODO_.
+        ///   Looks up a localized string similar to _Ball_And_Chain_.
         /// </summary>
         public static string Skill_Description_BB2_BallChain {
             get {
@@ -1515,6 +1560,15 @@ namespace BloodBowlAPI.Resources {
         public static string SkillCategory_ShortName_Strength {
             get {
                 return ResourceManager.GetString("SkillCategory.ShortName.Strength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Humans.
+        /// </summary>
+        public static string TeamType_Name_Humans {
+            get {
+                return ResourceManager.GetString("TeamType.Name.Humans", resourceCulture);
             }
         }
     }

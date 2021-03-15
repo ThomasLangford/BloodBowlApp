@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BloodBowlData.Enums;
+using BloodBowlData.Models.Skills;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BloodBowlData.Enums;
-using BloodBowlData.Models.Skills;
 
-namespace BloodBowlData.Seed.BloodBowl2
+namespace BloodBowlDataTests.TestData.BloodBowl2
 {
-    public static class SeedSkill
+    class Skills
     {
         public static List<Skill> SeedSkills()
         {
@@ -724,5 +724,6 @@ namespace BloodBowlData.Seed.BloodBowl2
                 },
             };
         }
+
     }
 }

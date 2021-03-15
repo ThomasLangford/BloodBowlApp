@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.Enums
+namespace BloodBowlData.Enums
 {
     public enum SkillCategoryEnum
     {

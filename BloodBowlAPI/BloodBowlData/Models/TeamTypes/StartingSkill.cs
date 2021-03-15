@@ -1,11 +1,11 @@
-﻿using BloodBowlAPI.Models.Skills;
+﻿using BloodBowlData.Models.Skills;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.Models.TeamTypes
+namespace BloodBowlData.Models.TeamTypes
 {
     [Table("PlayerTypeSkill")]
     public class StartingSkill

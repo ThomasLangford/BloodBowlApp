@@ -9,9 +9,13 @@ namespace BloodBowlAPI.DTOs.TeamTypes
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string InternalName { get; set; }
         public int RerollCost { get; set; }
         public int RerollMaximumCount { get; set; }
         public bool Apothicary { get; set; }
         public List<PlayerTypeDto> PlayerTypes { get; set; }
+
+        public int RuleSetId { get; set; }
+        public string RuleSetName { get; set; }
     }
 }

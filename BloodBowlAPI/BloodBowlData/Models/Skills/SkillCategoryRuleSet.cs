@@ -1,18 +1,19 @@
-﻿using BloodBowlAPI.Models.Rules;
+﻿using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlAPI.Models.Skills
+namespace BloodBowlData.Models.Skills
 {
     public class SkillCategoryRuleSet
     {
         public int Id { get; set; }
-        public Enums.SkillCategoryEnum SkillCategoryId { get; set; }
+        public SkillCategoryEnum SkillCategoryId { get; set; }
         public SkillCategory SkillCategory { get; set; }
-        public Enums.RuleSetEnum RuleSetId { get; set; }
+        public RuleSetEnum RuleSetId { get; set; }
         public RuleSet RuleSet { get; set; }
     }
 }

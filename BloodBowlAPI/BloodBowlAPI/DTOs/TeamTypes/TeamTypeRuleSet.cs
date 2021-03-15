@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace BloodBowlData.Enums
+namespace BloodBowlAPI.DTOs.TeamTypes
 {
-    public enum LevelUpTypeEnum
+    public class TeamTypeRuleSet
     {
-        Normal = 1,
-        Double
     }
 }

@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -15,7 +15,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-    <PackageReference Include="MockQueryable.Moq" Version="5.0.0" />
     <PackageReference Include="Moq" Version="4.16.0" />
     <PackageReference Include="Moq.EntityFrameworkCore" Version="5.0.0.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -30,8 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BloodBowlAPI\BloodBowlAPI.csproj" />
+    <ProjectReference Include="..\BloodBowlAPITests\BloodBowlAPITests.csproj" />
     <ProjectReference Include="..\BloodBowlData\BloodBowlData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Seed\BloodBowl2\" />
   </ItemGroup>
 
 </Project>

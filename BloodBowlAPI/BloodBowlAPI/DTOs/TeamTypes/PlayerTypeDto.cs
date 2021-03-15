@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BloodBowlAPI.DTOs.Skills;
-using BloodBowlAPI.Models;
+using BloodBowlData.Models;
 
 namespace BloodBowlAPI.DTOs.TeamTypes
 {
@@ -11,6 +11,7 @@ namespace BloodBowlAPI.DTOs.TeamTypes
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string InternalName { get; set; }
         public int MaximumAllowedOnTeam { get; set; }
         public int Cost { get; set; }
         public int Move { get; set; }
