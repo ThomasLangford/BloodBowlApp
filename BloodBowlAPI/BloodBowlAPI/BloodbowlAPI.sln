@@ -14,8 +14,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlMigrations", "..\B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlAPITests", "..\BloodBowlAPITests\BloodBowlAPITests.csproj", "{6C699D01-1AD2-4BF2-B30E-D5F13228C855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBowlDataTests", "..\BloodBowlDataTests\BloodBowlDataTests.csproj", "{588A6BF4-449D-4E15-9738-5E5198B844C4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,17 +36,13 @@ Global
 		{6C699D01-1AD2-4BF2-B30E-D5F13228C855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C699D01-1AD2-4BF2-B30E-D5F13228C855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C699D01-1AD2-4BF2-B30E-D5F13228C855}.Release|Any CPU.Build.0 = Release|Any CPU
-		{588A6BF4-449D-4E15-9738-5E5198B844C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{588A6BF4-449D-4E15-9738-5E5198B844C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{588A6BF4-449D-4E15-9738-5E5198B844C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{588A6BF4-449D-4E15-9738-5E5198B844C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {84D4E650-9E33-43C8-99A1-648E6614416B}
-		RESX_AutoCreateNewLanguageFiles = True
 		RESX_ConfirmAddLanguageFile = True
+		RESX_AutoCreateNewLanguageFiles = True
+		SolutionGuid = {84D4E650-9E33-43C8-99A1-648E6614416B}
 	EndGlobalSection
 EndGlobal
