@@ -27,13 +27,12 @@ namespace BloodBowlData.Models.Skills
         [MaxLength(500)]
         public string LocalizationDescription { get; set; }
 
-        [Required]
         public SkillCategoryEnum SkillCategoryId { get; set; }
         public SkillCategory SkillCategory { get; set; }
 
         public List<StartingSkill> StartingSkills { get; set; }
 
-        [Required]
+
         public RuleSetEnum RuleSetId { get; set; }
         public RuleSet RuleSet { get; set; }
     }

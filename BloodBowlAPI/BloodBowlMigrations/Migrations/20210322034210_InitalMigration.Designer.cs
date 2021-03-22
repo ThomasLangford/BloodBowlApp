@@ -9,15 +9,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BloodBowlMigrations.Migrations
 {
     [DbContext(typeof(BloodBowlAPIContext))]
-    [Migration("20210313023048_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210322034210_InitalMigration")]
+    partial class InitalMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.3")
+                .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("BloodBowlData.Models.Rules.RuleSet", b =>
@@ -827,60 +827,6 @@ namespace BloodBowlMigrations.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BloodBowlData.Models.Skills.SkillCategoryRuleSet", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("RuleSetId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SkillCategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RuleSetId");
-
-                    b.HasIndex("SkillCategoryId");
-
-                    b.ToTable("SkillCategoryRuleSet");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            RuleSetId = 1,
-                            SkillCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            RuleSetId = 1,
-                            SkillCategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            RuleSetId = 1,
-                            SkillCategoryId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            RuleSetId = 1,
-                            SkillCategoryId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            RuleSetId = 1,
-                            SkillCategoryId = 6
-                        });
-                });
-
             modelBuilder.Entity("BloodBowlData.Models.TeamTypes.AvailableSkillCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -905,7 +851,7 @@ namespace BloodBowlMigrations.Migrations
 
                     b.HasIndex("SkillCategoryId");
 
-                    b.ToTable("PlayerTypeSkillCategory");
+                    b.ToTable("AvailableSkillCategory");
                 });
 
             modelBuilder.Entity("BloodBowlData.Models.TeamTypes.LevelUpType", b =>
@@ -949,14 +895,17 @@ namespace BloodBowlMigrations.Migrations
                     b.Property<int>("Cost")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaximumAllowedOnTeam")
+                    b.Property<string>("InternalName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LocalizationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MaximumOnTeam")
                         .HasColumnType("int");
 
                     b.Property<int>("Move")
                         .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Strength")
                         .HasColumnType("int");
@@ -990,7 +939,7 @@ namespace BloodBowlMigrations.Migrations
 
                     b.HasIndex("SkillId");
 
-                    b.ToTable("PlayerTypeSkill");
+                    b.ToTable("StartingSkill");
                 });
 
             modelBuilder.Entity("BloodBowlData.Models.TeamTypes.TeamType", b =>
@@ -1003,18 +952,38 @@ namespace BloodBowlMigrations.Migrations
                     b.Property<bool>("Apothicary")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("InternalName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LocalizationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Necromancer")
+                        .HasColumnType("bit");
 
                     b.Property<int>("RerollCost")
                         .HasColumnType("int");
 
-                    b.Property<int>("RerollMaximumCount")
+                    b.Property<int>("RuleSetId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RuleSetId");
+
                     b.ToTable("TeamType");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Apothicary = true,
+                            InternalName = "Humans",
+                            LocalizationName = "TeamType.Name.Humans",
+                            Necromancer = false,
+                            RerollCost = 50,
+                            RuleSetId = 1
+                        });
                 });
 
             modelBuilder.Entity("BloodBowlData.Models.Skills.Skill", b =>
@@ -1022,30 +991,11 @@ namespace BloodBowlMigrations.Migrations
                     b.HasOne("BloodBowlData.Models.Rules.RuleSet", "RuleSet")
                         .WithMany("Skills")
                         .HasForeignKey("RuleSetId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.HasOne("BloodBowlData.Models.Skills.SkillCategory", "SkillCategory")
                         .WithMany("Skills")
-                        .HasForeignKey("SkillCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RuleSet");
-
-                    b.Navigation("SkillCategory");
-                });
-
-            modelBuilder.Entity("BloodBowlData.Models.Skills.SkillCategoryRuleSet", b =>
-                {
-                    b.HasOne("BloodBowlData.Models.Rules.RuleSet", "RuleSet")
-                        .WithMany("SkillCategoryRuleSet")
-                        .HasForeignKey("RuleSetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BloodBowlData.Models.Skills.SkillCategory", "SkillCategory")
-                        .WithMany("SkillCategoryRuleSet")
                         .HasForeignKey("SkillCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1112,11 +1062,22 @@ namespace BloodBowlMigrations.Migrations
                     b.Navigation("Skill");
                 });
 
+            modelBuilder.Entity("BloodBowlData.Models.TeamTypes.TeamType", b =>
+                {
+                    b.HasOne("BloodBowlData.Models.Rules.RuleSet", "RuleSet")
+                        .WithMany("TeamTypes")
+                        .HasForeignKey("RuleSetId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.Navigation("RuleSet");
+                });
+
             modelBuilder.Entity("BloodBowlData.Models.Rules.RuleSet", b =>
                 {
-                    b.Navigation("SkillCategoryRuleSet");
-
                     b.Navigation("Skills");
+
+                    b.Navigation("TeamTypes");
                 });
 
             modelBuilder.Entity("BloodBowlData.Models.Skills.Skill", b =>
@@ -1127,8 +1088,6 @@ namespace BloodBowlMigrations.Migrations
             modelBuilder.Entity("BloodBowlData.Models.Skills.SkillCategory", b =>
                 {
                     b.Navigation("AvailableSkillCategories");
-
-                    b.Navigation("SkillCategoryRuleSet");
 
                     b.Navigation("Skills");
                 });

@@ -24,7 +24,6 @@ namespace BloodBowlData.Contexts
         public virtual DbSet<AvailableSkillCategory> AvailableSkillCategory { get; set; }
         public virtual DbSet<LevelUpType> LevelUpType { get; set; }
         public virtual DbSet<SkillCategory> SkillCategory { get; set; }
-        public virtual DbSet<SkillCategoryRuleSet> SkillCategoryRuleSet { get; set; }
         public virtual DbSet<StartingSkill> StartingSkill { get; set; }
         public virtual DbSet<RuleSet> RuleSet { get; set; }
 
@@ -43,11 +42,23 @@ namespace BloodBowlData.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
+            // Manually add delete triggers for RuleSet to stop cyclic cascade deletes
+            modelBuilder
+                .Entity<Skill>()
+                .HasOne(e => e.RuleSet)
+                .WithMany(e => e.Skills)
+                .OnDelete(DeleteBehavior.ClientCascade);
+
+            modelBuilder
+                .Entity<TeamType>()
+                .HasOne(e => e.RuleSet)
+                .WithMany(e => e.TeamTypes)
+                .OnDelete(DeleteBehavior.ClientCascade);
+
             if (!DoNotSeedData)
             {
                 modelBuilder.Entity<RuleSet>().HasData(SeedRuleSet.GetSeed());
                 modelBuilder.Entity<SkillCategory>().HasData(SeedSkillCategory.GetSeed());
-                modelBuilder.Entity<SkillCategoryRuleSet>().HasData(SeedSkillCategory.GetSeedSkillCategoryRuleSet());
                 modelBuilder.Entity<Skill>().HasData(SeedSkill.SeedSkills());
 
                 modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());

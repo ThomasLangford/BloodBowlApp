@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Models.TeamTypes
 {
-    [Table("PlayerTypeSkill")]
     public class StartingSkill
     {
         public int Id { get; set; }
