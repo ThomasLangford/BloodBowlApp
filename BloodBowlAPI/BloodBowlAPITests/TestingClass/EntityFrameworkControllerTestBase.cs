@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BloodBowlAPITests.TestingClass
 {
-    public abstract class EntityFrameworkControllerTestBase : IDisposable
+    public abstract class EntityFrameworkControllerTestBase<T> : IDisposable where T : DbContext
     {
         protected readonly DbConnection _connection;
 
@@ -26,6 +27,8 @@ namespace BloodBowlAPITests.TestingClass
             return connection;
         }
 
+        protected abstract T GetDBContext();      
+
         public void Dispose()
         {
             DisposeObjects();
@@ -33,6 +36,10 @@ namespace BloodBowlAPITests.TestingClass
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void DisposeObjects() { }
+        protected virtual void DisposeObjects()
+        {
+            using T dbContext = GetDBContext();
+            dbContext.Database.EnsureDeleted();
+        }
     }
 }

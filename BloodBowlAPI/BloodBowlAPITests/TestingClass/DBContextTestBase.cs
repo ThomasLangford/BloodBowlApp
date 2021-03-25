@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BloodBowlAPITests.TestingClass
 {
-    public abstract class DBContextTestBase<T> : EntityFrameworkControllerTestBase where T : DbContext
+    public abstract class DBContextTestBase<T> : EntityFrameworkControllerTestBase<T> where T : DbContext
     {
         public DBContextTestBase() : base() { }
 
-        protected T GetDBContext()
+        protected override T GetDBContext()
         {
             var options = new DbContextOptionsBuilder<T>()
                 .UseSqlite(_connection)
@@ -20,12 +20,6 @@ namespace BloodBowlAPITests.TestingClass
                 .Options;
 
             return (T)Activator.CreateInstance(typeof(T), options);
-        }
-
-        protected override void DisposeObjects()
-        {
-            using T dbContext = GetDBContext();
-            dbContext.Database.EnsureDeleted();
         }
     }
 }
