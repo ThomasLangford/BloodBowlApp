@@ -21,11 +21,13 @@ namespace BloodBowlAPI.Controllers.Ruleset
     {
         private readonly BloodBowlApiDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IStringLocalizer<Localization> _localization;
 
-        public SkillCategoriesController(BloodBowlApiDbContext context, IMapper mapper)
+        public SkillCategoriesController(BloodBowlApiDbContext context, IMapper mapper, IStringLocalizer<Localization> localization)
         {
             _context = context;
             _mapper = mapper;
+            _localization = localization;
         }
 
         [HttpGet]
@@ -51,13 +53,14 @@ namespace BloodBowlAPI.Controllers.Ruleset
         private IQueryable<SkillCategory> GetSkillCatagoryQueryable(RulesetEnum rulesetId)
         {
             return _context.SkillCategory
-                .Include(c => c.Skills.Where(s => s.RuleSetId == rulesetId))
+                .Include(c => c.Skills)
+                .Where(c => c.Skills.Any(s => s.RuleSetId == rulesetId))
                 .AsNoTracking();
         }
         private async Task<List<SkillCategoryDto>> GetSkillCategoryDTOs(RulesetEnum rulesetId)
         {
             var categories = await GetSkillCatagoryQueryable(rulesetId)
-                //.ProjectTo<SkillCategoryDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
+                .ProjectTo<SkillCategoryDto>(_mapper.ConfigurationProvider, new { localizer = _localization, rulset = rulesetId })
                 .ToListAsync();
 
 
@@ -66,9 +69,11 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
         private async Task<SkillCategoryDto> GetSkillCategoryDTO(SkillCategoryEnum id, RulesetEnum rulesetId)
         {
-            var category = await GetSkillCatagoryQueryable(rulesetId)
+            var res = GetSkillCatagoryQueryable(rulesetId);
+
+            var category = await res
                 .Where(c => c.Id == id)
-                //.ProjectTo<SkillCategoryDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
+                .ProjectTo<SkillCategoryDto>(_mapper.ConfigurationProvider, new { localizer = _localization, rulset = rulesetId })
                 .FirstOrDefaultAsync();
 
             return _mapper.Map<SkillCategoryDto>(category);

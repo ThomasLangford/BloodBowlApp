@@ -42,9 +42,9 @@ namespace BloodBowlAPI
             services.AddRequestLocalization(options =>
             {
                 var supportedCultures = new List<CultureInfo>
-                                    {
-                                        new CultureInfo("en-US")
-                                    };
+                {
+                    new CultureInfo("en-US")
+                };
 
                 options.DefaultRequestCulture = new RequestCulture("en-US");
                 options.SupportedCultures = supportedCultures;

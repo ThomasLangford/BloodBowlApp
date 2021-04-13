@@ -36,7 +36,7 @@ namespace BloodBowlAPITests.Controllers.Ruleset
 
         private SkillCategoriesController CreateController()
         {
-            return new SkillCategoriesController(GetDBContext(), _mapper);
+            return new SkillCategoriesController(GetDBContext(), _mapper, new LocalizerMock<Localization>().Object);
         }
 
         private void Seed()

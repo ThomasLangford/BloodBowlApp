@@ -13,6 +13,13 @@ namespace BloodBowlAPI.DTOs.Skills
         public string ShortName { get; set; }
         public string Name { get; set; }
 
-        public List<SkillDtoSimple> Skills { get; set; }
+        public List<SkillCategorySkillDto> Skills { get; set; }
+        
+        public class SkillCategorySkillDto
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+        }
     }
 }

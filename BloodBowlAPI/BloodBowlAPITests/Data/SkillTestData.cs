@@ -77,7 +77,6 @@ namespace BloodBowlAPITests.Data
                 new SkillDto()
                 {
                     Id = 1000,
-                    InternalName = "Skill1",
                     Name = "$T$_SKILL_1",
                     Description = "$T$_SKILL_1_DESCRIPTION",
                     RuleSetId = 1,
@@ -89,13 +88,12 @@ namespace BloodBowlAPITests.Data
             };
         }
 
-        public static IEnumerable<SkillDtoSimple> GetSimpleSkillDtos()
+        public static IEnumerable<SkillCategoryDto.SkillCategorySkillDto> GetSimpleSkillDtos()
         {
-            return new SkillDtoSimple[]{
-                new SkillDtoSimple()
+            return new SkillCategoryDto.SkillCategorySkillDto[]{
+                new SkillCategoryDto.SkillCategorySkillDto()
                 {
                     Id = 1000,
-                    InternalName = "Skill1",
                     Name = "$T$_SKILL_1",
                     Description = "$T$_SKILL_1_DESCRIPTION",
                 }
