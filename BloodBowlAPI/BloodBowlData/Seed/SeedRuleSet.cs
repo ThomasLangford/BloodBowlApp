@@ -4,22 +4,28 @@ using System.Collections.Generic;
 
 namespace BloodBowlData.Seed
 {
-    public static class SeedRuleSet
+    public static class SeedRuleset
     {
-        public static List<RuleSet> GetSeed()
+        public static List<Ruleset> GetSeed()
         {
-            return new List<RuleSet>
+            return new List<Ruleset>
             {
-                new RuleSet
+                new Ruleset
                 {
-                    Id = RuleSetEnum.BloodBowl2,
-                    Name = "Blood Bowl 2",
+                    Id = RulesetEnum.BloodBowl2,
+                    LocalizationName = "Ruleset.Name.BloodBowl2",
                     Supported = true
                 },
-                new RuleSet
+                new Ruleset
                 {
-                    Id = RuleSetEnum.BloodBowl2020,
-                    Name = "Blood Bowl Season 2 (2020)"
+                    Id = RulesetEnum.BloodBowl3,
+                    LocalizationName = "Ruleset.Name.BloodBowl3",
+                    Supported = true
+                },
+                new Ruleset
+                {
+                    Id = RulesetEnum.BloodBowl2020,
+                    LocalizationName = "Ruleset.Name.BloodBowlSeason2"
                 },
             };
         }

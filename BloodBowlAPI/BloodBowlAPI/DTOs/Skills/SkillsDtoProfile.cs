@@ -20,11 +20,16 @@ namespace BloodBowlAPI.DTOs.Skills
                 .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.LocalizationName]))
                 .ForMember(d => d.Description, opt => opt.MapFrom(s => localizer[s.LocalizationDescription]))
                 .ForMember(d => d.SkillCategoryName, opt => opt.MapFrom(s => localizer[s.SkillCategory.LocalizationName]))
-                .ForMember(d => d.SkillCategoryShortName, opt => opt.MapFrom(s => localizer[s.SkillCategory.LocalizationShortName]));
+                .ForMember(d => d.SkillCategoryShortName, opt => opt.MapFrom(s => localizer[s.SkillCategory.LocalizationShortName]))
+                .ForMember(d => d.RulesetName, opt => opt.MapFrom(s => localizer[s.RuleSet.LocalizationName]));
+
+            CreateMap<Skill, SkillDtoSimple>()
+                .ForMember(d => d.Name, opt => opt.MapFrom<TranslationResolver, string>(s => s.LocalizationName))
+                .ForMember(d => d.Description, opt => opt.MapFrom<TranslationResolver, string>(s => s.LocalizationDescription));
 
             CreateMap<SkillCategory, SkillCategoryDto>()
-                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.LocalizationName]))
-                .ForMember(d => d.ShortName, opt => opt.MapFrom(s => localizer[s.LocalizationShortName]));
+                .ForMember(d => d.Name, opt => opt.MapFrom<TranslationResolver, string>(s => s.LocalizationName))
+                .ForMember(d => d.ShortName, opt => opt.MapFrom<TranslationResolver, string>(s => s.LocalizationShortName));
         }
     }
 }

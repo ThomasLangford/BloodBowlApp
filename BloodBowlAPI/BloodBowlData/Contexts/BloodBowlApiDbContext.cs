@@ -11,9 +11,9 @@ using BloodBowlData.Seed;
 
 namespace BloodBowlData.Contexts
 {
-    public class BloodBowlAPIContext : DbContext
+    public class BloodBowlApiDbContext : DbContext
     {
-        public BloodBowlAPIContext(DbContextOptions<BloodBowlAPIContext> options)
+        public BloodBowlApiDbContext(DbContextOptions<BloodBowlApiDbContext> options)
             : base(options)
         {
         }
@@ -25,7 +25,7 @@ namespace BloodBowlData.Contexts
         public virtual DbSet<LevelUpType> LevelUpType { get; set; }
         public virtual DbSet<SkillCategory> SkillCategory { get; set; }
         public virtual DbSet<StartingSkill> StartingSkill { get; set; }
-        public virtual DbSet<RuleSet> RuleSet { get; set; }
+        public virtual DbSet<Ruleset> Ruleset { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //
@@ -57,13 +57,11 @@ namespace BloodBowlData.Contexts
 
             if (!DoNotSeedData)
             {
-                modelBuilder.Entity<RuleSet>().HasData(SeedRuleSet.GetSeed());
+                modelBuilder.Entity<Ruleset>().HasData(SeedRuleset.GetSeed());
                 modelBuilder.Entity<SkillCategory>().HasData(SeedSkillCategory.GetSeed());
                 modelBuilder.Entity<Skill>().HasData(SeedSkill.SeedSkills());
 
                 modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
-
-                modelBuilder.Entity<TeamType>().HasData(SeedTeams.SeedTeamTypes());
             }
         }
 

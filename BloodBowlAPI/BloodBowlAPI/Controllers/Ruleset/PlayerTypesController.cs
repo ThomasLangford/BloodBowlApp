@@ -13,18 +13,18 @@ using BloodBowlData.Contexts;
 using BloodBowlData.Enums;
 using BloodBowlData.Models.TeamTypes;
 
-namespace BloodBowlAPI.Controllers.TeamTypes
+namespace BloodBowlAPI.Controllers.Ruleset
 {
     [Route("api/[controller]")]
     [ApiController]
     public class PlayerTypesController : ControllerBase
     {
-        private readonly BloodBowlAPIContext _context;
+        private readonly BloodBowlApiDbContext _context;
         private readonly IMapper _mapper;
 
         //ToDo Validate Duplicate With Existing Skills
 
-        public PlayerTypesController(BloodBowlAPIContext context, IMapper mapper)
+        public PlayerTypesController(BloodBowlApiDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -250,7 +250,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
                 && await ValidateSkillDtos(playerTypeDto.StartingSkills);
         }
 
-        private bool ValidateAvailableSkillCategoryDtos(List<AvailableSkillCategoryDto> availableSkillCategories)
+        private static bool ValidateAvailableSkillCategoryDtos(List<AvailableSkillCategoryDto> availableSkillCategories)
         {
             foreach (var skillCategoryDto in availableSkillCategories)
             {

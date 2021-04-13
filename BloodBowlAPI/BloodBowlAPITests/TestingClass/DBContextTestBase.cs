@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,15 @@ namespace BloodBowlAPITests.TestingClass
     public abstract class DBContextTestBase<T> : EntityFrameworkControllerTestBase<T> where T : DbContext
     {
         public DBContextTestBase() : base() { }
+
+        protected override DbConnection GetDbConnection()
+        {
+            var connection = new SqliteConnection("Filename=:memory:");
+
+            connection.Open();
+
+            return connection;
+        }
 
         protected override T GetDBContext()
         {

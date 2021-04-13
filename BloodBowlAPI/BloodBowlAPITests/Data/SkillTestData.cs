@@ -12,14 +12,24 @@ namespace BloodBowlAPITests.Data
 {
     class SkillTestData
     {
-        public static IEnumerable<RuleSet> GetRuleSets()
+        public static IEnumerable<Ruleset> GetRuleSets()
         {
-            return new RuleSet[]
+            return new Ruleset[]
             {
-                new RuleSet()
+                new Ruleset()
                 {
-                    Id = RuleSetEnum.BloodBowl2,
-                    Name = "Blood Bowl 2"
+                    Id = RulesetEnum.BloodBowl2,
+                    LocalizationName = "Blood Bowl 2"
+                },
+                new Ruleset()
+                {
+                    Id = RulesetEnum.BloodBowl3,
+                    LocalizationName = "Blood Bowl 3"
+                },
+                new Ruleset()
+                {
+                    Id = RulesetEnum.BloodBowl2020,
+                    LocalizationName = "Blood Bowl 2020"
                 }
             };
         }
@@ -47,7 +57,16 @@ namespace BloodBowlAPITests.Data
                     LocalizationName = "SKILL_1",
                     LocalizationDescription = "SKILL_1_DESCRIPTION",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
+                },
+                new Skill()
+                {
+                    Id = 1001,
+                    InternalName = "Skill1",
+                    LocalizationName = "SKILL_2",
+                    LocalizationDescription = "SKILL_2_DESCRIPTION",
+                    SkillCategoryId = SkillCategoryEnum.General,
+                    RuleSetId = RulesetEnum.BloodBowl2020
                 }
             };
         }
@@ -62,10 +81,37 @@ namespace BloodBowlAPITests.Data
                     Name = "$T$_SKILL_1",
                     Description = "$T$_SKILL_1_DESCRIPTION",
                     RuleSetId = 1,
-                    RuleSetName =  "Blood Bowl 2",
+                    RulesetName =  "$T$_Blood Bowl 2",
                     SkillCategoryId = 1,
                     SkillCategoryName = "$T$_Skill Category 1",
                     SkillCategoryShortName = "$T$_S",
+                }
+            };
+        }
+
+        public static IEnumerable<SkillDtoSimple> GetSimpleSkillDtos()
+        {
+            return new SkillDtoSimple[]{
+                new SkillDtoSimple()
+                {
+                    Id = 1000,
+                    InternalName = "Skill1",
+                    Name = "$T$_SKILL_1",
+                    Description = "$T$_SKILL_1_DESCRIPTION",
+                }
+            };
+        }
+
+        public static IEnumerable<SkillCategoryDto> GetSkillCategoryDTOs()
+        {
+            return new SkillCategoryDto[]
+            {
+                new SkillCategoryDto()
+                {
+                    Id = SkillCategoryEnum.General,
+                    Name = "$T$_Skill Category 1",
+                    ShortName = "$T$_S",
+                    Skills = GetSimpleSkillDtos().ToList()
                 }
             };
         }

@@ -51,22 +51,21 @@ namespace BloodBowlAPI
                 options.SupportedUICultures = supportedCultures;
             });
 
-            services.AddDbContext<BloodBowlAPIContext>(
+            services.AddDbContext<BloodBowlApiDbContext>(
                 dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database.ConnectionString"])
-            ); ;
+            );
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" });
             });
 
-            //services.AddLocalization();
-
-
-            services.AddAutoMapper(typeof(Startup).Assembly);
+            //services.AddLocalization();            
 
             services.AddCors();
             services.AddControllers();
+
+            services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -94,9 +93,6 @@ namespace BloodBowlAPI
             .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
-
-
-
 
             app.UseEndpoints(endpoints =>
             {

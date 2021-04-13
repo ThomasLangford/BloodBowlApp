@@ -10,9 +10,9 @@ namespace BloodBowlAPI.DTOs.Skills
     public class SkillCategoryDto
     {
         public SkillCategoryEnum Id { get; set; }
-        public char ShortName { get; set; }
+        public string ShortName { get; set; }
         public string Name { get; set; }
 
-        public List<SkillDto> Skills { get; set; }
+        public List<SkillDtoSimple> Skills { get; set; }
     }
 }

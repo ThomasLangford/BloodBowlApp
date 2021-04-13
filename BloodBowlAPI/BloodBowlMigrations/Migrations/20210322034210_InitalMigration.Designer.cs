@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BloodBowlMigrations.Migrations
 {
-    [DbContext(typeof(BloodBowlAPIContext))]
+    [DbContext(typeof(BloodBowlApiDbContext))]
     [Migration("20210322034210_InitalMigration")]
     partial class InitalMigration
     {

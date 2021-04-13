@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Models.Rules
 {
-    public class RuleSet
+    public class Ruleset
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public RuleSetEnum Id { get; set; }
-        public string Name { get; set; }
+        public RulesetEnum Id { get; set; }
+        public string LocalizationName { get; set; }
         public bool Supported { get; set; } = false;
         public List<Skill> Skills { get; set; }
         public List<TeamType> TeamTypes { get; set; }

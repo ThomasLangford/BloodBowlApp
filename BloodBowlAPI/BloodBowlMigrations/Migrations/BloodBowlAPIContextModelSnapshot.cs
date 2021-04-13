@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BloodBowlMigrations.Migrations
 {
-    [DbContext(typeof(BloodBowlAPIContext))]
+    [DbContext(typeof(BloodBowlApiDbContext))]
     partial class BloodBowlAPIContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

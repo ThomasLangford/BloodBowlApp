@@ -34,7 +34,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Block",
                     LocalizationDescription = "Skill.Description.BB2.Block",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -43,7 +43,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Dauntless",
                     LocalizationDescription = "Skill.Description.BB2.Dauntless",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -52,7 +52,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.DirtyPlayer",
                     LocalizationDescription = "Skill.Description.BB2.DirtyPlayer",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -61,7 +61,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Fend",
                     LocalizationDescription = "Skill.Description.BB2.Fend",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -70,7 +70,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Frenzy",
                     LocalizationDescription = "Skill.Description.BB2.Frenzy",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -79,7 +79,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Kick",
                     LocalizationDescription = "Skill.Description.BB2.Kick",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -88,7 +88,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.KickOffReturn",
                     LocalizationDescription = "Skill.Description.BB2.KickOffReturn",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -97,7 +97,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.PassBlock",
                     LocalizationDescription = "Skill.Description.BB2.PassBlock",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -106,7 +106,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Pro",
                     LocalizationDescription = "Skill.Description.BB2.Pro",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -115,7 +115,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Shadowing",
                     LocalizationDescription = "Skill.Description.BB2.Shadowing",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -124,7 +124,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.StripBall",
                     LocalizationDescription = "Skill.Description.BB2.StripBall",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -133,7 +133,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.SureHands",
                     LocalizationDescription = "Skill.Description.BB2.SureHands",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -142,7 +142,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Tackle",
                     LocalizationDescription = "Skill.Description.BB2.Tackle",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -151,7 +151,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Wrestle",
                     LocalizationDescription = "Skill.Description.BB2.Wrestle",
                     SkillCategoryId = SkillCategoryEnum.General,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
 
             };
@@ -166,7 +166,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Catch",
                     LocalizationDescription = "Skill.Description.BB2.Catch",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.DivingCatch,
@@ -174,7 +174,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.DivingCatch",
                     LocalizationDescription = "Skill.Description.BB2.DivingCatch",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.DivingTackle,
@@ -182,7 +182,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.DivingTackle",
                     LocalizationDescription = "Skill.Description.BB2.DivingTackle",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.Dodge,
@@ -190,7 +190,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Dodge",
                     LocalizationDescription = "Skill.Description.BB2.Dodge",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.JumpUp,
@@ -198,7 +198,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.JumpUp",
                     LocalizationDescription = "Skill.Description.BB2.JumpUp",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.Leap,
@@ -206,7 +206,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Leap",
                     LocalizationDescription = "Skill.Description.BB2.Leap",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.SideStep,
@@ -214,7 +214,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.SideStep",
                     LocalizationDescription = "Skill.Description.BB2.SideStep",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.SneakyGit,
@@ -222,7 +222,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.SneakyGit",
                     LocalizationDescription = "Skill.Description.BB2.SneakyGit",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.Sprint,
@@ -230,7 +230,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Sprint",
                     LocalizationDescription = "Skill.Description.BB2.Sprint",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.SureFeet,
@@ -238,7 +238,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.SureFeet",
                     LocalizationDescription = "Skill.Description.BB2.SureFeet",
                     SkillCategoryId = SkillCategoryEnum.Agility,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
             };
         }
@@ -253,7 +253,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Accurate",
                     LocalizationDescription = "Skill.Description.BB2.Accurate",
                     SkillCategoryId = SkillCategoryEnum.Passing,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -262,7 +262,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.DumpOff",
                     LocalizationDescription = "Skill.Description.BB2.DumpOff",
                     SkillCategoryId = SkillCategoryEnum.Passing,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -271,7 +271,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.HailMaryPass",
                     LocalizationDescription = "Skill.Description.BB2.HailMaryPass",
                     SkillCategoryId = SkillCategoryEnum.Passing,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -280,7 +280,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Leader",
                     LocalizationDescription = "Skill.Description.BB2.Leader",
                     SkillCategoryId = SkillCategoryEnum.Passing,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -289,7 +289,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.NervesOfSteel",
                     LocalizationDescription = "Skill.Description.BB2.NervesOfSteel",
                     SkillCategoryId = SkillCategoryEnum.Passing,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -298,7 +298,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Pass",
                     LocalizationDescription = "Skill.Description.BB2.Pass",
                     SkillCategoryId = SkillCategoryEnum.Passing,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -307,7 +307,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.SafeThrow",
                     LocalizationDescription = "Skill.Description.BB2.SafeThrow",
                     SkillCategoryId = SkillCategoryEnum.Passing,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
             };
         }
@@ -322,7 +322,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.BreakTackle",
                     LocalizationDescription = "Skill.Description.BB2.BreakTackle",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -331,7 +331,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Grab",
                     LocalizationDescription = "Skill.Description.BB2.Grab",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -340,7 +340,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Guard",
                     LocalizationDescription = "Skill.Description.BB2.Guard",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -349,7 +349,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Juggernaut",
                     LocalizationDescription = "Skill.Description.BB2.Juggernaut",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -358,7 +358,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.MightyBlow",
                     LocalizationDescription = "Skill.Description.BB2.MightyBlow",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -367,7 +367,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.MultipleBlock",
                     LocalizationDescription = "Skill.Description.BB2.MultipleBlock",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -376,7 +376,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.PilingOn",
                     LocalizationDescription = "Skill.Description.BB2.PilingOn",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -385,7 +385,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.StandFirm",
                     LocalizationDescription = "Skill.Description.BB2.StandFirm",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -394,7 +394,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.StrongArm",
                     LocalizationDescription = "Skill.Description.BB2.StrongArm",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -403,7 +403,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.ThickSkull",
                     LocalizationDescription = "Skill.Description.BB2.ThickSkull",
                     SkillCategoryId = SkillCategoryEnum.Strength,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
             };
         }
@@ -418,7 +418,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.BigHand",
                     LocalizationDescription = "Skill.Description.BB2.BigHand",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -427,7 +427,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Claw",
                     LocalizationDescription = "Skill.Description.BB2.Claw",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -436,7 +436,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.DisturbingPresence",
                     LocalizationDescription = "Skill.Description.BB2.DisturbingPresence",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -445,7 +445,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.ExtraArms",
                     LocalizationDescription = "Skill.Description.BB2.ExtraArms",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -454,7 +454,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.FoulAppearance",
                     LocalizationDescription = "Skill.Description.BB2.FoulAppearance",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -463,7 +463,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Horns",
                     LocalizationDescription = "Skill.Description.BB2.Horns",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -472,7 +472,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.PrehensileTail",
                     LocalizationDescription = "Skill.Description.BB2.PrehensileTail",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -481,7 +481,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Tentacles",
                     LocalizationDescription = "Skill.Description.BB2.Tentacles",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -490,7 +490,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.TwoHeads",
                     LocalizationDescription = "Skill.Description.BB2.TwoHeads",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill {
                     Id = (int)SkillBloodBowl2Enum.VeryLongLegs,
@@ -498,7 +498,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.VeryLongLegs",
                     LocalizationDescription = "Skill.Description.BB2.VeryLongLegs",
                     SkillCategoryId = SkillCategoryEnum.Mutation,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
             };
         }
@@ -513,7 +513,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.AlwaysHungry",
                     LocalizationDescription = "Skill.Description.BB2.AlwaysHungry",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -522,7 +522,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Animosity",
                     LocalizationDescription = "Skill.Description.BB2.Animosity",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -531,7 +531,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.BallChain",
                     LocalizationDescription = "Skill.Description.BB2.BallChain",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -540,7 +540,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.BloodLust",
                     LocalizationDescription = "Skill.Description.BB2.BloodLust",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -549,7 +549,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Bombardier",
                     LocalizationDescription = "Skill.Description.BB2.Bombardier",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -558,7 +558,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.BoneHead",
                     LocalizationDescription = "Skill.Description.BB2.BoneHead",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -567,7 +567,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Chainsaw",
                     LocalizationDescription = "Skill.Description.BB2.Chainsaw",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -576,7 +576,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Decay",
                     LocalizationDescription = "Skill.Description.BB2.Decay",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -585,7 +585,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.FanFavourite",
                     LocalizationDescription = "Skill.Description.BB2.FanFavourite",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -594,7 +594,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.HypnoticGaze",
                     LocalizationDescription = "Skill.Description.BB2.HypnoticGaze",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -603,7 +603,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Loner",
                     LocalizationDescription = "Skill.Description.BB2.Loner",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -612,7 +612,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.NoHands",
                     LocalizationDescription = "Skill.Description.BB2.NoHands",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -621,7 +621,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.NurglesRot",
                     LocalizationDescription = "Skill.Description.BB2.NurglesRot",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -630,7 +630,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.ReallyStupid",
                     LocalizationDescription = "Skill.Description.BB2.ReallyStupid",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -639,7 +639,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Regeneration",
                     LocalizationDescription = "Skill.Description.BB2.Regeneration",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -648,7 +648,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.RightStuff",
                     LocalizationDescription = "Skill.Description.BB2.RightStuff",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -657,7 +657,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.SecretWeapon",
                     LocalizationDescription = "Skill.Description.BB2.SecretWeapon",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -666,7 +666,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Stab",
                     LocalizationDescription = "Skill.Description.BB2.Stab",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -675,7 +675,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Stakes",
                     LocalizationDescription = "Skill.Description.BB2.Stakes",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -684,7 +684,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Stunty",
                     LocalizationDescription = "Skill.Description.BB2.Stunty",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -693,7 +693,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.TakeRoot",
                     LocalizationDescription = "Skill.Description.BB2.TakeRoot",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -702,7 +702,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.ThrowTeamMate",
                     LocalizationDescription = "Skill.Description.BB2.ThrowTeamMate",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -711,7 +711,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.Titchy",
                     LocalizationDescription = "Skill.Description.BB2.Titchy",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
                 new Skill
                 {
@@ -720,7 +720,7 @@ namespace BloodBowlData.Seed.BloodBowl2
                     LocalizationName = "Skill.Name.WildAnimal",
                     LocalizationDescription = "Skill.Description.BB2.WildAnimal",
                     SkillCategoryId = SkillCategoryEnum.Extraordinary,
-                    RuleSetId = RuleSetEnum.BloodBowl2
+                    RuleSetId = RulesetEnum.BloodBowl2
                 },
             };
         }

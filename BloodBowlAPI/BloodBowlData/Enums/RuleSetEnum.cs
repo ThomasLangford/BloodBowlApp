@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Enums
 {
-    public enum RuleSetEnum
+    public enum RulesetEnum
     {
         BloodBowl2 = 1,
+        BloodBowl3,
         BloodBowl2020
     }
 }

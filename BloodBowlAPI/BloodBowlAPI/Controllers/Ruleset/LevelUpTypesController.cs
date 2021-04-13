@@ -12,16 +12,16 @@ using BloodBowlData.Contexts;
 using BloodBowlData.Enums;
 using BloodBowlData.Models.TeamTypes;
 
-namespace BloodBowlAPI.Controllers.TeamTypes
+namespace BloodBowlAPI.Controllers.Ruleset
 {
-    [Route("api/[controller]")]
+    [Route("api/Rulesets/{rulesetId}/[controller]")]
     [ApiController]
     public class LevelUpTypesController : ControllerBase
     {
-        private readonly BloodBowlAPIContext _context;
+        private readonly BloodBowlApiDbContext _context;
         private readonly IMapper _mapper;
 
-        public LevelUpTypesController(BloodBowlAPIContext context, IMapper mapper)
+        public LevelUpTypesController(BloodBowlApiDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -35,7 +35,7 @@ namespace BloodBowlAPI.Controllers.TeamTypes
 
         // GET: api/SkillCategories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<LevelUpTypeDto>> GetLevelUpType(int id)
+        public async Task<ActionResult<LevelUpTypeDto>> GetLevelUpType(LevelUpTypeEnum id)
         {
             var Skill = await GetLevelUpTypeDTO(id);
 
@@ -47,29 +47,19 @@ namespace BloodBowlAPI.Controllers.TeamTypes
             return Skill;
         }
 
-        private IQueryable<LevelUpType> GetSkillCatagoryQueryable(LevelUpTypeEnum id)
-        {
-            return _context.LevelUpType
-                .Where(s => s.Id == id);
-        }
-
         private async Task<List<LevelUpTypeDto>> GetLevelUpTypeDTOs()
         {
             return await _context.LevelUpType
+                .AsNoTracking()
                 .ProjectTo<LevelUpTypeDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
 
-        private async Task<LevelUpTypeDto> GetLevelUpTypeDTO(int id)
+        private async Task<LevelUpTypeDto> GetLevelUpTypeDTO(LevelUpTypeEnum id)
         {
-            if (!Enum.IsDefined(typeof(LevelUpTypeEnum), id))
-            {
-                return null;
-            }
-
-            var enumId = (LevelUpTypeEnum)id;
-
-            return await GetSkillCatagoryQueryable(enumId)
+            return await _context.LevelUpType
+                .Where(s => s.Id == id)
+                .AsNoTracking()
                 .ProjectTo<LevelUpTypeDto>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
         }

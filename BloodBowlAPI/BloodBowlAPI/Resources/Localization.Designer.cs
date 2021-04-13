@@ -106,6 +106,33 @@ namespace BloodBowlAPI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blood Bowl 2.
+        /// </summary>
+        public static string Ruleset_Name_BloodBowl2 {
+            get {
+                return ResourceManager.GetString("Ruleset.Name.BloodBowl2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blood Bowl 3.
+        /// </summary>
+        public static string Ruleset_Name_BloodBowl3 {
+            get {
+                return ResourceManager.GetString("Ruleset.Name.BloodBowl3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blood Bowl Season 2 (2020).
+        /// </summary>
+        public static string Ruleset_Name_BloodBowlSeason2 {
+            get {
+                return ResourceManager.GetString("Ruleset.Name.BloodBowlSeason2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  The player adds 1 when attempting a Pass..
         /// </summary>
         public static string Skill_Description_BB2_Accurate {
@@ -1560,15 +1587,6 @@ namespace BloodBowlAPI.Resources {
         public static string SkillCategory_ShortName_Strength {
             get {
                 return ResourceManager.GetString("SkillCategory.ShortName.Strength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Humans.
-        /// </summary>
-        public static string TeamType_Name_Humans {
-            get {
-                return ResourceManager.GetString("TeamType.Name.Humans", resourceCulture);
             }
         }
     }

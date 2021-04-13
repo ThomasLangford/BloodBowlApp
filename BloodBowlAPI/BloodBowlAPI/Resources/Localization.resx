@@ -603,9 +603,6 @@
   <data name="SkillCategory.ShortName.Extraordinary" xml:space="preserve">
     <value>E</value>
   </data>
-  <data name="TeamType.Name.Humans" xml:space="preserve">
-    <value>Humans</value>
-  </data>
   <data name="PlayerType.Name.Lineman" xml:space="preserve">
     <value>Lineman</value>
   </data>
@@ -620,5 +617,14 @@
   </data>
   <data name="PlayerType.Name.Ogre" xml:space="preserve">
     <value>Ogre</value>
+  </data>
+  <data name="Ruleset.Name.BloodBowl2" xml:space="preserve">
+    <value>Blood Bowl 2</value>
+  </data>
+  <data name="Ruleset.Name.BloodBowl3" xml:space="preserve">
+    <value>Blood Bowl 3</value>
+  </data>
+  <data name="Ruleset.Name.BloodBowlSeason2" xml:space="preserve">
+    <value>Blood Bowl Season 2 (2020)</value>
   </data>
 </root>

@@ -33,7 +33,7 @@ namespace BloodBowlData.Models.Skills
         public List<StartingSkill> StartingSkills { get; set; }
 
 
-        public RuleSetEnum RuleSetId { get; set; }
-        public RuleSet RuleSet { get; set; }
+        public RulesetEnum RuleSetId { get; set; }
+        public Ruleset RuleSet { get; set; }
     }
 }

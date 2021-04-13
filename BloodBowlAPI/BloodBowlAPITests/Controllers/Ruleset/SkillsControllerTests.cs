@@ -19,15 +19,16 @@ using System.Collections.Generic;
 using Moq.EntityFrameworkCore;
 using BloodBowlData.Models.Skills;
 using BloodBowlAPI.DTOs.Skills;
-using BloodBowlAPI.Controllers.Skills;
 using BloodBowlAPITests.Mocks;
 using BloodBowlAPI.Resources;
 using BloodBowlAPITests.TestingClass;
 using BloodBowlData.Contexts;
+using BloodBowlAPI.Controllers.Ruleset;
+using BloodBowlData.Enums;
 
-namespace BloodBowlAPITests.Controllers
+namespace BloodBowlAPITests.Controllers.Ruleset
 {
-    public class SkillsControllerTests : DBContextTestBase<BloodBowlAPIContext>
+    public class SkillsControllerTests : DBContextTestBase<BloodBowlApiDbContext>
     {
         private readonly IMapper _mapper;
         private readonly LocalizerMock<Localization> _localizerMock;
@@ -41,53 +42,38 @@ namespace BloodBowlAPITests.Controllers
                 mc.AddProfile(new SkillsDtoProfile());
             });
 
-            this._mapper = mapperConfig.CreateMapper();
+            _mapper = mapperConfig.CreateMapper();
         }
 
-        private SkillsController CreateSkillsController()
+        private SkillsController CreateController()
         {
-            return new SkillsController(
-                GetDBContext(),
-                this._mapper,
-                _localizerMock.Object
-                );
+            return new SkillsController(GetDBContext(), _mapper, _localizerMock.Object);
         }
 
         private void Seed()
         {
-            using BloodBowlAPIContext bloodBowlAPIContext = GetDBContext();
+            using BloodBowlApiDbContext bloodBowlAPIContext = GetDBContext();
 
             bloodBowlAPIContext.DoNotSeedData = true;
             bloodBowlAPIContext.Database.EnsureDeleted();
             bloodBowlAPIContext.Database.EnsureCreated();
 
-            bloodBowlAPIContext.RuleSet.AddRange(SkillTestData.GetRuleSets());
+            bloodBowlAPIContext.Ruleset.AddRange(SkillTestData.GetRuleSets());
             bloodBowlAPIContext.SkillCategory.AddRange(SkillTestData.GetSkillCategories());
             bloodBowlAPIContext.Skill.AddRange(SkillTestData.GetSkills());
 
             bloodBowlAPIContext.SaveChanges();
         }
 
-        protected void ClearSeed()
-        {
-            using BloodBowlAPIContext bloodBowlAPIContext = GetDBContext();
-
-            bloodBowlAPIContext.DoNotSeedData = true;
-            bloodBowlAPIContext.Database.EnsureDeleted();
-            bloodBowlAPIContext.Database.EnsureCreated();
-
-            bloodBowlAPIContext.SaveChanges();
-        }
-
         [Fact]
-        public async Task GetSkill_WhenNoSkills_ReturnEmptyList()
+        public async Task GetSkill_WhenNoSkillsForRuleset_ReturnEmptyList()
         {
             // Arrange
-            ClearSeed();
-            var skillsController = this.CreateSkillsController();
+            Seed();
+            var skillsController = CreateController();
 
             // Act
-            var result = await skillsController.GetSkill();
+            var result = await skillsController.GetSkill(RulesetEnum.BloodBowl3);
 
             // Assert
             result.Should().NotBeNull();
@@ -99,31 +85,15 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             Seed();
-            var skillsController = this.CreateSkillsController();
+            var skillsController = CreateController();
 
             var expected = SkillTestData.GetSkillDTOs();
 
             // Act
-            var result = await skillsController.GetSkill();
+            var result = await skillsController.GetSkill(RulesetEnum.BloodBowl2);
 
             // Assert
             result.Value.Should().BeEquivalentTo(expected);
-        }
-
-        [Fact]
-        public async Task GetSkill_WhenNoSkillsExist_ReturnNull()
-        {
-            // Arrange
-            ClearSeed();
-            var skillsController = this.CreateSkillsController();
-            int id = 1000;
-
-            // Act
-            var result = await skillsController.GetSkill(id);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Value.Should().BeNull();
         }
 
         [Fact]
@@ -131,11 +101,27 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             Seed();
-            var skillsController = this.CreateSkillsController();
+            var skillsController = CreateController();
             int id = -1;
 
             // Act
-            var result = await skillsController.GetSkill(id);
+            var result = await skillsController.GetSkill(id, RulesetEnum.BloodBowl2);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Value.Should().BeNull();
+        }
+
+        [Fact]
+        public async Task GetSkill_WhenSkillDoesNotExistForRuleset_ReturnNull()
+        {
+            // Arrange
+            Seed();
+            var skillsController = CreateController();
+            int id = 1000;
+
+            // Act
+            var result = await skillsController.GetSkill(id, RulesetEnum.BloodBowl3);
 
             // Assert
             result.Should().NotBeNull();
@@ -147,13 +133,13 @@ namespace BloodBowlAPITests.Controllers
         {
             // Arrange
             Seed();
-            var skillsController = this.CreateSkillsController();
+            var skillsController = CreateController();
 
             int id = 1000;
             var expected = SkillTestData.GetSkillDTOs().First(d => d.Id == id);
 
             // Act
-            var result = await skillsController.GetSkill(id);
+            var result = await skillsController.GetSkill(id, RulesetEnum.BloodBowl2);
 
             // Assert
             result.Value.Should().BeEquivalentTo(expected);

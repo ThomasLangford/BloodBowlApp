@@ -15,17 +15,10 @@ namespace BloodBowlAPITests.TestingClass
 
         public EntityFrameworkControllerTestBase()
         {
-            _connection = CreateInMemoryDatabase();
+            _connection = GetDbConnection();
         }
 
-        protected static DbConnection CreateInMemoryDatabase()
-        {
-            var connection = new SqliteConnection("Filename=:memory:");
-
-            connection.Open();
-
-            return connection;
-        }
+        protected abstract DbConnection GetDbConnection();
 
         protected abstract T GetDBContext();      
 

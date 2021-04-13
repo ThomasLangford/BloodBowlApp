@@ -7,14 +7,14 @@ using System.IO;
 
 namespace BloodBowlData.Contexts
 {
-    public class BloodBowlAPIContextFactory : IDesignTimeDbContextFactory<BloodBowlAPIContext>
+    public class BloodBowlApiDbContextFactory : IDesignTimeDbContextFactory<BloodBowlApiDbContext>
     {
 
 
         // "Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"
         //Design-time DbContext Creation
         //ToDo Docstings and Unit Tests
-        public BloodBowlAPIContext CreateDbContext(string[] args)
+        public BloodBowlApiDbContext CreateDbContext(string[] args)
         {
             string environment = Environment.GetEnvironmentVariable("NETCORE_ENVIRONMENT");
 
@@ -27,19 +27,19 @@ namespace BloodBowlData.Contexts
 
             if (isDevelopment)
             {
-                builder.AddUserSecrets<BloodBowlAPIContextFactory>();
+                builder.AddUserSecrets<BloodBowlApiDbContextFactory>();
             }
 
             var configuration = builder.Build();
 
-            var optionsBuilder = new DbContextOptionsBuilder<BloodBowlAPIContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<BloodBowlApiDbContext>();
 
             //throw new Exception(configuration["Database.ConnectionString"]);
 
             optionsBuilder.UseSqlServer(configuration["Database.ConnectionString"], b => b.MigrationsAssembly("BloodBowlMigrations"));
             optionsBuilder.EnableDetailedErrors();
 
-            return new BloodBowlAPIContext(optionsBuilder.Options);
+            return new BloodBowlApiDbContext(optionsBuilder.Options);
         }
     }
 }

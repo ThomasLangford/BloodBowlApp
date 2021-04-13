@@ -5,19 +5,21 @@ namespace BloodBowlAPITests.Mocks
 {
     class LocalizerMock<T> : Mock<IStringLocalizer<T>>
     {
+        public static readonly string LOCALIZATION_PREFIX = "$T$_";
+
         public LocalizerMock()
         {
-            this.Setup(loc => loc[It.IsAny<string>()]).Returns((string s) => getFakeString(s));
+            this.Setup(loc => loc[It.IsAny<string>()]).Returns((string s) => GetFakeSkill(s));
         }
 
-        private LocalizedString getFakeString(string name)
+        private static LocalizedString GetFakeSkill(string name)
         {
             if (name == null)
             {
                 name = "";
             }
 
-            return new LocalizedString(name, $"$T$_{name}");
+            return new LocalizedString(name, $"{LOCALIZATION_PREFIX}{name}");
         }
         //public LocalizedString this[string name] => throw new NotImplementedException();
 

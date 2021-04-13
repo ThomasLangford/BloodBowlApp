@@ -16,7 +16,7 @@ namespace BloodBowlData.Models.TeamTypes
         public bool Apothicary { get; set; }
         public bool Necromancer { get; set; }
         public List<PlayerType> PlayerTypes { get; set; }
-        public RuleSetEnum RuleSetId { get; set; }
-        public RuleSet RuleSet { get; set; }
+        public RulesetEnum RuleSetId { get; set; }
+        public Ruleset RuleSet { get; set; }
     }
 }
