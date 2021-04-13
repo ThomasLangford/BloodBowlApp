@@ -19,12 +19,12 @@ namespace BloodBowlData.Seed
                 new LevelUpType
                 {
                     Id = LevelUpTypeEnum.Normal,
-                    Name = "Normal"
+                    LocalizationName = "LevelUpType.Name.Normal"
                 },
                 new LevelUpType
                 {
                     Id = LevelUpTypeEnum.Double,
-                    Name = "Doubles"
+                    LocalizationName = "LevelUpType.Name.Double"
                 },
             };
         }

@@ -627,4 +627,10 @@
   <data name="Ruleset.Name.BloodBowlSeason2" xml:space="preserve">
     <value>Blood Bowl Season 2 (2020)</value>
   </data>
+  <data name="LevelUpType.Name.Double" xml:space="preserve">
+    <value>Double</value>
+  </data>
+  <data name="LevelUpType.Name.Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
 </root>

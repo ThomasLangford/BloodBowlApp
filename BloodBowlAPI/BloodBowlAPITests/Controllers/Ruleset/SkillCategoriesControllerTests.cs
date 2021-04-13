@@ -47,7 +47,7 @@ namespace BloodBowlAPITests.Controllers.Ruleset
             bloodBowlAPIContext.Database.EnsureDeleted();
             bloodBowlAPIContext.Database.EnsureCreated();
 
-            bloodBowlAPIContext.Ruleset.AddRange(SkillTestData.GetRuleSets());
+            bloodBowlAPIContext.Ruleset.AddRange(RulesetTestData.GetRuleSets());
             bloodBowlAPIContext.SkillCategory.AddRange(SkillTestData.GetSkillCategories());
             bloodBowlAPIContext.Skill.AddRange(SkillTestData.GetSkills());
 

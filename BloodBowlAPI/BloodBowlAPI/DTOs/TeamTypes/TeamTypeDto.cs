@@ -10,20 +10,19 @@ namespace BloodBowlAPI.DTOs.TeamTypes
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string InternalName { get; set; }
         public int RerollCost { get; set; }
         public int RerollMaximumCount { get; set; }
         public bool Apothicary { get; set; }
+        public bool Necromancer { get; set; }
         public List<TeamTypePlayerTypeDto> PlayerTypes { get; set; }
 
-        public int RuleSetId { get; set; }
-        public string RuleSetName { get; set; }
+        public int RulesetId { get; set; }
+        public string RulesetName { get; set; }
 
         public class TeamTypePlayerTypeDto
         {
             public int Id { get; set; }
             public string Name { get; set; }
-            public string InternalName { get; set; }
             public int MaximumAllowedOnTeam { get; set; }
             public int Cost { get; set; }
             public int Move { get; set; }
@@ -47,7 +46,7 @@ namespace BloodBowlAPI.DTOs.TeamTypes
             public int Id { get; set; }
 
             public int SkillCategoryId { get; set; }
-            public char SkillCategoryShortName { get; set; }
+            public string SkillCategoryShortName { get; set; }
             public string SkillCategoryName { get; set; }
 
             public int LevelUpTypeId { get; set; }

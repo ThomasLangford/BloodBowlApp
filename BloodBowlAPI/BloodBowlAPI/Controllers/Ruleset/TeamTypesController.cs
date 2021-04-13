@@ -34,16 +34,16 @@ namespace BloodBowlAPI.Controllers.Ruleset
         public async Task<ActionResult<IEnumerable<TeamTypeDto>>> GetTeamType(RulesetEnum rulesetId)
         {
             return await _context.TeamType.Where(teamType => teamType.RuleSetId == rulesetId)
-                .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization }) // Project To Does The Includes
+                .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .ToListAsync();
         }
 
         // GET: api/Rulesets/1/TeamTypes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TeamTypeDto>> GetPlayerType(RulesetEnum rulesetId, int id)
+        public async Task<ActionResult<TeamTypeDto>> GetTeamType(RulesetEnum rulesetId, int id)
         {
             var teamType = await _context.TeamType.Where(teamType => teamType.Id == id && teamType.RuleSetId == rulesetId)
-                .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization }) // Project To Does The Includes
+                .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization }) // Project To Does The Includes                
                 .SingleOrDefaultAsync();
 
             if (teamType == null)

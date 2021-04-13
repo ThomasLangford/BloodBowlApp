@@ -3,10 +3,13 @@ using Moq;
 
 namespace BloodBowlAPITests.Mocks
 {
-    class LocalizerMock<T> : Mock<IStringLocalizer<T>>
+    public static class TestContants
     {
-        public static readonly string LOCALIZATION_PREFIX = "$T$_";
+        public static readonly string TPREFIX = "$T$_";
+    }
 
+    public class LocalizerMock<T> : Mock<IStringLocalizer<T>>
+    {
         public LocalizerMock()
         {
             this.Setup(loc => loc[It.IsAny<string>()]).Returns((string s) => GetFakeSkill(s));
@@ -19,7 +22,7 @@ namespace BloodBowlAPITests.Mocks
                 name = "";
             }
 
-            return new LocalizedString(name, $"{LOCALIZATION_PREFIX}{name}");
+            return new LocalizedString(name, $"{TestContants.TPREFIX}{name}");
         }
         //public LocalizedString this[string name] => throw new NotImplementedException();
 

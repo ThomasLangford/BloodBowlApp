@@ -61,6 +61,24 @@ namespace BloodBowlAPI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Double.
+        /// </summary>
+        public static string LevelUpType_Name_Double {
+            get {
+                return ResourceManager.GetString("LevelUpType.Name.Double", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        public static string LevelUpType_Name_Normal {
+            get {
+                return ResourceManager.GetString("LevelUpType.Name.Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blitzer.
         /// </summary>
         public static string PlayerType_Name_Blitzer {

@@ -1,4 +1,5 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
+using BloodBowlAPITests.Mocks;
 using BloodBowlData.Enums;
 using BloodBowlData.Models.Rules;
 using BloodBowlData.Models.Skills;
@@ -12,28 +13,6 @@ namespace BloodBowlAPITests.Data
 {
     class SkillTestData
     {
-        public static IEnumerable<Ruleset> GetRuleSets()
-        {
-            return new Ruleset[]
-            {
-                new Ruleset()
-                {
-                    Id = RulesetEnum.BloodBowl2,
-                    LocalizationName = "Blood Bowl 2"
-                },
-                new Ruleset()
-                {
-                    Id = RulesetEnum.BloodBowl3,
-                    LocalizationName = "Blood Bowl 3"
-                },
-                new Ruleset()
-                {
-                    Id = RulesetEnum.BloodBowl2020,
-                    LocalizationName = "Blood Bowl 2020"
-                }
-            };
-        }
-
         public static IEnumerable<SkillCategory> GetSkillCategories()
         {
             return new SkillCategory[]
@@ -77,13 +56,13 @@ namespace BloodBowlAPITests.Data
                 new SkillDto()
                 {
                     Id = 1000,
-                    Name = "$T$_SKILL_1",
-                    Description = "$T$_SKILL_1_DESCRIPTION",
+                    Name = $"{TestContants.TPREFIX}SKILL_1",
+                    Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
                     RuleSetId = 1,
-                    RulesetName =  "$T$_Blood Bowl 2",
+                    RulesetName =  $"{TestContants.TPREFIX}Blood Bowl 2",
                     SkillCategoryId = 1,
-                    SkillCategoryName = "$T$_Skill Category 1",
-                    SkillCategoryShortName = "$T$_S",
+                    SkillCategoryName = $"{TestContants.TPREFIX}Skill Category 1",
+                    SkillCategoryShortName = $"{TestContants.TPREFIX}S",
                 }
             };
         }
@@ -94,8 +73,8 @@ namespace BloodBowlAPITests.Data
                 new SkillCategoryDto.SkillCategorySkillDto()
                 {
                     Id = 1000,
-                    Name = "$T$_SKILL_1",
-                    Description = "$T$_SKILL_1_DESCRIPTION",
+                    Name = $"{TestContants.TPREFIX}SKILL_1",
+                    Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
                 }
             };
         }
@@ -107,8 +86,8 @@ namespace BloodBowlAPITests.Data
                 new SkillCategoryDto()
                 {
                     Id = SkillCategoryEnum.General,
-                    Name = "$T$_Skill Category 1",
-                    ShortName = "$T$_S",
+                    Name = $"{TestContants.TPREFIX}Skill Category 1",
+                    ShortName = $"{TestContants.TPREFIX}S",
                     Skills = GetSimpleSkillDtos().ToList()
                 }
             };

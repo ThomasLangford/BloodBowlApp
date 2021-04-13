@@ -11,7 +11,7 @@ namespace BloodBowlData.Models.TeamTypes
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public LevelUpTypeEnum Id { get; set; }
-        public string Name { get; set; }
+        public string LocalizationName { get; set; }
 
         public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
     }

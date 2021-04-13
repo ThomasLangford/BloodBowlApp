@@ -10,8 +10,7 @@ namespace BloodBowlData.Models.TeamTypes
     public class TeamType
     {
         public int Id { get; set; }
-        public string InternalName { get; set; }
-        public string LocalizationName { get; set; }
+        public string Name { get; set; }
         public int RerollCost { get; set; }
         public bool Apothicary { get; set; }
         public bool Necromancer { get; set; }
