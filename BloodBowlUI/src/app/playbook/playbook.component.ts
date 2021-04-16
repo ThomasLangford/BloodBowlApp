@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-maintenance',
+  selector: 'app-playbook',
   templateUrl: './playbook.component.html',
   styleUrls: ['./playbook.component.scss']
 })
