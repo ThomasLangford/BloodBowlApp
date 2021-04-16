@@ -14,7 +14,8 @@ export class SkillFormComponent implements OnInit {
   constructor(skillService: SkillService) {
 
     this.skillService = skillService;
-    this.skills = [{id: 1, name: "test"}];
+    this.skills = [];
+    // this.skills = [{id: 1, name: "test"}];
   }
 
   ngOnInit(): void {

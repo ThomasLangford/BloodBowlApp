@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import { MatTableModule } from '@angular/material/table';
 
-import { MaintenanceRoutingModule } from './maintenance-routing.module';
-import { MaintenanceComponent } from './maintenance.component';
+import { MaintenanceRoutingModule } from './playbook-routing.module';
+import { MaintenanceComponent } from './playbook.component';
 import { SkillFormComponent } from './skill-form/skill-form.component';
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MaintenanceComponent } from './maintenance.component';
+import { MaintenanceComponent } from './playbook.component';
 import { SkillFormComponent } from './skill-form/skill-form.component'
 
 const routes: Routes = [
