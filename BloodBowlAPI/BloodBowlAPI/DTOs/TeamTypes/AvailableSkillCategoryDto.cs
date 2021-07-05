@@ -7,7 +7,7 @@ namespace BloodBowlAPI.DTOs.TeamTypes
 {
     public class AvailableSkillCategoryDto
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public int SkillCategoryId { get; set; }
         public char SkillCategoryShortName { get; set; }

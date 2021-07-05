@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="9002998210693127357" datatype="html">
+        <source>Btsx Bowl</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/nav-topbar/nav-topbar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/nav-topbar/nav-topbar.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="973935442796422731" datatype="html">
+        <source>League</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/nav-topbar/nav-topbar.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="544767180464962974" datatype="html">
+        <source>My Teams</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/nav-topbar/nav-topbar.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4592052725500562898" datatype="html">
+        <source>Playbook</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/nav-topbar/nav-topbar.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4086606389696938932" datatype="html">
+        <source>Account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/nav-topbar/nav-topbar.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

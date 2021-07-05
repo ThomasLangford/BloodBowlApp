@@ -1,6 +1,6 @@
-﻿using BloodBowlData.Enums;
-using BloodBowlData.Models;
+﻿using BloodBowlData.Models;
 using BloodBowlData.Models.Skills;
+using BloodBowlData.Enums;
 using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BloodBowlData.Seed
 {
-    static class SeedLevelUpType
+    public static class SeedLevelUpType
     {
         public static List<LevelUpType> GetSeed()
         {
@@ -19,12 +19,12 @@ namespace BloodBowlData.Seed
                 new LevelUpType
                 {
                     Id = LevelUpTypeEnum.Normal,
-                    Name = "Normal"
+                    LocalizationName = "LevelUpType.Name.Normal"
                 },
                 new LevelUpType
                 {
                     Id = LevelUpTypeEnum.Double,
-                    Name = "Doubles"
+                    LocalizationName = "LevelUpType.Name.Double"
                 },
             };
         }

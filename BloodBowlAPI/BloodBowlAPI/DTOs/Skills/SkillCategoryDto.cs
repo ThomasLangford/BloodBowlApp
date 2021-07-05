@@ -1,4 +1,5 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
+using BloodBowlData.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,17 @@ namespace BloodBowlAPI.DTOs.Skills
 {
     public class SkillCategoryDto
     {
-        public BloodBowlData.Enums.SkillCategoryEnum Id { get; set; }
-        public char ShortName { get; set; }
+        public SkillCategoryEnum Id { get; set; }
+        public string ShortName { get; set; }
         public string Name { get; set; }
 
-        public List<SkillDto> Skills { get; set; }
+        public List<SkillCategorySkillDto> Skills { get; set; }
+        
+        public class SkillCategorySkillDto
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+        }
     }
 }

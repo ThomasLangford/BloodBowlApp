@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BloodBowlAPI.DTOs.Skills;
+using BloodBowlAPI.Resources;
 using BloodBowlData.Models.TeamTypes;
+using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +14,32 @@ namespace BloodBowlAPI.DTOs.TeamTypes
     {
         public TeamTypesDtoProfile()
         {
-            CreateMap<PlayerType, PlayerTypeDto>();
-                
-                
-                
-            CreateMap<TeamType, TeamTypeDto>().ReverseMap();
+            IStringLocalizer<Localization> localizer = null;
+
+            // Team Type
+            CreateMap<TeamType, TeamTypeDto>()
+                .ForMember(d => d.RulesetName, opt => opt.MapFrom(s => localizer[s.RuleSet.LocalizationName]));
+            // .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
+
+            CreateMap<PlayerType, TeamTypeDto.TeamTypePlayerTypeDto>();
+            // .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
+
+            CreateMap<AvailableSkillCategory, TeamTypeDto.TeamTypePlayerTypeAvailableSkillCategoryDto>()
+                .ForMember(d => d.SkillCategoryName, opt => opt.MapFrom(s => localizer[s.SkillCategory.LocalizationName]))
+                .ForMember(d => d.SkillCategoryShortName, opt => opt.MapFrom(s => localizer[s.SkillCategory.LocalizationShortName]))
+                .ForMember(d => d.LevelUpTypeName, opt => opt.MapFrom(s => localizer[s.LevelUpType.LocalizationName]));
+
+            CreateMap<StartingSkill, TeamTypeDto.TeamTypePlayerTypeStartingSkillDto>()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Skill.LocalizationName]))
+                .ForMember(d => d.Description, opt => opt.MapFrom(s => localizer[s.Skill.LocalizationDescription]));
+
+            // Player Type
+            CreateMap<PlayerType, PlayerTypeDto>()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
+
             CreateMap<LevelUpType, LevelUpTypeDto>().ReverseMap();
 
             CreateMap<AvailableSkillCategory, AvailableSkillCategoryDto>().ReverseMap();
-
-            CreateMap<StartingSkill, SkillDto>()
-                .ConstructUsing((ct, crx) => crx.Mapper.Map<SkillDto>(ct.Skill));
-
-            CreateMap<SkillDto, StartingSkill>()
-                .ForMember(x => x.SkillId, opt => opt.MapFrom(s => s.Id))
-                .ForMember(x => x.Skill, opt => opt.MapFrom(s => s));
         }
     }
 }
