@@ -9,21 +9,13 @@ import { RulesetService } from '../../services/ruleset/ruleset.service';
 })
 export class RulesetComponent implements OnInit {
   private rulesets: Ruleset[] = [];
+  
   constructor(
-    private _rulesetService: RulesetService,
-    private _activatedRoute: ActivatedRoute
+
   ) { }
 
   ngOnInit(): void {
-    this._rulesetService.getRulesets().subscribe({
-        next: res => this.rulesets = res,
-        error: err => console.log(err),
-        complete: () => console.log("done")
-      });
-
-    this._activatedRoute.params.subscribe({
-      next: res => console.log(res)
-    });
+    throw new Error('ToDo');
   }
 
 }

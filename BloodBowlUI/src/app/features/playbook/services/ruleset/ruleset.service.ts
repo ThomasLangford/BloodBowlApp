@@ -13,6 +13,6 @@ export class RulesetService {
   constructor(private http: HttpClient) { }
 
   getRulesets(): Observable<Ruleset[]> {
-    return this.http.get<Ruleset[]>(this.rulesetUrl)
+    return this.http.get<Ruleset[]>(this.rulesetUrl);
   }
 }
