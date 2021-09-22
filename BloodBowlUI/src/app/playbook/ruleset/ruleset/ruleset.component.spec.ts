@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SkillFormComponent } from './skill-form.component';
+import { RulesetComponent } from './ruleset.component';
 
-describe('SkillFormComponent', () => {
-  let component: SkillFormComponent;
-  let fixture: ComponentFixture<SkillFormComponent>;
+describe('RulesetComponent', () => {
+  let component: RulesetComponent;
+  let fixture: ComponentFixture<RulesetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillFormComponent ]
+      declarations: [ RulesetComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SkillFormComponent);
+    fixture = TestBed.createComponent(RulesetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

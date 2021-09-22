@@ -5,11 +5,11 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 
 import { MaintenanceRoutingModule } from './playbook-routing.module';
-import { MaintenanceComponent } from './playbook.component';
-import { SkillFormComponent } from './skill-form/skill-form.component';
+import { PlaybookComponent } from './playbook.component';
+import { RulesetComponent } from './ruleset/ruleset/ruleset.component';
 
 @NgModule({
-  declarations: [MaintenanceComponent, SkillFormComponent],
+  declarations: [PlaybookComponent, RulesetComponent],
   imports: [
     CommonModule,
     RouterModule,

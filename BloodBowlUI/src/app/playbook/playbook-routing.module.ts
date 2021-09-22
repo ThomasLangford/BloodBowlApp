@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MaintenanceComponent } from './playbook.component';
-import { SkillFormComponent } from './skill-form/skill-form.component'
+
+import { PlaybookComponent } from './playbook.component';
+import { RulesetComponent } from './ruleset/ruleset/ruleset.component';
 
 const routes: Routes = [
   { 
     path: '',
-    component: MaintenanceComponent,
+    component: PlaybookComponent,
     children: [
       {
-        path: 'skill', // child route path
-        component: SkillFormComponent, // child route component that the router renders
-      },
-      
-    ]
-  
+        path: ':rulesetId',
+        component: RulesetComponent
+      }      
+    ]  
   },
 ];
 
