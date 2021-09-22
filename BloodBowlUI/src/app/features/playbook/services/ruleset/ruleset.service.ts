@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Ruleset } from 'src/app/models/ruleset';
+import { Ruleset } from 'src/app/core/models/ruleset';
 import { environment } from 'src/environments/environment'
 import { Observable } from 'rxjs';
 

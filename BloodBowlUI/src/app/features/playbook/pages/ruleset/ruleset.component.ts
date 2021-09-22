@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Ruleset } from 'src/app/models/ruleset';
-import { RulesetService } from 'src/app/services/ruleset/ruleset.service';
+import { Ruleset } from 'src/app/core/models/ruleset';
+import { RulesetService } from '../../services/ruleset/ruleset.service';
 
 @Component({
   templateUrl: './ruleset.component.html',

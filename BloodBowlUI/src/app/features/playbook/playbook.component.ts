@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Ruleset } from '../models/ruleset';
-import { RulesetService } from '../services/ruleset/ruleset.service';
 
 @Component({
   selector: 'app-playbook',

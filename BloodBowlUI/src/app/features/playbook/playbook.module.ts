@@ -6,10 +6,11 @@ import { MatTableModule } from '@angular/material/table';
 
 import { MaintenanceRoutingModule } from './playbook-routing.module';
 import { PlaybookComponent } from './playbook.component';
-import { RulesetComponent } from './ruleset/ruleset/ruleset.component';
+import { RulesetComponent } from './pages/ruleset/ruleset.component';
+import { TeamsComponent } from './pages/teams/teams/teams.component';
 
 @NgModule({
-  declarations: [PlaybookComponent, RulesetComponent],
+  declarations: [PlaybookComponent, RulesetComponent, TeamsComponent],
   imports: [
     CommonModule,
     RouterModule,
