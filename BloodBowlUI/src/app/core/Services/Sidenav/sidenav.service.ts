@@ -8,38 +8,40 @@ import { NavSidebarItem } from '../../models/navSidebarItem';
 export class SidenavService {
   private sidenav: MatSidenav | undefined;
 
-  public links: NavSidebarItem[] = [
-    {
-      Title: "Home", Url: "home"
-    },
-    {
-      Title: "Leage", Url: "todo"
-    },
-    {
-      Title: "My Teams", Url: "todo"
-    },
-    {
-      Title: "Playbook", Url: "playbook"
-    },
-    {
-      Title: "Account", Url: "todo"
-    },
-  ];
+
+  public links: NavSidebarItem[] = [];
+
+  public opened = false;
 
   public setSidenav(sidenav: MatSidenav | undefined) {
     this.sidenav = sidenav;
   }
 
   public open() {
-    this.sidenav?.open();
+    setTimeout(() => {
+      this.sidenav?.open();
+      this.opened = true;
+    });    
   }
 
 
   public close() {
-    this.sidenav?.close();
+    setTimeout(() => {
+      this.sidenav?.close();
+      this.opened = false;
+    });
   }
 
   public toggle(): void {
-    this.sidenav?.toggle();
+    setTimeout(() => {
+      this.sidenav?.toggle();
+      this.opened = !this.opened;
+    });
+  }
+
+  public setLinks(links: NavSidebarItem[]) {
+    setTimeout(() => {
+      this.links = links;
+    });
   }
 }

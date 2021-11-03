@@ -1,7 +1,7 @@
 <mat-sidenav-container color="primary" class="sidenav-container">
-    <mat-sidenav #sidenav attr.color="primary" class="sidenav mat-primary" mode="side" [opened]="true">
+    <mat-sidenav #sidenav attr.color="primary" class="sidenav mat-primary" mode="side" [opened]="_sidenavService.opened">
         <mat-nav-list>
-            <a *ngFor="let navSidebarItem of _sidenavService.links" mat-list-item routerLinkActive="active_route"
+            <a *ngFor="let navSidebarItem of _sidenavService.links" mat-list-item routerLinkActive="sidenav-activated"
                 [routerLink]="navSidebarItem.Url">{{navSidebarItem.Title}} </a>
         </mat-nav-list>
     </mat-sidenav>

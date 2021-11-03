@@ -7,9 +7,6 @@ import { SidenavService } from '../../Services/Sidenav/sidenav.service';
   templateUrl: './nav-sidebar.component.html',
   styleUrls: ['./nav-sidebar.component.scss']
 })
-export class NavSidebarComponent implements OnInit {
+export class NavSidebarComponent {
   constructor(public _sidenavService: SidenavService) { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 }

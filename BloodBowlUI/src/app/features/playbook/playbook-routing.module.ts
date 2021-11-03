@@ -6,6 +6,7 @@ import { PlaybookComponent } from './playbook.component';
 import { RulesetComponent } from './pages/ruleset/ruleset.component';
 import { RulesetpickerComponent } from './pages/rulesetpicker/rulesetpicker.component';
 import { RulesetlandingComponent } from './pages/rulesetlanding/rulesetlanding.component';
+import { SkillsComponent } from './pages/skills/skills.component';
 
 const routes: Routes = [
   { 
@@ -24,8 +25,8 @@ const routes: Routes = [
         component: RulesetlandingComponent
       },
       {
-        path: 'teams/:teamid',
-        component: RulesetComponent,
+        path: 'skills',
+        component: SkillsComponent,
       }  
     ]
   },  

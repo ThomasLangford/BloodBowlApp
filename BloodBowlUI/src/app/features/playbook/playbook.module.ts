@@ -11,9 +11,10 @@ import { RulesetpickerComponent } from './pages/rulesetpicker/rulesetpicker.comp
 import { CoreModule } from 'src/app/core/core.module';
 import { RulesetlandingComponent } from './pages/rulesetlanding/rulesetlanding.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { SkillsComponent } from './pages/skills/skills.component';
 
 @NgModule({
-  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent],
+  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent],
   imports: [
     CommonModule,
     RouterModule,
