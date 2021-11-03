@@ -8,12 +8,8 @@ import { SidenavService } from '../../Services/Sidenav/sidenav.service';
   styleUrls: ['./nav-sidebar.component.scss']
 })
 export class NavSidebarComponent implements OnInit {
-  @Input()
-  navSidebarItems: NavSidebarItem[] = [];
-
   constructor(public _sidenavService: SidenavService) { }
-
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
-
 }

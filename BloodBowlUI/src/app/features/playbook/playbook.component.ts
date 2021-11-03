@@ -7,11 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./playbook.component.scss']
 })
 export class PlaybookComponent implements OnInit {
-  public rulesetId: number;
+  public rulesetId = 1;
 
-  constructor( private _activatedRoute: ActivatedRoute ) {
-    this.rulesetId = 0;
-   }
+  constructor( private _activatedRoute: ActivatedRoute ) {}
 
   ngOnInit(): void {
     this._activatedRoute.firstChild?.params.subscribe({
