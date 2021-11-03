@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NavSidebarItem } from '../../models/navSidebarItem';
+import { SidenavService } from '../../Services/Sidenav/sidenav.service';
 
 @Component({
   selector: 'app-nav-sidebar',
@@ -6,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-sidebar.component.scss']
 })
 export class NavSidebarComponent implements OnInit {
-  constructor() { }
+  @Input()
+  navSidebarItems: NavSidebarItem[] = [];
+
+  constructor(public _sidenavService: SidenavService) { }
 
   ngOnInit(): void {
   }

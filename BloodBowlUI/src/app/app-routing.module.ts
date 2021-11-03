@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
-  { path: 'playbook', loadChildren: () => import('./features/playbook/playbook.module').then(m => m.MaintenanceModule) },
+  { path: 'playbook', loadChildren: () => import('./features/playbook/playbook.module').then(m => m.PlaybookModule) },
   {
     path: '**',
     component: PageNotFoundComponent

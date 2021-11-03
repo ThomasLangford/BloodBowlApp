@@ -5,6 +5,7 @@ import { HomeComponent } from '../home/home.component';
 import { PlaybookComponent } from './playbook.component';
 import { RulesetComponent } from './pages/ruleset/ruleset.component';
 import { RulesetpickerComponent } from './pages/rulesetpicker/rulesetpicker.component';
+import { RulesetlandingComponent } from './pages/rulesetlanding/rulesetlanding.component';
 
 const routes: Routes = [
   { 
@@ -19,6 +20,10 @@ const routes: Routes = [
     component: RulesetComponent,
     children: [
       {
+        path: '',
+        component: RulesetlandingComponent
+      },
+      {
         path: 'teams/:teamid',
         component: RulesetComponent,
       }  
@@ -30,4 +35,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MaintenanceRoutingModule { }
+export class PlaybookRoutingModule { }
