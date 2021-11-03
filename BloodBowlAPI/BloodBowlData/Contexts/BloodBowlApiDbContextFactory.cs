@@ -36,8 +36,16 @@ namespace BloodBowlData.Contexts
 
             //throw new Exception(configuration["Database.ConnectionString"]);
 
-            optionsBuilder.UseSqlServer(configuration["Database.ConnectionString"], b => b.MigrationsAssembly("BloodBowlMigrations"));
-            optionsBuilder.EnableDetailedErrors();
+            // Commands:
+            //  1. dotnet ef migrations add InitalMigration --project ../BloodBowlMigrations
+            //  2. dotnet ef database update
+
+            optionsBuilder.UseSqlServer(configuration["Database:ConnectionString"], b => b.MigrationsAssembly("BloodBowlMigrations"));
+
+            if (isDevelopment)
+            {
+                optionsBuilder.EnableDetailedErrors();
+            }
 
             return new BloodBowlApiDbContext(optionsBuilder.Options);
         }

@@ -52,7 +52,7 @@ namespace BloodBowlAPI
             });
 
             services.AddDbContext<BloodBowlApiDbContext>(
-                dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database.ConnectionString"])
+                dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database:ConnectionString"])
             );
 
             services.AddSwaggerGen(c =>

@@ -3,27 +3,29 @@ using BloodBowlData.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BloodBowlMigrations.Migrations
 {
     [DbContext(typeof(BloodBowlApiDbContext))]
-    partial class BloodBowlAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20211103135357_InitalMigration")]
+    partial class InitalMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.4")
+                .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BloodBowlData.Models.Rules.RuleSet", b =>
+            modelBuilder.Entity("BloodBowlData.Models.Rules.Ruleset", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LocalizationName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Supported")
@@ -31,19 +33,25 @@ namespace BloodBowlMigrations.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RuleSet");
+                    b.ToTable("Ruleset");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = "Blood Bowl 2",
+                            LocalizationName = "Ruleset.Name.BloodBowl2",
                             Supported = true
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Blood Bowl Season 2 (2020)",
+                            LocalizationName = "Ruleset.Name.BloodBowl3",
+                            Supported = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LocalizationName = "Ruleset.Name.BloodBowlSeason2",
                             Supported = false
                         });
                 });
@@ -857,7 +865,7 @@ namespace BloodBowlMigrations.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LocalizationName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -868,12 +876,12 @@ namespace BloodBowlMigrations.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Normal"
+                            LocalizationName = "LevelUpType.Name.Normal"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Doubles"
+                            LocalizationName = "LevelUpType.Name.Double"
                         });
                 });
 
@@ -893,17 +901,14 @@ namespace BloodBowlMigrations.Migrations
                     b.Property<int>("Cost")
                         .HasColumnType("int");
 
-                    b.Property<string>("InternalName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocalizationName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MaximumOnTeam")
+                    b.Property<int>("MaximumAllowedOnTeam")
                         .HasColumnType("int");
 
                     b.Property<int>("Move")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Strength")
                         .HasColumnType("int");
@@ -950,10 +955,7 @@ namespace BloodBowlMigrations.Migrations
                     b.Property<bool>("Apothicary")
                         .HasColumnType("bit");
 
-                    b.Property<string>("InternalName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocalizationName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Necromancer")
@@ -970,23 +972,11 @@ namespace BloodBowlMigrations.Migrations
                     b.HasIndex("RuleSetId");
 
                     b.ToTable("TeamType");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Apothicary = true,
-                            InternalName = "Humans",
-                            LocalizationName = "TeamType.Name.Humans",
-                            Necromancer = false,
-                            RerollCost = 50,
-                            RuleSetId = 1
-                        });
                 });
 
             modelBuilder.Entity("BloodBowlData.Models.Skills.Skill", b =>
                 {
-                    b.HasOne("BloodBowlData.Models.Rules.RuleSet", "RuleSet")
+                    b.HasOne("BloodBowlData.Models.Rules.Ruleset", "RuleSet")
                         .WithMany("Skills")
                         .HasForeignKey("RuleSetId")
                         .OnDelete(DeleteBehavior.ClientCascade)
@@ -1062,7 +1052,7 @@ namespace BloodBowlMigrations.Migrations
 
             modelBuilder.Entity("BloodBowlData.Models.TeamTypes.TeamType", b =>
                 {
-                    b.HasOne("BloodBowlData.Models.Rules.RuleSet", "RuleSet")
+                    b.HasOne("BloodBowlData.Models.Rules.Ruleset", "RuleSet")
                         .WithMany("TeamTypes")
                         .HasForeignKey("RuleSetId")
                         .OnDelete(DeleteBehavior.ClientCascade)
@@ -1071,7 +1061,7 @@ namespace BloodBowlMigrations.Migrations
                     b.Navigation("RuleSet");
                 });
 
-            modelBuilder.Entity("BloodBowlData.Models.Rules.RuleSet", b =>
+            modelBuilder.Entity("BloodBowlData.Models.Rules.Ruleset", b =>
                 {
                     b.Navigation("Skills");
 

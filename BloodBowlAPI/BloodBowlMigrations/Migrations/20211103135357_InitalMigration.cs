@@ -11,7 +11,7 @@ namespace BloodBowlMigrations.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    LocalizationName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -19,16 +19,16 @@ namespace BloodBowlMigrations.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RuleSet",
+                name: "Ruleset",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LocalizationName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Supported = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RuleSet", x => x.Id);
+                    table.PrimaryKey("PK_Ruleset", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,8 +51,7 @@ namespace BloodBowlMigrations.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    InternalName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LocalizationName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RerollCost = table.Column<int>(type: "int", nullable: false),
                     Apothicary = table.Column<bool>(type: "bit", nullable: false),
                     Necromancer = table.Column<bool>(type: "bit", nullable: false),
@@ -62,9 +61,9 @@ namespace BloodBowlMigrations.Migrations
                 {
                     table.PrimaryKey("PK_TeamType", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TeamType_RuleSet_RuleSetId",
+                        name: "FK_TeamType_Ruleset_RuleSetId",
                         column: x => x.RuleSetId,
-                        principalTable: "RuleSet",
+                        principalTable: "Ruleset",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -85,9 +84,9 @@ namespace BloodBowlMigrations.Migrations
                 {
                     table.PrimaryKey("PK_Skill", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Skill_RuleSet_RuleSetId",
+                        name: "FK_Skill_Ruleset_RuleSetId",
                         column: x => x.RuleSetId,
-                        principalTable: "RuleSet",
+                        principalTable: "Ruleset",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -104,9 +103,8 @@ namespace BloodBowlMigrations.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    InternalName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LocalizationName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MaximumOnTeam = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaximumAllowedOnTeam = table.Column<int>(type: "int", nullable: false),
                     Cost = table.Column<int>(type: "int", nullable: false),
                     Move = table.Column<int>(type: "int", nullable: false),
                     Strength = table.Column<int>(type: "int", nullable: false),
@@ -186,20 +184,21 @@ namespace BloodBowlMigrations.Migrations
 
             migrationBuilder.InsertData(
                 table: "LevelUpType",
-                columns: new[] { "Id", "Name" },
+                columns: new[] { "Id", "LocalizationName" },
                 values: new object[,]
                 {
-                    { 1, "Normal" },
-                    { 2, "Doubles" }
+                    { 1, "LevelUpType.Name.Normal" },
+                    { 2, "LevelUpType.Name.Double" }
                 });
 
             migrationBuilder.InsertData(
-                table: "RuleSet",
-                columns: new[] { "Id", "Name", "Supported" },
+                table: "Ruleset",
+                columns: new[] { "Id", "LocalizationName", "Supported" },
                 values: new object[,]
                 {
-                    { 1, "Blood Bowl 2", true },
-                    { 2, "Blood Bowl Season 2 (2020)", false }
+                    { 1, "Ruleset.Name.BloodBowl2", true },
+                    { 2, "Ruleset.Name.BloodBowl3", true },
+                    { 3, "Ruleset.Name.BloodBowlSeason2", false }
                 });
 
             migrationBuilder.InsertData(
@@ -220,7 +219,7 @@ namespace BloodBowlMigrations.Migrations
                 columns: new[] { "Id", "InternalName", "LocalizationDescription", "LocalizationName", "RuleSetId", "SkillCategoryId" },
                 values: new object[,]
                 {
-                    { 20, "Leap", "Skill.Description.BB2.Leap", "Skill.Name.Leap", 1, 4 },
+                    { 1, "Block", "Skill.Description.BB2.Block", "Skill.Name.Block", 1, 1 },
                     { 54, "BallChain", "Skill.Description.BB2.BallChain", "Skill.Name.BallChain", 1, 6 },
                     { 53, "Animosity", "Skill.Description.BB2.Animosity", "Skill.Name.Animosity", 1, 6 },
                     { 52, "AlwaysHungry", "Skill.Description.BB2.AlwaysHungry", "Skill.Name.AlwaysHungry", 1, 6 },
@@ -256,12 +255,12 @@ namespace BloodBowlMigrations.Migrations
                     { 60, "FanFavourite", "Skill.Description.BB2.FanFavourite", "Skill.Name.FanFavourite", 1, 6 },
                     { 59, "Decay", "Skill.Description.BB2.Decay", "Skill.Name.Decay", 1, 6 },
                     { 57, "BoneHead", "Skill.Description.BB2.BoneHead", "Skill.Name.BoneHead", 1, 6 },
+                    { 74, "Titchy", "Skill.Description.BB2.Titchy", "Skill.Name.Titchy", 1, 6 },
                     { 21, "SideStep", "Skill.Description.BB2.SideStep", "Skill.Name.SideStep", 1, 4 },
-                    { 75, "WildAnimal", "Skill.Description.BB2.WildAnimal", "Skill.Name.WildAnimal", 1, 6 },
                     { 19, "JumpUp", "Skill.Description.BB2.JumpUp", "Skill.Name.JumpUp", 1, 4 },
+                    { 33, "Grab", "Skill.Description.BB2.Grab", "Skill.Name.Grab", 1, 2 },
                     { 32, "BreakTackle", "Skill.Description.BB2.BreakTackle", "Skill.Name.BreakTackle", 1, 2 },
-                    { 14, "Wrestle", "Skill.Description.BB2.Wrestle", "Skill.Name.Wrestle", 1, 1 },
-                    { 13, "Tackle", "Skill.Description.BB2.Tackle", "Skill.Name.Tackle", 1, 1 }
+                    { 14, "Wrestle", "Skill.Description.BB2.Wrestle", "Skill.Name.Wrestle", 1, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -269,6 +268,7 @@ namespace BloodBowlMigrations.Migrations
                 columns: new[] { "Id", "InternalName", "LocalizationDescription", "LocalizationName", "RuleSetId", "SkillCategoryId" },
                 values: new object[,]
                 {
+                    { 13, "Tackle", "Skill.Description.BB2.Tackle", "Skill.Name.Tackle", 1, 1 },
                     { 12, "SureHands", "Skill.Description.BB2.SureHands", "Skill.Name.SureHands", 1, 1 },
                     { 11, "StripBall", "Skill.Description.BB2.StripBall", "Skill.Name.StripBall", 1, 1 },
                     { 10, "Shadowing", "Skill.Description.BB2.Shadowing", "Skill.Name.Shadowing", 1, 1 },
@@ -280,11 +280,10 @@ namespace BloodBowlMigrations.Migrations
                     { 4, "Fend", "Skill.Description.BB2.Fend", "Skill.Name.Fend", 1, 1 },
                     { 3, "DirtyPlayer", "Skill.Description.BB2.DirtyPlayer", "Skill.Name.DirtyPlayer", 1, 1 },
                     { 2, "Dauntless", "Skill.Description.BB2.Dauntless", "Skill.Name.Dauntless", 1, 1 },
-                    { 1, "Block", "Skill.Description.BB2.Block", "Skill.Name.Block", 1, 1 },
-                    { 33, "Grab", "Skill.Description.BB2.Grab", "Skill.Name.Grab", 1, 2 },
                     { 34, "Guard", "Skill.Description.BB2.Guard", "Skill.Name.Guard", 1, 2 },
+                    { 20, "Leap", "Skill.Description.BB2.Leap", "Skill.Name.Leap", 1, 4 },
                     { 35, "Juggernaut", "Skill.Description.BB2.Juggernaut", "Skill.Name.Juggernaut", 1, 2 },
-                    { 36, "MightyBlow", "Skill.Description.BB2.MightyBlow", "Skill.Name.MightyBlow", 1, 2 },
+                    { 37, "MultipleBlock", "Skill.Description.BB2.MultipleBlock", "Skill.Name.MultipleBlock", 1, 2 },
                     { 18, "Dodge", "Skill.Description.BB2.Dodge", "Skill.Name.Dodge", 1, 4 },
                     { 17, "DivingTackle", "Skill.Description.BB2.DivingTackle", "Skill.Name.DivingTackle", 1, 4 },
                     { 16, "DivingCatch", "Skill.Description.BB2.DivingCatch", "Skill.Name.DivingCatch", 1, 4 },
@@ -292,22 +291,17 @@ namespace BloodBowlMigrations.Migrations
                     { 31, "SafeThrow", "Skill.Description.BB2.SafeThrow", "Skill.Name.SafeThrow", 1, 3 },
                     { 30, "Pass", "Skill.Description.BB2.Pass", "Skill.Name.Pass", 1, 3 },
                     { 29, "NervesOfSteel", "Skill.Description.BB2.NervesOfSteel", "Skill.Name.NervesOfSteel", 1, 3 },
-                    { 74, "Titchy", "Skill.Description.BB2.Titchy", "Skill.Name.Titchy", 1, 6 },
                     { 28, "Leader", "Skill.Description.BB2.Leader", "Skill.Name.Leader", 1, 3 },
+                    { 27, "HailMaryPass", "Skill.Description.BB2.HailMaryPass", "Skill.Name.HailMaryPass", 1, 3 },
                     { 26, "DumpOff", "Skill.Description.BB2.DumpOff", "Skill.Name.DumpOff", 1, 3 },
                     { 25, "Accurate", "Skill.Description.BB2.Accurate", "Skill.Name.Accurate", 1, 3 },
                     { 41, "ThickSkull", "Skill.Description.BB2.ThickSkull", "Skill.Name.ThickSkull", 1, 2 },
                     { 40, "StrongArm", "Skill.Description.BB2.StrongArm", "Skill.Name.StrongArm", 1, 2 },
                     { 39, "StandFirm", "Skill.Description.BB2.StandFirm", "Skill.Name.StandFirm", 1, 2 },
                     { 38, "PilingOn", "Skill.Description.BB2.PilingOn", "Skill.Name.PilingOn", 1, 2 },
-                    { 37, "MultipleBlock", "Skill.Description.BB2.MultipleBlock", "Skill.Name.MultipleBlock", 1, 2 },
-                    { 27, "HailMaryPass", "Skill.Description.BB2.HailMaryPass", "Skill.Name.HailMaryPass", 1, 3 }
+                    { 36, "MightyBlow", "Skill.Description.BB2.MightyBlow", "Skill.Name.MightyBlow", 1, 2 },
+                    { 75, "WildAnimal", "Skill.Description.BB2.WildAnimal", "Skill.Name.WildAnimal", 1, 6 }
                 });
-
-            migrationBuilder.InsertData(
-                table: "TeamType",
-                columns: new[] { "Id", "Apothicary", "InternalName", "LocalizationName", "Necromancer", "RerollCost", "RuleSetId" },
-                values: new object[] { 1, true, "Humans", "TeamType.Name.Humans", false, 50, 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AvailableSkillCategory_LevelUpTypeId",
@@ -379,7 +373,7 @@ namespace BloodBowlMigrations.Migrations
                 name: "SkillCategory");
 
             migrationBuilder.DropTable(
-                name: "RuleSet");
+                name: "Ruleset");
         }
     }
 }
