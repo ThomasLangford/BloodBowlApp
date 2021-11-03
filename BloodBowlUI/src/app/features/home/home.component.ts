@@ -23,6 +23,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this._sidenavService.close();
     this.sidenav?.toggle();
-    console.log(this.sidenav);
   }
 }
