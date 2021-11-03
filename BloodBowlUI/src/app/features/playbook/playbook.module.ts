@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { MatTableModule } from '@angular/material/table';
-import {MatExpansionModule} from '@angular/material/expansion';
-
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card'; 
 import { PlaybookRoutingModule } from './playbook-routing.module';
 import { PlaybookComponent } from './playbook.component';
 import { RulesetComponent } from './pages/ruleset/ruleset.component';

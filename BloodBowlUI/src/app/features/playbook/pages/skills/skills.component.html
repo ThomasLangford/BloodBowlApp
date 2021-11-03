@@ -1,19 +1,16 @@
-<p>skills works!</p>
-
 <mat-accordion>
     <mat-expansion-panel *ngFor="let skillCategory of SkillCategories" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
-            {{skillCategory.name}}
+                <h2><u>{{skillCategory.name}}</u></h2>
             </mat-panel-title>
             <mat-panel-description>
                 {{skillCategory.shortName}}
             </mat-panel-description>
         </mat-expansion-panel-header>
         <ng-container *ngFor="let skill of skillCategory.skills">
-            <h4>{{skill.name}}</h4>
+            <h3>{{skill.name}}</h3>
             <p>{{skill.description}}</p>
-        </ng-container>
-        
+        </ng-container>        
     </mat-expansion-panel>
 </mat-accordion>
