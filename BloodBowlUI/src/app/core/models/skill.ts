@@ -1,8 +1,8 @@
 import { SkillCategory } from "./skillCategory";
 
 export interface Skill {
-    Id: number;
-    Name: string;
-    Description: string;
-    SkillCategory: SkillCategory;
+    id: number;
+    name: string;
+    description: string;
+    skillCategory: SkillCategory;
 }

@@ -4,11 +4,15 @@ import { SkillCategoryService } from '../../services/skillcategory/skillcategory
 import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { RulesetIdService } from '../../services/rulesetidservice/rulesetid.service';
+import { SkillCategory } from 'src/app/core/models/skillCategory';
 @Component({
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
+  public SkillCategories: SkillCategory[] = [];
+
+  public panelOpenState = false;
 
   constructor(
     private _rulesetIdService: RulesetIdService,
@@ -18,19 +22,13 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSkillCategories();
-
-    // this._skillCategoryService.getSkillCategories().subscribe({
-    //     next: res => this.rulesets = res,
-    //     error: err => console.log(err),
-    //     complete: () => console.log("done")
-    //   });
   }
 
   private getSkillCategories() {
     this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
       next: res => {
         this._skillCategoryService.getSkillCategories(res).subscribe({
-          next: res => {console.log(res);}
+          next: res => {this.SkillCategories = res; console.log(res);}
         })
       }
     });

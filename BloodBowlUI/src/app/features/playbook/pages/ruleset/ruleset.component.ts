@@ -21,7 +21,6 @@ export class RulesetComponent implements OnInit {
   ngOnInit(): void {
     this._sidenavService.setSidenav(this.sidenav);
     this.setLinks();
-    console.log(this.sidenav);
   }
 
   private setLinks() {     
