@@ -22,7 +22,12 @@ namespace BloodBowlAPI.Controllers.Ruleset
         private readonly BloodBowlApiDbContext _context;
         private readonly IMapper _mapper;
 
-        //ToDo Validate Duplicate With Existing Skills
+        //ToDo  1. Validate that the player has a valid ruleset id
+        //      2. Validate that the player has skill categories and skills and belongs to a team in the same ruleset
+        //      3. Refactor PutPlayerType to see what is nessisary
+        //      4. Write unit tests
+
+
 
         public PlayerTypesController(BloodBowlApiDbContext context, IMapper mapper)
         {
@@ -194,16 +199,16 @@ namespace BloodBowlAPI.Controllers.Ruleset
         [HttpDelete("{id}")]
         public async Task<ActionResult<PlayerTypeDto>> DeletePlayerType(int id)
         {
-            var PlayerType = await FindPlayerType(id);
-            if (PlayerType == null)
+            var playerType = await FindPlayerType(id);
+            if (playerType == null)
             {
                 return NotFound();
             }
 
-            _context.PlayerType.Remove(PlayerType);
+            _context.PlayerType.Remove(playerType);
             await _context.SaveChangesAsync();
 
-            var dto = _mapper.Map<PlayerTypeDto>(PlayerType);
+            var dto = _mapper.Map<PlayerTypeDto>(playerType);
 
             return Ok(dto);
         }
