@@ -7,6 +7,8 @@ import { RulesetComponent } from './pages/ruleset/ruleset.component';
 import { RulesetpickerComponent } from './pages/rulesetpicker/rulesetpicker.component';
 import { RulesetlandingComponent } from './pages/rulesetlanding/rulesetlanding.component';
 import { SkillsComponent } from './pages/skills/skills.component';
+import { TeamsComponent } from './pages/teams/teams.component';
+import { TeamComponent } from './pages/team/team.component';
 
 const routes: Routes = [
   { 
@@ -27,7 +29,21 @@ const routes: Routes = [
       {
         path: 'skills',
         component: SkillsComponent,
-      }  
+      },
+      {
+        path: 'teams',
+        component: TeamsComponent,
+        // children: [     
+        //   {
+        //     path: ':teamId',
+        //     component: TeamComponent,
+        //   } 
+        // ]
+      },
+      {
+        path: 'teams/:teamId',
+        component: TeamComponent,
+      },   
     ]
   },  
 ];

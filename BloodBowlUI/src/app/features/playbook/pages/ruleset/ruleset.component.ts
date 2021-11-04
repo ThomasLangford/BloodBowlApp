@@ -36,6 +36,9 @@ export class RulesetComponent implements OnInit {
     return [
       {
         Title: "Skills", Url: `playbook/${currentRulesetId}/skills`
+      },
+      {
+        Title: "Teams", Url: `playbook/${currentRulesetId}/teams`
       }
     ];
   }

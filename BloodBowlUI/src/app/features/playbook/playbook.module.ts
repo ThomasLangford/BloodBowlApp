@@ -13,9 +13,11 @@ import { CoreModule } from 'src/app/core/core.module';
 import { RulesetlandingComponent } from './pages/rulesetlanding/rulesetlanding.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SkillsComponent } from './pages/skills/skills.component';
+import { TeamsComponent } from './pages/teams/teams.component';
+import { TeamComponent } from './pages/team/team.component';
 
 @NgModule({
-  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent],
+  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent, TeamsComponent, TeamComponent],
   imports: [
     CommonModule,
     RouterModule,
