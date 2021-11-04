@@ -53,7 +53,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
         private IQueryable<SkillCategory> GetSkillCatagoryQueryable(RulesetEnum rulesetId)
         {
             return _context.SkillCategory
-                .Include(c => c.Skills)
+                .Include(c => c.Skills.Where(s => s.RuleSetId == rulesetId))
                 .Where(c => c.Skills.Any(s => s.RuleSetId == rulesetId))
                 .AsNoTracking();
         }

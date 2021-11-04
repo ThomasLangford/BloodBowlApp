@@ -41,9 +41,13 @@ const routes: Routes = [
         // ]
       },
       {
+        path: 'teams/add',
+        component: TeamComponent,
+      },  
+      {
         path: 'teams/:teamId',
         component: TeamComponent,
-      },   
+      }, 
     ]
   },  
 ];

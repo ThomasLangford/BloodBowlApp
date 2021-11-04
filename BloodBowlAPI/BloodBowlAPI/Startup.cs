@@ -34,12 +34,19 @@ namespace BloodBowlAPI
 
         public IConfiguration Configuration { get; }
 
+        public static readonly ILoggerFactory LoggerFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(builder => { builder.AddConsole(); });
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => { builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
+            });
+
             services.AddLocalization();
 
-            services.AddRequestLocalization(options =>
+            services.AddRequestLocalization(options => 
             {
                 var supportedCultures = new List<CultureInfo>
                 {
@@ -52,7 +59,7 @@ namespace BloodBowlAPI
             });
 
             services.AddDbContext<BloodBowlApiDbContext>(
-                dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database:ConnectionString"])
+                dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database:ConnectionString"]).UseLoggerFactory(LoggerFactory)
             );
 
             services.AddSwaggerGen(c =>
@@ -62,7 +69,7 @@ namespace BloodBowlAPI
 
             //services.AddLocalization();            
 
-            services.AddCors();
+            //services.AddCors();
             services.AddControllers();
 
             services.AddAutoMapper(typeof(Startup).Assembly);
@@ -86,11 +93,9 @@ namespace BloodBowlAPI
 
             app.UseRouting();
 
-            app.UseCors(x => x
-            .AllowAnyMethod()
-            // .AllowAnyHeader()
-            .SetIsOriginAllowed(origin => true) // allow any origin
-            .AllowCredentials()); // allow credentials
+            app.UseCors();
+            // .SetIsOriginAllowed(origin => true) // allow any origin
+            // .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
 

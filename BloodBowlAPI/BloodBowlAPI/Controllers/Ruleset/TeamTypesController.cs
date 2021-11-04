@@ -5,6 +5,7 @@ using BloodBowlAPI.Resources;
 using BloodBowlData.Contexts;
 using BloodBowlData.Enums;
 using BloodBowlData.Models.TeamTypes;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,15 +36,17 @@ namespace BloodBowlAPI.Controllers.Ruleset
         public async Task<ActionResult<IEnumerable<TeamTypeDto>>> GetTeamType(RulesetEnum rulesetId)
         {
             return await _context.TeamType.Where(teamType => teamType.RuleSetId == rulesetId)
+                .AsNoTracking()
                 .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .ToListAsync();
         }
 
         // GET: api/Rulesets/1/TeamTypes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TeamTypeDto>> GetTeamType(RulesetEnum rulesetId, int id)
+        public async Task<ActionResult<TeamTypeDto>> GetTeamTypeById(RulesetEnum rulesetId, int id)
         {
             var teamType = await _context.TeamType.Where(teamType => teamType.Id == id && teamType.RuleSetId == rulesetId)
+                .AsNoTracking()
                 .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization }) // Project To Does The Includes                
                 .SingleOrDefaultAsync();
 
@@ -91,10 +94,10 @@ namespace BloodBowlAPI.Controllers.Ruleset
             return await _context.TeamType.AnyAsync(e => e.Id == id);
         }
 
-        private async Task<PlayerTypeDto> FindTeamTypeDto(int id)
+        private async Task<TeamTypeDto> FindTeamTypeDto(int id)
         {
             return await FindTeamTypeQueryable(id)
-                .ProjectTo<PlayerTypeDto>(_mapper.ConfigurationProvider)
+                .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .FirstOrDefaultAsync();
         }
 
@@ -115,6 +118,9 @@ namespace BloodBowlAPI.Controllers.Ruleset
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<PlayerTypeDto>> PostTeamType(TeamTypeDto teamTypeDto)
         {
             if (await TeamTypeExists(teamTypeDto.Id))
@@ -130,7 +136,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
             var newPlayerType = await FindTeamTypeDto(teamType.Id);
 
-            return CreatedAtAction("GetPlayerType", new { id = newPlayerType.Id }, newPlayerType);
+            return CreatedAtAction(nameof(GetTeamTypeById), new { rulesetId = newPlayerType.RulesetId, id = newPlayerType.Id }, newPlayerType);
         }
 
         // DELETE: api/PlayerTypes/5

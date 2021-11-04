@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 
@@ -9,9 +10,6 @@ namespace BloodBowlData.Contexts
 {
     public class BloodBowlApiDbContextFactory : IDesignTimeDbContextFactory<BloodBowlApiDbContext>
     {
-
-
-        // "Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"
         //Design-time DbContext Creation
         //ToDo Docstings and Unit Tests
         public BloodBowlApiDbContext CreateDbContext(string[] args)
@@ -33,8 +31,6 @@ namespace BloodBowlData.Contexts
             var configuration = builder.Build();
 
             var optionsBuilder = new DbContextOptionsBuilder<BloodBowlApiDbContext>();
-
-            //throw new Exception(configuration["Database.ConnectionString"]);
 
             // Commands:
             //  1. dotnet ef migrations add InitalMigration --project ../BloodBowlMigrations

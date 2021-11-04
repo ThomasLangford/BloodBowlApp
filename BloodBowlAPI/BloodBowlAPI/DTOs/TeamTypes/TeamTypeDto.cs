@@ -1,6 +1,7 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,15 +10,19 @@ namespace BloodBowlAPI.DTOs.TeamTypes
     public class TeamTypeDto
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public int RerollCost { get; set; }
-        public int RerollMaximumCount { get; set; }
+        [Required]
         public bool Apothicary { get; set; }
+        [Required]
         public bool Necromancer { get; set; }
-        public List<TeamTypePlayerTypeDto> PlayerTypes { get; set; }
-
+        
+        //public List<TeamTypePlayerTypeDto> PlayerTypes { get; set; }
+        
+        [Required]
         public int RulesetId { get; set; }
-        public string RulesetName { get; set; }
 
         public class TeamTypePlayerTypeDto
         {

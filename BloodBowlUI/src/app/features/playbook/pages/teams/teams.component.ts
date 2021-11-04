@@ -17,8 +17,12 @@ export class TeamsComponent implements OnInit {
     this.getTeamTypes();
   }
 
-  public getTeamUrl(teamTypeId: number) {
+  public getTeamUrl(teamTypeId: number): string {
     return `${this._router.url}/${teamTypeId}`;
+  }
+
+  public getNewTeamUrl(): string {
+    return `${this._router.url}/new`;
   }
 
   private getTeamTypes() {

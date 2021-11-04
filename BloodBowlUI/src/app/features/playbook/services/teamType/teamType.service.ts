@@ -23,14 +23,14 @@ export class TeamTypeService {
     return this.http.get<TeamType>(url);
   }
 
-  putTeamType(rulesetId: number, teamType: TeamType): Observable<TeamType> {
-    const url = this.getTeamTypeUrl(rulesetId, teamType.id);
+  putTeamType(teamType: TeamType): Observable<TeamType> {
+    const url = this.getTeamTypeUrl(teamType.rulesetId, teamType.id);
 
     return this.http.put<TeamType>(url, teamType);
   }
 
-  postTeamType(rulesetId: number, teamType: TeamType): Observable<TeamType> {
-    const url = this.getTeamTypeBaseUrl(rulesetId);
+  postTeamType(teamType: TeamType): Observable<TeamType> {
+    const url = this.getTeamTypeBaseUrl(teamType.rulesetId);
 
     return this.http.post<TeamType>(url, teamType);
   }

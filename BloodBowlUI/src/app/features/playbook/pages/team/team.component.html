@@ -1,1 +1,38 @@
-<p>team works!</p>
+
+<mat-card>
+    <mat-card-title>
+        New Team
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="Form" (submit)="submit()">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Team Name</mat-label>
+                    <input matInput placeholder="Halflings" formControlName="name" required>
+                    <mat-error *ngIf="Form.controls.name.invalid">xD</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Reroll Cost</mat-label>
+                    <input matInput placeholder="50000" formControlName="rerollCost" required>
+                    <mat-error *ngIf="Form.controls.rerollCost.invalid">lol</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-checkbox formControlName="apothicary">Has Apothicary?</mat-checkbox>
+            </div>
+
+            <div>
+                <mat-checkbox formControlName="necromancer">Has Necromancer?</mat-checkbox>
+            </div>
+                
+            <div>
+                <button mat-raised-button color="primary" type="submit">Add Team</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+    
