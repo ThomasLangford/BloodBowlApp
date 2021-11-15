@@ -17,11 +17,26 @@ namespace BloodBowlAPI.DTOs.TeamTypes
             IStringLocalizer<Localization> localizer = null;
 
             // Team Type
-            CreateMap<TeamType, TeamTypeDto>();
-            // .ForMember(d => d.RulesetName, opt => opt.MapFrom(s => localizer[s.RuleSet.LocalizationName]));
-            // .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
+            CreateMap<TeamType, TeamTypeDto>()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
 
             CreateMap<TeamTypeDto, TeamType>();
+
+            // Player Type
+            CreateMap<PlayerType, PlayerTypeDto>()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
+
+            CreateMap<PlayerTypeDto, PlayerType>();
+
+            // Available Skill Category
+            CreateMap<AvailableSkillCategory, AvailableSkillCategoryDto>();
+            CreateMap<AvailableSkillCategoryDto, AvailableSkillCategory>();
+
+            // Starting Skill
+            CreateMap<StartingSkill, SkillDto>()
+                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Skill.Id) )
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Skill.LocalizationName]))
+                .ForMember(d => d.Description,opt => opt.MapFrom(s => localizer[s.Skill.LocalizationDescription]));
         }
     }
 }

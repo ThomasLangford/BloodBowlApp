@@ -1,3 +1,5 @@
+import { PlayerType } from "./playerType";
+
 export interface TeamType {
     id: number,
     name: string,
@@ -5,4 +7,5 @@ export interface TeamType {
     apothicary: boolean,
     necromancer: boolean,
     rulesetId: number,
+    playerTypes: PlayerType[]
 }

@@ -11,7 +11,6 @@ namespace BloodBowlAPI.DTOs.TeamTypes
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string InternalName { get; set; }
         public int MaximumAllowedOnTeam { get; set; }
         public int Cost { get; set; }
         public int Move { get; set; }

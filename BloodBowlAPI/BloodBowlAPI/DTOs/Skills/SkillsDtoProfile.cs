@@ -19,10 +19,7 @@ namespace BloodBowlAPI.DTOs.Skills
             IStringLocalizer<Localization> localizer = null;
             CreateMap<Skill, SkillDto>()
                 .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.LocalizationName]))
-                .ForMember(d => d.Description, opt => opt.MapFrom(s => localizer[s.LocalizationDescription]))
-                .ForMember(d => d.SkillCategoryName, opt => opt.MapFrom(s => localizer[s.SkillCategory.LocalizationName]))
-                .ForMember(d => d.SkillCategoryShortName, opt => opt.MapFrom(s => localizer[s.SkillCategory.LocalizationShortName]))
-                .ForMember(d => d.RulesetName, opt => opt.MapFrom(s => localizer[s.RuleSet.LocalizationName]));
+                .ForMember(d => d.Description, opt => opt.MapFrom(s => localizer[s.LocalizationDescription]));
 
             //CreateMap<Skill, SkillDtoSimple>()
             //    .ForMember(d => d.Name, opt => opt.MapFrom<TranslationResolver, string>(s => s.LocalizationName))

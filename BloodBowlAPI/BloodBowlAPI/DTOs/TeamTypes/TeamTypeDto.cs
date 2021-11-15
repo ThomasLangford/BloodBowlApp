@@ -21,6 +21,8 @@ namespace BloodBowlAPI.DTOs.TeamTypes
         
         //public List<TeamTypePlayerTypeDto> PlayerTypes { get; set; }
         
+        public List<PlayerTypeDto> PlayerTypes { get; set; }
+
         [Required]
         public int RulesetId { get; set; }
 
