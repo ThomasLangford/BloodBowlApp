@@ -6,15 +6,9 @@
         <mat-nav-list>
             <mat-list-item *ngFor="let teamType of TeamTypes" [routerLink]="this.getTeamUrl(teamType.id)">
             <a matLine>{{ teamType.name }}</a>
-            <!-- <button mat-icon-button (click)="showInfo(link)">
-                <mat-icon>info</mat-icon>
-            </button> -->
             </mat-list-item>
             <mat-list-item [routerLink]="this.getNewTeamUrl()">
                 <a matLine>Add a new Team</a>
-                <!-- <button mat-icon-button (click)="showInfo(link)">
-                <mat-icon>info</mat-icon>
-                </button> -->
             </mat-list-item>
         </mat-nav-list>
     </mat-card-content>
