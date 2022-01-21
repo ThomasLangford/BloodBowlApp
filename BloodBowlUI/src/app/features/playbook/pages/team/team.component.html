@@ -28,7 +28,17 @@
             <div>
                 <mat-checkbox formControlName="necromancer">Has Necromancer?</mat-checkbox>
             </div>
-                
+            
+            <div>
+                <button mat-raised-button color="secondary" type="button" (click)="addPlayerType()">Add Player</button>
+            </div>
+
+            <ng-container formArrayName="playerTypes">
+                <div *ngFor="let _ of playerTypes.controls; let i = index">
+                    <app-playertypeform [formGroup]="getPlayerTypeByIndex(i)"></app-playertypeform>
+                </div>
+            </ng-container>
+
             <div>
                 <button mat-raised-button color="primary" type="submit">Add Team</button>
             </div>

@@ -22,10 +22,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamComponent } from './pages/team/team.component';
-
+import { PlayerTypeFormComponent } from './components/playertypeform/playertypeform.component';
 
 @NgModule({
-  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent, TeamsComponent, TeamComponent],
+  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent, TeamsComponent, TeamComponent, PlayerTypeFormComponent],
   imports: [
     CommonModule,
     RouterModule,
