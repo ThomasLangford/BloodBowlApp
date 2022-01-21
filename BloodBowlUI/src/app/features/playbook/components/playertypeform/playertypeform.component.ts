@@ -11,7 +11,6 @@ import { TeamType } from 'src/app/core/models/teamType';
 export class PlayerTypeFormComponent implements OnInit {
   
   @Input() formGroup!: FormGroup;
-  @Input() teamType: TeamType | undefined;
 
   constructor(private _formBuilder: FormBuilder) {
 

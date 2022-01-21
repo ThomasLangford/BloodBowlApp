@@ -20,8 +20,8 @@ export class TeamComponent implements OnInit {
       name: ['', [Validators.required, Validators.maxLength(255)]],
       rulesetId: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       rerollCost: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-      apothicary: ['', [Validators.required]],
-      necromancer: ['', [Validators.required]],
+      apothicary: [false],
+      necromancer: [false],
       playerTypes: this._formBuilder.array([]),
     });
   }
@@ -87,7 +87,17 @@ getPlayerTypeByIndex(index: number): FormGroup {
   }
 
   public submit() {
-    this.TeamType = this.Form.value;    
+    this.updateTreeValidity(this.Form);
+
+    console.log(this.Form);
+
+    if(this.Form.invalid) {
+      console.log("invalid");
+      this.Form.markAllAsTouched();
+      return;
+    }
+
+    this.TeamType = <TeamType>this.Form.value;    
 
     console.log(this.TeamType);
 
@@ -95,6 +105,18 @@ getPlayerTypeByIndex(index: number): FormGroup {
       this._teamTypeService.postTeamType(this.TeamType).subscribe({
         next: res => console.log(res)
       })
-    }    
+    }  
+  }
+
+  updateTreeValidity(group: FormGroup | FormArray): void {
+    Object.keys(group.controls).forEach((key: string) => {
+      const abstractControl = group.get(key);
+
+      if (abstractControl instanceof FormGroup || abstractControl instanceof FormArray) {
+        this.updateTreeValidity(abstractControl);          
+      } else if(abstractControl) {
+         abstractControl.updateValueAndValidity();
+      }
+    });
   }
 }
