@@ -27,6 +27,7 @@ namespace BloodBowlAPI.DTOs.TeamTypes
                 .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
 
             CreateMap<PlayerTypeDto, PlayerType>();
+                // .ForMember(d => d.StartingSkills, opt => opt.Ignore());
 
             // Available Skill Category
             CreateMap<AvailableSkillCategory, AvailableSkillCategoryDto>();
@@ -37,6 +38,10 @@ namespace BloodBowlAPI.DTOs.TeamTypes
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Skill.Id) )
                 .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Skill.LocalizationName]))
                 .ForMember(d => d.Description,opt => opt.MapFrom(s => localizer[s.Skill.LocalizationDescription]));
+
+            CreateMap<SkillDto, StartingSkill>()
+                .ForMember(d => d.SkillId, opt => opt.MapFrom(s => s.Id))
+                .ForMember(d => d.Id, opt => opt.Ignore());
         }
     }
 }

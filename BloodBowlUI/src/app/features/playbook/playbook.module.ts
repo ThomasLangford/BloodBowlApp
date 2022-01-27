@@ -11,6 +11,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon'; 
+import { MatChipsModule } from '@angular/material/chips';
+import {MatSelectModule} from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { PlaybookRoutingModule } from './playbook-routing.module';
 import { PlaybookComponent } from './playbook.component';
@@ -39,6 +43,10 @@ import { PlayerTypeFormComponent } from './components/playertypeform/playertypef
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatIconModule,
+    MatChipsModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule,
     PlaybookRoutingModule,
     CoreModule,    
   ]

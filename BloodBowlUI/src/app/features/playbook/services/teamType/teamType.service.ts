@@ -35,6 +35,12 @@ export class TeamTypeService {
     return this.http.post<TeamType>(url, teamType);
   }
 
+  deleteTeamType(rulesetId: number, teamTypeId: number): Observable<TeamType> {
+    const url = `${this.getTeamTypeBaseUrl(rulesetId)}/${teamTypeId}`;
+
+    return this.http.delete<TeamType>(url);
+  }
+
   private getTeamTypeBaseUrl(rulesetId: number): string {
     return `${environment.apiUrl}/rulesets/${rulesetId}/teamtypes`;
   }

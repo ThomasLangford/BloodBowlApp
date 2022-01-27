@@ -34,4 +34,20 @@ export class TeamsComponent implements OnInit {
       }
     });
   }
+  
+  public deleteTeamType(teamTypeId: number) {
+    this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
+      next: res => {
+        this._teamTypeService.deleteTeamType(res, teamTypeId).subscribe({
+          next: res => { 
+              if(res) {
+                this.TeamTypes.forEach((item, index) => {
+                  if(res.id === item.id) this.TeamTypes.splice(index,1);
+                });
+              }
+            }
+        });
+      }
+    });
+  }
 }

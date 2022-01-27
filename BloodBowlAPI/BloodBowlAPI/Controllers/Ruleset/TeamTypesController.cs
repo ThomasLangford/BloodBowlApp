@@ -33,6 +33,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
         }
 
         [HttpGet]
+        // GET: api/Rulesets/1/TeamTypes
         public async Task<ActionResult<IEnumerable<TeamTypeDto>>> GetTeamType(RulesetEnum rulesetId)
         {
             return await _context.TeamType.Where(teamType => teamType.RuleSetId == rulesetId)
@@ -58,11 +59,11 @@ namespace BloodBowlAPI.Controllers.Ruleset
             return teamType;
         }
 
-        // PUT: api/PlayerTypes/5
+        // PUT: api/Rulesets/1/TeamTypes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPlayerType(int id, TeamTypeDto playerTypeDto)
+        public async Task<IActionResult> PutTeamType(int id, TeamTypeDto playerTypeDto)
         {
             var teamType = _mapper.Map<TeamType>(playerTypeDto);
 
@@ -89,31 +90,6 @@ namespace BloodBowlAPI.Controllers.Ruleset
             return NoContent();
         }
 
-        private async Task<bool> TeamTypeExists(int id)
-        {
-            return await _context.TeamType.AnyAsync(e => e.Id == id);
-        }
-
-        private async Task<TeamTypeDto> FindTeamTypeDto(int id)
-        {
-            return await FindTeamTypeQueryable(id)
-                .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
-                .FirstOrDefaultAsync();
-        }
-
-        private Task<TeamType> FindTeamType(int id)
-        {
-            return FindTeamTypeQueryable(id).FirstOrDefaultAsync();
-        }
-
-        private IQueryable<TeamType> FindTeamTypeQueryable(int id)
-        {
-            return _context.TeamType
-                .Where(s => s.Id == id)
-                .Include(p => p.RuleSet)
-                .Include(p => p.PlayerTypes);
-        }
-
         // POST: api/PlayerTypes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -128,7 +104,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
                 return Conflict();
             }
 
-            var teamType = _mapper.Map<TeamType>(teamTypeDto);
+            var teamType = await MapTeamTypeDtoToTeamTypeAsync(teamTypeDto);
 
             _context.TeamType.Add(teamType);
 
@@ -152,9 +128,50 @@ namespace BloodBowlAPI.Controllers.Ruleset
             _context.TeamType.Remove(teamType);
             await _context.SaveChangesAsync();
 
-            var dto = _mapper.Map<PlayerTypeDto>(teamType);
+            var dto = _mapper.Map<TeamTypeDto>(teamType);
 
             return Ok(dto);
+        }
+
+        private async Task<TeamType> MapTeamTypeDtoToTeamTypeAsync(TeamTypeDto teamTypeDto)
+        {
+            var teamType = _mapper.Map<TeamType>(teamTypeDto);
+
+            foreach(PlayerType playerType in teamType.PlayerTypes)
+            {
+                foreach(StartingSkill startingSkill in playerType.StartingSkills)
+                {
+                    startingSkill.PlayerType = playerType;
+                    startingSkill.Skill = await _context.Skill.FirstAsync(skill => skill.Id == startingSkill.SkillId);
+                }
+            }
+
+            return teamType;
+        }
+
+        private async Task<bool> TeamTypeExists(int id)
+        {
+            return await _context.TeamType.AnyAsync(e => e.Id == id);
+        }
+
+        private async Task<TeamTypeDto> FindTeamTypeDto(int id)
+        {
+            return await FindTeamTypeQueryable(id)
+                .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
+                .FirstOrDefaultAsync();
+        }
+
+        private Task<TeamType> FindTeamType(int id)
+        {
+            return FindTeamTypeQueryable(id).FirstOrDefaultAsync();
+        }
+
+        private IQueryable<TeamType> FindTeamTypeQueryable(int id)
+        {
+            return _context.TeamType
+                .Where(s => s.Id == id)
+                .Include(p => p.RuleSet)
+                .Include(p => p.PlayerTypes);
         }
     }
 }

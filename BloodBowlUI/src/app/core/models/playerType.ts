@@ -1,3 +1,5 @@
+import { Skill } from "./skill";
+
 export interface PlayerType {
     id: number,
     name: string,
@@ -7,4 +9,5 @@ export interface PlayerType {
     strength: number,
     agility: number,
     armourValue: number,
+    startingSkills: Skill[]
 }

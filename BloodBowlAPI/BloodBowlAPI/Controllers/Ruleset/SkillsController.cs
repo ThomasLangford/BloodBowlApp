@@ -59,7 +59,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
                 //.Include(s => s.RuleSet)
                 .Where(s => s.RuleSetId == rulesetId)
                 .AsNoTracking()
-                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider, new { localizer = _localization }) // Project To Does The Includes
+                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider, new { localizer = _localization, rulset = rulesetId }) // Project To Does The Includes
                 .ToListAsync();
         }
 
@@ -68,7 +68,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
             return await _context.Skill
                 .Where(s => s.Id == id && s.RuleSetId == rulesetId)
                 .AsNoTracking()
-                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
+                .ProjectTo<SkillDto>(_mapper.ConfigurationProvider, new { localizer = _localization, rulset = rulesetId })
                 .SingleOrDefaultAsync();
         }
     }

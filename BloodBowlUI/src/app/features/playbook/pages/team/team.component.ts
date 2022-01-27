@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { combineLatest } from 'rxjs';
+import { CombineLatestOperator } from 'rxjs/internal/observable/combineLatest';
+import { Skill } from 'src/app/core/models/skill';
+import { SkillCategory } from 'src/app/core/models/skillCategory';
 import { TeamType } from 'src/app/core/models/teamType';
 import { RulesetIdService } from '../../services/rulesetidservice/rulesetid.service';
+import { SkillCategoryService } from '../../services/skillcategory/skillcategory.service';
 import { TeamTypeService } from '../../services/teamType/teamType.service';
 
 @Component({
@@ -11,10 +16,11 @@ import { TeamTypeService } from '../../services/teamType/teamType.service';
 })
 export class TeamComponent implements OnInit {
   public TeamType: TeamType|null = null;
+  public SkillCategories: SkillCategory[] = [];
 
   public readonly Form: FormGroup;
 
-  constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
+  constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
    
     this.Form = this._formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(255)]],
@@ -39,6 +45,7 @@ export class TeamComponent implements OnInit {
       strength: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       agility: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       armourValue: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
+      startingSkills: this._formBuilder.control(['']),
     });
   }
 
@@ -56,18 +63,37 @@ getPlayerTypeByIndex(index: number): FormGroup {
   }
 
   private setupForm() {
+    
+    
+
     this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
       next: res => {
+        this._skillCategoryService.getSkillCategories(res).subscribe({
+          next: res => {
+            this.SkillCategories = res;
+          }
+        });
+
         this.Form.controls.rulesetId.setValue(res);
 
-        const teamTypeIdFromRequest = this._activatedRoute.snapshot.paramMap.get('teamId');
-        if (teamTypeIdFromRequest !== null && !isNaN(parseInt(teamTypeIdFromRequest))) {
-          this.getTeamType(res, parseInt(teamTypeIdFromRequest));          
+        const teamTypeIdFromRequest = this.getTeamTypeId();
+
+        if(teamTypeIdFromRequest && !isNaN(teamTypeIdFromRequest)) {
+          this.getTeamType(res, teamTypeIdFromRequest);  
         } else {
           this.TeamType = null;
         }
       }
     });
+  }
+
+  private getTeamTypeId(): number | null{
+    const teamTypeIdFromRequest = this._activatedRoute.snapshot.paramMap.get('teamId');
+    if (teamTypeIdFromRequest !== null && !isNaN(parseInt(teamTypeIdFromRequest))) {
+      return parseInt(teamTypeIdFromRequest);          
+    }
+    
+    return null;
   }
 
   private getTeamType(rulesetId: number, teamTypeId: number) {
@@ -80,7 +106,10 @@ getPlayerTypeByIndex(index: number): FormGroup {
           this.addPlayerType();
         });
 
-        this.Form.patchValue(res);        
+        this.Form.patchValue(res);    
+        
+        console.log(res);
+        console.log(this.Form);
       },
       error: err => console.log(err)
     })
@@ -103,7 +132,13 @@ getPlayerTypeByIndex(index: number): FormGroup {
 
     if (this.TeamType !== null) {
       this._teamTypeService.postTeamType(this.TeamType).subscribe({
-        next: res => console.log(res)
+        next: res => {
+          console.log(res);
+
+          if(res) {
+            this._router.navigate([`../${res.id}`], {relativeTo: this._activatedRoute});
+          }
+        }
       })
     }  
   }
