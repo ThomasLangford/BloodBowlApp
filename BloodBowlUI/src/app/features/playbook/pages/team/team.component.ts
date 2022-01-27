@@ -17,11 +17,23 @@ export class TeamComponent implements OnInit {
   public TeamType: TeamType|null = null;
   public SkillCategories: SkillCategory[] = [];
 
-  public readonly Form: FormGroup;
+  public Form: FormGroup;
+
+  public RenderDisabled: boolean;
 
   constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
-   
-    this.Form = this._formBuilder.group({
+    this.RenderDisabled = true;
+
+    this.Form = this.initalizeForm()
+    this.Form.disable();
+  }
+
+  get playerTypes() {
+    return this.Form.controls.playerTypes as FormArray;
+  }
+
+  initalizeForm() {
+    return this._formBuilder.group({
       id: [0, [Validators.pattern("^[0-9]*$")]],
       name: ['', [Validators.required, Validators.maxLength(255)]],
       rulesetId: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
@@ -30,10 +42,6 @@ export class TeamComponent implements OnInit {
       necromancer: [false],
       playerTypes: this._formBuilder.array([]),
     });
-  }
-
-  get playerTypes() {
-    return this.Form.controls.playerTypes as FormArray;
   }
 
   initalizePlayerTypeFormGroup(): FormGroup {
@@ -51,13 +59,21 @@ export class TeamComponent implements OnInit {
   }
 
   addPlayerType() {
+    if(this.RenderDisabled) {
+      return;
+    }
+    
+    this.addBlankPlayerTypeToForm();
+  }
+
+  private addBlankPlayerTypeToForm() {
     const control = this.playerTypes;
     control.push(this.initalizePlayerTypeFormGroup());
   }
 
-getPlayerTypeByIndex(index: number): FormGroup {
-  return this.playerTypes.at(index) as FormGroup;
-}
+  getPlayerTypeByIndex(index: number): FormGroup {
+    return this.playerTypes.at(index) as FormGroup;
+  }
 
   ngOnInit(): void {
     this.setupForm();
@@ -87,17 +103,30 @@ getPlayerTypeByIndex(index: number): FormGroup {
                 // (They are objects and not primitives so the form checks by reference for equality)
                 this.TeamType?.playerTypes?.forEach(pt => pt.startingSkills = pt.startingSkills.map(obj => skills[obj.id]));
 
+                // Add the playertype form controls to the main form
                 this.TeamType.playerTypes.forEach(_ => {
-                  this.addPlayerType();
+                  this.addBlankPlayerTypeToForm();
                 });
 
-                this.Form.patchValue(this.TeamType);                
+                this.Form.patchValue(this.TeamType);   
+                
+                if(!this.RenderDisabled) {
+                  this.Form.enable();
+                } else {
+                  this.Form.disable();
+                }  
             }, 
             error: err => console.log(err)
           })           
         } else {
           this.TeamType = null;
           skillCategories$.subscribe({next: res => this.SkillCategories = res});
+          
+          if(!this.RenderDisabled) {
+            this.Form.enable();
+          } else {
+            this.Form.disable();
+          }          
         }
       }
     });
@@ -113,6 +142,10 @@ getPlayerTypeByIndex(index: number): FormGroup {
   }
 
   public submit() {
+    if(this.RenderDisabled) {
+      return;
+    }
+
     this.updateTreeValidity(this.Form);
 
     if(this.Form.invalid) {
@@ -121,8 +154,6 @@ getPlayerTypeByIndex(index: number): FormGroup {
     }
 
     this.TeamType = <TeamType>this.Form.value;    
-
-    console.log(this.TeamType);
 
     if (this.TeamType !== null) {
       this._teamTypeService.postTeamType(this.TeamType).subscribe({

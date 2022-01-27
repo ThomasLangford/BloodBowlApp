@@ -39,9 +39,11 @@
                                     <h2>Players</h2>
                                 </div>
                                 <div style="flex: 1;">
-                                    <button mat-icon-button type="button" (click)="addPlayerType()">
-                                        <mat-icon class="mat-24">person_add</mat-icon>
-                                    </button>                    
+                                    <div [hidden]="RenderDisabled">
+                                        <button mat-icon-button type="button" (click)="addPlayerType()">
+                                            <mat-icon class="mat-24">person_add</mat-icon>
+                                        </button>                    
+                                    </div>
                                 </div>
                             </div>
 
@@ -53,7 +55,9 @@
                 </span>
             </div>
             <div>
-                <button mat-raised-button color="primary" type="submit" >Save</button>
+                <div [hidden]="RenderDisabled">
+                    <button mat-raised-button color="primary" type="submit" >Save</button>
+                </div>
             </div>        
         </mat-card-content>
     </mat-card>
