@@ -1,10 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { TeamType } from 'src/app/core/models/teamType';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { Skill } from 'src/app/core/models/skill';
 import { SkillCategory } from 'src/app/core/models/skillCategory';
+import { ReplaySubject, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-playertypeform',
@@ -12,39 +12,41 @@ import { SkillCategory } from 'src/app/core/models/skillCategory';
   styleUrls: ['./playertypeform.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlayerTypeFormComponent implements OnInit {
-  
+export class PlayerTypeFormComponent implements OnInit, OnDestroy {
+  private unsubscribe: Subject<void> = new Subject<void>();
+
   @Input() formGroup!: FormGroup;
   @Input() skillCategories!: SkillCategory[];
 
-  private skills: Skill[] = [];
+  public filteredSkillCategories: ReplaySubject<SkillCategory[]>
 
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  public skillLookupFormControl: FormControl;
 
-  constructor(private _formBuilder: FormBuilder) {
-
+  constructor() {
+    this.skillLookupFormControl = new FormControl();
+    this.filteredSkillCategories = new ReplaySubject<SkillCategory[]>();
    }
 
   ngOnInit(): void {
-    // doto
+    this.filteredSkillCategories.next([...this.skillCategories]);
+
+    this.skillLookupFormControl.valueChanges
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(() => {this.filterSkills(this.skillLookupFormControl.value)})
   }
 
-  get startingSkills() {
-    return this.formGroup.get('startingSkills');
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
-  get startingSkillsArray() {
-    const skills = this.startingSkills?.value;
-
-    if(!skills) {
-      return []
-    }
-    return <Skill[]>skills;
+  get startingSkills(): FormControl {
+    return this.formGroup.get('startingSkills') as FormControl;
   }
 
   add(event: MatChipInputEvent): void {
     const value = <Skill>JSON.parse(event.value);
-    
+
     if (value) {
       this.startingSkills?.setValue([...this.startingSkills.value, value]);
       this.startingSkills?.updateValueAndValidity();
@@ -55,11 +57,41 @@ export class PlayerTypeFormComponent implements OnInit {
   }
 
   remove(skill: Skill): void {
-    const index = this.startingSkillsArray.findIndex(el => el.id === skill.id)
+    this.startingSkills.setValue([...this.startingSkills.value].filter(el => el.id !== skill.id));
+    this.startingSkills?.updateValueAndValidity();
+  }
 
-    if (index >= 0) {
-      this.startingSkills?.value.splice(index, 1);
-      this.startingSkills?.updateValueAndValidity();
+  protected filterSkills(skillName: string) {
+    console.log("skillname" + skillName);
+
+    console.log(this.skillCategories);
+
+    if (!this.skillCategories) {
+      return;
     }
+
+    // get the search keyword
+    if (!skillName) {
+      this.filteredSkillCategories.next([...this.skillCategories]);
+      return;
+    } else {
+      skillName = skillName.toLowerCase();
+    }
+    // filter the banks
+
+    let copiedSkillCategories: SkillCategory[] = [];
+
+    this.skillCategories.forEach(sc => {
+      let copiedCategory = {...sc};
+      copiedCategory.skills = copiedCategory.skills.filter(s => s.name.toLowerCase().indexOf(skillName) > -1);
+
+      if(copiedCategory.skills.length > 0) {
+        copiedSkillCategories.push(copiedCategory);
+      }
+    })
+
+    this.filteredSkillCategories.next(
+      copiedSkillCategories
+    );
   }
 }

@@ -22,7 +22,7 @@ export class TeamComponent implements OnInit {
   public RenderDisabled: boolean;
 
   constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
-    this.RenderDisabled = true;
+    this.RenderDisabled = false;
 
     this.Form = this.initalizeForm()
     this.Form.disable();
