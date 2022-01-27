@@ -22,6 +22,7 @@ export class TeamComponent implements OnInit {
   constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
    
     this.Form = this._formBuilder.group({
+      id: [0, [Validators.pattern("^[0-9]*$")]],
       name: ['', [Validators.required, Validators.maxLength(255)]],
       rulesetId: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       rerollCost: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
@@ -37,6 +38,7 @@ export class TeamComponent implements OnInit {
 
   initalizePlayerTypeFormGroup(): FormGroup {
     return this._formBuilder.group({
+      id: [0, [Validators.pattern("^[0-9]*$")]],
       name: ['', [Validators.required, Validators.maxLength(255)]],
       maximumAllowedOnTeam: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       cost: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
@@ -44,14 +46,14 @@ export class TeamComponent implements OnInit {
       strength: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       agility: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       armourValue: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
-      startingSkills: this._formBuilder.control(['']),
+      startingSkills: this._formBuilder.control([]),
     });
   }
 
   addPlayerType() {
     const control = this.playerTypes;
     control.push(this.initalizePlayerTypeFormGroup());
-}
+  }
 
 getPlayerTypeByIndex(index: number): FormGroup {
   return this.playerTypes.at(index) as FormGroup;
@@ -109,14 +111,11 @@ getPlayerTypeByIndex(index: number): FormGroup {
     
     return null;
   }
-  
+
   public submit() {
     this.updateTreeValidity(this.Form);
 
-    console.log(this.Form);
-
     if(this.Form.invalid) {
-      console.log("invalid");
       this.Form.markAllAsTouched();
       return;
     }
@@ -128,8 +127,6 @@ getPlayerTypeByIndex(index: number): FormGroup {
     if (this.TeamType !== null) {
       this._teamTypeService.postTeamType(this.TeamType).subscribe({
         next: res => {
-          console.log(res);
-
           if(res) {
             this._router.navigate([`../${res.id}`], {relativeTo: this._activatedRoute});
           }
