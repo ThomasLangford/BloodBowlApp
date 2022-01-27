@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
-import { CombineLatestOperator } from 'rxjs/internal/observable/combineLatest';
 import { Skill } from 'src/app/core/models/skill';
 import { SkillCategory } from 'src/app/core/models/skillCategory';
 import { TeamType } from 'src/app/core/models/teamType';
@@ -63,9 +62,6 @@ getPlayerTypeByIndex(index: number): FormGroup {
   }
 
   private setupForm() {
-    
-    
-
     this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
       next: res => {
         this._skillCategoryService.getSkillCategories(res).subscribe({
