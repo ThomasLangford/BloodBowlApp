@@ -48,7 +48,7 @@
                             </div>
 
                             <mat-list-item style="height:auto" *ngFor="let _ of playerTypes.controls; let i = index">
-                                <app-playertypeform matLine [formGroup]="getPlayerTypeByIndex(i)" [skillCategories]="SkillCategories"></app-playertypeform>
+                                <app-playertypeform matLine [formGroup]="getPlayerTypeByIndex(i)" [skillCategories]="SkillCategories" [levelUpTypes]="LevelUpTypes"></app-playertypeform>
                             </mat-list-item>
                         </mat-list>
                     </div>

@@ -1,3 +1,4 @@
+import { AvailableSkillCategory } from "./AvailableSkillCategory";
 import { Skill } from "./skill";
 
 export interface PlayerType {
@@ -9,5 +10,6 @@ export interface PlayerType {
     strength: number,
     agility: number,
     armourValue: number,
-    startingSkills: Skill[]
+    startingSkills: Skill[],
+    availableSkillCategories: AvailableSkillCategory[],
 }

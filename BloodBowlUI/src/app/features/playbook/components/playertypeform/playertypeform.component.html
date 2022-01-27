@@ -57,4 +57,36 @@
             </mat-optgroup>
           </mat-select>
     </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 10rem;">
+        <mat-label>Regular Skills</mat-label>
+        <mat-select placeholder="Categories" [formControl]="skillNormalsFormControl" multiple>
+            <mat-select-trigger>
+                <mat-chip-list #startingSkillsList>
+                    <mat-chip *ngFor="let skillCategory of skillNormalsFormControl.value" [removable]="true" (removed)="removeNormalSkillCategory(skillCategory)">
+                        {{skillCategory.name}}
+                        <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-select-trigger>
+            <mat-option *ngFor="let skillCategory of skillCategories" [value]="skillCategory">
+                {{skillCategory.name}}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 10rem;">
+        <mat-label>Doubles Skills</mat-label>
+        <mat-select placeholder="Categories" [formControl]="skillDoublesFormControl" multiple>
+            <mat-select-trigger>
+                <mat-chip-list #startingSkillsList>
+                    <mat-chip *ngFor="let skillCategory of skillDoublesFormControl.value" [removable]="true" (removed)="removeDoubleSkillCategory(skillCategory)">
+                        {{skillCategory.name}}
+                        <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-select-trigger>
+            <mat-option *ngFor="let skillCategory of skillCategories" [value]="skillCategory">
+                {{skillCategory.name}}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
 </div>

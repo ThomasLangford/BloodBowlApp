@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest, combineLatestWith } from 'rxjs';
+import { LevelUpType } from 'src/app/core/models/levelUpType';
 import { Skill } from 'src/app/core/models/skill';
 import { SkillCategory } from 'src/app/core/models/skillCategory';
 import { TeamType } from 'src/app/core/models/teamType';
+import { LevelUpTypeService } from '../../services/levelUpType/levelUpType.service';
 import { RulesetIdService } from '../../services/rulesetidservice/rulesetid.service';
 import { SkillCategoryService } from '../../services/skillcategory/skillcategory.service';
 import { TeamTypeService } from '../../services/teamType/teamType.service';
@@ -15,13 +17,15 @@ import { TeamTypeService } from '../../services/teamType/teamType.service';
 })
 export class TeamComponent implements OnInit {
   public TeamType: TeamType|null = null;
+  
   public SkillCategories: SkillCategory[] = [];
+  public LevelUpTypes: LevelUpType[] = [];
 
   public Form: FormGroup;
 
   public RenderDisabled: boolean;
 
-  constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
+  constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _levelUpTypeService: LevelUpTypeService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
     this.RenderDisabled = false;
 
     this.Form = this.initalizeForm()
@@ -55,6 +59,7 @@ export class TeamComponent implements OnInit {
       agility: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       armourValue: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
       startingSkills: this._formBuilder.control([]),
+      availableSkillCategories: this._formBuilder.control([]),
     });
   }
 
@@ -81,12 +86,14 @@ export class TeamComponent implements OnInit {
 
   private setupForm() {
     this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
-      next: rulesetId => {
+      next: rulesetId => {        
         this.Form.controls.rulesetId.setValue(rulesetId);
+        this.getLevelUpTypes(rulesetId);
+        
         const teamTypeId = this.getTeamTypeId();
 
         const skillCategories$ = this._skillCategoryService.getSkillCategories(rulesetId);
-        
+
         if(teamTypeId && !isNaN(teamTypeId)) {
           const teamTypes$ = this._teamTypeService.getTeamType(rulesetId, teamTypeId);
 
@@ -94,7 +101,7 @@ export class TeamComponent implements OnInit {
             next: res => {
                 this.SkillCategories = res[0];
                 this.TeamType = res[1];
-
+                
                 // Map the skills into an array for faster search
                 let skills: {[id: number]: Skill} = {};
                 this.SkillCategories.forEach(sc => sc.skills.forEach(s => skills[s.id] = s));
@@ -139,6 +146,14 @@ export class TeamComponent implements OnInit {
     }
     
     return null;
+  }
+
+  private getLevelUpTypes(rulesetId: number) {
+    this._levelUpTypeService.getSkillCategories(rulesetId).subscribe({
+      next: res => {
+        this.LevelUpTypes = res;
+      }
+    })
   }
 
   public submit() {
