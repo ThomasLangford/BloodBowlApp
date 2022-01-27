@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest } from 'rxjs';
+import { combineLatest, combineLatestWith } from 'rxjs';
 import { Skill } from 'src/app/core/models/skill';
 import { SkillCategory } from 'src/app/core/models/skillCategory';
 import { TeamType } from 'src/app/core/models/teamType';
@@ -63,21 +63,39 @@ getPlayerTypeByIndex(index: number): FormGroup {
 
   private setupForm() {
     this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
-      next: res => {
-        this._skillCategoryService.getSkillCategories(res).subscribe({
-          next: res => {
-            this.SkillCategories = res;
-          }
-        });
+      next: rulesetId => {
+        this.Form.controls.rulesetId.setValue(rulesetId);
+        const teamTypeId = this.getTeamTypeId();
 
-        this.Form.controls.rulesetId.setValue(res);
+        const skillCategories$ = this._skillCategoryService.getSkillCategories(rulesetId);
+        
+        if(teamTypeId && !isNaN(teamTypeId)) {
+          const teamTypes$ = this._teamTypeService.getTeamType(rulesetId, teamTypeId);
 
-        const teamTypeIdFromRequest = this.getTeamTypeId();
+          skillCategories$.pipe(combineLatestWith(teamTypes$)).subscribe({
+            next: res => {
+                this.SkillCategories = res[0];
+                this.TeamType = res[1];
 
-        if(teamTypeIdFromRequest && !isNaN(teamTypeIdFromRequest)) {
-          this.getTeamType(res, teamTypeIdFromRequest);  
+                // Map the skills into an array for faster search
+                let skills: {[id: number]: Skill} = {};
+                this.SkillCategories.forEach(sc => sc.skills.forEach(s => skills[s.id] = s));
+
+                // Map the Player Skills onto the Original Skills so they are auto populated by the form
+                // (They are objects and not primitives so the form checks by reference for equality)
+                this.TeamType?.playerTypes?.forEach(pt => pt.startingSkills = pt.startingSkills.map(obj => skills[obj.id]));
+
+                this.TeamType.playerTypes.forEach(_ => {
+                  this.addPlayerType();
+                });
+
+                this.Form.patchValue(this.TeamType);                
+            }, 
+            error: err => console.log(err)
+          })           
         } else {
           this.TeamType = null;
+          skillCategories$.subscribe({next: res => this.SkillCategories = res});
         }
       }
     });
@@ -91,26 +109,7 @@ getPlayerTypeByIndex(index: number): FormGroup {
     
     return null;
   }
-
-  private getTeamType(rulesetId: number, teamTypeId: number) {
-    this._teamTypeService.getTeamType(rulesetId, teamTypeId).subscribe({
-      next: res => {
-        this.TeamType = res;        
-        
-        //Add a form control for each child
-        res.playerTypes.forEach(_ => {
-          this.addPlayerType();
-        });
-
-        this.Form.patchValue(res);    
-        
-        console.log(res);
-        console.log(this.Form);
-      },
-      error: err => console.log(err)
-    })
-  }
-
+  
   public submit() {
     this.updateTreeValidity(this.Form);
 

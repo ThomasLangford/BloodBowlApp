@@ -26,9 +26,7 @@ export class PlayerTypeFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
-    console.log(this.formGroup);
-    console.log(this.skillCategories);
+    // doto
   }
 
   get startingSkills() {
@@ -46,15 +44,11 @@ export class PlayerTypeFormComponent implements OnInit {
 
   add(event: MatChipInputEvent): void {
     const value = <Skill>JSON.parse(event.value);
-    console.log(value);
-
-    // Add our fruit
+    
     if (value) {
       this.startingSkills?.setValue([...this.startingSkills.value, value]);
       this.startingSkills?.updateValueAndValidity();
     }
-
-    console.log(this.startingSkills);
 
     // Reset the input value
     event.chipInput?.clear();
