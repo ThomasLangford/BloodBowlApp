@@ -16,10 +16,8 @@ import { TeamTypeService } from '../../services/teamType/teamType.service';
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent implements OnInit {
-  public TeamType: TeamType|null = null;
-  
+  public TeamType: TeamType|null = null;  
   public SkillCategories: SkillCategory[] = [];
-  public LevelUpTypes: LevelUpType[] = [];
 
   public Form: FormGroup;
 
@@ -88,7 +86,6 @@ export class TeamComponent implements OnInit {
     this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
       next: rulesetId => {        
         this.Form.controls.rulesetId.setValue(rulesetId);
-        this.getLevelUpTypes(rulesetId);
         
         const teamTypeId = this.getTeamTypeId();
 
@@ -146,14 +143,6 @@ export class TeamComponent implements OnInit {
     }
     
     return null;
-  }
-
-  private getLevelUpTypes(rulesetId: number) {
-    this._levelUpTypeService.getSkillCategories(rulesetId).subscribe({
-      next: res => {
-        this.LevelUpTypes = res;
-      }
-    })
   }
 
   public submit() {

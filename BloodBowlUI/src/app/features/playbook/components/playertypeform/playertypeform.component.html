@@ -47,7 +47,7 @@
             </mat-select-trigger>
 
             <mat-option>
-              <ngx-mat-select-search [formControl]="skillLookupFormControl" placeholderLabel="Search..." noEntriesFoundLabel="No Skills Found"></ngx-mat-select-search>
+              <ngx-mat-select-search [formControl]="skillNameLookupFormControl" placeholderLabel="Search..." noEntriesFoundLabel="No Skills Found"></ngx-mat-select-search>
             </mat-option>
 
             <mat-optgroup *ngFor="let skillCategory of filteredSkillCategories | async" [label]="skillCategory.name">

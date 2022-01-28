@@ -33,6 +33,8 @@ namespace BloodBowlAPI.DTOs.TeamTypes
             CreateMap<AvailableSkillCategory, AvailableSkillCategoryDto>();
             CreateMap<AvailableSkillCategoryDto, AvailableSkillCategory>();
 
+            CreateMap<LevelUpType, LevelUpTypeDto>().ReverseMap();
+
             // Starting Skill
             CreateMap<StartingSkill, SkillDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Skill.Id) )
