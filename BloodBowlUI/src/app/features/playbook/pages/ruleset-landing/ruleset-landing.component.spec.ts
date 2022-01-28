@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RulesetlandingComponent } from './rulesetlanding.component';
+import { RulesetlandingComponent } from './ruleset-landing.component';
 
 describe('RulesetlandingComponent', () => {
   let component: RulesetlandingComponent;

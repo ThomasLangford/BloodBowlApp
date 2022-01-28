@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlayerTypeFormComponent } from './playertypeform.component';
+import { PlayerTypeFormComponent } from './player-type-form.component';
 
 describe('PlayertypeformComponent', () => {
   let component: PlayerTypeFormComponent;

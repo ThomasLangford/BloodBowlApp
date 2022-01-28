@@ -4,8 +4,8 @@ import { Ruleset } from 'src/app/core/models/ruleset';
 import { RulesetService } from '../../services/ruleset/ruleset.service';
 
 @Component({
-  templateUrl: './rulesetpicker.component.html',
-  styleUrls: ['./rulesetpicker.component.scss']
+  templateUrl: './ruleset-picker.component.html',
+  styleUrls: ['./ruleset-picker.component.scss']
 })
 export class RulesetpickerComponent implements OnInit {
   private rulesets: Ruleset[] = [];

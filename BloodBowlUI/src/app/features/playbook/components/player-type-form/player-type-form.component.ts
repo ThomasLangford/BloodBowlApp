@@ -10,8 +10,8 @@ import { AvailableSkillCategory } from 'src/app/core/models/AvailableSkillCatego
 
 @Component({
   selector: 'app-playertypeform',
-  templateUrl: './playertypeform.component.html',
-  styleUrls: ['./playertypeform.component.scss'],
+  templateUrl: './player-type-form.component.html',
+  styleUrls: ['./player-type-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerTypeFormComponent implements OnInit, OnDestroy {

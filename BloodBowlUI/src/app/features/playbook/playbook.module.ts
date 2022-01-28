@@ -19,14 +19,14 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { PlaybookRoutingModule } from './playbook-routing.module';
 import { PlaybookComponent } from './playbook.component';
 import { RulesetComponent } from './pages/ruleset/ruleset.component';
-import { RulesetpickerComponent } from './pages/rulesetpicker/rulesetpicker.component';
+import { RulesetpickerComponent } from './pages/ruleset-picker/ruleset-picker.component';
 import { CoreModule } from 'src/app/core/core.module';
-import { RulesetlandingComponent } from './pages/rulesetlanding/rulesetlanding.component';
+import { RulesetlandingComponent } from './pages/ruleset-landing/ruleset-landing.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamComponent } from './pages/team/team.component';
-import { PlayerTypeFormComponent } from './components/playertypeform/playertypeform.component';
+import { PlayerTypeFormComponent } from './components/player-type-form/player-type-form.component';
 
 @NgModule({
   declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent, TeamsComponent, TeamComponent, PlayerTypeFormComponent],

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RulesetpickerComponent } from './rulesetpicker.component';
+import { RulesetpickerComponent } from './ruleset-picker.component';
 
 describe('RulesetpickerComponent', () => {
   let component: RulesetpickerComponent;
