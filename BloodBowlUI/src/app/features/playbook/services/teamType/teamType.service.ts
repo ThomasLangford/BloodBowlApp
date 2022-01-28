@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TeamType } from 'src/app/core/models/teamType';
@@ -23,10 +23,10 @@ export class TeamTypeService {
     return this.http.get<TeamType>(url);
   }
 
-  putTeamType(teamType: TeamType): Observable<TeamType> {
+  putTeamType(teamType: TeamType): Observable<HttpResponse<any>> {
     const url = this.getTeamTypeUrl(teamType.rulesetId, teamType.id);
 
-    return this.http.put<TeamType>(url, teamType);
+    return this.http.put<HttpResponse<any>>(url, teamType);
   }
 
   postTeamType(teamType: TeamType): Observable<TeamType> {

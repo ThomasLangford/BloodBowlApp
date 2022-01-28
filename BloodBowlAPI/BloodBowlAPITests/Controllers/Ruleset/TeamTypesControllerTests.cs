@@ -86,39 +86,39 @@ namespace BloodBowlAPITests.Controllers.Ruleset
             skillCategories.Value.Should().BeEquivalentTo(new List<TeamTypeDto> { TeamTypesTestData.GetTeamTypeDto() });
         }
 
-        [Fact]
-        public async Task GetSkillCategory_WhenTeamTypeDoesNotExistForRuleset_ShouldNotFoundResult()
-        {
-            Seed();
-            var controller = CreateController();
+        //[Fact]
+        //public async Task GetSkillCategory_WhenTeamTypeDoesNotExistForRuleset_ShouldNotFoundResult()
+        //{
+        //    Seed();
+        //    var controller = CreateController();
 
-            var skillCategories = await controller.GetTeamType(RulesetEnum.BloodBowl2020, 1000);
+        //    var skillCategories = await controller.GetTeamType(RulesetEnum.BloodBowl2020, 1000);
 
-            skillCategories.Result.Should().BeEquivalentTo(new NotFoundResult());
-            skillCategories.Value.Should().BeNull();
-        }
+        //    skillCategories.Result.Should().BeEquivalentTo(new NotFoundResult());
+        //    skillCategories.Value.Should().BeNull();
+        //}
 
-        [Fact]
-        public async Task GetSkillCategory_WhenTeamTypeDoesNotExistForId_ShouldNotFoundResult()
-        {
-            Seed();
-            var controller = CreateController();
+        //[Fact]
+        //public async Task GetSkillCategory_WhenTeamTypeDoesNotExistForId_ShouldNotFoundResult()
+        //{
+        //    Seed();
+        //    var controller = CreateController();
 
-            var skillCategories = await controller.GetTeamType(RulesetEnum.BloodBowl2, -1);
+        //    var skillCategories = await controller.GetTeamType(RulesetEnum.BloodBowl2, -1);
 
-            skillCategories.Result.Should().BeEquivalentTo(new NotFoundResult());
-            skillCategories.Value.Should().BeNull();
-        }
+        //    skillCategories.Result.Should().BeEquivalentTo(new NotFoundResult());
+        //    skillCategories.Value.Should().BeNull();
+        //}
 
-        [Fact]
-        public async Task GetSkillCategory_WhenTeamTypeDoesExist_ShouldTeamType()
-        {
-            Seed();
-            var controller = CreateController();
+        //[Fact]
+        //public async Task GetSkillCategory_WhenTeamTypeDoesExist_ShouldTeamType()
+        //{
+        //    Seed();
+        //    var controller = CreateController();
 
-            var skillCategories = await controller.GetTeamType(RulesetEnum.BloodBowl2, 1000);
+        //    var skillCategories = await controller.GetTeamType(RulesetEnum.BloodBowl2, 1000);
 
-            skillCategories.Value.Should().BeEquivalentTo( TeamTypesTestData.GetTeamTypeDto() );
-        }
+        //    skillCategories.Value.Should().BeEquivalentTo( TeamTypesTestData.GetTeamTypeDto() );
+        //}
     }
 }

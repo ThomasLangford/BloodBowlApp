@@ -19,15 +19,12 @@ export class TeamComponent implements OnInit {
   public TeamType: TeamType|null = null;  
   public SkillCategories: SkillCategory[] = [];
 
-  public Form: FormGroup;
+  public Form!: FormGroup;
 
   public RenderDisabled: boolean;
 
   constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _levelUpTypeService: LevelUpTypeService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
     this.RenderDisabled = false;
-
-    this.Form = this.initalizeForm()
-    this.Form.disable();
   }
 
   get playerTypes() {
@@ -70,8 +67,7 @@ export class TeamComponent implements OnInit {
   }
 
   private addBlankPlayerTypeToForm() {
-    const control = this.playerTypes;
-    control.push(this.initalizePlayerTypeFormGroup());
+    this.playerTypes.push(this.initalizePlayerTypeFormGroup());
   }
 
   getPlayerTypeByIndex(index: number): FormGroup {
@@ -83,6 +79,9 @@ export class TeamComponent implements OnInit {
   }
 
   private setupForm() {
+    this.Form = this.initalizeForm();
+    this.Form.disable();
+
     this._rulesetIdService.getRulesetIdFromPath(this._activatedRoute).subscribe({
       next: rulesetId => {        
         this.Form.controls.rulesetId.setValue(rulesetId);
@@ -95,22 +94,27 @@ export class TeamComponent implements OnInit {
           const teamTypes$ = this._teamTypeService.getTeamType(rulesetId, teamTypeId);
 
           skillCategories$.pipe(combineLatestWith(teamTypes$)).subscribe({
-            next: res => {
-                this.SkillCategories = res[0];
-                this.TeamType = res[1];
+            next: res => {  
+                var skillCategories = res[0];
+                var teamType = res[1];
                 
                 // Map the skills into an array for faster search
                 let skills: {[id: number]: Skill} = {};
-                this.SkillCategories.forEach(sc => sc.skills.forEach(s => skills[s.id] = s));
+                skillCategories.forEach(sc => sc.skills.forEach(s => skills[s.id] = s));
 
                 // Map the Player Skills onto the Original Skills so they are auto populated by the form
                 // (They are objects and not primitives so the form checks by reference for equality)
-                this.TeamType?.playerTypes?.forEach(pt => pt.startingSkills = pt.startingSkills.map(obj => skills[obj.id]));
+                teamType.playerTypes?.forEach(pt => pt.startingSkills = pt.startingSkills.map(obj => skills[obj.id]));
 
                 // Add the playertype form controls to the main form
-                this.TeamType.playerTypes.forEach(_ => {
-                  this.addBlankPlayerTypeToForm();
-                });
+                if(!this.playerTypes || this.playerTypes.length !== teamType.playerTypes.length){
+                  teamType.playerTypes.forEach(_ => {
+                    this.addBlankPlayerTypeToForm();
+                  });
+                }
+                
+                this.SkillCategories = skillCategories;
+                this.TeamType = teamType;
 
                 this.Form.patchValue(this.TeamType);   
                 
@@ -159,14 +163,22 @@ export class TeamComponent implements OnInit {
 
     this.TeamType = <TeamType>this.Form.value;    
 
-    if (this.TeamType !== null) {
-      this._teamTypeService.postTeamType(this.TeamType).subscribe({
-        next: res => {
-          if(res) {
-            this._router.navigate([`../${res.id}`], {relativeTo: this._activatedRoute});
+    if (this.TeamType) {
+      if(this.TeamType.id) {
+        this._teamTypeService.putTeamType(this.TeamType).subscribe({
+          complete: () => {
+            this.ngOnInit();
+          },          
+        })
+      } else {
+        this._teamTypeService.postTeamType(this.TeamType).subscribe({
+          next: res => {
+            if(res) {
+              this._router.navigate([`../${res.id}`], {relativeTo: this._activatedRoute});
+            }
           }
-        }
-      })
+        })
+      }      
     }  
   }
 

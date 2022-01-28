@@ -58,11 +58,11 @@ namespace BloodBowlAPITests.Data
                     Id = 1000,
                     Name = $"{TestContants.TPREFIX}SKILL_1",
                     Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
-                    RuleSetId = 1,
-                    RulesetName =  $"{TestContants.TPREFIX}Blood Bowl 2",
-                    SkillCategoryId = 1,
-                    SkillCategoryName = $"{TestContants.TPREFIX}Skill Category 1",
-                    SkillCategoryShortName = $"{TestContants.TPREFIX}S",
+                    //RuleSetId = 1,
+                    //RulesetName =  $"{TestContants.TPREFIX}Blood Bowl 2",
+                    //SkillCategoryId = 1,
+                    //SkillCategoryName = $"{TestContants.TPREFIX}Skill Category 1",
+                    //SkillCategoryShortName = $"{TestContants.TPREFIX}S",
                 }
             };
         }

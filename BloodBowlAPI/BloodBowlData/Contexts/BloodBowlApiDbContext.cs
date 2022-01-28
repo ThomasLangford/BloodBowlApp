@@ -64,15 +64,5 @@ namespace BloodBowlData.Contexts
                 modelBuilder.Entity<LevelUpType>().HasData(SeedLevelUpType.GetSeed());
             }
         }
-
-        public virtual void SetModified(object entity)
-        {
-            Entry(entity).State = EntityState.Modified;
-        }
-
-        public virtual void SetState(object entity, EntityState state)
-        {
-            Entry(entity).State = state;
-        }
     }
 }

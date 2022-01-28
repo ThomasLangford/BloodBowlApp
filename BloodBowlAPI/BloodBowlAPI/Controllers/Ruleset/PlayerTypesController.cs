@@ -75,7 +75,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
             var playerType = _mapper.Map<PlayerType>(playerTypeDto);
 
 
-            _context.SetModified(playerType);
+            _context.Update(playerType);
 
             var existingStaringSkills = await _context.StartingSkill.Where(c => c.PlayerTypeId == playerType.Id).ToListAsync();
 
@@ -102,7 +102,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
                     existingStartingSkill.PlayerTypeId = playerType.Id;
                     existingStartingSkill.SkillId = startingSkill.SkillId;
 
-                    _context.SetModified(existingStartingSkill);
+                    _context.Update(existingStartingSkill);
                 }
             }
 
@@ -124,7 +124,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
                 if (existingAvailableSkillCategory == null)
                 {
-                    await _context.AvailableSkillCategory.AddAsync(existingAvailableSkillCategory);
+                    _context.AvailableSkillCategory.Add(existingAvailableSkillCategory);
                 }
                 else
                 {
@@ -132,7 +132,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
                     existingAvailableSkillCategory.LevelUpTypeId = availableSkillCatagory.LevelUpTypeId;
                     existingAvailableSkillCategory.SkillCategoryId = availableSkillCatagory.SkillCategoryId;
 
-                    _context.SetModified(existingAvailableSkillCategory);
+                    _context.Update(existingAvailableSkillCategory);
                 }
             }
 

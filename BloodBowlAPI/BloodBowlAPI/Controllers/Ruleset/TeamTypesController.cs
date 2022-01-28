@@ -63,12 +63,56 @@ namespace BloodBowlAPI.Controllers.Ruleset
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTeamType(int id, TeamTypeDto playerTypeDto)
+        public async Task<IActionResult> PutTeamType(int id, TeamTypeDto teamTypeDto)
         {
-            var teamType = _mapper.Map<TeamType>(playerTypeDto);
+            var teamType = await MapTeamTypeDtoToTeamTypeAsync(teamTypeDto);
 
+            var originalPlayerTypes = new List<PlayerType>(teamType.PlayerTypes);
 
-            _context.SetModified(teamType);
+            foreach (PlayerType playerType in teamType.PlayerTypes)
+            {
+                foreach(AvailableSkillCategory availableSkillCategory in playerType.AvailableSkillCategories)
+                {
+                    _context.Update(availableSkillCategory);
+                    await _context.SaveChangesAsync();
+                }
+
+                var originalAvailableSkillCategories = new List<AvailableSkillCategory>(playerType.AvailableSkillCategories);
+
+                var missingAvailableSkillCategories = (await _context.AvailableSkillCategory
+                    .Where(asc => asc.PlayerTypeId == playerType.Id)
+                    .ToArrayAsync())
+                    .Except(originalAvailableSkillCategories);
+
+                _context.AvailableSkillCategory.RemoveRange(missingAvailableSkillCategories);
+
+                foreach(StartingSkill startingSkill in playerType.StartingSkills)
+                {
+                    _context.Update(startingSkill);
+                    await _context.SaveChangesAsync();
+                }
+
+                var originalStartingSkills = new List<StartingSkill>(playerType.StartingSkills);
+
+                var missingStartingSkills = (await _context.StartingSkill
+                    .Where(ss => ss.PlayerTypeId == playerType.Id)
+                    .ToArrayAsync())
+                    .Except(originalStartingSkills);
+
+                _context.StartingSkill.RemoveRange(missingStartingSkills);                
+
+                _context.Update(playerType);
+                await _context.SaveChangesAsync();
+            }
+
+            _context.Update(teamType);
+
+            var missingStartingPlayerTypes = (await _context.PlayerType
+                .Where(pt => pt.TeamTypeId == teamType.Id)
+                .ToArrayAsync())
+                .Except(originalPlayerTypes);
+
+            _context.PlayerType.RemoveRange(missingStartingPlayerTypes);
 
             try
             {
@@ -139,10 +183,29 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
             foreach(PlayerType playerType in teamType.PlayerTypes)
             {
+                playerType.TeamType = teamType;
+                playerType.TeamTypeId = teamType.Id;
+
                 foreach(StartingSkill startingSkill in playerType.StartingSkills)
                 {
+                    
                     startingSkill.PlayerType = playerType;
+                    startingSkill.PlayerTypeId = playerType.Id;
+
                     startingSkill.Skill = await _context.Skill.FirstAsync(skill => skill.Id == startingSkill.SkillId);
+                    startingSkill.SkillId = startingSkill.SkillId;
+                }
+
+                foreach(AvailableSkillCategory availableSkillCategory in playerType.AvailableSkillCategories)
+                {
+                    availableSkillCategory.PlayerType = playerType;
+                    availableSkillCategory.PlayerTypeId = playerType.Id;
+
+                    availableSkillCategory.LevelUpType = await _context.LevelUpType.FirstAsync(levelUpType => levelUpType.Id == availableSkillCategory.LevelUpTypeId);
+                    availableSkillCategory.LevelUpTypeId = availableSkillCategory.LevelUpType.Id;
+
+                    availableSkillCategory.SkillCategory = await _context.SkillCategory.FirstAsync(SkillCategory => SkillCategory.Id == availableSkillCategory.SkillCategoryId);
+                    availableSkillCategory.SkillCategoryId = availableSkillCategory.SkillCategory.Id;
                 }
             }
 

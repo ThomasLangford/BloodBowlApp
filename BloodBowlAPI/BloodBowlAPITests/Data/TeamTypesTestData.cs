@@ -134,42 +134,42 @@ namespace BloodBowlAPITests.Data
                 Necromancer = false,
                 RerollCost = 50,
                 RulesetId = 1,
-                RulesetName = $"{TestContants.TPREFIX}Blood Bowl 2",
+                // RulesetName = $"{TestContants.TPREFIX}Blood Bowl 2",
 
-                PlayerTypes = new List<TeamTypeDto.TeamTypePlayerTypeDto>
+                PlayerTypes = new List<PlayerTypeDto>
                 {
-                    new TeamTypeDto.TeamTypePlayerTypeDto
-                    {
-                        Id = 1000,
-                        Name = "Test Team",
-                        Agility = 1,
-                        ArmourValue = 2,
-                        Move = 3,
-                        Strength = 4,
-                        Cost = 5000,
-                        MaximumAllowedOnTeam = 10,
-                        AvailableSkillCategories = new List<TeamTypeDto.TeamTypePlayerTypeAvailableSkillCategoryDto>
-                        {
-                            new TeamTypeDto.TeamTypePlayerTypeAvailableSkillCategoryDto
-                            {
-                                Id = 1000,
-                                SkillCategoryId = (int) SkillCategoryEnum.General,
-                                SkillCategoryName = $"{TestContants.TPREFIX}General",
-                                SkillCategoryShortName = $"{TestContants.TPREFIX}G",
-                                LevelUpTypeId = (int) LevelUpTypeEnum.Normal,
-                                LevelUpTypeName = $"{TestContants.TPREFIX}Normal"
-                            }
-                        },
-                        StartingSkills = new List<TeamTypeDto.TeamTypePlayerTypeStartingSkillDto>
-                        {
-                            new TeamTypeDto.TeamTypePlayerTypeStartingSkillDto
-                            {
-                                Id = 1000,
-                                Name = $"{TestContants.TPREFIX}SKILL_1",
-                                Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
-                            }
-                        }
-                    }
+                //    new TeamTypeDto.TeamTypePlayerTypeDto
+                //    {
+                //        Id = 1000,
+                //        Name = "Test Team",
+                //        Agility = 1,
+                //        ArmourValue = 2,
+                //        Move = 3,
+                //        Strength = 4,
+                //        Cost = 5000,
+                //        MaximumAllowedOnTeam = 10,
+                //        AvailableSkillCategories = new List<TeamTypeDto.TeamTypePlayerTypeAvailableSkillCategoryDto>
+                //        {
+                //            new TeamTypeDto.TeamTypePlayerTypeAvailableSkillCategoryDto
+                //            {
+                //                Id = 1000,
+                //                SkillCategoryId = (int) SkillCategoryEnum.General,
+                //                SkillCategoryName = $"{TestContants.TPREFIX}General",
+                //                SkillCategoryShortName = $"{TestContants.TPREFIX}G",
+                //                LevelUpTypeId = (int) LevelUpTypeEnum.Normal,
+                //                LevelUpTypeName = $"{TestContants.TPREFIX}Normal"
+                //            }
+                //        },
+                //        StartingSkills = new List<TeamTypeDto.TeamTypePlayerTypeStartingSkillDto>
+                //        {
+                //            new TeamTypeDto.TeamTypePlayerTypeStartingSkillDto
+                //            {
+                //                Id = 1000,
+                //                Name = $"{TestContants.TPREFIX}SKILL_1",
+                //                Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
+                //            }
+                //        }
+                //    }
                 }
             };
         }
