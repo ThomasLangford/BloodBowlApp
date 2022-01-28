@@ -1,0 +1,23 @@
+<mat-form-field appearance="outline" style="width: 10rem;">
+    <mat-label>{{label}}</mat-label>
+    <mat-select [placeholder]="placeHolder" [formControl]="skillFormControl" multiple>
+        <mat-select-trigger>
+            <mat-chip-list #startingSkillsList>
+                <mat-chip *ngFor="let skill of skillFormControl.value" [removable]="true" (removed)="removeSelectedSkill(skill)">
+                    {{skill.name}}
+                    <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+        </mat-select-trigger>
+
+        <mat-option>
+            <ngx-mat-select-search [formControl]="skillNameLookupFormControl" [placeholderLabel]="searchPlaceHolder" [noEntriesFoundLabel]="noRecordsFoundMessage"></ngx-mat-select-search>
+        </mat-option>
+
+        <mat-optgroup *ngFor="let skillCategory of filteredSkillCategories | async" [label]="skillCategory.name">
+            <mat-option *ngFor="let skill of skillCategory.skills" [value]="skill">
+                {{skill.name}}
+            </mat-option>
+        </mat-optgroup>
+    </mat-select>
+</mat-form-field>

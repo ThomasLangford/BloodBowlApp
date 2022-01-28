@@ -1,4 +1,4 @@
-import { AvailableSkillCategory } from "./AvailableSkillCategory";
+import { AvailableSkillCategory } from "./availableSkillCategory";
 import { Skill } from "./skill";
 
 export interface PlayerType {

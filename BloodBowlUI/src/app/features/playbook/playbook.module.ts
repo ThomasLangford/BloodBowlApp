@@ -27,9 +27,11 @@ import { SkillsComponent } from './pages/skills/skills.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { TeamComponent } from './pages/team/team.component';
 import { PlayerTypeFormComponent } from './components/player-type-form/player-type-form.component';
+import { SkillPickerComponent } from './components/skill-picker/skill-picker.component';
+import { AvailableSkillCategoryPickerComponent } from './components/player-type-form/available-skill-category-picker/available-skill-category-picker.component';
 
 @NgModule({
-  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent, TeamsComponent, TeamComponent, PlayerTypeFormComponent],
+  declarations: [PlaybookComponent, RulesetComponent, RulesetpickerComponent, RulesetlandingComponent, SkillsComponent, TeamsComponent, TeamComponent, PlayerTypeFormComponent, SkillPickerComponent, AvailableSkillCategoryPickerComponent],
   imports: [
     CommonModule,
     RouterModule,
