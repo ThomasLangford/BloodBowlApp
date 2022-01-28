@@ -37,36 +37,6 @@
     
     <app-skill-picker [skillCategories]="skillCategories" [skillFormControl]="startingSkills"></app-skill-picker>
 
-    <mat-form-field appearance="outline" style="width: 10rem;">
-        <mat-label>Regular Skills</mat-label>
-        <mat-select placeholder="Categories" [formControl]="skillNormalsFormControl" multiple>
-            <mat-select-trigger>
-                <mat-chip-list #startingSkillsList>
-                    <mat-chip *ngFor="let skillCategory of skillNormalsFormControl.value" [removable]="true" (removed)="removeNormalSkillCategory(skillCategory)">
-                        {{skillCategory.name}}
-                        <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
-                    </mat-chip>
-                </mat-chip-list>
-            </mat-select-trigger>
-            <mat-option *ngFor="let skillCategory of skillCategories" [value]="skillCategory">
-                {{skillCategory.name}}
-            </mat-option>
-          </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline" style="width: 10rem;">
-        <mat-label>Doubles Skills</mat-label>
-        <mat-select placeholder="Categories" [formControl]="skillDoublesFormControl" multiple>
-            <mat-select-trigger>
-                <mat-chip-list #startingSkillsList>
-                    <mat-chip *ngFor="let skillCategory of skillDoublesFormControl.value" [removable]="true" (removed)="removeDoubleSkillCategory(skillCategory)">
-                        {{skillCategory.name}}
-                        <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
-                    </mat-chip>
-                </mat-chip-list>
-            </mat-select-trigger>
-            <mat-option *ngFor="let skillCategory of skillCategories" [value]="skillCategory">
-                {{skillCategory.name}}
-            </mat-option>
-          </mat-select>
-    </mat-form-field>
+    <app-available-skill-category-picker [skillCategories]="skillCategories" [availableSkillCategoryFormControl]="availableSkillCategories" [levelUpTypeId]="1" label="Regular Skills"></app-available-skill-category-picker>
+    <app-available-skill-category-picker [skillCategories]="skillCategories" [availableSkillCategoryFormControl]="availableSkillCategories" [levelUpTypeId]="2" label="Doubles Skills"></app-available-skill-category-picker>
 </div>
