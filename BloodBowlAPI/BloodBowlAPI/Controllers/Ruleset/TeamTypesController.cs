@@ -74,7 +74,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<IActionResult> PutTeamType(int id, TeamTypeDto teamTypeDto)
         {
-            if(id != teamTypeDto.Id)
+            if (teamTypeDto == null || id != teamTypeDto.Id)
             {
                 return BadRequest();
             }
@@ -146,9 +146,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
             _context.TeamType.Remove(teamType);
             await _context.SaveChangesAsync();
 
-            var dto = _mapper.Map<TeamTypeDto>(teamType);
-
-            return Ok(dto);
+            return Ok(_mapper.Map<TeamTypeDto>(teamType));
         }
 
         private async Task<TeamType> MapTeamTypeDtoToTeamTypeAsync(TeamTypeDto teamTypeDto)

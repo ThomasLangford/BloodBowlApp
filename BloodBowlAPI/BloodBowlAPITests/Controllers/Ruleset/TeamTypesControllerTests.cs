@@ -7,9 +7,12 @@ using BloodBowlAPITests.Mocks;
 using BloodBowlAPITests.TestingClass;
 using BloodBowlData.Contexts;
 using BloodBowlData.Enums;
+using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Moq;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -46,6 +49,7 @@ namespace BloodBowlAPITests.Controllers.Ruleset
             bloodBowlAPIContext.Database.EnsureCreated();
 
             AddDefaultTablesToContext(bloodBowlAPIContext);
+            AddTeamTypeTablesToContext(bloodBowlAPIContext);
 
             bloodBowlAPIContext.SaveChanges();
         }
@@ -67,8 +71,17 @@ namespace BloodBowlAPITests.Controllers.Ruleset
         {
 
             bloodBowlApiDbContext.Ruleset.AddRange(RulesetTestData.GetRuleSets());
-            bloodBowlApiDbContext.SkillCategory.AddRange(SkillTestData.GetSkillCategories());
-            bloodBowlApiDbContext.Skill.AddRange(SkillTestData.GetSkills());
+            bloodBowlApiDbContext.SkillCategory.AddRange(TeamTypeTestData.GetSkillCategories());
+            bloodBowlApiDbContext.Skill.AddRange(TeamTypeTestData.GetSkills());
+            bloodBowlApiDbContext.LevelUpType.AddRange(TeamTypeTestData.GetLevelUpTypes());
+        }
+
+        private void AddTeamTypeTablesToContext(BloodBowlApiDbContext bloodBowlApiDbContext)
+        {
+            bloodBowlApiDbContext.TeamType.AddRange(TeamTypeTestData.GetTeamTypes());
+            bloodBowlApiDbContext.PlayerType.AddRange(TeamTypeTestData.GetPlayerTypes());
+            bloodBowlApiDbContext.StartingSkill.AddRange(TeamTypeTestData.GetStartingSkills());
+            bloodBowlApiDbContext.AvailableSkillCategory.AddRange(TeamTypeTestData.GetAvailableSkillCategories());
         }
 
         private void SeedEmpty()
@@ -83,37 +96,85 @@ namespace BloodBowlAPITests.Controllers.Ruleset
         }
 
         [Fact]
-        public async Task GetTeamType_StateUnderTest_ExpectedBehavior()
+        public async Task GetTeamType_WhenNoTeamTypes_ReturnEmptyList()
         {
             // Arrange
+            SeedEmpty();
             var teamTypesController = this.CreateTeamTypesController();
             RulesetEnum rulesetId = default;
 
             // Act
-            var result = await teamTypesController.GetTeamType(
-                rulesetId);
+            var result = await teamTypesController.GetTeamType(rulesetId);
 
             // Assert
-            Assert.True(false);
-            this._localizerMock.VerifyAll();
+            result.Should().NotBeNull();
+            result.Should().BeAssignableTo<ActionResult<List<TeamTypeDto>>>();
+            result.Result.Should().BeOfType<OkObjectResult>();
+
+            var okResult = result.Result as OkObjectResult;
+            (okResult.Value as List<TeamTypeDto>).Should().BeEmpty();
         }
 
         [Fact]
-        public async Task GetTeamTypeById_StateUnderTest_ExpectedBehavior()
+        public async Task GetTeamType_WhenTeamTypesExist_ReturnTeamTypeDtos()
         {
             // Arrange
+            Seed();
             var teamTypesController = this.CreateTeamTypesController();
-            RulesetEnum rulesetId = default;
-            int id = 0;
+            RulesetEnum rulesetId = RulesetEnum.BloodBowl2;
 
             // Act
-            var result = await teamTypesController.GetTeamTypeById(
-                rulesetId,
-                id);
+            var result = await teamTypesController.GetTeamType(rulesetId);
 
             // Assert
-            Assert.True(false);
-            this._localizerMock.VerifyAll();
+            result.Should().NotBeNull();
+            result.Should().BeAssignableTo<ActionResult<List<TeamTypeDto>>>();
+            result.Result.Should().BeOfType<OkObjectResult>();
+
+            var okResult = result.Result as OkObjectResult;
+            (okResult.Value as List<TeamTypeDto>).Should().BeEquivalentTo(TeamTypeTestData.GetTeamTypeDtos());
+        }
+
+
+        [Fact]
+        public async Task GetTeamTypeById_WhenTeamTypeIdDoesNotExist_ReturnNotFoundResult()
+        {
+            // Arrange
+            Seed();
+
+            var teamTypesController = this.CreateTeamTypesController();
+            RulesetEnum rulesetId = RulesetEnum.BloodBowl2;
+            int id = 1005;
+
+            // Act
+            var result = await teamTypesController.GetTeamTypeById(rulesetId, id);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeAssignableTo<ActionResult<TeamTypeDto>>();
+            result.Result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [Fact]
+        public async Task GetTeamTypeById_WhenTeamTypeIdDoesExist_ReturnTeamTypeDto()
+        {
+            // Arrange
+            Seed();
+
+            var teamTypesController = this.CreateTeamTypesController();
+            RulesetEnum rulesetId = RulesetEnum.BloodBowl2;
+            int id = 1000;
+
+            // Act
+            var result = await teamTypesController.GetTeamTypeById(rulesetId, id);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().BeAssignableTo<ActionResult<TeamTypeDto>>();
+            result.Result.Should().BeOfType<OkObjectResult>();
+
+            var okResult = result.Result as OkObjectResult;
+            (okResult.Value as TeamTypeDto).Should().BeEquivalentTo(TeamTypeTestData.GetTeamTypeDto());
         }
 
         [Fact]

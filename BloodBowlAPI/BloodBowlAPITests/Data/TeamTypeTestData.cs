@@ -1,4 +1,5 @@
-﻿using BloodBowlAPI.DTOs.TeamTypes;
+﻿using BloodBowlAPI.DTOs.Skills;
+using BloodBowlAPI.DTOs.TeamTypes;
 using BloodBowlAPITests.Mocks;
 using BloodBowlData.Enums;
 using BloodBowlData.Models.Skills;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BloodBowlAPITests.Data
 {
-    class TeamTypesTestData
+    class TeamTypeTestData
     {
         public static IEnumerable<TeamType> GetTeamTypes()
         {
@@ -37,7 +38,7 @@ namespace BloodBowlAPITests.Data
                 {
                     Id = 1000,
                     TeamTypeId = 1000,
-                    Name = "Test Team",
+                    Name = "Test Player",
                     Agility = 1,
                     ArmourValue = 2,
                     Move = 3,
@@ -124,52 +125,58 @@ namespace BloodBowlAPITests.Data
             };
         }
 
+        public static List<TeamTypeDto> GetTeamTypeDtos()
+        {
+            return new List<TeamTypeDto>() { GetTeamTypeDto() };
+        }
+
         public static TeamTypeDto GetTeamTypeDto()
         {
             return new TeamTypeDto
             {
                 Id = 1000,
-                Name = "Test Team",
+                Name = TestContants.TRANSLATION_PREFIX + "Test Team",
                 Apothicary = true,
                 Necromancer = false,
                 RerollCost = 50,
                 RulesetId = RulesetEnum.BloodBowl2,
-                // RulesetName = $"{TestContants.TPREFIX}Blood Bowl 2",
+                PlayerTypes = new List<PlayerTypeDto> { GetPlayerTypeDto() },
+            };
+        }
 
-                PlayerTypes = new List<PlayerTypeDto>
+        private static PlayerTypeDto GetPlayerTypeDto()
+        {
+            return new PlayerTypeDto()
+            {
+                Id = 1000,
+                Agility = 1,
+                ArmourValue = 2,
+                Cost = 5000,
+                MaximumAllowedOnTeam = 10,
+                Move = 3,
+                Strength = 4,
+                Name = TestContants.TRANSLATION_PREFIX + "Test Player",
+                StartingSkills = new List<SkillDto> 
                 {
-                //    new TeamTypeDto.TeamTypePlayerTypeDto
-                //    {
-                //        Id = 1000,
-                //        Name = "Test Team",
-                //        Agility = 1,
-                //        ArmourValue = 2,
-                //        Move = 3,
-                //        Strength = 4,
-                //        Cost = 5000,
-                //        MaximumAllowedOnTeam = 10,
-                //        AvailableSkillCategories = new List<TeamTypeDto.TeamTypePlayerTypeAvailableSkillCategoryDto>
-                //        {
-                //            new TeamTypeDto.TeamTypePlayerTypeAvailableSkillCategoryDto
-                //            {
-                //                Id = 1000,
-                //                SkillCategoryId = (int) SkillCategoryEnum.General,
-                //                SkillCategoryName = $"{TestContants.TPREFIX}General",
-                //                SkillCategoryShortName = $"{TestContants.TPREFIX}G",
-                //                LevelUpTypeId = (int) LevelUpTypeEnum.Normal,
-                //                LevelUpTypeName = $"{TestContants.TPREFIX}Normal"
-                //            }
-                //        },
-                //        StartingSkills = new List<TeamTypeDto.TeamTypePlayerTypeStartingSkillDto>
-                //        {
-                //            new TeamTypeDto.TeamTypePlayerTypeStartingSkillDto
-                //            {
-                //                Id = 1000,
-                //                Name = $"{TestContants.TPREFIX}SKILL_1",
-                //                Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
-                //            }
-                //        }
-                //    }
+                    new SkillDto
+                    {
+                        Description = TestContants.TRANSLATION_PREFIX +"SKILL_1_DESCRIPTION",
+                        Id = 1000,
+                        Name = TestContants.TRANSLATION_PREFIX + "SKILL_1",
+                        SkillCategory = null
+                    }
+                },
+                AvailableSkillCategories = new List<AvailableSkillCategoryDto>
+                {
+                    new AvailableSkillCategoryDto
+                    {
+                        Id = 1000,
+                        LevelUpTypeId = 1,
+                        LevelUpTypeName = null,
+                        SkillCategoryId = 1,
+                        SkillCategoryName = null,
+                        SkillCategoryShortName = null
+                    }
                 }
             };
         }
