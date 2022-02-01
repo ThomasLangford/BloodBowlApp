@@ -6,7 +6,6 @@ import { LevelUpType } from 'src/app/core/models/levelUpType';
 import { Skill } from 'src/app/core/models/skill';
 import { SkillCategory } from 'src/app/core/models/skillCategory';
 import { TeamType } from 'src/app/core/models/teamType';
-import { LevelUpTypeService } from '../../services/levelUpType/levelUpType.service';
 import { RulesetIdService } from '../../services/rulesetidservice/rulesetid.service';
 import { SkillCategoryService } from '../../services/skillcategory/skillcategory.service';
 import { TeamTypeService } from '../../services/teamType/teamType.service';
@@ -23,7 +22,7 @@ export class TeamComponent implements OnInit {
 
   public RenderDisabled: boolean;
 
-  constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _levelUpTypeService: LevelUpTypeService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
+  constructor(private _rulesetIdService: RulesetIdService, private _teamTypeService: TeamTypeService, private _skillCategoryService: SkillCategoryService, private _activatedRoute: ActivatedRoute, private _router: Router, private _formBuilder: FormBuilder) { 
     this.RenderDisabled = false;
   }
 

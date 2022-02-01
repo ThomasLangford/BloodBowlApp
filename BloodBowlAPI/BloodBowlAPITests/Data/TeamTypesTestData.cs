@@ -133,7 +133,7 @@ namespace BloodBowlAPITests.Data
                 Apothicary = true,
                 Necromancer = false,
                 RerollCost = 50,
-                RulesetId = 1,
+                RulesetId = RulesetEnum.BloodBowl2,
                 // RulesetName = $"{TestContants.TPREFIX}Blood Bowl 2",
 
                 PlayerTypes = new List<PlayerTypeDto>

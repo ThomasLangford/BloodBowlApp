@@ -56,13 +56,8 @@ namespace BloodBowlAPITests.Data
                 new SkillDto()
                 {
                     Id = 1000,
-                    Name = $"{TestContants.TPREFIX}SKILL_1",
-                    Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
-                    //RuleSetId = 1,
-                    //RulesetName =  $"{TestContants.TPREFIX}Blood Bowl 2",
-                    //SkillCategoryId = 1,
-                    //SkillCategoryName = $"{TestContants.TPREFIX}Skill Category 1",
-                    //SkillCategoryShortName = $"{TestContants.TPREFIX}S",
+                    Name = $"{TestContants.TRANSLATION_PREFIX}SKILL_1",
+                    Description = $"{TestContants.TRANSLATION_PREFIX}SKILL_1_DESCRIPTION",
                 }
             };
         }
@@ -73,8 +68,8 @@ namespace BloodBowlAPITests.Data
                 new SkillCategoryDto.SkillCategorySkillDto()
                 {
                     Id = 1000,
-                    Name = $"{TestContants.TPREFIX}SKILL_1",
-                    Description = $"{TestContants.TPREFIX}SKILL_1_DESCRIPTION",
+                    Name = $"{TestContants.TRANSLATION_PREFIX}SKILL_1",
+                    Description = $"{TestContants.TRANSLATION_PREFIX}SKILL_1_DESCRIPTION",
                 }
             };
         }
@@ -86,8 +81,8 @@ namespace BloodBowlAPITests.Data
                 new SkillCategoryDto()
                 {
                     Id = SkillCategoryEnum.General,
-                    Name = $"{TestContants.TPREFIX}Skill Category 1",
-                    ShortName = $"{TestContants.TPREFIX}S",
+                    Name = $"{TestContants.TRANSLATION_PREFIX}Skill Category 1",
+                    ShortName = $"{TestContants.TRANSLATION_PREFIX}S",
                     Skills = GetSimpleSkillDtos().ToList()
                 }
             };

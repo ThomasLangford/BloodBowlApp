@@ -34,20 +34,29 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
         // GET: api/<rulesets>
         [HttpGet]
-        public async Task<List<RulesetDto>> Get()
+        public async Task<ActionResult<List<RulesetDto>>> Get()
         {
-            return await _context.Ruleset.ProjectTo<RulesetDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
+            var rulesets = await _context.Ruleset.ProjectTo<RulesetDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .ToListAsync();
+
+            return Ok(rulesets);
         }
 
         // GET api/rulesets/5
         [HttpGet("{id}")]
-        public async Task<RulesetDto> Get(RulesetEnum id)
+        public async Task<ActionResult<RulesetDto>> Get(RulesetEnum id)
         {
-            return await _context.Ruleset
+            var ruleset = await _context.Ruleset
                 .Where(r => r.Id == id)
                 .ProjectTo<RulesetDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
-                .SingleAsync();
+                .SingleOrDefaultAsync();
+
+            if(ruleset == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(ruleset);
         }
     }
 }

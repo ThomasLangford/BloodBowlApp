@@ -5,7 +5,7 @@ namespace BloodBowlAPITests.Mocks
 {
     public static class TestContants
     {
-        public static readonly string TPREFIX = "$T$_";
+        public static readonly string TRANSLATION_PREFIX = "$T$_";
     }
 
     public class LocalizerMock<T> : Mock<IStringLocalizer<T>>
@@ -22,7 +22,7 @@ namespace BloodBowlAPITests.Mocks
                 name = "";
             }
 
-            return new LocalizedString(name, $"{TestContants.TPREFIX}{name}");
+            return new LocalizedString(name, $"{TestContants.TRANSLATION_PREFIX}{name}");
         }
         //public LocalizedString this[string name] => throw new NotImplementedException();
 

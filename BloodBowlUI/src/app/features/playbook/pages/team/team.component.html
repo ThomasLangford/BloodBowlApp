@@ -6,7 +6,7 @@
                 <mat-form-field  style="width: 100%;">
                     <mat-label>Team Name</mat-label>
                     <input matInput placeholder="Halflings" formControlName="name" required>
-                    <mat-error *ngIf="Form.controls.name.invalid">xD</mat-error>
+                    <mat-error>Must Enter a Team Name</mat-error>
                 </mat-form-field>
             </div>
         </mat-card-title>
@@ -17,7 +17,7 @@
                         <mat-form-field >
                             <mat-label>Reroll Cost</mat-label>
                             <input matInput placeholder="50000" formControlName="rerollCost" required>
-                            <mat-error *ngIf="Form.controls.rerollCost.invalid">lol</mat-error>
+                            <mat-error>Must Enter a Reroll Cost</mat-error>
                         </mat-form-field>
                     </div>
 
