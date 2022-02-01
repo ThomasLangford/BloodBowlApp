@@ -27,11 +27,14 @@ namespace BloodBowlAPI.DTOs.TeamTypes
                 .ForMember(d => d.Name, opt => opt.MapFrom(s => localizer[s.Name]));
 
             CreateMap<PlayerTypeDto, PlayerType>();
-                // .ForMember(d => d.StartingSkills, opt => opt.Ignore());
+            // .ForMember(d => d.StartingSkills, opt => opt.Ignore());
 
             // Available Skill Category
-            CreateMap<AvailableSkillCategory, AvailableSkillCategoryDto>();
-            CreateMap<AvailableSkillCategoryDto, AvailableSkillCategory>();
+            CreateMap<AvailableSkillCategory, AvailableSkillCategoryDto>().ReverseMap();
+                //.ForMember(d => d.SkillCategoryName, opt => opt.MapFrom(asc => localizer[asc.SkillCategory.LocalizationName]))
+                //.ForMember(d => d.SkillCategoryShortName, opt => opt.MapFrom(asc => localizer[asc.SkillCategory.LocalizationShortName]))
+                //.ForMember(d => d.LevelUpTypeName, opt => opt.MapFrom(asc => localizer[asc.LevelUpType.LocalizationName]));
+            //CreateMap<AvailableSkillCategoryDto, AvailableSkillCategory>();
 
             CreateMap<LevelUpType, LevelUpTypeDto>().ReverseMap();
 

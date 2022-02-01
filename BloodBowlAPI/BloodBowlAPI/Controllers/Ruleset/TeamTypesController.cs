@@ -33,17 +33,22 @@ namespace BloodBowlAPI.Controllers.Ruleset
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         // GET: api/Rulesets/1/TeamTypes
-        public async Task<ActionResult<IEnumerable<TeamTypeDto>>> GetTeamType(RulesetEnum rulesetId)
+        public async Task<ActionResult<List<TeamTypeDto>>> GetTeamType(RulesetEnum rulesetId)
         {
-            return await _context.TeamType.Where(teamType => teamType.RuleSetId == rulesetId)
+            var result = await _context.TeamType.Where(teamType => teamType.RuleSetId == rulesetId)
                 .AsNoTracking()
                 .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .ToListAsync();
+
+            return Ok(result);
         }
 
         // GET: api/Rulesets/1/TeamTypes/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<TeamTypeDto>> GetTeamTypeById(RulesetEnum rulesetId, int id)
         {
             var teamType = await _context.TeamType.Where(teamType => teamType.Id == id && teamType.RuleSetId == rulesetId)
@@ -56,15 +61,24 @@ namespace BloodBowlAPI.Controllers.Ruleset
                 return NotFound();
             }
 
-            return teamType;
+            return Ok(teamType);
         }
 
         // PUT: api/Rulesets/1/TeamTypes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<IActionResult> PutTeamType(int id, TeamTypeDto teamTypeDto)
         {
+            if (!await TeamTypeExists(id))
+            {
+                return NotFound();
+            }
+
             var teamType = await MapTeamTypeDtoToTeamTypeAsync(teamTypeDto);
 
             var originalPlayerTypes = new List<PlayerType>(teamType.PlayerTypes);
@@ -121,7 +135,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
             catch (DbUpdateConcurrencyException)
             {
 
-                if (!await TeamTypeExists(id))
+                if (!await TeamTypeExistsNoTracking(id))
                 {
                     return NotFound();
                 }
@@ -143,7 +157,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<PlayerTypeDto>> PostTeamType(TeamTypeDto teamTypeDto)
         {
-            if (await TeamTypeExists(teamTypeDto.Id))
+            if (await TeamTypeExistsNoTracking(teamTypeDto.Id))
             {
                 return Conflict();
             }
@@ -161,6 +175,8 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
         // DELETE: api/PlayerTypes/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<PlayerTypeDto>> DeletePlayerType(int id)
         {
             var teamType = await FindTeamType(id);
@@ -192,7 +208,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
                     startingSkill.PlayerType = playerType;
                     startingSkill.PlayerTypeId = playerType.Id;
 
-                    startingSkill.Skill = await _context.Skill.FirstAsync(skill => skill.Id == startingSkill.SkillId);
+                    startingSkill.Skill = await _context.Skill.AsNoTracking().FirstAsync(skill => skill.Id == startingSkill.SkillId);
                     startingSkill.SkillId = startingSkill.SkillId;
                 }
 
@@ -201,10 +217,10 @@ namespace BloodBowlAPI.Controllers.Ruleset
                     availableSkillCategory.PlayerType = playerType;
                     availableSkillCategory.PlayerTypeId = playerType.Id;
 
-                    availableSkillCategory.LevelUpType = await _context.LevelUpType.FirstAsync(levelUpType => levelUpType.Id == availableSkillCategory.LevelUpTypeId);
+                    availableSkillCategory.LevelUpType = await _context.LevelUpType.AsNoTracking().FirstAsync(levelUpType => levelUpType.Id == availableSkillCategory.LevelUpTypeId);
                     availableSkillCategory.LevelUpTypeId = availableSkillCategory.LevelUpType.Id;
 
-                    availableSkillCategory.SkillCategory = await _context.SkillCategory.FirstAsync(SkillCategory => SkillCategory.Id == availableSkillCategory.SkillCategoryId);
+                    availableSkillCategory.SkillCategory = await _context.SkillCategory.AsNoTracking().FirstAsync(SkillCategory => SkillCategory.Id == availableSkillCategory.SkillCategoryId);
                     availableSkillCategory.SkillCategoryId = availableSkillCategory.SkillCategory.Id;
                 }
             }
@@ -217,9 +233,15 @@ namespace BloodBowlAPI.Controllers.Ruleset
             return await _context.TeamType.AnyAsync(e => e.Id == id);
         }
 
+        private async Task<bool> TeamTypeExistsNoTracking(int id)
+        {
+            return await _context.TeamType.AsNoTracking().AnyAsync(e => e.Id == id);
+        }
+
         private async Task<TeamTypeDto> FindTeamTypeDto(int id)
         {
             return await FindTeamTypeQueryable(id)
+                .AsNoTracking()
                 .ProjectTo<TeamTypeDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
                 .FirstOrDefaultAsync();
         }

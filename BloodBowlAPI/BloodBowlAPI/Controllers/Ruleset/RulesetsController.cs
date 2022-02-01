@@ -4,6 +4,7 @@ using BloodBowlAPI.DTOs.Rules;
 using BloodBowlAPI.Resources;
 using BloodBowlData.Contexts;
 using BloodBowlData.Enums;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
@@ -34,6 +35,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
         // GET: api/<rulesets>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<RulesetDto>>> Get()
         {
             var rulesets = await _context.Ruleset.ProjectTo<RulesetDto>(_mapper.ConfigurationProvider, new { localizer = _localization })
@@ -44,6 +46,8 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
         // GET api/rulesets/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<RulesetDto>> Get(RulesetEnum id)
         {
             var ruleset = await _context.Ruleset

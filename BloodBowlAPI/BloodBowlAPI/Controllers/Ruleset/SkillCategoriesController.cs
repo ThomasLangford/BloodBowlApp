@@ -12,6 +12,7 @@ using BloodBowlData.Enums;
 using BloodBowlData.Models.Skills;
 using Microsoft.Extensions.Localization;
 using BloodBowlAPI.Resources;
+using Microsoft.AspNetCore.Http;
 
 namespace BloodBowlAPI.Controllers.Ruleset
 {
@@ -31,6 +32,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<SkillCategoryDto>>> GetSkillCategory(RulesetEnum rulesetId)
         {
             return await GetSkillCategoryDTOs(rulesetId);
@@ -38,6 +40,8 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
         // GET: api/SkillCategories/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<SkillCategoryDto>> GetSkillCategory(RulesetEnum rulesetId, SkillCategoryEnum id)
         {
             var Skill = await GetSkillCategoryDTO(id, rulesetId);

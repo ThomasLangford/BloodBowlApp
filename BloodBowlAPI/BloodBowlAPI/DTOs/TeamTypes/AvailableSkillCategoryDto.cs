@@ -11,7 +11,7 @@ namespace BloodBowlAPI.DTOs.TeamTypes
         public int Id { get; set; }
         [Required]
         public int SkillCategoryId { get; set; }
-        public char SkillCategoryShortName { get; set; }
+        public string SkillCategoryShortName { get; set; }
         public string SkillCategoryName { get; set; }
         [Required]
         public int LevelUpTypeId { get; set; }
