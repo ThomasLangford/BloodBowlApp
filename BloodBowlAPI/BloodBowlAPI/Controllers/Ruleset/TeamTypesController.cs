@@ -74,6 +74,11 @@ namespace BloodBowlAPI.Controllers.Ruleset
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<IActionResult> PutTeamType(int id, TeamTypeDto teamTypeDto)
         {
+            if(id != teamTypeDto.Id)
+            {
+                return BadRequest();
+            }
+
             if (!await TeamTypeExists(id))
             {
                 return NotFound();
@@ -81,56 +86,9 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
             var teamType = await MapTeamTypeDtoToTeamTypeAsync(teamTypeDto);
 
-            var originalPlayerTypes = new List<PlayerType>(teamType.PlayerTypes);
-
-            foreach (PlayerType playerType in teamType.PlayerTypes)
-            {
-                foreach(AvailableSkillCategory availableSkillCategory in playerType.AvailableSkillCategories)
-                {
-                    _context.Update(availableSkillCategory);
-                    await _context.SaveChangesAsync();
-                }
-
-                var originalAvailableSkillCategories = new List<AvailableSkillCategory>(playerType.AvailableSkillCategories);
-
-                var missingAvailableSkillCategories = (await _context.AvailableSkillCategory
-                    .Where(asc => asc.PlayerTypeId == playerType.Id)
-                    .ToArrayAsync())
-                    .Except(originalAvailableSkillCategories);
-
-                _context.AvailableSkillCategory.RemoveRange(missingAvailableSkillCategories);
-
-                foreach(StartingSkill startingSkill in playerType.StartingSkills)
-                {
-                    _context.Update(startingSkill);
-                    await _context.SaveChangesAsync();
-                }
-
-                var originalStartingSkills = new List<StartingSkill>(playerType.StartingSkills);
-
-                var missingStartingSkills = (await _context.StartingSkill
-                    .Where(ss => ss.PlayerTypeId == playerType.Id)
-                    .ToArrayAsync())
-                    .Except(originalStartingSkills);
-
-                _context.StartingSkill.RemoveRange(missingStartingSkills);                
-
-                _context.Update(playerType);
-                await _context.SaveChangesAsync();
-            }
-
-            _context.Update(teamType);
-
-            var missingStartingPlayerTypes = (await _context.PlayerType
-                .Where(pt => pt.TeamTypeId == teamType.Id)
-                .ToArrayAsync())
-                .Except(originalPlayerTypes);
-
-            _context.PlayerType.RemoveRange(missingStartingPlayerTypes);
-
             try
             {
-                await _context.SaveChangesAsync();
+                await UpdateTeamType(teamType);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -257,6 +215,81 @@ namespace BloodBowlAPI.Controllers.Ruleset
                 .Where(s => s.Id == id)
                 .Include(p => p.RuleSet)
                 .Include(p => p.PlayerTypes);
+        }
+
+        private async Task<int> UpdateTeamType(TeamType teamType)
+        {
+            await UpdatePlayerTypes(teamType);
+
+            _context.Update(teamType);
+            
+            return await _context.SaveChangesAsync();
+        }
+
+        private async Task<int> UpdatePlayerTypes(TeamType teamType)
+        {
+            var originalPlayerTypes = new List<PlayerType>(teamType.PlayerTypes);
+
+            foreach (PlayerType playerType in teamType.PlayerTypes)
+            {
+
+                await UpdateAvailableSkillCategories(playerType);
+                await UpdateStartingSkills(playerType);
+
+                _context.Update(playerType);
+                await _context.SaveChangesAsync();
+
+            }
+
+            var missingStartingPlayerTypes = (await _context.PlayerType
+                .Where(pt => pt.TeamTypeId == teamType.Id)
+                .ToArrayAsync())
+                .Except(originalPlayerTypes);
+
+            _context.PlayerType.RemoveRange(missingStartingPlayerTypes);
+
+            return await _context.SaveChangesAsync();
+        }
+
+        private async Task<int> UpdateAvailableSkillCategories(PlayerType playerType)
+        {
+            foreach (AvailableSkillCategory availableSkillCategory in playerType.AvailableSkillCategories)
+            {
+                _context.Update(availableSkillCategory);
+                await _context.SaveChangesAsync();
+            }
+
+            var originalAvailableSkillCategories = new List<AvailableSkillCategory>(playerType.AvailableSkillCategories);
+
+            var missingAvailableSkillCategories = (await _context.AvailableSkillCategory
+                .Where(asc => asc.PlayerTypeId == playerType.Id)
+                .ToArrayAsync())
+                .Except(originalAvailableSkillCategories);
+
+            _context.AvailableSkillCategory.RemoveRange(missingAvailableSkillCategories);
+
+            return await _context.SaveChangesAsync();
+        }
+
+        private async Task<int> UpdateStartingSkills(PlayerType playerType)
+        {
+
+            foreach (StartingSkill startingSkill in playerType.StartingSkills)
+            {
+                _context.Update(startingSkill);
+                await _context.SaveChangesAsync();
+            }
+
+            var originalStartingSkills = new List<StartingSkill>(playerType.StartingSkills);
+
+            var missingStartingSkills = (await _context.StartingSkill
+                .Where(ss => ss.PlayerTypeId == playerType.Id)
+                .ToArrayAsync())
+                .Except(originalStartingSkills);
+
+            _context.StartingSkill.RemoveRange(missingStartingSkills);
+
+            return await _context.SaveChangesAsync();
         }
     }
 }
