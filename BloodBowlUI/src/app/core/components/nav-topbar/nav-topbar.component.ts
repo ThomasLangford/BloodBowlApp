@@ -5,12 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav-topbar.component.html',
   styleUrls: ['./nav-topbar.component.scss']
 })
-export class NavTopbarComponent implements OnInit {
-  public LogoSrc = "assets/images/BBLogoIcon2018.png";
-
+export class NavTopbarComponent{
+  public readonly LogoSrc = "assets/images/BBLogoIcon2018.png";
+  public readonly GitHubSrc = "https://github.com/ThomasLangford/BloodBowlApp";
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

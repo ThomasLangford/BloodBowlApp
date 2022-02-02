@@ -1,0 +1,42 @@
+<div [formGroup]="formGroup"> 
+    <mat-form-field  style="width: 12rem;">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="formGroup.controls.name.invalid">Invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 4rem;">
+        <mat-label>Max</mat-label>
+        <input matInput formControlName="maximumAllowedOnTeam" required>
+        <mat-error *ngIf="formGroup.controls.maximumAllowedOnTeam.invalid">Invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field  style="width: 9rem;">
+        <mat-label>Cost</mat-label>
+        <input matInput formControlName="cost" required>
+        <mat-error *ngIf="formGroup.controls.cost.invalid">Invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field  style="width: 3rem;">
+        <mat-label>M</mat-label>
+        <input matInput formControlName="move" required>
+        <mat-error *ngIf="formGroup.controls.move.invalid">Invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field  style="width: 3rem;">
+        <mat-label>S</mat-label>
+        <input matInput formControlName="strength" required>
+        <mat-error *ngIf="formGroup.controls.strength.invalid">Invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field  style="width: 3rem;">
+        <mat-label>A</mat-label>
+        <input matInput formControlName="agility" required>
+        <mat-error *ngIf="formGroup.controls.agility.invalid">Invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field  style="width: 3rem;">
+        <mat-label>AV</mat-label>
+        <input matInput formControlName="armourValue" required>
+        <mat-error *ngIf="formGroup.controls.armourValue.invalid">Invalid</mat-error>
+    </mat-form-field>
+    
+    <app-skill-picker [skillCategories]="skillCategories" [skillFormControl]="startingSkills"></app-skill-picker>
+
+    <app-available-skill-category-picker [skillCategories]="skillCategories" [availableSkillCategoryFormControl]="availableSkillCategories" [levelUpTypeId]="1" label="Regular Skills"></app-available-skill-category-picker>
+    <app-available-skill-category-picker [skillCategories]="skillCategories" [availableSkillCategoryFormControl]="availableSkillCategories" [levelUpTypeId]="2" label="Doubles Skills"></app-available-skill-category-picker>
+</div>

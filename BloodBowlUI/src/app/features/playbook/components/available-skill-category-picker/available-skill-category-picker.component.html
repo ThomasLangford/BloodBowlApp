@@ -1,0 +1,17 @@
+<mat-form-field style="width: 10rem;">
+    <mat-label>{{label}}</mat-label>
+    <mat-select placeholder="Categories" [formControl]="skillCategoryLookupFormControl" multiple>
+        <mat-select-trigger>
+            <mat-chip-list #startingSkillsList>
+                <mat-chip *ngFor="let skillCategory of skillCategoryLookupFormControl.value" [removable]="true" (removed)="removeSkillCategory(skillCategory)">
+                    {{skillCategory.name}}
+                    <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+        </mat-select-trigger>
+        <mat-option *ngFor="let skillCategory of skillCategories" [value]="skillCategory">
+            {{skillCategory.name}}
+        </mat-option>
+      </mat-select>
+</mat-form-field>
+

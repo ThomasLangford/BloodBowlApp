@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>
+        Teams
+    </mat-card-title>
+    <mat-card-content>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let teamType of TeamTypes">
+                <a matLine [routerLink]="this.getTeamUrl(teamType.id)">{{ teamType.name }}</a>
+                <button mat-icon-button type="button" (click)="deleteTeamType(teamType.id)">
+                    <mat-icon class="mat-24">delete</mat-icon>
+                </button>
+            </mat-list-item>
+            <mat-list-item [routerLink]="this.getNewTeamUrl()">
+                <a matLine>Add a new Team</a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-card-content>
+</mat-card>

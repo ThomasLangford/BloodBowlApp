@@ -1,0 +1,28 @@
+<!-- <mat-card>
+    <mat-card-content> -->
+        <mat-accordion class="my-headers-align">
+            <mat-expansion-panel hideToggle disabled>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="mat-card-title">
+                        Skills
+                    </mat-panel-title>   
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel *ngFor="let skillCategory of SkillCategories" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h2><u>{{skillCategory.name}}</u></h2>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{skillCategory.shortName}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <ng-container *ngFor="let skill of skillCategory.skills">
+                    <h3>{{skill.name}}</h3>
+                    <p>{{skill.description}}</p>
+                </ng-container>        
+            </mat-expansion-panel>
+        </mat-accordion>
+    <!-- </mat-card-content>
+</mat-card> -->

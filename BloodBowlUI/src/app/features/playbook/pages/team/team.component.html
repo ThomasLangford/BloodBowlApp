@@ -1,0 +1,65 @@
+
+<form [formGroup]="Form" (submit)="submit()">
+    <mat-card>
+        <mat-card-title>
+            <div style="width: 30%;">
+                <mat-form-field  style="width: 100%;">
+                    <mat-label>Team Name</mat-label>
+                    <input matInput placeholder="Halflings" formControlName="name" required>
+                    <mat-error>Must Enter a Team Name</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card-title>
+        <mat-card-content>
+            <div style="display: flex;">
+                <span style="flex: 1; padding-top: 2rem;">
+                    <div>
+                        <mat-form-field >
+                            <mat-label>Reroll Cost</mat-label>
+                            <input matInput placeholder="50000" formControlName="rerollCost" required>
+                            <mat-error>Must Enter a Reroll Cost</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-checkbox formControlName="apothicary">Apothicary?</mat-checkbox>
+                    </div>
+
+                    <div>
+                        <mat-checkbox formControlName="necromancer">Necromancer?</mat-checkbox>
+                    </div>
+                </span>
+                <mat-divider [vertical]="true"></mat-divider>
+
+                <span style="flex:5">
+                    <div>
+                        <mat-list formArrayName="playerTypes">
+                            <div matSubheader style="display: flex;">
+                                <div style="flex: 1;">
+                                    <h2>Players</h2>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div [hidden]="RenderDisabled">
+                                        <button mat-icon-button type="button" (click)="addPlayerType()">
+                                            <mat-icon class="mat-24">person_add</mat-icon>
+                                        </button>                    
+                                    </div>
+                                </div>
+                            </div>
+
+                            <mat-list-item style="height:auto" *ngFor="let _ of playerTypes.controls; let i = index">
+                                <app-playertypeform matLine [formGroup]="getPlayerTypeByIndex(i)" [skillCategories]="SkillCategories"></app-playertypeform>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+                </span>
+            </div>
+            <div>
+                <div [hidden]="RenderDisabled">
+                    <button mat-raised-button color="primary" type="submit" >Save</button>
+                </div>
+            </div>        
+        </mat-card-content>
+    </mat-card>
+</form>
+    

@@ -1,4 +1,5 @@
 ﻿using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
 using BloodBowlData.Models.TeamTypes;
 using System;
 using System.Collections.Generic;
@@ -16,16 +17,23 @@ namespace BloodBowlData.Models.Skills
 
         [Required]
         [MaxLength(500)]
-        public string Name { get; set; }
+        public string InternalName { get; set; }
 
         [Required]
         [MaxLength(500)]
-        public string Icon { get; set; }
+        public string LocalizationName { get; set; }
 
         [Required]
+        [MaxLength(500)]
+        public string LocalizationDescription { get; set; }
+
         public SkillCategoryEnum SkillCategoryId { get; set; }
         public SkillCategory SkillCategory { get; set; }
 
         public List<StartingSkill> StartingSkills { get; set; }
+
+
+        public RulesetEnum RuleSetId { get; set; }
+        public Ruleset RuleSet { get; set; }
     }
 }

@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlData", "..\BloodBo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlMigrations", "..\BloodBowlMigrations\BloodBowlMigrations.csproj", "{9C891519-10EE-4E15-B295-0F02C1A80FBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBowlAPITests", "..\BloodBowlAPITests\BloodBowlAPITests.csproj", "{6C699D01-1AD2-4BF2-B30E-D5F13228C855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodBowlAPITests", "..\BloodBowlAPITests\BloodBowlAPITests.csproj", "{6C699D01-1AD2-4BF2-B30E-D5F13228C855}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +41,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_ConfirmAddLanguageFile = True
+		RESX_AutoCreateNewLanguageFiles = True
 		SolutionGuid = {84D4E650-9E33-43C8-99A1-648E6614416B}
 	EndGlobalSection
 EndGlobal

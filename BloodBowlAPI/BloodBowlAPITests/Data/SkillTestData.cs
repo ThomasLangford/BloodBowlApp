@@ -1,5 +1,7 @@
 ﻿using BloodBowlAPI.DTOs.Skills;
+using BloodBowlAPITests.Mocks;
 using BloodBowlData.Enums;
+using BloodBowlData.Models.Rules;
 using BloodBowlData.Models.Skills;
 using System;
 using System.Collections.Generic;
@@ -11,16 +13,15 @@ namespace BloodBowlAPITests.Data
 {
     class SkillTestData
     {
-
         public static IEnumerable<SkillCategory> GetSkillCategories()
         {
             return new SkillCategory[]
             {
                 new SkillCategory()
                 {
-                    Id = SkillCategoryEnum.Strength,
-                    Name = "Skill Category 1",
-                    ShortName = 'S'
+                    Id = SkillCategoryEnum.General,
+                    LocalizationName = "Skill Category 1",
+                    LocalizationShortName = "S"
                 }
             };
         }
@@ -30,10 +31,21 @@ namespace BloodBowlAPITests.Data
             return new Skill[]{
                 new Skill()
                 {
-                    Id = 1,
-                    Name = "Skill 1",
-                    Icon = "Icon 1",
-                    SkillCategoryId = SkillCategoryEnum.Strength
+                    Id = 1000,
+                    InternalName = "Skill1",
+                    LocalizationName = "SKILL_1",
+                    LocalizationDescription = "SKILL_1_DESCRIPTION",
+                    SkillCategoryId = SkillCategoryEnum.General,
+                    RuleSetId = RulesetEnum.BloodBowl2
+                },
+                new Skill()
+                {
+                    Id = 1001,
+                    InternalName = "Skill1",
+                    LocalizationName = "SKILL_2",
+                    LocalizationDescription = "SKILL_2_DESCRIPTION",
+                    SkillCategoryId = SkillCategoryEnum.General,
+                    RuleSetId = RulesetEnum.BloodBowl2020
                 }
             };
         }
@@ -43,46 +55,35 @@ namespace BloodBowlAPITests.Data
             return new SkillDto[]{
                 new SkillDto()
                 {
-                    Id = 1,
-                    Name = "Skill 1",
-                    Icon = "Icon 1",
-                    SkillCategoryId = 1,
-                    SkillCategoryName = "Skill Category 1",
-                    SkillCategoryShortName = 'S',
-                    SkillTypeId = 1,
-                    SkillTypeDescription = "Skill"
+                    Id = 1000,
+                    Name = $"{TestContants.TRANSLATION_PREFIX}SKILL_1",
+                    Description = $"{TestContants.TRANSLATION_PREFIX}SKILL_1_DESCRIPTION",
                 }
             };
         }
 
-        public static IEnumerable<Skill> GetExampleSkills()
+        public static IEnumerable<SkillCategoryDto.SkillCategorySkillDto> GetSimpleSkillDtos()
         {
-            return new Skill[]{
-                new Skill()
+            return new SkillCategoryDto.SkillCategorySkillDto[]{
+                new SkillCategoryDto.SkillCategorySkillDto()
                 {
-                    Id = 2,
-                    Name = "Skill 2",
-                    Icon = "Icon 2",
-                    SkillCategoryId = BloodBowlData.Enums.SkillCategoryEnum.Strength,
-                    SkillCategory = GetSkillCategories().First(c => c.Id == BloodBowlData.Enums.SkillCategoryEnum.Strength)
+                    Id = 1000,
+                    Name = $"{TestContants.TRANSLATION_PREFIX}SKILL_1",
+                    Description = $"{TestContants.TRANSLATION_PREFIX}SKILL_1_DESCRIPTION",
                 }
             };
         }
 
-        public static IEnumerable<SkillDto> GetExampleSkillDTOs()
+        public static IEnumerable<SkillCategoryDto> GetSkillCategoryDTOs()
         {
-            return new SkillDto[]
+            return new SkillCategoryDto[]
             {
-                new SkillDto()
+                new SkillCategoryDto()
                 {
-                    Id = 2,
-                    Name = "Skill 2",
-                    Icon = "Icon 2",
-                    SkillCategoryId = 1,
-                    SkillCategoryName = "Skill Category 1",
-                    SkillCategoryShortName = 'S',
-                    SkillTypeId = 1,
-                    SkillTypeDescription = "Skill"
+                    Id = SkillCategoryEnum.General,
+                    Name = $"{TestContants.TRANSLATION_PREFIX}Skill Category 1",
+                    ShortName = $"{TestContants.TRANSLATION_PREFIX}S",
+                    Skills = GetSimpleSkillDtos().ToList()
                 }
             };
         }

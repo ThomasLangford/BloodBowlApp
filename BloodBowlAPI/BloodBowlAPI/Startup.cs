@@ -11,12 +11,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using BloodBowlData.Contexts;
 using Microsoft.OpenApi.Models;
 using BloodBowlAPI.DTOs;
 using AutoMapper;
 using BloodBowlAPI.DTOs.Skills;
 using BloodBowlAPI.DTOs.TeamTypes;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using BloodBowlAPI.Resources;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
+using BloodBowlData.Contexts;
 
 namespace BloodBowlAPI
 {
@@ -29,37 +34,57 @@ namespace BloodBowlAPI
 
         public IConfiguration Configuration { get; }
 
+        public static readonly ILoggerFactory LoggerFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(builder => { builder.AddConsole(); });
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
-            services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => { builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
+            });
 
-            services.AddDbContext<BloodBowlAPIContext>(
-                dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database.ConnectionString"])
-            ); ;
+            services.AddLocalization();
+
+            services.AddRequestLocalization(options => 
+            {
+                var supportedCultures = new List<CultureInfo>
+                {
+                    new CultureInfo("en-US")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("en-US");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
+            services.AddDbContext<BloodBowlApiDbContext>(
+                dbContextOptions => dbContextOptions.UseSqlServer(Configuration["Database:ConnectionString"]).UseLoggerFactory(LoggerFactory)
+            );
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" });
             });
 
-            var mapperConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new SkillsDtoProfile());
-                mc.AddProfile(new TeamTypesDtoProfile());
-            });
+            //services.AddLocalization();            
 
-            IMapper mapper = mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
+            //services.AddCors();
+            services.AddControllers();
+
+            services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test v1"));
             }
@@ -68,11 +93,9 @@ namespace BloodBowlAPI
 
             app.UseRouting();
 
-            app.UseCors(x => x
-            .AllowAnyMethod()
-            // .AllowAnyHeader()
-            .SetIsOriginAllowed(origin => true) // allow any origin
-            .AllowCredentials()); // allow credentials
+            app.UseCors();
+            // .SetIsOriginAllowed(origin => true) // allow any origin
+            // .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
 

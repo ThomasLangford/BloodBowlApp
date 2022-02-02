@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodBowlData.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace BloodBowlData.Models.TeamTypes
     public class LevelUpType
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Enums.LevelUpTypeEnum Id { get; set; }
-        public string Name { get; set; }
+        public LevelUpTypeEnum Id { get; set; }
+        public string LocalizationName { get; set; }
 
         public List<AvailableSkillCategory> AvailableSkillCategories { get; set; }
     }

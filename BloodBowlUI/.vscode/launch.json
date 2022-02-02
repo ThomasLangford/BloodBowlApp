@@ -1,17 +1,28 @@
 {
     "configurations": [
         {
-            "name": "ng start",
+            "name": "Launch Chrome",
+            "request": "launch",
             "type": "pwa-chrome",
-            "preLaunchTask": "npm: start",
-            "request": "launch",            
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
         },
         {
+            "name": "ng start",
+            "type": "pwa-chrome",
+            "preLaunchTask": "npm: start",
+            "request": "launch",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ]
+        },
+        {
             "name": "ng test",
             "type": "pwa-chrome",
-            "request": "attach",            
+            "request": "attach",
             "port": 9222,
             "webRoot": "${workspaceFolder}"
         }
