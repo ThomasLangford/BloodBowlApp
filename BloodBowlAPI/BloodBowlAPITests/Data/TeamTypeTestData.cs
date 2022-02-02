@@ -14,19 +14,54 @@ namespace BloodBowlAPITests.Data
 {
     class TeamTypeTestData
     {
+        public static TeamType GetTeamType()
+        {
+            return new TeamType
+            {
+                Id = 1000,
+                Name = "Test Team",
+                Apothicary = true,
+                Necromancer = false,
+                RerollCost = 50,
+                RuleSetId = RulesetEnum.BloodBowl2
+            };
+        }
+
+        public static TeamType GetTeamTypeWithChildren()
+        {
+            var teamType = GetTeamType();
+
+            teamType.PlayerTypes = GetPlayerTypes().ToList();
+
+            foreach (var playerType in teamType.PlayerTypes)
+            {
+                playerType.TeamType = teamType;
+                playerType.AvailableSkillCategories = GetAvailableSkillCategories().Where(asc => asc.PlayerTypeId == playerType.Id).ToList();
+                playerType.StartingSkills = GetStartingSkills().Where(ss => ss.PlayerTypeId == playerType.Id).ToList();
+
+                foreach(var startingSkill in playerType.StartingSkills)
+                {
+                    startingSkill.PlayerType = playerType;
+                }
+
+                foreach (var availableSkillCategory in playerType.AvailableSkillCategories)
+                {
+                    availableSkillCategory.PlayerType = playerType;
+                }
+
+                playerType.Name = $"{TestContants.TRANSLATION_PREFIX}{playerType.Name}"; //Bodge as the Dto is already translated
+            }
+
+            teamType.Name = $"{TestContants.TRANSLATION_PREFIX}{teamType.Name}"; //Bodge as the Dto is already translated
+
+            return teamType;
+        }
+
         public static IEnumerable<TeamType> GetTeamTypes()
         {
             return new List<TeamType>
             {
-                new TeamType
-                {
-                    Id = 1000,
-                    Name = "Test Team",
-                    Apothicary = true,
-                    Necromancer = false,
-                    RerollCost = 50,
-                    RuleSetId = RulesetEnum.BloodBowl2
-                }
+                GetTeamType()
             };
         }
 
@@ -45,7 +80,19 @@ namespace BloodBowlAPITests.Data
                     Strength = 4,
                     Cost = 5000,
                     MaximumAllowedOnTeam = 10,
-                }
+                },
+                new PlayerType
+                {
+                    Id = 1001,
+                    TeamTypeId = 1000,
+                    Name = "Test Player 2",
+                    Agility = 1,
+                    ArmourValue = 2,
+                    Move = 3,
+                    Strength = 4,
+                    Cost = 5000,
+                    MaximumAllowedOnTeam = 10,
+                },
             };
         }
 
@@ -58,7 +105,20 @@ namespace BloodBowlAPITests.Data
                     Id = 1000,
                     PlayerTypeId = 1000,
                     SkillId = 1000
+                },
+                new StartingSkill
+                {
+                    Id = 1001,
+                    PlayerTypeId = 1000,
+                    SkillId = 1001
+                },
+                new StartingSkill
+                {
+                    Id = 1002,
+                    PlayerTypeId = 1001,
+                    SkillId = 1000
                 }
+
             };
         }
 
@@ -72,7 +132,14 @@ namespace BloodBowlAPITests.Data
                     PlayerTypeId = 1000,
                     SkillCategoryId = SkillCategoryEnum.General,
                     LevelUpTypeId = LevelUpTypeEnum.Normal
-                }
+                },
+                new AvailableSkillCategory
+                {
+                    Id = 1001,
+                    PlayerTypeId = 1001,
+                    SkillCategoryId = SkillCategoryEnum.General,
+                    LevelUpTypeId = LevelUpTypeEnum.Normal
+                },
             };
         }
 
@@ -140,11 +207,11 @@ namespace BloodBowlAPITests.Data
                 Necromancer = false,
                 RerollCost = 50,
                 RulesetId = RulesetEnum.BloodBowl2,
-                PlayerTypes = new List<PlayerTypeDto> { GetPlayerTypeDto() },
+                PlayerTypes = new List<PlayerTypeDto> { GetFirstPlayerType(), GetSecondPlayerType() },
             };
         }
 
-        private static PlayerTypeDto GetPlayerTypeDto()
+        private static PlayerTypeDto GetFirstPlayerType()
         {
             return new PlayerTypeDto()
             {
@@ -164,6 +231,13 @@ namespace BloodBowlAPITests.Data
                         Id = 1000,
                         Name = TestContants.TRANSLATION_PREFIX + "SKILL_1",
                         SkillCategory = null
+                    },
+                    new SkillDto
+                    {
+                        Description = TestContants.TRANSLATION_PREFIX +"SKILL_2_DESCRIPTION",
+                        Id = 1001,
+                        Name = TestContants.TRANSLATION_PREFIX + "SKILL_2",
+                        SkillCategory = null
                     }
                 },
                 AvailableSkillCategories = new List<AvailableSkillCategoryDto>
@@ -171,6 +245,43 @@ namespace BloodBowlAPITests.Data
                     new AvailableSkillCategoryDto
                     {
                         Id = 1000,
+                        LevelUpTypeId = 1,
+                        LevelUpTypeName = null,
+                        SkillCategoryId = 1,
+                        SkillCategoryName = null,
+                        SkillCategoryShortName = null
+                    }
+                }
+            };
+        }
+
+        private static PlayerTypeDto GetSecondPlayerType()
+        {
+            return new PlayerTypeDto()
+            {
+                Id = 1001,
+                Agility = 1,
+                ArmourValue = 2,
+                Cost = 5000,
+                MaximumAllowedOnTeam = 10,
+                Move = 3,
+                Strength = 4,
+                Name = TestContants.TRANSLATION_PREFIX + "Test Player 2",
+                StartingSkills = new List<SkillDto>
+                {
+                    new SkillDto
+                    {
+                        Description = TestContants.TRANSLATION_PREFIX +"SKILL_1_DESCRIPTION",
+                        Id = 1000,
+                        Name = TestContants.TRANSLATION_PREFIX + "SKILL_1",
+                        SkillCategory = null
+                    }
+                },
+                AvailableSkillCategories = new List<AvailableSkillCategoryDto>
+                {
+                    new AvailableSkillCategoryDto
+                    {
+                        Id = 1001,
                         LevelUpTypeId = 1,
                         LevelUpTypeName = null,
                         SkillCategoryId = 1,

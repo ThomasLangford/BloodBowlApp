@@ -72,9 +72,9 @@ namespace BloodBowlAPI.Controllers.Ruleset
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public async Task<IActionResult> PutTeamType(int id, TeamTypeDto teamTypeDto)
+        public async Task<IActionResult> PutTeamType(RulesetEnum rulesetId, int id, TeamTypeDto teamTypeDto)
         {
-            if (teamTypeDto == null || id != teamTypeDto.Id)
+            if (teamTypeDto == null || rulesetId != teamTypeDto.RulesetId || id != teamTypeDto.Id)
             {
                 return BadRequest();
             }
@@ -90,7 +90,7 @@ namespace BloodBowlAPI.Controllers.Ruleset
             {
                 await UpdateTeamType(teamType);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException ex)
             {
 
                 if (!await TeamTypeExistsNoTracking(id))
@@ -99,6 +99,14 @@ namespace BloodBowlAPI.Controllers.Ruleset
                 }
                 else
                 {
+                    foreach (var entry in ex.Entries)
+                    {
+                        var proposedValues = entry.CurrentValues;
+                        var databaseValues = entry.GetDatabaseValues();
+
+                        Console.WriteLine(entry);
+                    }
+
                     throw;
                 }
             }
@@ -113,8 +121,13 @@ namespace BloodBowlAPI.Controllers.Ruleset
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public async Task<ActionResult<PlayerTypeDto>> PostTeamType(TeamTypeDto teamTypeDto)
+        public async Task<ActionResult<PlayerTypeDto>> PostTeamType(RulesetEnum rulesetId, TeamTypeDto teamTypeDto)
         {
+            if(rulesetId != teamTypeDto.RulesetId)
+            {
+                return BadRequest();
+            }
+
             if (await TeamTypeExistsNoTracking(teamTypeDto.Id))
             {
                 return Conflict();
@@ -134,13 +147,20 @@ namespace BloodBowlAPI.Controllers.Ruleset
         // DELETE: api/PlayerTypes/5
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<PlayerTypeDto>> DeletePlayerType(int id)
+        public async Task<ActionResult<PlayerTypeDto>> DeletePlayerType(RulesetEnum rulesetId, int id)
         {
+
             var teamType = await FindTeamType(id);
             if (teamType == null)
             {
                 return NotFound();
+            }
+
+            if (rulesetId != teamType.RuleSetId)
+            {
+                return BadRequest();
             }
 
             _context.TeamType.Remove(teamType);
@@ -158,26 +178,50 @@ namespace BloodBowlAPI.Controllers.Ruleset
                 playerType.TeamType = teamType;
                 playerType.TeamTypeId = teamType.Id;
 
-                foreach(StartingSkill startingSkill in playerType.StartingSkills)
-                {
-                    
-                    startingSkill.PlayerType = playerType;
-                    startingSkill.PlayerTypeId = playerType.Id;
+                var existingStartingSkills = await _context.StartingSkill.Where(ss => ss.PlayerTypeId == playerType.Id).ToListAsync();
 
-                    startingSkill.Skill = await _context.Skill.AsNoTracking().FirstAsync(skill => skill.Id == startingSkill.SkillId);
-                    startingSkill.SkillId = startingSkill.SkillId;
+                for (var i = 0; i < playerType.StartingSkills.Count; i++)
+                {
+                    var startingSkill = playerType.StartingSkills[i];
+                    var existingStartingSkill = existingStartingSkills.FirstOrDefault(ss => ss.SkillId == startingSkill.SkillId);
+
+                    if (existingStartingSkill != null)
+                    {
+                        existingStartingSkill.PlayerType = playerType;
+                        playerType.StartingSkills[i] = existingStartingSkill;
+                    }
+                    else
+                    {
+                        startingSkill.Id = 0;
+                        startingSkill.PlayerTypeId = playerType.Id;
+                        startingSkill.PlayerType = playerType;
+                        // startingSkill.Skill = await _context.Skill.FirstAsync(skill => skill.Id == startingSkill.SkillId);
+                    }
                 }
 
-                foreach(AvailableSkillCategory availableSkillCategory in playerType.AvailableSkillCategories)
+                for (var i = 0; i < playerType.AvailableSkillCategories.Count; i++)
                 {
-                    availableSkillCategory.PlayerType = playerType;
-                    availableSkillCategory.PlayerTypeId = playerType.Id;
+                    var availableSkillCategory = playerType.AvailableSkillCategories[i];
+                    var existingAvailableSkillCategory = availableSkillCategory.Id > 0 ? await _context.AvailableSkillCategory.FirstOrDefaultAsync(asc => asc.Id == availableSkillCategory.Id) : null;
 
-                    availableSkillCategory.LevelUpType = await _context.LevelUpType.AsNoTracking().FirstAsync(levelUpType => levelUpType.Id == availableSkillCategory.LevelUpTypeId);
-                    availableSkillCategory.LevelUpTypeId = availableSkillCategory.LevelUpType.Id;
+                    if (existingAvailableSkillCategory != null)
+                    {
+                        
+                        existingAvailableSkillCategory.PlayerTypeId = playerType.Id;
+                        existingAvailableSkillCategory.PlayerType = playerType;
+                        existingAvailableSkillCategory.SkillCategoryId = availableSkillCategory.SkillCategoryId;
+                        existingAvailableSkillCategory.LevelUpTypeId = availableSkillCategory.LevelUpTypeId;
 
-                    availableSkillCategory.SkillCategory = await _context.SkillCategory.AsNoTracking().FirstAsync(SkillCategory => SkillCategory.Id == availableSkillCategory.SkillCategoryId);
-                    availableSkillCategory.SkillCategoryId = availableSkillCategory.SkillCategory.Id;
+                        playerType.AvailableSkillCategories[i] = existingAvailableSkillCategory;
+                    }
+                    else
+                    {
+                        availableSkillCategory.Id = 0;
+                        availableSkillCategory.PlayerTypeId = playerType.Id;
+                        availableSkillCategory.PlayerType = playerType;
+                        //availableSkillCategory.LevelUpType = await _context.LevelUpType.FirstAsync(levelUpType => levelUpType.Id == availableSkillCategory.LevelUpTypeId);
+                        //availableSkillCategory.SkillCategory = await _context.SkillCategory.FirstAsync(SkillCategory => SkillCategory.Id == availableSkillCategory.SkillCategoryId);
+                    }
                 }
             }
 
@@ -230,13 +274,11 @@ namespace BloodBowlAPI.Controllers.Ruleset
 
             foreach (PlayerType playerType in teamType.PlayerTypes)
             {
-
                 await UpdateAvailableSkillCategories(playerType);
                 await UpdateStartingSkills(playerType);
 
                 _context.Update(playerType);
                 await _context.SaveChangesAsync();
-
             }
 
             var missingStartingPlayerTypes = (await _context.PlayerType
